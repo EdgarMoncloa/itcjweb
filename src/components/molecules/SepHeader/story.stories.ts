@@ -4,7 +4,7 @@ import { fn } from "@storybook/test";
 import SepHeader from ".";
 
 const meta = {
-  title: "Example/SepHeader",
+  title: "Molecules/SepHeader",
   component: SepHeader,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ["autodocs"],

@@ -1,0 +1,20 @@
+import type { Meta, StoryObj } from "@storybook/react";
+
+import RelevantSite from ".";
+
+const meta = {
+  title: "Atoms/RelevantSite",
+  component: RelevantSite,
+  tags: ["autodocs"],
+  parameters: {
+    // layout: "centered",
+  },
+  args: {},
+} satisfies Meta<typeof RelevantSite>;
+
+export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Base: Story = {
+  args: {},
+};
