@@ -1,24 +1,24 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import SimpleNavMenu, { SimpleNavMenuTypes } from ".";
+import { SimpleNavMenu, SimpleNavMenuTypes } from '.';
 
 const meta = {
-  title: "Atoms/SimpleNavMenu",
+  title: 'Atoms/SimpleNavMenu',
   component: SimpleNavMenu,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
-    layout: "centered",
+    layout: 'centered',
   },
   argTypes: {
     type: SimpleNavMenuTypes,
   },
   args: {
-    content: "Link X",
+    content: 'Link X',
     subItems: [
-      { content: "option 1", link: "#" },
-      { content: "option 2", link: "#" },
-      { content: "option 3", link: "#" },
+      { content: 'option 1', link: '#' },
+      { content: 'option 2', link: '#' },
+      { content: 'option 3', link: '#' },
     ],
   },
 } satisfies Meta<typeof SimpleNavMenu>;

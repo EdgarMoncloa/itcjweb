@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/react';
 
-import { CustomDivider } from '.';
+import { NextArrow } from '.';
 
 const meta = {
-  title: 'Atoms/CustomDivider',
-  component: CustomDivider,
+  title: 'Atoms/NextArrow',
+  component: NextArrow,
   tags: ['autodocs'],
   parameters: {
     // layout: "centered",
   },
   args: {},
-} satisfies Meta<typeof CustomDivider>;
+} satisfies Meta<typeof NextArrow>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
   args: {
-    content: 'Contenido',
+    // content: 'Contenido',
   },
 };

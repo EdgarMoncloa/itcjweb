@@ -72,7 +72,7 @@ const NavMenuTecnmStyle = css`
   }
 `;
 const NavMenuSubItemStyle = css`
-  min-width: calc(var(--size-width-1-row) / 2);
+  min-width: calc(var(--size-width-4-cols) / 2);
   padding: var(--size-padding-very-small) var(--size-padding-medium);
   position: relative;
 `;
@@ -113,7 +113,7 @@ export const StyledMainText = styled.a`
 
 // ANCHOR Sub Options Container
 export const StyledSubOptionsWrapper = styled.div`
-  min-width: calc(var(--size-width-1-row) / 2);
+  min-width: calc(var(--size-width-4-cols) / 2);
   width: max-content;
   min-height: var(--size-height-medium);
   padding-top: var(--size-padding-small);

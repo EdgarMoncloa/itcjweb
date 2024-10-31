@@ -1,16 +1,15 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { fn } from '@storybook/test';
-import { TecHeader } from '.';
+import { LandingPage } from './';
 
 const meta = {
-  title: 'Molecules/TecHeader',
-  component: TecHeader,
+  title: 'Pages/Landing Page',
+  component: LandingPage,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
   },
   args: {},
-} satisfies Meta<typeof TecHeader>;
+} satisfies Meta<typeof LandingPage>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

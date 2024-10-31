@@ -1,21 +1,35 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from 'styled-components';
+import { StyledH6 } from '../../../tokens/CustomText';
 
-export const StyledRelevantSite = styled.div`
+const colorCHange = keyframes`
+  to{
+    color: var(--colors-app-text-light);
+  }
+`;
+export const StyledRelevantSite = styled.a`
   border-radius: var(--size-border-radius-medium, 8px);
   border: 2px solid var(--colors-app-main-700, #c11627);
+  color: var(--colors-app-text-dark);
+  cursor: pointer;
+  overflow: hidden;
+  text-decoration: none;
 
   /* Layout */
-  display: flex;
-  width: 256px;
-  height: 64px;
-  padding: 8px;
-  justify-content: center;
   align-items: center;
-  gap: 16px;
+  display: flex;
   flex-shrink: 0;
+  gap: 16px;
+  height: var(--size-height-large);
+  justify-content: center;
+  padding: 8px;
+  position: relative;
+  width: 100%;
+
+  &:hover {
+    animation: ${colorCHange} 300ms ease forwards;
+  }
 `;
 
-export const StyledIcon = styled.div`
-  height: 100%;
-  width: 100%;
+export const StyledTitle = styled(StyledH6)`
+  line-height: var(--line-height-small);
 `;

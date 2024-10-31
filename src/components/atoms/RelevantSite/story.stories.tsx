@@ -1,11 +1,12 @@
-import type { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from '@storybook/react';
 
-import RelevantSite from ".";
+import { RelevantSite } from '.';
+import { RxValueNone } from 'react-icons/rx';
 
 const meta = {
-  title: "Atoms/RelevantSite",
+  title: 'Atoms/RelevantSite',
   component: RelevantSite,
-  tags: ["autodocs"],
+  tags: ['autodocs'],
   parameters: {
     // layout: "centered",
   },
@@ -16,5 +17,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
-  args: {},
+  args: {
+    icon: <RxValueNone size={40} />,
+    text: 'SII',
+    toSite: 'http://sii.cdjuarez.tecnm.mx/',
+  },
 };
