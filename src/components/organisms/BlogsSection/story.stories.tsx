@@ -7,7 +7,7 @@ interface MyComponentStoryProps {
 }
 
 const meta: Meta = {
-  title: 'Organisms/Blogs Section',
+  title: 'Organisms/BlogsSection',
   component: BlogsSection,
   tags: ['autodocs'],
   parameters: {

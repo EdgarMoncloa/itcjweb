@@ -8,6 +8,7 @@ import { BlogCardProps } from '../../molecules/BlogCard';
 import styled from 'styled-components';
 import { CustomDivider } from '../../atoms/CustomDivider';
 import { LogosHeader } from '../../molecules/LogosHeader';
+import { HeroSection } from '../../organisms/HeroSection';
 
 export const LandingPage = () => {
   const blogCards = Array.from({ length: 10 }, (_, index) => ({
@@ -23,6 +24,8 @@ export const LandingPage = () => {
       <LogosHeader />
       <TecHeader />
       <CustomDivider />
+      <StyledHeroGap />
+      <HeroSection />
       <StyledBaseMaringContainer>
         <RelevantSites />
       </StyledBaseMaringContainer>
@@ -35,8 +38,12 @@ export const LandingPage = () => {
 };
 
 const StyledBaseMaringContainer = styled.div`
-  display: flex;
-  gap: var(--size-gap-medium);
-  flex-direction: column;
-  margin: var(--size-margin-medium);
+  /* display: flex; */
+  /* gap: var(--size-gap-medium); */
+  /* flex-direction: column; */
+  margin: var(--size-margin-small);
+`;
+
+const StyledHeroGap = styled.div`
+  height: var(--size-gap-small);
 `;

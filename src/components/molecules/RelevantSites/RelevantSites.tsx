@@ -37,6 +37,5 @@ const StyledRelevantSites = styled.div`
   grid-template-columns: repeat(6, 1fr);
   width: 100%;
   overflow: hidden;
-  margin: var(--size-margin-medium) 0;
   padding: 0 var(--size-padding-medium);
 `;

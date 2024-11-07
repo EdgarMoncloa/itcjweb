@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const StyledTecHeader = styled.div`
   height: var(--size-height-medium);

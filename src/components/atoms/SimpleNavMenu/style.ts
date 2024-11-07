@@ -1,32 +1,32 @@
-import styled, { css } from "styled-components";
-import { SimpleNavMenuTypes } from ".";
+import styled, { css } from 'styled-components';
+import { SimpleNavMenuTypes } from '.';
 
 const getColorsFromType = (type: SimpleNavMenuTypes) => {
   let colors = {
-    background: "",
-    color: "",
-    hover: "",
+    background: '',
+    color: '',
+    hover: '',
   };
   switch (type) {
     case SimpleNavMenuTypes.gob:
       colors = {
-        background: "var(--colors-tecnm-pantone-627-c)",
-        color: "var(--colors-app-text-light)",
-        hover: "var(--colors-tecnm-pantone-626-c)",
+        background: 'var(--colors-tecnm-pantone-627-c)',
+        color: 'var(--colors-app-text-light)',
+        hover: 'var(--colors-tecnm-pantone-626-c)',
       };
       break;
     case SimpleNavMenuTypes.itcj:
       colors = {
-        background: "var(--colors-app-main-700)",
-        color: "var(--colors-app-text-light)",
-        hover: "var(--colors-app-main-300)",
+        background: 'var(--colors-app-main-700)',
+        color: 'var(--colors-app-text-light)',
+        hover: 'var(--colors-app-main-300)',
       };
       break;
     case SimpleNavMenuTypes.tecnm:
       colors = {
-        background: "var(--colors-app-secondary-950)",
-        color: "var(--colors-app-text-light)",
-        hover: "var(--colors-app-secondary-900)",
+        background: 'var(--colors-app-secondary-950)',
+        color: 'var(--colors-app-text-light)',
+        hover: 'var(--colors-app-secondary-900)',
       };
       break;
     default:
@@ -105,6 +105,7 @@ export const StyledNavMainItem = styled.div<TypeOfMenuStyle>`
 export const StyledMainText = styled.a`
   display: grid;
   color: var(--colors-app-text-light);
+  font-size: var(--font-size-body2);
   text-decoration: none;
   align-items: center;
   align-content: center;
@@ -128,7 +129,6 @@ export const StyledSubOptionsWrapper = styled.div`
     display: block;
   }
 `;
-
 
 interface TypeOfMenuStyle {
   $type: SimpleNavMenuTypes;

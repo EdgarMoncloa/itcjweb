@@ -40,6 +40,7 @@ const Template: StoryFn<MyComponentStoryProps> = (args) => {
 };
 
 export const Base = Template.bind({});
+
 Base.args = {
   numItems: 3,
 };

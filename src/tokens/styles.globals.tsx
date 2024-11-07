@@ -86,6 +86,8 @@ export const GlobalStyle = createGlobalStyle`
   --colors-tecnm-logo-black: var(--colors-tecnm-black);
   --colors-tecnm-logo-pantone-294-c: #1b396a;
   --colors-tecnm-logo-pantone-cool-gray-10-c: #807e82;
+  
+  --colors-transparent-itcj-main: #c11627A0;
 
    /* Font Sizes */
   --font-size-overline: 10px;
@@ -113,9 +115,9 @@ export const GlobalStyle = createGlobalStyle`
   /* Heights */
   --size-height-very-small: 16px;
   --size-height-small: 24px;
-  --size-height-medium: 40px;
-  --size-height-large: 64px;
-  --size-height-very-large: 128px;
+  --size-height-medium: 32px;
+  --size-height-large: 40px;
+  --size-height-very-large: 48px;
 
   --size-height-1-row: 64px;
   --size-height-2-row: 144px;
