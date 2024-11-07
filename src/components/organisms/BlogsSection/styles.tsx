@@ -32,15 +32,3 @@ export const StyledBlogCardWrapper = styled.div`
     width: 90%;
   }
 `;
-
-export const StyledArrow = styled.div`
-  align-items: center;
-  border: 1px solid red;
-  display: flex;
-  font-size: var(--size-icon-large);
-  justify-content: center;
-  overflow: hidden;
-  width: 100%;
-  color: var(--colors-app-main-700);
-  cursor: pointer;
-`;

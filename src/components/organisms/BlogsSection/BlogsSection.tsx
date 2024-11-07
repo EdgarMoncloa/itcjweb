@@ -6,7 +6,6 @@ import {
   StyledBlogsSection,
   StyledBlogCardsContainer,
   StyledBlogCardWrapper,
-  StyledArrow,
 } from './styles';
 import { SlideCover } from '../../atoms/SlideCover';
 import { NextArrow } from '../../atoms/NextArrow';

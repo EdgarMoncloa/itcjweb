@@ -17,7 +17,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
   args: {
-    img: 'https://picsum.photos/1280/720',
     title: 'Título de la noticia',
     caption: 'Esta es la descripcion corta que ira en la imagen',
   },

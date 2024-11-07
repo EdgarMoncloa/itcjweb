@@ -111,6 +111,7 @@ export const GlobalStyle = createGlobalStyle`
   --size-border-radius-small: 4px;
   --size-border-radius-medium: 8px;
   --size-border-radius-large: 16px;
+  --size-border-radius-full: 50%;
 
   /* Heights */
   --size-height-very-small: 16px;
@@ -139,9 +140,10 @@ export const GlobalStyle = createGlobalStyle`
   /* Icons */
   --size-icon-very-small: 4px;
   --size-icon-small: 8px;
-  --size-icon-medium: 32px;
-  --size-icon-large: 128px;
-
+  --size-icon-medium: 16px;
+  --size-icon-large: 24px;
+  --size-icon-very-large: 32px;
+  
   /* Padding */
   --size-padding-very-small: 4px;
   --size-padding-small: 8px;

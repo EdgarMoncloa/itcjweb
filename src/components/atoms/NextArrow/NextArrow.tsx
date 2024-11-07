@@ -24,7 +24,7 @@ const StyledArrow = styled.div`
   color: var(--colors-app-main-700);
   cursor: pointer;
   display: flex;
-  font-size: var(--size-icon-large);
+  font-size: var(--size-width-2-cols);
   justify-content: center;
   overflow: hidden;
   transition:

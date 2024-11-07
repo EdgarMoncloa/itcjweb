@@ -1,9 +1,15 @@
 import styled from 'styled-components';
+import { ContentSelectorProps } from '../../atoms/ContentSelector';
+import { ContentList } from '../../molecules/ContentList';
 
-export const HeroSection = () => {
+export interface HeroSectionProps {
+  contentSelectorItems: ContentSelectorProps[];
+}
+
+export const HeroSection = ({ contentSelectorItems }: HeroSectionProps) => {
   return (
     <StyledHero>
-      <StyledTempBar>Bar</StyledTempBar>
+      <ContentList contentSelectorItems={contentSelectorItems} />
       <StyledTempMain>Menu</StyledTempMain>
     </StyledHero>
   );
@@ -14,16 +20,14 @@ const StyledHero = styled.div`
   background-color: var(--colors-itcj-main);
   height: 70vh;
   display: grid;
-  grid-template-columns: 1fr 5fr;
-  padding: 0 var(--size-margin-medium);
+  grid-template-columns: var(--size-width-1-cols) 1fr;
+  padding: var(--size-margin-small) var(--size-margin-medium);
+  align-items: center;
+  justify-content: center;
+  justify-items: center;
 `;
-const StyledTempBar = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: #00ff0055;
-`;
+
 const StyledTempMain = styled.div`
   width: 100%;
   height: 100%;
-  background-color: #0000ff55;
 `;

@@ -18,6 +18,12 @@ export const LandingPage = () => {
       'Contenido de la card: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.',
   })) as BlogCardProps[];
 
+  const contentSelectorItems = Array.from({ length: 10 }, (_, index) => ({
+    img: 'https://picsum.photos/200/300',
+    title: `Titulo ${index}`,
+    caption: 'Este es un texto de prueba',
+  }));
+
   return (
     <div>
       <SepHeader />
@@ -25,7 +31,7 @@ export const LandingPage = () => {
       <TecHeader />
       <CustomDivider />
       <StyledHeroGap />
-      <HeroSection />
+      <HeroSection contentSelectorItems={contentSelectorItems} />
       <StyledBaseMaringContainer>
         <RelevantSites />
       </StyledBaseMaringContainer>

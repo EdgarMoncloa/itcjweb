@@ -1,21 +1,23 @@
 import styled, { keyframes } from 'styled-components';
+import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
 
-export interface ContentLinkProps {
-  img: string;
+export interface ContentSelectorProps {
   title: string;
   caption?: string;
-  alt?: string;
+  defaultSize?: boolean;
 }
 
 export const ContentSelector = ({
-  img,
   title,
   caption,
-  alt = 'Imagen de noticia principal',
-}: ContentLinkProps) => {
+  defaultSize = false,
+}: ContentSelectorProps) => {
   return (
-    <StyledContentSelector>
-      <StyledDescriptionTooltip>{title}</StyledDescriptionTooltip>
+    <StyledContentSelector className={defaultSize ? '' : 'fillParent'}>
+      <StyledDescriptionTooltip>
+        <StyledH6>{title}</StyledH6>
+        <StyledBody1>{caption}</StyledBody1>
+      </StyledDescriptionTooltip>
     </StyledContentSelector>
   );
 };
@@ -32,19 +34,20 @@ const StyledDescriptionTooltip = styled.div`
   transform: translateY(-50%);
   display: flex;
   align-items: center;
-
+  color: var(--colors-app-text-light);
+  z-index: var(--z-index-background);
   transition: 1s opacity;
 
   visibility: hidden;
 `;
 
 const StyledContentSelector = styled.div`
-  width: var(--size-icon-large);
-  height: var(--size-icon-large);
-  border-radius: var(--size-border-radius-medium);
   background-color: var(--colors-itcj-main);
-  position: relative;
+  border-radius: var(--size-border-radius-full);
   cursor: pointer;
+  height: var(--size-icon-medium);
+  position: relative;
+  width: var(--size-icon-medium);
 
   fill: var(
     --Colors-App-Glass-Glass-border,
@@ -52,8 +55,14 @@ const StyledContentSelector = styled.div`
   );
   /* filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.4)); */
 
+  &.fillParent {
+    width: 100%;
+    height: 100%;
+  }
+
   &:hover ${StyledDescriptionTooltip} {
     opacity: 1;
     visibility: visible;
+    z-index: var(--z-index-tooltip);
   }
 `;
