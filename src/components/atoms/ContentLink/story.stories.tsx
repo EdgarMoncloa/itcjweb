@@ -21,7 +21,7 @@ const StyledTemplate = styled.div`
 const Template: StoryObj<ContentLinkProps> = {
   render: (args) => (
     <StyledTemplate>
-      <ContentLink {...args} />
+      <ContentLink {...args} haveDefaultSize />
     </StyledTemplate>
   ),
   args: {

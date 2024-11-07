@@ -6,6 +6,7 @@ export interface ContentLinkProps {
   title: string;
   caption?: string;
   alt?: string;
+  haveDefaultSize?: boolean;
 }
 
 export const ContentLink = ({
@@ -13,9 +14,10 @@ export const ContentLink = ({
   title,
   caption,
   alt = 'Imagen de noticia principal',
+  haveDefaultSize = false,
 }: ContentLinkProps) => {
   return (
-    <StyledContentLink>
+    <StyledContentLink className={haveDefaultSize ? 'default-size' : ''}>
       <StyledImgWrapper>
         <StyledImg src={img} alt={alt} />
       </StyledImgWrapper>
@@ -35,23 +37,23 @@ const StyledImgWrapper = styled.div`
   transition: var(--transition-normal) border-radius;
 `;
 const StyledImg = styled.img`
-  max-width: 100%;
-  height: auto;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  border-radius: var(--size-border-radius-medium);
 `;
 const StyledDescriptionContainer = styled.div`
-  position: absolute;
-  bottom: var(--size-margin-very-large);
-  right: 0;
-  padding: var(--size-padding-small) var(--size-padding-very-large);
-  padding-left: var(--size-padding-large);
-  text-align: center;
-  height: 20%;
-  bottom: 0;
-  width: 100%;
-  color: var(--colors-app-text-light);
-
-  background-color: var(--colors-transparent-itcj-main);
   backdrop-filter: blur(4px);
+  background-color: var(--colors-transparent-itcj-main);
+  bottom: 0;
+  color: var(--colors-app-text-light);
+  height: 20%;
+  padding-left: var(--size-padding-large);
+  padding: var(--size-padding-small) var(--size-padding-very-large);
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 100%;
 `;
 const StyledTitle = styled(StyledH4)``;
 
@@ -74,5 +76,10 @@ const StyledContentLink = styled.div`
 
   &:hover ${StyledImgWrapper} {
     border-radius: var(--size-border-radius-large);
+  }
+
+  &.default-size {
+    height: var(--size-height-5-row);
+    width: var(--size-width-10-cols);
   }
 `;

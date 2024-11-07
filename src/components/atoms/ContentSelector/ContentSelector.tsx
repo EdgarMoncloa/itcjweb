@@ -23,20 +23,21 @@ export const ContentSelector = ({
 };
 
 const StyledDescriptionTooltip = styled.div`
-  position: absolute;
-  width: max-content;
-  opacity: 0;
-  background-color: var(--colors-app-main-500);
-  padding: var(--size-padding-small) var(--size-padding-medium);
-  left: calc(100% + var(--size-margin-small));
-  top: 50%;
-  border-radius: var(--size-border-radius-medium);
-  transform: translateY(-50%);
-  display: flex;
   align-items: center;
+  background-color: var(--colors-app-main-500);
+  border-radius: var(--size-border-radius-medium);
   color: var(--colors-app-text-light);
-  z-index: var(--z-index-background);
+  display: flex;
+  flex-direction: column;
+  left: calc(100% + var(--size-margin-small));
+  opacity: 0;
+  padding: var(--size-padding-small) var(--size-padding-medium);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   transition: 1s opacity;
+  width: max-content;
+  z-index: var(--z-index-background);
 
   visibility: hidden;
 `;
