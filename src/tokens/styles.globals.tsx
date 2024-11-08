@@ -188,14 +188,25 @@ export const GlobalStyle = createGlobalStyle`
   --shadow-light: 2px 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-heavy: 8px 8px 16px rgba(0, 0, 0, 0.6);
 
+  /* TIMES */
   /* Transitions */
   --transition-very-fast: 0.1s ease-in-out;
   --transition-fast: 0.2s ease-in-out;
   --transition-normal: 0.4s ease-in-out;
   --transition-slow: 0.6s ease-in-out;
 
+  /* Delays */
+  --delay-very-fast: 0.1s;
+  --delay-fast: 0.2s;
+  --delay-normal: 0.4s;
+  --delay-slow: 0.6s;
+
   /* z-index */
-  --z-index-background: -1;
+  --z-index-background-lowest: -5;
+  --z-index-background-lower: -4;
+  --z-index-background-middle: -3;
+  --z-index-background-higer: -2; 
+  --z-index-background-highest: -1;
   --z-index-overlay: 0;
   --z-index-above-background: 1;
   --z-index-tooltip: 100;

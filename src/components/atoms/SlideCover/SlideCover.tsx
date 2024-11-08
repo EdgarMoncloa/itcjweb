@@ -100,7 +100,7 @@ const StyledAnimationContainer = styled.div<StyledAnimationContainerProps>`
   z-index: ${(p) =>
     p.$position === 'top'
       ? 'var(--z-index-above-background)'
-      : 'var(--z-index-background)'};
+      : 'var(--z-index-background-middle)'};
   justify-items: center;
 
   & > * {

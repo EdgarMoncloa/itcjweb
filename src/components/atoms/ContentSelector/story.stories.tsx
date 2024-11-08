@@ -15,9 +15,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
-  args: {
-    title: 'Título de la noticia',
-    caption: 'Esta es la descripcion corta que ira en la imagen',
-  },
+export const Base = (args: any) => {
+  return (
+    <ContentSelector
+      title='Título de la noticia'
+      caption='Esta es la descripcion corta que ira en la imagen'
+      defaultSize
+    />
+  );
 };

@@ -13,22 +13,15 @@ const meta: Meta<typeof ContentLink> = {
 
 export default meta;
 
-const StyledTemplate = styled.div`
-  width: 1280px;
-  height: 600px;
-`;
-
-const Template: StoryObj<ContentLinkProps> = {
-  render: (args) => (
-    <StyledTemplate>
-      <ContentLink {...args} haveDefaultSize />
-    </StyledTemplate>
-  ),
-  args: {
-    img: 'https://picsum.photos/1280/720',
-    title: 'Título de la noticia',
-    caption: 'Esta es la descripcion corta que ira en la imagen',
-  },
+export const Base = (args: any) => {
+  return (
+    <ContentLink
+      img='https://picsum.photos/1280/720'
+      title='Título de la noticia'
+      caption='Esta es la descripcion corta que ira en la imagen'
+      alt='Imagen de noticia principal'
+      haveDefaultSize
+      {...args}
+    />
+  );
 };
-
-export const Base = Template;

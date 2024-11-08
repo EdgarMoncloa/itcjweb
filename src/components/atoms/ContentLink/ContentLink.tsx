@@ -35,12 +35,12 @@ const StyledImgWrapper = styled.div`
   overflow: hidden;
   border-radius: var(--size-border-radius-medium);
   transition: var(--transition-normal) border-radius;
+  background-color: var(--colors-app-main-200);
 `;
 const StyledImg = styled.img`
   height: 100%;
   width: 100%;
   object-fit: contain;
-  border-radius: var(--size-border-radius-medium);
 `;
 const StyledDescriptionContainer = styled.div`
   backdrop-filter: blur(4px);
