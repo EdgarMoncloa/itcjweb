@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
 
-import { SepHeader } from '.';
+import { GobHeader } from '.';
 
 const meta = {
-  title: 'Molecules/SepHeader',
-  component: SepHeader,
+  title: 'Molecules/GobHeader',
+  component: GobHeader,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
@@ -15,7 +15,7 @@ const meta = {
     onLogout: fn(),
     onCreateAccount: fn(),
   },
-} satisfies Meta<typeof SepHeader>;
+} satisfies Meta<typeof GobHeader>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;

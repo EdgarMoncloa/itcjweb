@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const StyledSepHeader = styled.header`
+export const StyledGobHeader = styled.header`
   height: var(--size-height-medium);
   /* overflow: hidden; */
   width: 100%;

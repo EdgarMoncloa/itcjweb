@@ -1,14 +1,14 @@
 import {
   StyledImgLogoMex,
   StyledLogoMexWrapper,
-  StyledSepHeader,
+  StyledGobHeader,
 } from './style';
 import { SimpleNavMenu, SimpleNavMenuTypes } from '../../atoms/SimpleNavMenu';
 import { FaSearch } from 'react-icons/fa';
 
-export const SepHeader = () => {
+export const GobHeader = () => {
   return (
-    <StyledSepHeader>
+    <StyledGobHeader>
       <StyledLogoMexWrapper>
         <SimpleNavMenu
           content={
@@ -36,6 +36,6 @@ export const SepHeader = () => {
         link='https://www.gob.mx/busqueda?utf8=✓'
         type={SimpleNavMenuTypes.gob}
       />
-    </StyledSepHeader>
+    </StyledGobHeader>
   );
 };

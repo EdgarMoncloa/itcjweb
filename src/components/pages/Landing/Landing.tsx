@@ -1,6 +1,6 @@
 import { BiBlanket } from 'react-icons/bi';
 import { RelevantSite } from '../../atoms/RelevantSite';
-import { SepHeader } from '../../molecules/SepHeader';
+import { GobHeader } from '../../molecules/GobHeader';
 import { TecHeader } from '../../molecules/TecHeader';
 import { RelevantSites } from '../../molecules/RelevantSites';
 import { BlogsSection } from '../../organisms/BlogsSection';
@@ -26,7 +26,7 @@ export const LandingPage = ({ heroContentLinks }: LandingProps) => {
 
   return (
     <div>
-      <SepHeader />
+      <GobHeader />
       <LogosHeader />
       <TecHeader />
       <CustomDivider />
