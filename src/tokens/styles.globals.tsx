@@ -190,10 +190,12 @@ export const GlobalStyle = createGlobalStyle`
 
   /* TIMES */
   /* Transitions */
+  /* These transition values must be the same as the ones in AppConfigStoreProvider */
   --transition-very-fast: 0.1s ease-in-out;
   --transition-fast: 0.2s ease-in-out;
   --transition-normal: 0.4s ease-in-out;
   --transition-slow: 0.6s ease-in-out;
+  --transition-very-slow: 1s ease-in-out;
 
   /* Delays */
   --delay-very-fast: 0.1s;

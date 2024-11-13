@@ -1,20 +1,48 @@
 import styled, { keyframes } from 'styled-components';
 import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
+import { useEffect, useState } from 'react';
 
 export interface ContentSelectorProps {
   title: string;
   caption?: string;
   defaultSize?: boolean;
+  onClick?: (event: Event) => void;
 }
 
 export const ContentSelector = ({
   title,
   caption,
   defaultSize = false,
+  onClick,
 }: ContentSelectorProps) => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleMouseUp = (event: Event) => {
+    if (onClick) {
+      onClick(event);
+    }
+    // TODO SETITEOUT
+    // setIsClicked(false);
+  };
+
+  useEffect(() => {
+    return () => {
+      document.body.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
+
   return (
-    <StyledContentSelector className={defaultSize ? 'defaultSize' : ''}>
-      <StyledSelectorIcon />
+    <StyledContentSelector
+      // onClick={onClick}
+      className={defaultSize ? 'defaultSize' : ''}
+    >
+      <StyledSelectorIcon
+        onMouseDown={() => {
+          setIsClicked(true);
+          document.addEventListener('mouseup', handleMouseUp);
+        }}
+        className={isClicked ? 'animate-on-click' : ''}
+      />
       <StyledDescriptionTooltip>
         <StyledH6>{title}</StyledH6>
         <StyledBody1>{caption}</StyledBody1>
@@ -59,19 +87,36 @@ const StyledContentSelector = styled.div`
   &:hover ${StyledDescriptionTooltip} {
     opacity: 1;
     visibility: visible;
-    /* z-index: var(--z-index-tooltip); */
+    z-index: var(--z-index-tooltip);
   }
 `;
 
+const clickAnimation = keyframes`
+  0% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.1);
+  }
+`;
 const StyledSelectorIcon = styled.div`
   height: 100%;
   width: 100%;
   cursor: pointer;
   background-color: var(--colors-itcj-main);
   border-radius: var(--size-border-radius-full);
+  transition: var(--transition-fast) transform;
 
   fill: var(
     --Colors-App-Glass-Glass-border,
     radial-gradient(197.67% 143.49% at 100% 0%, #f63d4f 0%, #831924 100%)
   );
+
+  &:hover {
+    transform: scale(1.2);
+  }
+
+  &.animate-on-click {
+    animation: ${clickAnimation} var(--transition-normal);
+  }
 `;

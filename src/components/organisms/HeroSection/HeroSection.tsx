@@ -5,62 +5,105 @@ import {
 } from '../../atoms/ContentSelector';
 import { ContentList } from '../../molecules/ContentList';
 import { TransitionDisplay } from '../../atoms/TransitionDisplay';
-import { ContentLink } from '../../atoms/ContentLink';
+import { ContentLink, ContentLinkProps } from '../../atoms/ContentLink';
+import { useEffect, useRef, useState } from 'react';
+import { useAppConfig } from '../../../store/useAppConfig';
 
 export interface HeroSectionProps {
-  contentSelectorItems: ContentSelectorProps[];
+  contentLikItems: ContentLinkProps[];
 }
 
-export const HeroSection = ({ contentSelectorItems }: HeroSectionProps) => {
-  const contentLinkElements = contentSelectorItems.map((item, index) => (
+type StateType = 'loading' | 'base' | 'error' | 'inTransition';
+type TransitionStatusType = 'inTransition' | 'base';
+
+export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
+  const { transition } = useAppConfig();
+
+  const prevIndex = useRef(0);
+  const timeoutTransition = useRef<null | NodeJS.Timeout>(null);
+  const animationStatus = useRef<TransitionStatusType>('base');
+
+  const [state, setState] = useState<StateType>('loading');
+  const [loadedImgs, setLoadedImgs] = useState<string[]>([]);
+  const [allLoaded, setAllLoaded] = useState(false);
+  const [actualIndex, setActualIndex] = useState(0);
+
+  useEffect(() => {
+    let loadedCount = 0;
+    const tempLoadedImages: string[] = [];
+
+    contentLikItems.forEach((linkItem, index) => {
+      const img = new Image();
+      img.src = linkItem.img;
+      img.onload = () => {
+        tempLoadedImages[index] = linkItem.img;
+        loadedCount++;
+
+        // Cuando todas las imágenes estén cargadas, actualiza el estado
+        if (loadedCount === contentLikItems.length) {
+          setLoadedImgs(tempLoadedImages);
+          setAllLoaded(true);
+        }
+      };
+    });
+  }, []);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      prevIndex.current = actualIndex;
+
+      // use "normal" transition instead of "slow" to avoid flickering
+      // when the user clicks on the next or previous button
+      // and the animation is in the last frames
+    }, transition['normal']);
+
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [actualIndex]);
+
+  const contentLinkElements = contentLikItems.map((item, index) => (
     <ContentLink
       key={index}
       title={item.title}
       caption={item.caption}
-      img='https://picsum.photos/200/300'
+      img={item.img}
+      alt={item.alt}
     />
   ));
-  const fromElement = <StyledFromELement>Primer Elemento</StyledFromELement>;
-  const toElement = <StyledToElement>Segundo Elemento</StyledToElement>;
 
-  return (
+  return allLoaded === true ? (
     <StyledHero>
-      <ContentList contentSelectorItems={contentSelectorItems} />
+      <ContentList
+        contentSelectorItems={contentLikItems.map((item, index) => ({
+          title: item.title,
+          caption: item.caption,
+          setSelectedIndex: () => setActualIndex(index),
+        }))}
+        setSelectedIndex={setActualIndex}
+      />
       <TransitionDisplay
-        fromElement={fromElement}
-        toElement={contentLinkElements[1]}
+        fromElement={contentLinkElements[prevIndex.current]}
+        toElement={contentLinkElements[actualIndex]}
+        toElementKey={`${actualIndex}`}
       />
     </StyledHero>
+  ) : (
+    'Loading'
   );
 };
 
 const StyledHero = styled.div`
-  width: 100%;
-  background-color: var(--colors-itcj-main);
-  height: 70vh;
-  display: grid;
-  grid-template-columns: var(--size-width-1-cols) 1fr;
-  padding: var(--size-margin-small) var(--size-margin-medium);
   align-items: center;
+  background-color: var(--colors-itcj-main);
+  column-gap: var(--size-gap-small);
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: var(--size-width-1-cols) 1fr;
+  height: 70vh;
   justify-content: center;
   justify-items: center;
-`;
-
-const StyledTempMain = styled.div`
+  overflow: hidden;
+  padding: var(--size-margin-small) var(--size-margin-medium);
   width: 100%;
-  height: 100%;
-`;
-
-const StyledFromELement = styled.div`
-  width: 100%;
-  height: 100%;
-  background-color: var(--colors-app-main-200);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: var(--font-size-h1);
-`;
-
-const StyledToElement = styled(StyledFromELement)`
-  background-color: var(--colors-app-secondary-300);
 `;

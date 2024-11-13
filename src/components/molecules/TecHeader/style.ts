@@ -9,4 +9,7 @@ export const StyledTecHeader = styled.div`
   align-items: center;
   padding: 0 var(--size-padding-medium);
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-header);
 `;

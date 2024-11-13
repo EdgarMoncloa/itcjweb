@@ -9,20 +9,19 @@ import styled from 'styled-components';
 import { CustomDivider } from '../../atoms/CustomDivider';
 import { LogosHeader } from '../../molecules/LogosHeader';
 import { HeroSection } from '../../organisms/HeroSection';
+import { ContentLinkProps } from '../../atoms/ContentLink';
 
-export const LandingPage = () => {
+interface LandingProps {
+  heroContentLinks: ContentLinkProps[];
+}
+
+export const LandingPage = ({ heroContentLinks }: LandingProps) => {
   const blogCards = Array.from({ length: 10 }, (_, index) => ({
     title: `Titulo ${index}`,
     imgSrc: 'https://random.imagecdn.app/v1/image?width=500&height=500',
     content:
       'Contenido de la card: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.',
   })) as BlogCardProps[];
-
-  const contentSelectorItems = Array.from({ length: 10 }, (_, index) => ({
-    img: 'https://picsum.photos/200/300',
-    title: `Titulo ${index}`,
-    caption: 'Este es un texto de prueba',
-  }));
 
   return (
     <div>
@@ -31,7 +30,7 @@ export const LandingPage = () => {
       <TecHeader />
       <CustomDivider />
       <StyledHeroGap />
-      <HeroSection contentSelectorItems={contentSelectorItems} />
+      <HeroSection contentLikItems={heroContentLinks} />
       <StyledBaseMaringContainer>
         <RelevantSites />
       </StyledBaseMaringContainer>

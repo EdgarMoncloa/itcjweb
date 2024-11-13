@@ -7,19 +7,22 @@ import {
 export interface ContentListProps {
   contentSelectorItems: ContentSelectorProps[];
   defaultSize?: boolean;
+  setSelectedIndex?: (index: number) => void;
 }
 
 export const ContentList = ({
   contentSelectorItems,
   defaultSize = false,
+  setSelectedIndex,
 }: ContentListProps) => {
   return (
     <StyledContentList className={defaultSize ? 'defaultSize' : ''}>
-      {contentSelectorItems.map((item) => (
+      {contentSelectorItems.map((item, index) => (
         <ContentSelector
           key={item.title}
           title={item.title}
           caption={item.caption}
+          onClick={() => setSelectedIndex && setSelectedIndex(index)}
         />
       ))}
     </StyledContentList>
