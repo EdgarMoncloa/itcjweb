@@ -39,7 +39,6 @@ export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
         tempLoadedImages[index] = linkItem.img;
         loadedCount++;
 
-        // Cuando todas las imágenes estén cargadas, actualiza el estado
         if (loadedCount === contentLikItems.length) {
           setLoadedImgs(tempLoadedImages);
           setAllLoaded(true);
@@ -75,11 +74,7 @@ export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
   return allLoaded === true ? (
     <StyledHero>
       <ContentList
-        contentSelectorItems={contentLikItems.map((item, index) => ({
-          title: item.title,
-          caption: item.caption,
-          setSelectedIndex: () => setActualIndex(index),
-        }))}
+        contentSelectorItems={contentLikItems}
         setSelectedIndex={setActualIndex}
       />
       <TransitionDisplay

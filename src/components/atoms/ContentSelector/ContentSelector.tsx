@@ -1,12 +1,13 @@
 import styled, { keyframes } from 'styled-components';
 import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useAppConfig } from '../../../store/useAppConfig';
 
 export interface ContentSelectorProps {
   title: string;
   caption?: string;
   defaultSize?: boolean;
-  onClick?: (event: Event) => void;
+  onClick?: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 export const ContentSelector = ({
@@ -16,31 +17,38 @@ export const ContentSelector = ({
   onClick,
 }: ContentSelectorProps) => {
   const [isClicked, setIsClicked] = useState(false);
+  const { transition } = useAppConfig();
+  const inTransitionTimeout = useRef<null | NodeJS.Timeout>(null);
+  const animationTimeout = useRef<null | NodeJS.Timeout>(null);
 
-  const handleMouseUp = (event: Event) => {
-    if (onClick) {
-      onClick(event);
-    }
-    // TODO SETITEOUT
-    // setIsClicked(false);
+  const handleOnClick = (
+    event: React.MouseEvent<HTMLDivElement, MouseEvent>
+  ) => {
+    setIsClicked(true);
+    inTransitionTimeout.current = setTimeout(() => {
+      if (onClick) {
+        onClick(event);
+      }
+    }, transition['fast']);
+
+    animationTimeout.current = setTimeout(() => {
+      setIsClicked(false);
+    }, transition['normal']);
   };
 
   useEffect(() => {
     return () => {
-      document.body.removeEventListener('mouseup', handleMouseUp);
+      // document.body.removeEventListener('mouseup', handleMouseUp);
+      if (inTransitionTimeout.current) {
+        clearTimeout(inTransitionTimeout.current);
+      }
     };
   }, []);
 
   return (
-    <StyledContentSelector
-      // onClick={onClick}
-      className={defaultSize ? 'defaultSize' : ''}
-    >
+    <StyledContentSelector className={defaultSize ? 'defaultSize' : ''}>
       <StyledSelectorIcon
-        onMouseDown={() => {
-          setIsClicked(true);
-          document.addEventListener('mouseup', handleMouseUp);
-        }}
+        onClick={handleOnClick}
         className={isClicked ? 'animate-on-click' : ''}
       />
       <StyledDescriptionTooltip>
@@ -95,8 +103,11 @@ const clickAnimation = keyframes`
   0% {
     transform: scale(1.2);
   }
-  100% {
-    transform: scale(0.1);
+  50% {
+    transform: scale(0.75);
+  }
+  100%{
+    transform: scale(1.1);
   }
 `;
 const StyledSelectorIcon = styled.div`
@@ -105,7 +116,7 @@ const StyledSelectorIcon = styled.div`
   cursor: pointer;
   background-color: var(--colors-itcj-main);
   border-radius: var(--size-border-radius-full);
-  transition: var(--transition-fast) transform;
+  transition: var(--transition-normal) transform;
 
   fill: var(
     --Colors-App-Glass-Glass-border,
@@ -117,6 +128,6 @@ const StyledSelectorIcon = styled.div`
   }
 
   &.animate-on-click {
-    animation: ${clickAnimation} var(--transition-normal);
+    animation: ${clickAnimation} var(--transition-normal) alternate;
   }
 `;

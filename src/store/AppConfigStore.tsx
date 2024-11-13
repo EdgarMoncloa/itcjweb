@@ -4,13 +4,21 @@ import { createContext, useState, ReactNode } from 'react';
 
 // Define la forma de los datos que el contexto va a proporcionar
 type transitionType = {
-  'very-fast': number;
-  fast: number;
-  normal: number;
-  slow: number;
-  'very-slow': number;
+  'very-fast': 100;
+  fast: 200;
+  normal: 400;
+  slow: 600;
+  'very-slow': 1000;
 };
 interface AppConfigStoreType {
+  /**
+   * Type of transitions
+   * - 'very-fast': 100ms
+   * - 'fast': 200ms
+   * - 'normal': 400ms
+   * - 'slow': 600ms
+   * - 'very-slow': 1000ms
+   */
   transition: transitionType;
   setTransition: (transition: transitionType) => void;
 }

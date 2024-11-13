@@ -10,6 +10,7 @@ import { CustomDivider } from '../../atoms/CustomDivider';
 import { LogosHeader } from '../../molecules/LogosHeader';
 import { HeroSection } from '../../organisms/HeroSection';
 import { ContentLinkProps } from '../../atoms/ContentLink';
+import { TecFooter } from '../../molecules/TecFooter';
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];
@@ -38,6 +39,8 @@ export const LandingPage = ({ heroContentLinks }: LandingProps) => {
       <StyledBaseMaringContainer>
         <BlogsSection blogCards={blogCards} />
       </StyledBaseMaringContainer>
+      {/*  */}
+      <TecFooter />
     </div>
   );
 };
