@@ -50,6 +50,13 @@ const Template: StoryFn<MyComponentStoryProps> = (args) => {
       caption: 'Este es un texto de prueba',
     },
   ];
+  for (let i = 4; i < args.numItems; i++) {
+    contentLikItems.push({
+      img: `https://random.imagecdn.app/v1/image?width=500&height=500`,
+      title: `Ejemplos extra`,
+      caption: 'Este es un texto de prueba',
+    });
+  }
   return <HeroSection contentLikItems={contentLikItems} />;
 };
 
