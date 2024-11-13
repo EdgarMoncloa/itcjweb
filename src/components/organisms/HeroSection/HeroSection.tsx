@@ -14,19 +14,18 @@ export interface HeroSectionProps {
 }
 
 type StateType = 'loading' | 'base' | 'error' | 'inTransition';
-type TransitionStatusType = 'inTransition' | 'base';
 
 export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
   const { transition } = useAppConfig();
 
   const prevIndex = useRef(0);
-  const timeoutTransition = useRef<null | NodeJS.Timeout>(null);
-  const animationStatus = useRef<TransitionStatusType>('base');
 
   const [state, setState] = useState<StateType>('loading');
   const [loadedImgs, setLoadedImgs] = useState<string[]>([]);
   const [allLoaded, setAllLoaded] = useState(false);
   const [actualIndex, setActualIndex] = useState(0);
+  const [firstRenderWithImg, setFirstRenderWithImg] = useState(true);
+  const hasMounted = useRef(false);
 
   useEffect(() => {
     let loadedCount = 0;
@@ -48,6 +47,14 @@ export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
   }, []);
 
   useEffect(() => {
+    if (hasMounted.current === false) {
+      hasMounted.current = true;
+      return;
+    }
+    if (firstRenderWithImg === true) {
+      setFirstRenderWithImg(false);
+    }
+
     const timeout = setTimeout(() => {
       prevIndex.current = actualIndex;
 
@@ -81,6 +88,7 @@ export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
         fromElement={contentLinkElements[prevIndex.current]}
         toElement={contentLinkElements[actualIndex]}
         toElementKey={`${actualIndex}`}
+        animate={firstRenderWithImg === false}
       />
     </StyledHero>
   ) : (

@@ -22,7 +22,9 @@ export const ContentList = ({
           key={item.title}
           title={item.title}
           caption={item.caption}
-          onClick={() => setSelectedIndex && setSelectedIndex(index)}
+          onClick={() => {
+            setSelectedIndex && setSelectedIndex(index);
+          }}
         />
       ))}
     </StyledContentList>
