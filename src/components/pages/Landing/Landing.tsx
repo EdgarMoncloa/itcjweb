@@ -11,6 +11,7 @@ import { LogosHeader } from '../../molecules/LogosHeader';
 import { HeroSection } from '../../organisms/HeroSection';
 import { ContentLinkProps } from '../../atoms/ContentLink';
 import { TecFooter } from '../../molecules/TecFooter';
+import { GobFooter } from '../../molecules/GobFooter';
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];
@@ -41,6 +42,7 @@ export const LandingPage = ({ heroContentLinks }: LandingProps) => {
       </StyledBaseMaringContainer>
       {/*  */}
       <TecFooter />
+      <GobFooter />
     </div>
   );
 };
