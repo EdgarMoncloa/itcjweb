@@ -73,7 +73,7 @@ const NavMenuTecnmStyle = css`
 `;
 const NavMenuSubItemStyle = css`
   min-width: calc(var(--size-width-4-cols) / 2);
-  padding: var(--size-padding-very-small) var(--size-padding-medium);
+  padding: var(--size-padding-xs) var(--size-padding-medium);
   position: relative;
 `;
 export const StyledNavMainItem = styled.div<TypeOfMenuStyle>`
@@ -137,7 +137,7 @@ interface TypeOfMenuStyle {
 export const StyledSubOptionsContainer = styled.div<TypeOfMenuStyle>`
   display: flex;
   flex-direction: column;
-  gap: var(--size-padding-very-small);
+  gap: var(--size-padding-xs);
   padding: var(--size-padding-small) 0;
   height: 100%;
 

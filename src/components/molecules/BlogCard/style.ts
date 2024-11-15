@@ -24,7 +24,7 @@ export const StyledBlogCard = styled.a`
   transition: border-width var(--transition-fast);
 
   &:hover {
-    border-width: var(--size-border-very-large);
+    border-width: var(--size-border-xl);
   }
 `;
 export const StyledImageContainer = styled.div`

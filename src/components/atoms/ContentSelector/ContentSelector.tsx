@@ -88,8 +88,8 @@ const StyledContentSelector = styled.div`
 
   &.defaultSize {
     border: 1px solid red;
-    height: var(--size-icon-very-large);
-    width: var(--size-icon-very-large);
+    height: var(--size-icon-xl);
+    width: var(--size-icon-xl);
   }
 
   &:hover ${StyledDescriptionTooltip} {

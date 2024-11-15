@@ -37,9 +37,9 @@ export const GlobalStyle = createGlobalStyle`
   /* Mode 1 */
   /* colors */
   --colors-app-accent: var(--colors-app-secondary-700);
-  --colors-app-background: var(--colors-app-neutral-neutral-50);
+  --colors-app-background: var(--colors-app-neutral-50);
   --colors-app-text-dark: var(--colors-app-neutral-900);
-  --colors-app-text-light: var(--colors-app-neutral-neutral-50);
+  --colors-app-text-light: var(--colors-app-neutral-50);
   --colors-app-white: #ffffff;
   --colors-app-main-100: #ffd2d6;
   --colors-app-main-200: #ffafb7;
@@ -62,7 +62,7 @@ export const GlobalStyle = createGlobalStyle`
   --colors-app-neutral-800: #605f61;
   --colors-app-neutral-900: #353536;
   --colors-app-neutral-950: #0b0b0b;
-  --colors-app-neutral-neutral-50: #fcfcfc;
+  --colors-app-neutral-50: #fcfcfc;
   --colors-app-notification-alert: #fffccc;
   --colors-app-notification-success: #ccffcc;
   --colors-app-notification-wrong: #ffcccc;
@@ -102,11 +102,11 @@ export const GlobalStyle = createGlobalStyle`
   --font-size-h1: 48px;
   
   /* Border Sizes */
-  --size-border-very-small: 1px;
+  --size-border-xs: 1px;
   --size-border-small: 2px;
   --size-border-medium: 4px;
   --size-border-large: 6px;
-  --size-border-very-large: 8px;
+  --size-border-xl: 8px;
 
   --size-border-radius-small: 4px;
   --size-border-radius-medium: 8px;
@@ -114,11 +114,11 @@ export const GlobalStyle = createGlobalStyle`
   --size-border-radius-full: 50%;
 
   /* Heights */
-  --size-height-very-small: 16px;
+  --size-height-xs: 16px;
   --size-height-small: 24px;
   --size-height-medium: 32px;
   --size-height-large: 40px;
-  --size-height-very-large: 48px;
+  --size-height-xl: 48px;
 
   --size-height-1-row: 64px;
   --size-height-2-row: 144px;
@@ -138,25 +138,28 @@ export const GlobalStyle = createGlobalStyle`
   --size-height-16-row: 1264px;
 
   /* Icons */
-  --size-icon-very-small: 4px;
+  --size-icon-xs: 4px;
   --size-icon-small: 8px;
   --size-icon-medium: 16px;
   --size-icon-large: 24px;
-  --size-icon-very-large: 32px;
+  --size-icon-xl: 32px;
+  --size-icon-2xl: 48px;
+  --size-icon-3xl: 64px;
+  --size-icon-4xl: 96px ;
   
   /* Padding */
-  --size-padding-very-small: 4px;
+  --size-padding-xs: 4px;
   --size-padding-small: 8px;
   --size-padding-medium: 16px;
   --size-padding-large: 32px;
-  --size-padding-very-large: 64px;
+  --size-padding-xl: 64px;
 
   /* Margins (similar a padding) */
-  --size-margin-very-small: 4px;
+  --size-margin-xs: 4px;
   --size-margin-small: 8px;
   --size-margin-medium: 16px;
   --size-margin-large: 32px;
-  --size-margin-very-large: 64px;
+  --size-margin-xl: 64px;
 
   --size-gutter:16px;
 
@@ -178,7 +181,7 @@ export const GlobalStyle = createGlobalStyle`
   --size-width-16-cols: 1264px;
 
   /* Gaps (useful for grid/flex layouts) */
-  --size-gap-very-small: 4px;
+  --size-gap-xs: 4px;
   --size-gap-small: 8px;
   --size-gap-medium: 16px;
   --size-gap-large: 32px;

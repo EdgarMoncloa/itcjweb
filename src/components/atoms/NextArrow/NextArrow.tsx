@@ -19,7 +19,7 @@ export const NextArrow = ({ onClick, inverted = false }: NextArrowProps) => {
 
 const StyledArrow = styled.div`
   align-items: center;
-  border: var(--size-border-very-small) solid var(--colors-app-main-700);
+  border: var(--size-border-xs) solid var(--colors-app-main-700);
   border-radius: var(--size-border-radius-medium);
   color: var(--colors-app-main-700);
   cursor: pointer;

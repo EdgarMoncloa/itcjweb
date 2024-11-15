@@ -33,8 +33,8 @@ export const ContentList = ({
 
 const StyledContentList = styled.div`
   display: grid;
-  grid-template-columns: var(--size-icon-very-large);
-  grid-template-rows: repeat(10, var(--size-icon-very-large));
+  grid-template-columns: var(--size-icon-xl);
+  grid-template-rows: repeat(10, var(--size-icon-xl));
   gap: var(--size-margin-medium);
   background-color: var(--colors-app-main-100);
   padding: var(--size-padding-medium);

@@ -11,20 +11,20 @@ export const StyledDividerContainer = styled.div`
 // Content
 export const StyledContentContainer = styled.div`
   margin: 0 var(--size-padding-small);
-  padding-bottom: var(--size-padding-very-small);
+  padding-bottom: var(--size-padding-xs);
 `;
 // Dividers
 export const StyledDivider = styled.div`
   width: 100%;
   height: calc(
-    var(--size-padding-small) + var(--size-padding-very-small) +
-      var(--size-padding-very-small)
+    var(--size-padding-small) + var(--size-padding-xs) +
+      var(--size-padding-xs)
   );
   background-color: transparent;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: var(--size-padding-small) var(--size-padding-very-small);
-  gap: var(--size-padding-very-small);
+  grid-template-rows: var(--size-padding-small) var(--size-padding-xs);
+  gap: var(--size-padding-xs);
 `;
 
 export const StyledMainBar = styled.div`

@@ -52,7 +52,7 @@ const StyledDescriptionContainer = styled.div`
   color: var(--colors-app-text-light);
   height: 20%;
   padding-left: var(--size-padding-large);
-  padding: var(--size-padding-small) var(--size-padding-very-large);
+  padding: var(--size-padding-small) var(--size-padding-xl);
   position: absolute;
   right: 0;
   text-align: center;
@@ -74,7 +74,7 @@ const StyledContentLink = styled.div`
   transition: var(--transition-normal) padding;
 
   &:hover {
-    /* padding: var(--size-padding-very-small); */
+    /* padding: var(--size-padding-xs); */
     padding: 0;
   }
 
