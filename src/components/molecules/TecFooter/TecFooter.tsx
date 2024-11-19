@@ -5,7 +5,7 @@ export const TecFooter = () => {
 };
 
 const StyledTecFooter = styled.div`
-  height: var(--size-height-5-row);
+  height: var(--size-height-10-row);
   text-align: center;
   overflow: hidden;
   width: 100%;

@@ -19,7 +19,7 @@ export const StyledRelevantSite = styled.a`
   display: flex;
   flex-shrink: 0;
   gap: 16px;
-  height: var(--size-height-1-row);
+  height: var(--size-height-2-row);
   justify-content: center;
   padding: 8px;
   position: relative;

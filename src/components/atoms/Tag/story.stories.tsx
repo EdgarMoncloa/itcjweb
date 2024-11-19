@@ -1,5 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Tag } from './';
+import { TextTypes } from '../../../types/GlobalTypes';
 
 const meta = {
   title: 'Atoms/Tag',
@@ -14,6 +15,15 @@ const meta = {
     text: {
       control: { type: 'text' },
       defaultValue: 'Tag',
+    },
+    textSize: {
+      control: { type: 'select' },
+      options: Object.values(TextTypes),
+      defaultValue: 'body3',
+    },
+    hasPadding: {
+      control: { type: 'boolean' },
+      defaultValue: true,
     },
   },
 } satisfies Meta<typeof Tag>;

@@ -5,7 +5,7 @@ export const StyledBlogsSection = styled.div`
   grid-template-columns: var(--size-width-1-cols) 14fr var(--size-width-1-cols);
   width: calc(100%);
   overflow: hidden;
-  height: var(--size-height-4-row);
+  height: var(--size-height-8-row);
   gap: var(--size-gap-small);
 `;
 

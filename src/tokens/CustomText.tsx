@@ -1,4 +1,5 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
+import { TextTypes } from '../types/GlobalTypes';
 
 const defaultTextStyle = css`
   margin: none;
@@ -58,3 +59,32 @@ export const StyledTextCaption = styled.div`
   letter-spacing: 0.4px;
   font-weight: lighter;
 `;
+
+export const getStyledTextByName = (name: TextTypes) => {
+  switch (name) {
+    case 'H1':
+      return StyledH1;
+    case 'H2':
+      return StyledH2;
+    case 'H3':
+      return StyledH3;
+    case 'H4':
+      return StyledH4;
+    case 'H5':
+      return StyledH5;
+    case 'H6':
+      return StyledH6;
+    case 'body1':
+      return StyledBody1;
+    case 'body2':
+      return StyledBody2;
+    case 'body3':
+      return StyledBody3;
+    case 'button':
+      return StyledTextButton;
+    case 'caption':
+      return StyledTextCaption;
+    case 'overline':
+      return StyledOverline;
+  }
+};

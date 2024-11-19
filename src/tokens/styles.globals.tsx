@@ -120,22 +120,22 @@ export const GlobalStyle = createGlobalStyle`
   --size-height-large: 40px;
   --size-height-xl: 48px;
 
-  --size-height-1-row: 64px;
-  --size-height-2-row: 144px;
-  --size-height-3-row: 224px;
-  --size-height-4-row: 304px;
-  --size-height-5-row: 384px;
-  --size-height-6-row: 464px;
-  --size-height-7-row: 544px;
-  --size-height-8-row: 624px;
-  --size-height-9-row: 704px;
-  --size-height-10-row: 784px;
-  --size-height-11-row: 864px;
-  --size-height-12-row: 944px;
-  --size-height-13-row: 1024px;
-  --size-height-14-row: 1104px;
-  --size-height-15-row: 1184px;
-  --size-height-16-row: 1264px;
+  --size-height-1-row: 32px;
+  --size-height-2-row: 72px;
+  --size-height-3-row: 112px;
+  --size-height-4-row: 152px;
+  --size-height-5-row: 192px;
+  --size-height-6-row: 232px;
+  --size-height-7-row: 272px;
+  --size-height-8-row: 312px;
+  --size-height-9-row: 352px;
+  --size-height-10-row: 392px;
+  --size-height-11-row: 432px;
+  --size-height-12-row: 472px;
+  --size-height-13-row: 512px;
+  --size-height-14-row: 552px;
+  --size-height-15-row: 592px;
+  --size-height-16-row: 632px;
 
   /* Icons */
   --size-icon-xs: 4px;
@@ -181,6 +181,7 @@ export const GlobalStyle = createGlobalStyle`
   --size-width-16-cols: 1264px;
 
   /* Gaps (useful for grid/flex layouts) */
+  --size-gap-2xs: 2px;
   --size-gap-xs: 4px;
   --size-gap-small: 8px;
   --size-gap-medium: 16px;
@@ -225,6 +226,7 @@ export const GlobalStyle = createGlobalStyle`
 
 
   /* line-height */
+  --line-height-xs: 1;
   --line-height-small: 1.2;
   --line-height-medium: 1.5;
   --line-height-large: 1.75;

@@ -83,7 +83,7 @@ const StyledContentLink = styled.div`
   }
 
   &.default-size {
-    height: var(--size-height-5-row);
+    height: var(--size-height-10-row);
     width: var(--size-width-10-cols);
   }
 `;

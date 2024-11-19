@@ -27,7 +27,7 @@ const StyledLogosHeader = styled.div`
   justify-content: center;
   align-items: center;
   gap: 32px;
-  height: var(--size-height-1-row);
+  height: var(--size-height-2-row);
 `;
 
 const StyledLogoImg = styled.img`

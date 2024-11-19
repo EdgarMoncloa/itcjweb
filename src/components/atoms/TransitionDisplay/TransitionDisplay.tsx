@@ -50,7 +50,7 @@ const StyledContentDisplay = styled.div`
 
   &.default-size {
     width: var(--size-width-10-cols);
-    height: var(--size-height-5-row);
+    height: var(--size-height-10-row);
   }
 `;
 
