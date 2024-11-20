@@ -3,7 +3,7 @@ import { AiFillPieChart } from 'react-icons/ai';
 import { GiProcessor } from 'react-icons/gi';
 import { ImLab } from 'react-icons/im';
 import { BiNetworkChart } from 'react-icons/bi';
-import { Meta, StoryObj } from '@storybook/react';
+import { StoryObj } from '@storybook/react';
 import { InfoCard, InfoCardProps } from './InfoCard';
 
 const iconMap = {
@@ -25,8 +25,20 @@ const meta = {
       },
     },
     description: {
+      description: 'Descripción corta',
       control: {
         type: 'text',
+      },
+    },
+    maxLinesDescription: {
+      description: 'Número máximo de líneas de la descripción',
+      control: {
+        type: 'number',
+      },
+      table: {
+        type: {
+          summary: 'number',
+        },
       },
     },
     tags: {
@@ -48,10 +60,13 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof InfoCard>;
+};
 
-type MyComponentStoryProps = Omit<InfoCardProps, 'tags'> & {
+type MyComponentStoryProps = Omit<InfoCardProps, 'tags' | 'description'> & {
   tags: string;
+  description: string;
+  maxLinesDescription: number;
+  descriptionTitle: string;
 };
 type Story = StoryObj<MyComponentStoryProps>;
 
@@ -59,14 +74,27 @@ export const Default: Story = {
   args: {
     title: 'Ingeniería en sistemas computacionales',
     description:
-      'Ingeniería en sistemas computacionales es un campo de la ingeniería que se ocupa de la creación y el desarrollo de sistemas informáticos y de software. Este campo se enfoca en la aplicación de técnicas de diseño y programación para la creación de soluciones que satisfagan las necesidades de los usuarios.',
+      'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻',
+    maxLinesDescription: 6,
     tags: 'Campus 1, Campus 2, Presencial, EAD',
     icon: 'Red de datos',
+    descriptionTitle: 'ISC',
   },
   render: (args) => {
     const icon = iconMap[args.icon as keyof typeof iconMap];
     const tags = args.tags.split(',');
-    return <InfoCard {...args} icon={icon} tags={tags} />;
+    return (
+      <InfoCard
+        {...args}
+        icon={icon}
+        tags={tags}
+        description={{
+          text: args.description,
+          maxLines: args.maxLinesDescription,
+          title: args.descriptionTitle,
+        }}
+      />
+    );
   },
 };
 
