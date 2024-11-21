@@ -67,6 +67,7 @@ const StyledMainWrapper = styled.div`
   overflow: hidden;
   transition: var(--transition-fast) background-color;
   width: 100%;
+  will-change: background-color;
 
   &:hover {
     background-color: var(--colors-app-main-100);
@@ -78,7 +79,7 @@ const StyledMainWrapper = styled.div`
   }
 
   &:hover ${StyledMainContainer} {
-    transform: translateX(-40%);
+    transform: translateX(-38%);
   }
 `;
 
