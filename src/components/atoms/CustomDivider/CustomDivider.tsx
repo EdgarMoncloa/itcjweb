@@ -5,6 +5,7 @@ import {
   StyledDivider,
   StyledDividerContainer,
   StyledMainBar,
+  StyledTitle,
 } from './style';
 import { StyledH5 } from '../../../tokens/CustomText';
 
@@ -20,8 +21,8 @@ export const CustomDivider = ({ content }: CustomDividerProps) => {
         <StyledBottomBar />
       </StyledDivider>
       {content && (
-        <StyledContentContainer>
-          <StyledH5>{content}</StyledH5>
+        <StyledContentContainer as={StyledH5}>
+          <StyledTitle>{content}</StyledTitle>
         </StyledContentContainer>
       )}
       <StyledDivider>

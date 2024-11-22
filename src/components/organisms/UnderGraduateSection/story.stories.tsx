@@ -1,13 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react';
 import {
-  GridColumnTemplate,
-  GridColumnTemplateProps,
-} from './GridColumnTemplate';
+  UndergraduateSection,
+  UndergraduateSectionProps,
+} from './UndergraduateSection';
 import styled from 'styled-components';
+import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
 
 export default {
-  title: 'Templates/GridColumnTemplate',
-  component: GridColumnTemplate,
+  title: 'Organisms/UndergraduateSection',
+  component: UndergraduateSection,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
@@ -70,7 +71,7 @@ export default {
   },
 } as Meta;
 
-type MyComponentStoryProps = Omit<GridColumnTemplateProps, 'items'> & {
+type MyComponentStoryProps = Omit<UndergraduateSectionProps, 'items'> & {
   items: number;
   itemHeight: number;
   fillWIthBlanks: boolean;
@@ -83,7 +84,6 @@ export const Default: Story = {
     title: 'Título',
     items: 10,
     itemHeight: 64,
-    columns: 4,
     lastRowAlign: 'center',
     fillWIthBlanks: true,
   },
@@ -95,23 +95,21 @@ export const Default: Story = {
       '--colors-app-main-400',
     ];
 
-    const items = Array.from({ length: args.items }, (_, i) => {
-      const randomIndex = Math.floor(Math.random() * colorVariables.length);
-      return (
-        <StyledGridItem
-          key={i}
-          $backgroundColor={colorVariables[randomIndex]}
-          $height={args.itemHeight}
-        >
-          Example
-        </StyledGridItem>
-      );
-    });
+    const undergraduateItems = undergraduatePrograms.map((item) => ({
+      title: item.title,
+      description: {
+        title: item.key,
+        text: item.description,
+        maxLines: 6,
+      },
+      tags: item.campus,
+      icon: item.icon,
+    }));
 
     return (
-      <GridColumnTemplate
+      <UndergraduateSection
         {...args}
-        items={items}
+        items={undergraduateItems}
         blankItem={
           args.fillWIthBlanks && (
             <StyledBlankItem $height={args.itemHeight}>Blank</StyledBlankItem>
@@ -135,6 +133,7 @@ const StyledGridItem = styled.div<{
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 350px;
 `;
 
 const StyledBlankItem = styled(StyledGridItem)`

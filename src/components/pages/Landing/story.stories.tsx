@@ -35,6 +35,74 @@ export const Base: StoryObj<typeof LandingPage> = {
         caption: 'Este es un texto de prueba',
       },
     ];
-    return <LandingPage heroContentLinks={contentLinksData} />;
+
+    const degreesData = [
+      {
+        title: 'Ingeniería en Sistemas Computacionales',
+        description: {
+          title: 'ISC',
+          text: "'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻'",
+          maxLines: 6,
+        },
+        tags: ['Campus 1', 'Campus 2', 'Presencial', 'EAD'],
+        icon: (
+          <img src='https://random.imagecdn.app/v1/image?width=500&height=500' />
+        ),
+      },
+      {
+        title: 'Ingeniería en Sistemas Computacionales',
+        description: {
+          title: 'ISC',
+          text: "'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻'",
+          maxLines: 6,
+        },
+        tags: ['Campus 1', 'Campus 2', 'Presencial', 'EAD'],
+        icon: (
+          <img src='https://random.imagecdn.app/v1/image?width=500&height=500' />
+        ),
+      },
+      {
+        title: 'Ingeniería en Sistemas Computacionales',
+        description: {
+          title: 'ISC',
+          text: "'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻'",
+          maxLines: 6,
+        },
+        tags: ['Campus 1', 'Campus 2', 'Presencial', 'EAD'],
+        icon: (
+          <img src='https://random.imagecdn.app/v1/image?width=500&height=500' />
+        ),
+      },
+      {
+        title: 'Ingeniería en Sistemas Computacionales',
+        description: {
+          title: 'ISC',
+          text: "'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻'",
+          maxLines: 6,
+        },
+        tags: ['Campus 1', 'Campus 2', 'Presencial', 'EAD'],
+        icon: (
+          <img src='https://random.imagecdn.app/v1/image?width=500&height=500' />
+        ),
+      },
+      {
+        title: 'Ingeniería en Sistemas Computacionales',
+        description: {
+          title: 'ISC',
+          text: "'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻'",
+          maxLines: 6,
+        },
+        tags: ['Campus 1', 'Campus 2', 'Presencial', 'EAD'],
+        icon: (
+          <img src='https://random.imagecdn.app/v1/image?width=500&height=500' />
+        ),
+      },
+    ];
+    return (
+      <LandingPage
+        heroContentLinks={contentLinksData}
+        degreesContent={degreesData}
+      />
+    );
   },
 };

@@ -3,6 +3,7 @@ import { TextTypes } from '../types/GlobalTypes';
 
 const defaultTextStyle = css`
   margin: none;
+  line-height: var(--line-height-small);
 `;
 
 export const StyledH1 = styled.div`

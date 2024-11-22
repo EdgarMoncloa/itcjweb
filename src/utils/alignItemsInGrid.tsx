@@ -1,8 +1,7 @@
-import styled from 'styled-components';
-import { StyledH2 } from '../../../tokens/CustomText';
 import { ReactNode } from 'react';
+import styled from 'styled-components';
 
-interface ItemsToAlignProps {
+export interface ItemsToAlignProps {
   items: ReactNode[];
   lastRowItems: number;
   columns: number;
@@ -10,7 +9,7 @@ interface ItemsToAlignProps {
   lastRowAlign: 'left' | 'center' | 'right'; // O puede ser 'auto' si no quieres restringir a estos 3 valores
 }
 
-const alignItemsInGrid = ({
+export const alignItemsInGrid = ({
   items,
   lastRowItems,
   columns,
@@ -53,62 +52,8 @@ const alignItemsInGrid = ({
   return itemsWithFills;
 };
 
-export interface GridColumnTemplateProps {
-  title: string;
-  items: ReactNode[];
-  columns?: number;
-  blankItem?: ReactNode;
-  lastRowAlign?: 'left' | 'center' | 'right';
-}
-
-export const GridColumnTemplate = ({
-  title,
-  items,
-  columns = 4,
-  blankItem,
-  lastRowAlign = 'left',
-}: GridColumnTemplateProps) => {
-  const lastRowItems = items.length % columns;
-
-  let itemsWithFills: ReactNode[] = alignItemsInGrid({
-    items,
-    lastRowItems,
-    columns,
-    blankItem,
-    lastRowAlign,
-  });
-
-  return (
-    <StyledGridColumnTemplate>
-      <StyledTitle>{title}</StyledTitle>
-      <StyledItemsContainer $columns={columns}>
-        {itemsWithFills}
-      </StyledItemsContainer>
-    </StyledGridColumnTemplate>
-  );
-};
-
-const StyledGridColumnTemplate = styled.div`
-  width: 100%;
-  padding: var(--size-padding-large);
-  display: flex;
-  flex-direction: column;
-  gap: var(--size-gap-medium);
-`;
-
-const StyledTitle = styled(StyledH2)`
-  width: 100%;
-  text-align: center;
-`;
-
-const StyledItemsContainer = styled.div<{ $columns: number }>`
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(${({ $columns }) => $columns}, 1fr);
-  gap: var(--size-gap-small);
-`;
-
 const StyledItemWrapper = styled.div`
   width: 100%;
   height: 100%;
+  overflow: hidden;
 `;

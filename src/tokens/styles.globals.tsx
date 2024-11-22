@@ -89,6 +89,7 @@ export const GlobalStyle = createGlobalStyle`
   
   --colors-transparent-itcj-main: #c11627A0;
 
+  /* SIZES */
    /* Font Sizes */
   --font-size-overline: 10px;
   --font-size-body3: 12px;
@@ -148,6 +149,7 @@ export const GlobalStyle = createGlobalStyle`
   --size-icon-4xl: 96px ;
   
   /* Padding */
+  --size-padding-2xs: 2px;
   --size-padding-xs: 4px;
   --size-padding-small: 8px;
   --size-padding-medium: 16px;

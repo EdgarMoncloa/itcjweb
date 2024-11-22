@@ -31,7 +31,7 @@ const StyledTag = styled.div`
   cursor: default;
   border-radius: var(--size-border-radius-large);
   border: var(--size-border-small) solid var(--colors-app-neutral-800);
-  padding: var(--size-padding-xs) var(--size-padding-medium);
+  padding: var(--size-padding-2xs) var(--size-padding-small);
 
   &.primary {
     border: var(--size-border-small) solid var(--colors-app-main-500);
