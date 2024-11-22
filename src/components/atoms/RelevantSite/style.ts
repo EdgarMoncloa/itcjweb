@@ -30,6 +30,9 @@ export const StyledRelevantSite = styled.a`
   }
 `;
 
-export const StyledTitle = styled(StyledH6)`
+export const StyledBaseContainer = styled(StyledH6)`
   line-height: var(--line-height-small);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;

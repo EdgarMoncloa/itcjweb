@@ -1,5 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { LandingPage } from './';
+import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
+import { news } from '../../../mocks/news';
 
 export default {
   title: 'Pages/Landing Page',
@@ -13,95 +15,60 @@ export default {
 
 export const Base: StoryObj<typeof LandingPage> = {
   render: () => {
-    const contentLinksData = [
+    const blogContents = [
       {
-        img: `https://storage.googleapis.com/pod_public/750/177679.jpg`,
-        title: `Imagen Alta`,
-        caption: 'Este es un texto de prueba',
+        imgSrc: `https://storage.googleapis.com/pod_public/750/177679.jpg`,
+        title: `Imagen Alta tesgin`,
+        content: 'Este es un texto de prueba',
       },
       {
-        img: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJt3e_-wd8i6DJP8jA-1qq-L_DI93zynb_Eg&s`,
+        imgSrc: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJt3e_-wd8i6DJP8jA-1qq-L_DI93zynb_Eg&s`,
         title: `Imagen Cuadrada`,
-        caption: 'Este es un texto de prueba',
+        content: 'Este es un texto de prueba',
       },
       {
-        img: `https://img.freepik.com/premium-photo/bright-abstract-waves-rainbow-celebration-flow-smoothly-generated-by-ai_188544-9530.jpg?semt=ais_hybrid`,
+        imgSrc: `https://img.freepik.com/premium-photo/bright-abstract-waves-rainbow-celebration-flow-smoothly-generated-by-ai_188544-9530.jpg?semt=ais_hybrid`,
         title: `Imagen Ancha`,
-        caption: 'Este es un texto de prueba',
+        content: 'Este es un texto de prueba',
       },
       {
-        img: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSUCTw93YX-C0tIyAHP-2iySLP2OlE9CWPgQ&s`,
+        imgSrc: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSUCTw93YX-C0tIyAHP-2iySLP2OlE9CWPgQ&s`,
         title: `Imagen Panoramica`,
-        caption: 'Este es un texto de prueba',
+        content: 'Este es un texto de prueba',
+      },
+      {
+        imgSrc: `https://storage.googleapis.com/pod_public/750/177679.jpg`,
+        title: `Imagen Alta 2`,
+        content: 'Este es un texto de prueba',
+      },
+      {
+        imgSrc: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJt3e_-wd8i6DJP8jA-1qq-L_DI93zynb_Eg&s`,
+        title: `Imagen Cuadrada 2`,
+        content: 'Este es un texto de prueba',
+      },
+      {
+        imgSrc: `https://img.freepik.com/premium-photo/bright-abstract-waves-rainbow-celebration-flow-smoothly-generated-by-ai_188544-9530.jpg?semt=ais_hybrid`,
+        title: `Imagen Ancha 2`,
+        content: 'Este es un texto de prueba',
       },
     ];
 
-    const degreesData = [
-      {
-        title: 'Ingeniería en Sistemas Computacionales',
-        description: {
-          title: 'ISC',
-          text: "'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻'",
-          maxLines: 6,
-        },
-        tags: ['Campus 1', 'Campus 2', 'Presencial', 'EAD'],
-        icon: (
-          <img src='https://random.imagecdn.app/v1/image?width=500&height=500' />
-        ),
+    const undergraduateItems = undergraduatePrograms.map((item) => ({
+      title: item.title,
+      description: {
+        title: item.key,
+        text: item.description,
+        maxLines: 6,
       },
-      {
-        title: 'Ingeniería en Sistemas Computacionales',
-        description: {
-          title: 'ISC',
-          text: "'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻'",
-          maxLines: 6,
-        },
-        tags: ['Campus 1', 'Campus 2', 'Presencial', 'EAD'],
-        icon: (
-          <img src='https://random.imagecdn.app/v1/image?width=500&height=500' />
-        ),
-      },
-      {
-        title: 'Ingeniería en Sistemas Computacionales',
-        description: {
-          title: 'ISC',
-          text: "'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻'",
-          maxLines: 6,
-        },
-        tags: ['Campus 1', 'Campus 2', 'Presencial', 'EAD'],
-        icon: (
-          <img src='https://random.imagecdn.app/v1/image?width=500&height=500' />
-        ),
-      },
-      {
-        title: 'Ingeniería en Sistemas Computacionales',
-        description: {
-          title: 'ISC',
-          text: "'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻'",
-          maxLines: 6,
-        },
-        tags: ['Campus 1', 'Campus 2', 'Presencial', 'EAD'],
-        icon: (
-          <img src='https://random.imagecdn.app/v1/image?width=500&height=500' />
-        ),
-      },
-      {
-        title: 'Ingeniería en Sistemas Computacionales',
-        description: {
-          title: 'ISC',
-          text: "'Diseña el futuro, programa soluciones y transforma el mundo digital. 🌍💻'",
-          maxLines: 6,
-        },
-        tags: ['Campus 1', 'Campus 2', 'Presencial', 'EAD'],
-        icon: (
-          <img src='https://random.imagecdn.app/v1/image?width=500&height=500' />
-        ),
-      },
-    ];
+      tags: item.campus,
+      icon: item.icon,
+    }));
+
     return (
       <LandingPage
-        heroContentLinks={contentLinksData}
-        degreesContent={degreesData}
+        heroContentLinks={news}
+        undergraduateContent={undergraduateItems}
+        blogsContent={blogContents}
       />
     );
   },

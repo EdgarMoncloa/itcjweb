@@ -13,29 +13,25 @@ import { UndergraduateSection } from '../../organisms/UnderGraduateSection';
 import { InfoCardProps } from '../../molecules/InfoCard';
 import { news } from '../../../mocks/news';
 import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
+import { BlogCardProps } from '../../molecules/BlogCard';
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];
-  degreesContent: InfoCardProps[];
+  undergraduateContent: InfoCardProps[];
+  blogsContent: BlogCardProps[];
 }
 
-export const LandingPage = ({ heroContentLinks }: LandingProps) => {
-  const blogCards = news.map((item) => ({
+export const LandingPage = ({
+  heroContentLinks,
+  undergraduateContent,
+  blogsContent,
+}: LandingProps) => {
+  const blogCards = blogsContent.map((item) => ({
     title: item.title,
-    imgSrc: item.img,
-    content: item.caption,
+    imgSrc: item.imgSrc,
+    content: item.content,
   }));
 
-  const undergraduateItems = undergraduatePrograms.map((item) => ({
-    title: item.title,
-    description: {
-      title: item.key,
-      text: item.description,
-      maxLines: 6,
-    },
-    tags: item.campus,
-    icon: item.icon,
-  }));
   return (
     <StyledLanding>
       <GobHeader />
@@ -53,9 +49,9 @@ export const LandingPage = ({ heroContentLinks }: LandingProps) => {
       </StyledBaseMaringContainer>
       <CustomDivider content='Oferta académica' />
       <StyledBaseMaringContainer>
-        <StyledUndergraduatesContainer
+        <UndergraduateSection
           title='Licenciaturas'
-          items={undergraduateItems}
+          items={undergraduateContent}
         />
       </StyledBaseMaringContainer>
       <TecFooter />
@@ -76,5 +72,3 @@ const StyledBaseMaringContainer = styled.div`
 const StyledHeroGap = styled.div`
   height: var(--size-gap-small);
 `;
-
-const StyledUndergraduatesContainer = styled(UndergraduateSection)``;

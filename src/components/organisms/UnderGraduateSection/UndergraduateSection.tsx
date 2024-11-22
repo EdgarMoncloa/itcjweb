@@ -1,5 +1,5 @@
 import styled, { useTheme } from 'styled-components';
-import { StyledH2 } from '../../../tokens/CustomText';
+import { StyledH2, StyledH3 } from '../../../tokens/CustomText';
 import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { alignItemsInGrid } from '../../../utils/alignItemsInGrid';
 import { InfoCard, InfoCardProps } from '../../molecules/InfoCard';
@@ -85,7 +85,7 @@ const StyledGridColumnTemplate = styled.div`
   gap: var(--size-gap-medium);
 `;
 
-const StyledTitle = styled(StyledH2)`
+const StyledTitle = styled(StyledH3)`
   width: 100%;
   text-align: center;
 `;
@@ -95,7 +95,7 @@ const StyledItemsContainer = styled.div`
   overflow: hidden;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  gap: var(--size-gap-small);
+  gap: var(--size-gap-large);
 
   @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
     grid-template-columns: repeat(2, 1fr);

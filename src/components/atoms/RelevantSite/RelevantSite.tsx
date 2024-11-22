@@ -1,5 +1,5 @@
 import { SlideCover } from '../SlideCover';
-import { StyledRelevantSite, StyledTitle } from './style';
+import { StyledRelevantSite, StyledBaseContainer } from './style';
 import React, { ReactElement, useState } from 'react';
 
 export type RelevantSiteProps = {
@@ -25,8 +25,8 @@ export const RelevantSite = ({ icon, text, toSite }: RelevantSiteProps) => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
-      <StyledTitle>{IconElement}</StyledTitle>
-      <StyledTitle>{text}</StyledTitle>
+      <StyledBaseContainer>{IconElement}</StyledBaseContainer>
+      <StyledBaseContainer>{text}</StyledBaseContainer>
       <SlideCover position={'bottom'} isVisible={isHovered} />
     </StyledRelevantSite>
   );

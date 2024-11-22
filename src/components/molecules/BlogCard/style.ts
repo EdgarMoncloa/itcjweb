@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { StyledBody1, StyledH5 } from '../../../tokens/CustomText';
+import { StyledBody1, StyledH5, StyledH6 } from '../../../tokens/CustomText';
 
 export const StyledBlogCard = styled.a`
   /* Layout */
@@ -50,7 +50,7 @@ export const StyledContentContainer = styled.div`
   padding: var(--size-padding-small);
 `;
 
-export const StyledContentTitle = styled(StyledH5)`
+export const StyledContentTitle = styled(StyledH6)`
   width: 100%;
   height: 100%;
 `;
