@@ -93,7 +93,7 @@ export const Default: Story = {
           maxLines: args.maxLinesDescription,
           title: args.descriptionTitle,
         }}
-        // defaultSize
+        defaultSize
       />
     );
   },

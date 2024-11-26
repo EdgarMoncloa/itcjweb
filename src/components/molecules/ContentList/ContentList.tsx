@@ -36,7 +36,7 @@ const StyledContentList = styled.div`
   grid-template-columns: var(--size-icon-xl);
   grid-template-rows: repeat(10, var(--size-icon-xl));
   gap: var(--size-margin-medium);
-  background-color: var(--colors-app-main-100);
+  background-color: var(--colors-app-primary-100);
   padding: var(--size-padding-medium);
   width: max-content;
   border-radius: var(--size-border-radius-medium);

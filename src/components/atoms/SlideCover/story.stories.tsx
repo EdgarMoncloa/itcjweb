@@ -47,7 +47,7 @@ Base.args = {
 
 const StyledCoverExapleContainer = styled.div`
   align-items: center;
-  border: 1px solid var(--colors-app-main-700);
+  border: 1px solid var(--colors-app-primary-700);
   display: flex;
   height: 200px;
   justify-content: center;

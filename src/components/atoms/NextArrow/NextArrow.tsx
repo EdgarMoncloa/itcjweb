@@ -19,9 +19,9 @@ export const NextArrow = ({ onClick, inverted = false }: NextArrowProps) => {
 
 const StyledArrow = styled.div`
   align-items: center;
-  border: var(--size-border-xs) solid var(--colors-app-main-700);
+  border: var(--size-border-xs) solid var(--colors-app-primary-700);
   border-radius: var(--size-border-radius-medium);
-  color: var(--colors-app-main-700);
+  color: var(--colors-app-primary-700);
   cursor: pointer;
   display: flex;
   font-size: var(--size-width-2-cols);
@@ -34,6 +34,6 @@ const StyledArrow = styled.div`
 
   &:hover {
     border-width: var(--size-border-large);
-    background-color: var(--colors-app-main-100);
+    background-color: var(--colors-app-primary-100);
   }
 `;

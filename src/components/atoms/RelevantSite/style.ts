@@ -8,7 +8,7 @@ const colorCHange = keyframes`
 `;
 export const StyledRelevantSite = styled.a`
   border-radius: var(--size-border-radius-medium, 8px);
-  border: 2px solid var(--colors-app-main-700, #c11627);
+  border: 2px solid var(--colors-app-primary-700, #c11627);
   color: var(--colors-app-text-dark);
   cursor: pointer;
   overflow: hidden;

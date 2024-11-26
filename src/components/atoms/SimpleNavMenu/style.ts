@@ -17,9 +17,9 @@ const getColorsFromType = (type: SimpleNavMenuTypes) => {
       break;
     case SimpleNavMenuTypes.itcj:
       colors = {
-        background: 'var(--colors-app-main-700)',
+        background: 'var(--colors-app-primary-700)',
         color: 'var(--colors-app-text-light)',
-        hover: 'var(--colors-app-main-300)',
+        hover: 'var(--colors-app-primary-300)',
       };
       break;
     case SimpleNavMenuTypes.tecnm:
@@ -56,11 +56,11 @@ const NavMenuGobStyle = css`
   }
 `;
 const NavMenuItcjStyle = css`
-  background-color: var(--colors-app-main-700);
+  background-color: var(--colors-app-primary-700);
   color: var(--colors-app-text-light);
 
   &:hover {
-    background-color: var(--colors-app-main-300);
+    background-color: var(--colors-app-primary-300);
   }
 `;
 const NavMenuTecnmStyle = css`

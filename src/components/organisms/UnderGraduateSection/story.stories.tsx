@@ -89,10 +89,10 @@ export const Default: Story = {
   },
   render: (args) => {
     const colorVariables = [
-      '--colors-app-main-100',
-      '--colors-app-main-200',
-      '--colors-app-main-300',
-      '--colors-app-main-400',
+      '--colors-app-primary-100',
+      '--colors-app-primary-200',
+      '--colors-app-primary-300',
+      '--colors-app-primary-400',
     ];
 
     const undergraduateItems = undergraduatePrograms.map((item) => ({

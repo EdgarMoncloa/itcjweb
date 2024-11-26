@@ -41,17 +41,18 @@ export const GlobalStyle = createGlobalStyle`
   --colors-app-text-dark: var(--colors-app-neutral-900);
   --colors-app-text-light: var(--colors-app-neutral-50);
   --colors-app-white: #ffffff;
-  --colors-app-main-100: #ffd2d6;
-  --colors-app-main-200: #ffafb7;
-  --colors-app-main-300: #f98c97;
-  --colors-app-main-400: #f06979;
-  --colors-app-main-500: #e4465c;
-  --colors-app-main-600: #d42b40;
-  --colors-app-main-700: var(--colors-itcj-main);
-  --colors-app-main-800: #ae0003;
-  --colors-app-main-900: #8e0000;
-  --colors-app-main-950: #590000;
-  --colors-app-main-main-50: #fff5f6;
+  --colors-app-primary-50: #fff5f6;
+  --colors-app-primary-100: #ffd2d6;
+  --colors-app-primary-200: #ffafb7;
+  --colors-app-primary-300: #f98c97;
+  --colors-app-primary-400: #f06979;
+  --colors-app-primary-500: #e4465c;
+  --colors-app-primary-600: #d42b40;
+  --colors-app-primary-700: var(--colors-itcj-primary);
+  --colors-app-primary-800: #ae0003;
+  --colors-app-primary-900: #8e0000;
+  --colors-app-primary-950: #590000;
+  --colors-app-neutral-50: #fcfcfc;
   --colors-app-neutral-100: #f1f0f1;
   --colors-app-neutral-200: #e6e5e6;
   --colors-app-neutral-300: #dad9db;
@@ -62,7 +63,6 @@ export const GlobalStyle = createGlobalStyle`
   --colors-app-neutral-800: #605f61;
   --colors-app-neutral-900: #353536;
   --colors-app-neutral-950: #0b0b0b;
-  --colors-app-neutral-50: #fcfcfc;
   --colors-app-notification-alert: #fffccc;
   --colors-app-notification-success: #ccffcc;
   --colors-app-notification-wrong: #ffcccc;
@@ -74,7 +74,7 @@ export const GlobalStyle = createGlobalStyle`
   --colors-app-secondary-950: var(--colors-tecnm-logo-pantone-294-c);
   --colors-app-secondary-secondary-50: #eff8ff;
   --colors-documentation-contrast-background: #fbd0fb;
-  --colors-itcj-main: #c11627;
+  --colors-itcj-primary: #c11627;
   --colors-tecnm-black: #000000;
   --colors-tecnm-pantone-424-c: #6f7271;
   --colors-tecnm-pantone-465-c: #b38e5d;
@@ -87,7 +87,7 @@ export const GlobalStyle = createGlobalStyle`
   --colors-tecnm-logo-pantone-294-c: #1b396a;
   --colors-tecnm-logo-pantone-cool-gray-10-c: #807e82;
   
-  --colors-transparent-itcj-main: #c11627A0;
+  --colors-transparent-itcj-primary: #c11627A0;
 
   /* SIZES */
    /* Font Sizes */
@@ -190,7 +190,7 @@ export const GlobalStyle = createGlobalStyle`
   --size-gap-large: 32px;
 
   /* Shadows */
-  --shadow-main: 4px 4px 4px rgba(0, 0, 0, 0.4);
+  --shadow-primary: 4px 4px 4px rgba(0, 0, 0, 0.4);
   --shadow-light: 2px 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-heavy: 8px 8px 16px rgba(0, 0, 0, 0.6);
 

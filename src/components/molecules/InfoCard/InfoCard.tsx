@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
 import { InfoCardHorizontal } from './variants/InfoCardHorizontal';
+import { InfoCardVertical } from './variants/InfoCardVertical';
 
 export interface InfoCardProps {
   title: string;
@@ -12,14 +12,22 @@ export interface InfoCardProps {
   tags?: string[];
   icon?: React.ReactNode;
   defaultSize?: boolean;
-  variant?: 'primary' | 'blank';
+  variant?: 'horizontal' | 'vertical' | 'blank';
+  colorScheme?: 'primary' | 'primary-intercalated' | 'neutral';
 }
 
-export const InfoCard = ({ variant = 'primary', ...props }: InfoCardProps) => {
+export const InfoCard = ({
+  variant = 'horizontal',
+  ...props
+}: InfoCardProps) => {
   let element: React.ReactNode;
+
   switch (variant) {
-    case 'primary':
+    case 'horizontal':
       return <InfoCardHorizontal {...props} />;
+    case 'vertical':
+      return <InfoCardVertical {...props} />;
+
     case 'blank':
       return (
         <StyledMainWrapper className={props.defaultSize ? 'defaultSize' : ''}>
@@ -46,7 +54,7 @@ const StyledMainContainer = styled.div`
 const StyledMainWrapper = styled.div`
   align-items: center;
   border-radius: var(--size-border-radius-medium);
-  border: var(--size-border-small) solid var(--colors-itcj-main);
+  border: var(--size-border-small) solid var(--colors-itcj-primary);
   cursor: pointer;
   overflow: hidden;
   transition: var(--transition-fast) background-color;
@@ -55,7 +63,7 @@ const StyledMainWrapper = styled.div`
   will-change: background-color;
 
   &:hover {
-    background-color: var(--colors-app-main-100);
+    background-color: var(--colors-app-primary-100);
   }
 
   &.defaultSize {
@@ -66,61 +74,4 @@ const StyledMainWrapper = styled.div`
   &:hover ${StyledMainContainer} {
     transform: translateX(-38%);
   }
-`;
-
-const StyledLeftContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--size-gap-small);
-`;
-
-const StyledTitle = styled(StyledH6)`
-  text-align: center;
-  line-height: var(--line-height-xs);
-  color: var(--colors-itcj-main);
-`;
-
-const StyledTagsContainer = styled.div`
-  width: 100%;
-  column-gap: var(--size-gap-small);
-  row-gap: var(--size-gap-xs);
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-content: flex-start;
-  justify-content: center;
-`;
-
-const StyledIconWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  font-size: var(--size-icon-4xl);
-  height: 100%;
-  justify-content: center;
-  width: 100%;
-  color: var(--colors-app-main-700);
-`;
-
-const StyledRightContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--size-gap-small);
-  overflow: hidden;
-`;
-
-interface StyledDescriptionProps {
-  $lineClamp: number | undefined;
-}
-const StyledDescription = styled(StyledBody1)<StyledDescriptionProps>`
-  max-height: 100%;
-  height: max-content;
-  text-align: center;
-  line-height: var(--line-height-xs);
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  ${(props) => props.$lineClamp && `-webkit-line-clamp: ${props.$lineClamp}`};
 `;

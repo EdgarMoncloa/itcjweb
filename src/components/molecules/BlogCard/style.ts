@@ -13,14 +13,14 @@ export const StyledBlogCard = styled.a`
   /* Style */
   border-radius: var(--size-border-radius-medium, 8px);
   border: var(--size-border-small, 2px) solid
-    var(--colors-app-main-700, #c11627);
+    var(--colors-app-primary-700, #c11627);
   background: var(--colors-app-Background, #fcfcfc);
   cursor: pointer;
   text-decoration: none;
   color: var(--colors-app-text-dark);
 
   /* Main Shadow */
-  box-shadow: var(--shadow-main);
+  box-shadow: var(--shadow-primary);
   transition: border-width var(--transition-fast);
 
   &:hover {

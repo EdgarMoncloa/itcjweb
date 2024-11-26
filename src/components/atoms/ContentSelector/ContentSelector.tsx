@@ -61,7 +61,7 @@ export const ContentSelector = ({
 
 const StyledDescriptionTooltip = styled.div`
   align-items: center;
-  background-color: var(--colors-app-main-500);
+  background-color: var(--colors-app-primary-500);
   border-radius: var(--size-border-radius-medium);
   color: var(--colors-app-text-light);
   display: flex;
@@ -114,7 +114,7 @@ const StyledSelectorIcon = styled.div`
   height: 100%;
   width: 100%;
   cursor: pointer;
-  background-color: var(--colors-itcj-main);
+  background-color: var(--colors-itcj-primary);
   border-radius: var(--size-border-radius-full);
   transition: var(--transition-normal) transform;
 

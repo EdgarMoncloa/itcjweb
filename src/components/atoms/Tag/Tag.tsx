@@ -34,9 +34,9 @@ const StyledTag = styled.div`
   padding: var(--size-padding-2xs) var(--size-padding-small);
 
   &.primary {
-    border: var(--size-border-small) solid var(--colors-app-main-500);
+    border: var(--size-border-small) solid var(--colors-app-primary-500);
     &:hover {
-      background-color: var(--colors-app-main-100);
+      background-color: var(--colors-app-primary-100);
     }
   }
   &.secondary {

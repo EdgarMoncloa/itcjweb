@@ -55,7 +55,7 @@ export const Base = (args: any) => {
 const StyledFromELement = styled.div`
   width: 100%;
   height: 100%;
-  background-color: var(--colors-app-main-200);
+  background-color: var(--colors-app-primary-200);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -106,7 +106,7 @@ const StyledAnimationContainer = styled.div<StyledAnimationContainerProps>`
   & > * {
     width: 75%;
     height: 100%;
-    background-color: var(--colors-itcj-main);
+    background-color: var(--colors-itcj-primary);
   }
 
   & > :nth-child(4) {

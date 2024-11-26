@@ -98,7 +98,7 @@ export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
 
 const StyledHero = styled.div`
   align-items: center;
-  background-color: var(--colors-itcj-main);
+  background-color: var(--colors-itcj-primary);
   column-gap: var(--size-gap-small);
   display: grid;
   grid-template-rows: 100%;

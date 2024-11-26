@@ -35,7 +35,7 @@ const StyledImgWrapper = styled.div`
   overflow: hidden;
   border-radius: var(--size-border-radius-medium);
   transition: var(--transition-normal) border-radius;
-  background-color: var(--colors-app-main-200);
+  background-color: var(--colors-app-primary-200);
 `;
 const StyledImg = styled.img`
   height: 100%;
@@ -47,7 +47,7 @@ const StyledDescriptionContainer = styled.div`
   border-bottom-right-radius: var(--size-border-radius-large);
 
   backdrop-filter: blur(4px);
-  background-color: var(--colors-transparent-itcj-main);
+  background-color: var(--colors-transparent-itcj-primary);
   bottom: 0;
   color: var(--colors-app-text-light);
   height: 20%;
@@ -62,8 +62,8 @@ const StyledTitle = styled(StyledH4)``;
 
 const StyledContentLink = styled.div`
   position: relative;
-  /* background-color: var(--colors-itcj-main); */
-  background-color: var(--colors-app-main-100);
+  /* background-color: var(--colors-itcj-primary); */
+  background-color: var(--colors-app-primary-100);
   padding: var(--size-padding-medium);
   width: 100%;
   height: 100%;

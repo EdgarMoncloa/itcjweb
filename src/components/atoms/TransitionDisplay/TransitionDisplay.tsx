@@ -106,7 +106,7 @@ const StyledToElementWrapper = styled.div<{
       transform: translate(-50%, -50%);
       width: 200%;
       height: 200%;
-      background-color: var(--colors-itcj-main);
+      background-color: var(--colors-itcj-primary);
       border-radius: var(--size-border-radius-full);
       animation: ${keyFramesClipPathMask} var(--transition-slow) forwards;
       animation-delay: ${(props) =>

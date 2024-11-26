@@ -19,7 +19,7 @@ export const UndergraduateSection = ({
   const itemsContainer = useRef<HTMLDivElement>(null);
 
   const baseInfoCards = items.map((item, index) => (
-    <InfoCard key={index} {...item} />
+    <InfoCard key={index} {...item} variant='horizontal' />
   ));
   const [infoCards, setInfoCards] = useState<ReactNode[]>(baseInfoCards);
   const [itemsColumns, setItemsColumns] = useState<number>(4);

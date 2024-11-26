@@ -34,11 +34,11 @@ export const StyledDivider = styled.div`
 export const StyledMainBar = styled.div`
   width: 100%;
   height: 100%;
-  background-color: var(--colors-app-main-700);
+  background-color: var(--colors-app-primary-700);
 `;
 
 export const StyledBottomBar = styled.div`
   width: 100%;
   height: 100%;
-  background-color: var(--colors-app-main-700);
+  background-color: var(--colors-app-primary-700);
 `;

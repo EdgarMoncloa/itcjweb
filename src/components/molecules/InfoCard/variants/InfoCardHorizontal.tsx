@@ -3,6 +3,12 @@ import { StyledBody1, StyledH6 } from '../../../../tokens/CustomText';
 import { Tag } from '../../../atoms/Tag';
 import { TextTypes } from '../../../../types/GlobalTypes';
 import { InfoCardProps } from '../InfoCard';
+import {
+  StyledDescription,
+  StyledIconWrapper,
+  StyledTagsContainer,
+  StyledTitle,
+} from '../styles';
 
 export const InfoCardHorizontal = ({
   title,
@@ -15,7 +21,7 @@ export const InfoCardHorizontal = ({
     <StyledMainWrapper className={defaultSize ? 'defaultSize' : ''}>
       <StyledMainContainer>
         <StyledLeftContainer>
-          <StyledTitle>{title}</StyledTitle>
+          <StyledTitle as={StyledH6}>{title}</StyledTitle>
           {tags && (
             <StyledTagsContainer>
               {tags.map((tag, index) => {
@@ -47,21 +53,22 @@ export const InfoCardHorizontal = ({
 };
 
 const StyledMainContainer = styled.div`
+  align-items: center;
   display: grid;
+  gap: 5%;
   grid-template-columns: 3fr 2fr 3fr;
+  height: 100%;
   justify-content: center;
   padding: var(--size-padding-small);
-  gap: 5%;
-  width: 160%;
-  height: 100%;
   transition: var(--transition-fast) transform;
+  width: 160%;
   will-change: transform;
 `;
 
 const StyledMainWrapper = styled.div`
   align-items: center;
   border-radius: var(--size-border-radius-medium);
-  border: var(--size-border-small) solid var(--colors-itcj-main);
+  border: var(--size-border-small) solid var(--colors-itcj-primary);
   cursor: pointer;
   overflow: hidden;
   transition: var(--transition-fast) background-color;
@@ -70,7 +77,7 @@ const StyledMainWrapper = styled.div`
   will-change: background-color;
 
   &:hover {
-    background-color: var(--colors-app-main-100);
+    background-color: var(--colors-app-primary-100);
   }
 
   &.defaultSize {
@@ -79,7 +86,7 @@ const StyledMainWrapper = styled.div`
   }
 
   &:hover ${StyledMainContainer} {
-    transform: translateX(-40%);
+    transform: translateX(-38%);
   }
 `;
 
@@ -90,52 +97,10 @@ const StyledLeftContainer = styled.div`
   gap: var(--size-gap-small);
 `;
 
-const StyledTitle = styled(StyledH6)`
-  text-align: center;
-  line-height: var(--line-height-xs);
-  color: var(--colors-itcj-main);
-`;
-
-const StyledTagsContainer = styled.div`
-  width: 100%;
-  column-gap: var(--size-gap-small);
-  row-gap: var(--size-gap-xs);
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  align-content: flex-start;
-  justify-content: center;
-`;
-
-const StyledIconWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  font-size: var(--size-icon-4xl);
-  height: 100%;
-  justify-content: center;
-  width: 100%;
-  color: var(--colors-app-main-700);
-`;
-
 const StyledRightContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: var(--size-gap-small);
   overflow: hidden;
-`;
-
-interface StyledDescriptionProps {
-  $lineClamp: number | undefined;
-}
-const StyledDescription = styled(StyledBody1)<StyledDescriptionProps>`
-  max-height: 100%;
-  height: max-content;
-  text-align: center;
-  line-height: var(--line-height-xs);
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  overflow: visible;
-  text-overflow: ellipsis;
-  ${(props) => props.$lineClamp && `-webkit-line-clamp: ${props.$lineClamp}`};
 `;
