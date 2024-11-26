@@ -10,6 +10,7 @@ export default {
 export const Default = () => {
   return (
     <InteractiveTriadGrid
+      defaultSize
       primaryContent={
         <ExampleContainer color={ExampleContainerColors.Primary100} />
       }
