@@ -3,10 +3,14 @@ import { StyledH2, StyledH3 } from '../../../tokens/CustomText';
 import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { alignItemsInGrid } from '../../../utils/alignItemsInGrid';
 import { InfoCard, InfoCardProps } from '../../molecules/InfoCard';
+import {
+  TriadGridSliderInfoCard,
+  TriadGridSliderInfoCardProps,
+} from '../../molecules/TriadGridSliderInfoCard/TriadGridSliderInfoCard';
 
 export interface UndergraduateSectionProps {
   title: string;
-  items: InfoCardProps[];
+  items: TriadGridSliderInfoCardProps[];
   blankItem?: ReactNode;
   lastRowAlign?: 'left' | 'center' | 'right';
 }
@@ -18,10 +22,12 @@ export const UndergraduateSection = ({
 }: UndergraduateSectionProps) => {
   const itemsContainer = useRef<HTMLDivElement>(null);
 
-  const baseInfoCards = items.map((item, index) => (
-    <InfoCard key={index} {...item} variant='horizontal' />
+  const baseUndergraduateCards = items.map((item, index) => (
+    <TriadGridSliderInfoCard key={index} {...item} />
   ));
-  const [infoCards, setInfoCards] = useState<ReactNode[]>(baseInfoCards);
+  const [undergraduateCards, setUndergraduateCards] = useState<ReactNode[]>(
+    baseUndergraduateCards
+  );
   const [itemsColumns, setItemsColumns] = useState<number>(4);
 
   const lastRowItems = items.length % itemsColumns;
@@ -44,9 +50,9 @@ export const UndergraduateSection = ({
         'grid-template-columns'
       );
       const columnCount = gridTemplateColumns.split(' ').length;
-      setInfoCards(
+      setUndergraduateCards(
         alignItemsInGrid({
-          items: baseInfoCards,
+          items: baseUndergraduateCards,
           lastRowItems,
           columns: columnCount,
           blankItem: <InfoCard variant='blank' title='' />,
@@ -72,7 +78,7 @@ export const UndergraduateSection = ({
     <StyledGridColumnTemplate>
       <StyledTitle>{title}</StyledTitle>
       <StyledItemsContainer ref={itemsContainer}>
-        {infoCards}
+        {undergraduateCards}
       </StyledItemsContainer>
     </StyledGridColumnTemplate>
   );

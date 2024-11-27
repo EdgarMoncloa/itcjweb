@@ -97,11 +97,8 @@ export const Default: Story = {
 
     const undergraduateItems = undergraduatePrograms.map((item) => ({
       title: item.title,
-      description: {
-        title: item.key,
-        text: item.description,
-        maxLines: 6,
-      },
+      subtitle: item.key,
+      description: item.description,
       tags: item.campus,
       icon: item.icon,
     }));

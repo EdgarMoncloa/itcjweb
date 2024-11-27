@@ -188,6 +188,8 @@ export const GlobalStyle = createGlobalStyle`
   --size-gap-small: 8px;
   --size-gap-medium: 16px;
   --size-gap-large: 32px;
+  --size-gap-xl: 48px;
+  --size-gap-2xl: 64px;
 
   /* Shadows */
   --shadow-primary: 4px 4px 4px rgba(0, 0, 0, 0.4);

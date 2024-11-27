@@ -2,38 +2,40 @@ import styled, { css } from 'styled-components';
 import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
 import { TextTypes } from '../../../types/GlobalTypes';
 import { Tag } from '../../atoms/Tag';
-import { InteractiveTriadGrid } from '../../atoms/InteractiveTriadGrid';
+import {
+  InteractiveTriadGrid,
+  InteractiveTriadGridSize,
+} from '../../atoms/InteractiveTriadGrid';
 
-interface UndergraduateInfoCardProps {
-  major: string;
-  majorKey: string;
-  description?: {
-    text?: string;
-    maxLines?: number;
-  };
-  campuses?: string[];
+export interface TriadGridSliderInfoCardProps {
+  title: string;
+  subtitle: string;
+  description: string;
+  tags?: string[];
   icon?: React.ReactNode;
   defaultSize?: boolean;
+  gridSize?: InteractiveTriadGridSize;
 }
 
-export const UndergraduateInfoCard = ({
-  major,
-  majorKey,
+export const TriadGridSliderInfoCard = ({
+  title,
+  subtitle,
   description,
-  campuses,
+  tags,
   icon,
   defaultSize,
-}: UndergraduateInfoCardProps) => {
+  gridSize = '2-1-2',
+}: TriadGridSliderInfoCardProps) => {
   const primaryContent = (
     <StyledPrimaryContent>
-      <StyledTitle as={StyledH6}>{major}</StyledTitle>
-      {campuses && (
+      <StyledTitle as={StyledH6}>{title}</StyledTitle>
+      {tags && (
         <StyledTagsContainer>
-          {campuses.map((campus, index) => {
+          {tags.map((tag, index) => {
             return (
               <Tag
                 key={index}
-                text={campus}
+                text={tag}
                 variant='primary'
                 hasPadding={true}
                 textSize={TextTypes.overline}
@@ -49,21 +51,30 @@ export const UndergraduateInfoCard = ({
   );
   const tertiaryContent = description && (
     <StyledTertiaryContainer>
-      <StyledTitle as={StyledH6}>{majorKey}</StyledTitle>
-      <StyledDescription $lineClamp={description.maxLines}>
-        {description?.text}
-      </StyledDescription>
+      <StyledTitle as={StyledH6}>{subtitle}</StyledTitle>
+      <StyledDescription>{description}</StyledDescription>
     </StyledTertiaryContainer>
   );
 
   return (
-    <InteractiveTriadGrid
-      primaryContent={primaryContent}
-      secondaryContent={secondaryContent}
-      tertiaryContent={tertiaryContent}
-    />
+    <StyledGridSliderInfoCard className={defaultSize ? 'default-size' : ''}>
+      <InteractiveTriadGrid
+        primaryContent={primaryContent}
+        secondaryContent={secondaryContent}
+        tertiaryContent={tertiaryContent}
+        gridSize={gridSize}
+      />
+    </StyledGridSliderInfoCard>
   );
 };
+
+const StyledGridSliderInfoCard = styled.div`
+  overflow: hidden;
+  &.default-size {
+    width: var(--size-width-5-cols);
+    height: var(--size-height-4-row);
+  }
+`;
 
 const CssBaseContainer = css`
   height: 100%;
@@ -90,8 +101,6 @@ const StyledTertiaryContainer = styled.div`
 const StyledSecondaryContent = styled.div`
   ${CssBaseContainer}
   font-size: var(--size-icon-4xl);
-  /* height: var(--size-icon-4xl); */
-  /* width: var(--size-icon-4xl); */
   color: var(--colors-app-primary-700);
 `;
 
@@ -112,10 +121,7 @@ const StyledTagsContainer = styled.div`
   justify-content: center;
 `;
 
-interface StyledDescriptionProps {
-  $lineClamp: number | undefined;
-}
-const StyledDescription = styled(StyledBody1)<StyledDescriptionProps>`
+const StyledDescription = styled(StyledBody1)`
   max-height: 100%;
   height: max-content;
   text-align: center;
@@ -124,5 +130,5 @@ const StyledDescription = styled(StyledBody1)<StyledDescriptionProps>`
   -webkit-box-orient: vertical;
   overflow: visible;
   text-overflow: ellipsis;
-  ${(props) => props.$lineClamp && `-webkit-line-clamp: ${props.$lineClamp}`};
+  -webkit-line-clamp: 6;
 `;

@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { LandingPage } from './';
 import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
 import { news } from '../../../mocks/news';
+import { TriadGridSliderInfoCardProps } from '../../molecules/TriadGridSliderInfoCard';
 
 export default {
   title: 'Pages/Landing Page',
@@ -53,16 +54,14 @@ export const Base: StoryObj<typeof LandingPage> = {
       },
     ];
 
-    const undergraduateItems = undergraduatePrograms.map((item) => ({
-      title: item.title,
-      description: {
-        title: item.key,
-        text: item.description,
-        maxLines: 6,
-      },
-      tags: item.campus,
-      icon: item.icon,
-    }));
+    const undergraduateItems: TriadGridSliderInfoCardProps =
+      undergraduatePrograms.map((item) => ({
+        title: item.title,
+        subtitle: item.key,
+        description: item.description,
+        tags: item.campus,
+        icon: item.icon,
+      }));
 
     return (
       <LandingPage
