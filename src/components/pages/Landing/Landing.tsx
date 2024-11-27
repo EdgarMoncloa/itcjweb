@@ -14,10 +14,11 @@ import { InfoCardProps } from '../../molecules/InfoCard';
 import { news } from '../../../mocks/news';
 import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
 import { BlogCardProps } from '../../molecules/BlogCard';
+import { TriadGridSliderInfoCardProps } from '../../molecules/TriadGridSliderInfoCard';
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];
-  undergraduateContent: InfoCardProps[];
+  undergraduateContent: TriadGridSliderInfoCardProps[];
   blogsContent: BlogCardProps[];
 }
 

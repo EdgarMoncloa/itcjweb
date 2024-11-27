@@ -40,16 +40,13 @@ const StyledMainContainer = styled.div`
   transition: var(--transition-fast) transform;
   width: 147%;
   will-change: transform;
-  gap: var(--size-gap-small);
-  transform: translateX(var(--size-gap-small));
-
-  gap: 4%;
-  transform: translateX(5%);
+  gap: 1%;
+  transform: translateX(1%);
 
   &.grid-2-1-2 {
     grid-template-columns: 2fr 1fr 2fr;
-    /* gap: var(--size-gap-xl);
-    transform: translateX(var(--size-gap-large)); */
+    gap: 4%;
+    transform: translateX(5%);
   }
 `;
 

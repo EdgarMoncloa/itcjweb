@@ -54,7 +54,7 @@ export const Base: StoryObj<typeof LandingPage> = {
       },
     ];
 
-    const undergraduateItems: TriadGridSliderInfoCardProps =
+    const undergraduateItems: TriadGridSliderInfoCardProps[] =
       undergraduatePrograms.map((item) => ({
         title: item.title,
         subtitle: item.key,
