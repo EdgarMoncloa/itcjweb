@@ -1,19 +1,26 @@
 import styled from 'styled-components';
 import { ReactNode } from 'react';
+import { colorVariant } from '../../../types/GlobalTypes';
+
+type InfoCardColorVariants = Omit<colorVariant, 'secondary'>;
 
 export interface DualContentHoverRevealProps {
   defaultSize?: boolean;
   primaryContent: ReactNode;
   secondaryContent: ReactNode;
+  colorVariant?: InfoCardColorVariants;
 }
 
 export const DualContentHoverReveal = ({
   defaultSize = false,
   primaryContent,
   secondaryContent,
+  colorVariant = 'primary',
 }: DualContentHoverRevealProps) => {
   return (
-    <StyledMainContainer className={defaultSize ? 'defaultSize' : ''}>
+    <StyledMainContainer
+      className={[defaultSize ? 'defaultSize' : '', colorVariant].join(' ')}
+    >
       <StyledPrimaryContent>{primaryContent}</StyledPrimaryContent>
       <StyledSecondaryContent>{secondaryContent}</StyledSecondaryContent>
     </StyledMainContainer>
@@ -29,10 +36,14 @@ const StyledPrimaryContent = styled.div`
   justify-content: center;
   padding: var(--size-padding-medium);
   width: 100%;
+
+  /* Variants */
+  .neutral & {
+    background-color: var(--colors-app-neutral-100);
+  }
 `;
 
 const StyledSecondaryContent = styled(StyledPrimaryContent)`
-  background-color: var(--colors-app-primary-100);
   left: 0;
   opacity: 0;
   pointer-events: none;
@@ -40,25 +51,41 @@ const StyledSecondaryContent = styled(StyledPrimaryContent)`
   top: 0;
   transition: var(--transition-normal) opacity;
   will-change: opacity;
+
+  /* Variants */
+  .primary & {
+    background-color: var(--colors-app-primary-100);
+  }
+
+  .neutral & {
+    background-color: var(--colors-app-neutral-200);
+  }
 `;
 
 const StyledMainContainer = styled.div`
-  border-radius: var(--size-border-radius-medium);
-  border: var(--size-border-small) solid var(--colors-itcj-primary);
   cursor: pointer;
   height: 100%;
-  height: var(--size-height-8-row);
   overflow: hidden;
   position: relative;
   width: 100%;
 
+  /* Pseudos */
+  &:hover ${StyledSecondaryContent} {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Variants */
   &.defaultSize {
     width: var(--size-width-8-cols);
     height: calc(var(--size-height-10-row));
   }
 
-  &:hover ${StyledSecondaryContent} {
-    opacity: 1;
-    pointer-events: all;
+  .primary & {
+    border: var(--size-border-small) solid var(--colors-itcj-primary);
+    border-radius: var(--size-border-radius-medium);
+  }
+  &.neutral {
+    border: none;
   }
 `;

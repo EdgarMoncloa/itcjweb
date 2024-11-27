@@ -36,7 +36,7 @@ export const TriadGridSliderInfoCard = ({
               <Tag
                 key={index}
                 text={tag}
-                variant='primary'
+                colorVariant='primary'
                 hasPadding={true}
                 textSize={TextTypes.overline}
               />

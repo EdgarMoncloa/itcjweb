@@ -9,13 +9,25 @@ export default {
   parameters: {
     layout: 'centered',
   },
-  args: {},
+  argTypes: {
+    colorVariant: {
+      description: 'Variante del componente',
+      control: {
+        type: 'select',
+        options: ['primary', 'neutral'],
+      },
+    },
+  },
 } as Meta<typeof DualContentHoverReveal>;
 
 export const Base: StoryObj<typeof DualContentHoverReveal> = {
-  render: () => {
+  args: {
+    colorVariant: 'neutral',
+  },
+  render: (args) => {
     return (
       <DualContentHoverReveal
+        colorVariant={args.colorVariant}
         defaultSize
         primaryContent={
           <ExampleContainer

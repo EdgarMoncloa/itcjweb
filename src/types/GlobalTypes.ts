@@ -12,3 +12,5 @@ export enum TextTypes {
   caption = 'caption',
   overline = 'overline',
 }
+
+export type colorVariant = 'primary' | 'secondary' | 'neutral';

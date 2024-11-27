@@ -29,7 +29,7 @@ export const InfoCardVertical = ({
                 <Tag
                   key={index}
                   text={tag}
-                  variant='primary'
+                  colorVariant='primary'
                   hasPadding={true}
                   textSize={TextTypes.overline}
                 />

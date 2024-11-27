@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import { StyledBody1, StyledH5, StyledH6 } from '../../../tokens/CustomText';
 
 export const StyledBlogCard = styled.a`
-  /* Layout */
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto 2fr;
@@ -10,7 +9,6 @@ export const StyledBlogCard = styled.a`
   width: 100%;
   overflow: hidden;
 
-  /* Style */
   border-radius: var(--size-border-radius-medium, 8px);
   border: var(--size-border-small, 2px) solid
     var(--colors-app-primary-700, #c11627);

@@ -14,7 +14,6 @@ export const StyledRelevantSite = styled.a`
   overflow: hidden;
   text-decoration: none;
 
-  /* Layout */
   align-items: center;
   display: flex;
   flex-shrink: 0;
