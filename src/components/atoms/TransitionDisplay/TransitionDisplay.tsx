@@ -98,21 +98,22 @@ const StyledToElementWrapper = styled.div<{
         : '0s'};
 
     &::after {
-      pointer-events: none;
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 200%;
-      height: 200%;
-      background-color: var(--colors-itcj-primary);
-      border-radius: var(--size-border-radius-full);
       animation: ${keyFramesClipPathMask} var(--transition-slow) forwards;
       animation-delay: ${(props) =>
         props.$delay && props.$delay !== 'none'
           ? `var(--delay-${props.$delay})`
           : '0s'};
+      background-color: var(--colors-itcj-primary);
+      border-radius: var(--size-border-radius-full);
+      content: '';
+      height: 200%;
+      left: 50%;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 200%;
     }
   }
 `;
