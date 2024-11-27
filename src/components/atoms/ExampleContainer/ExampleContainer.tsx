@@ -19,10 +19,12 @@ export enum ExampleContainerColors {
   Neutral500 = '--colors-app-neutral-500',
   Neutral700 = '--colors-app-neutral-700',
   Neutral900 = '--colors-app-neutral-900',
+
+  transparent = '--colors-transparent',
 }
 
 export interface ExampleContainerProps {
-  color: ExampleContainerColors;
+  color?: ExampleContainerColors;
   text?: string;
   defaultSize?: boolean;
 }
@@ -32,11 +34,20 @@ export const ExampleContainer = ({
   text = 'Example',
   defaultSize = false,
 }: ExampleContainerProps) => {
-  console.log(color);
+  let localColor = color || ExampleContainerColors.Primary300;
+  if (!color) {
+    // Get random from enum ExampleContainerColors
+    const colorKeys = Object.keys(ExampleContainerColors);
+    let index = Math.floor(Math.random() * colorKeys.length);
+    localColor =
+      ExampleContainerColors[
+        colorKeys[index] as keyof typeof ExampleContainerColors
+      ];
+  }
   return (
     <StyledExampleContainer
       as={StyledH1}
-      $color={color}
+      $color={localColor}
       className={defaultSize ? 'defaultSize' : ''}
     >
       {text}
