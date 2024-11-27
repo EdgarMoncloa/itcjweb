@@ -51,6 +51,9 @@ const StyledExampleContainer = styled.div<{ $color: ExampleContainerColors }>`
   justify-content: center;
   width: 100%;
   height: 100%;
+  word-break: break-all;
+  line-height: var(--line-height-xs);
+  overflow: hidden;
 
   &.defaultSize {
     width: 480px;
