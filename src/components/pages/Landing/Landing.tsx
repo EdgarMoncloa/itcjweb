@@ -15,17 +15,24 @@ import { news } from '../../../mocks/news';
 import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
 import { BlogCardProps } from '../../molecules/BlogCard';
 import { TriadGridSliderInfoCardProps } from '../../molecules/TriadGridSliderInfoCard';
+import {
+  PostGraduateSectionProps,
+  PostgraduateSection,
+} from '../../organisms/PostgraduateSection';
+import { postgraduatePrograms } from '../../../mocks/postgraduatePrograms';
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];
   undergraduateContent: TriadGridSliderInfoCardProps[];
   blogsContent: BlogCardProps[];
+  postgraduateContent: PostGraduateSectionProps;
 }
 
 export const LandingPage = ({
   heroContentLinks,
   undergraduateContent,
   blogsContent,
+  postgraduateContent,
 }: LandingProps) => {
   const blogCards = blogsContent.map((item) => ({
     title: item.title,
@@ -55,6 +62,9 @@ export const LandingPage = ({
           items={undergraduateContent}
         />
       </StyledBaseMaringContainer>
+      <PostgraduateSection {...postgraduateContent} />
+      <StyledTitleMargin />
+      <CustomDivider content='Servicios' />
       <TecFooter />
       <GobFooter />
     </StyledLanding>
@@ -72,4 +82,8 @@ const StyledBaseMaringContainer = styled.div`
 
 const StyledHeroGap = styled.div`
   height: var(--size-gap-small);
+`;
+
+const StyledTitleMargin = styled.div`
+  margin: var(--size-margin-large) 0;
 `;

@@ -58,7 +58,8 @@ const StyledSecondaryContent = styled(StyledPrimaryContent)`
   }
 
   .neutral & {
-    background-color: var(--colors-app-neutral-200);
+    color: var(--colors-app-text-light);
+    background-color: var(--colors-app-neutral-900);
   }
 `;
 
@@ -68,6 +69,7 @@ const StyledMainContainer = styled.div`
   overflow: hidden;
   position: relative;
   width: 100%;
+  border-radius: var(--size-border-radius-medium);
 
   /* Pseudos */
   &:hover ${StyledSecondaryContent} {
@@ -81,7 +83,7 @@ const StyledMainContainer = styled.div`
     height: calc(var(--size-height-10-row));
   }
 
-  .primary & {
+  &.primary {
     border: var(--size-border-small) solid var(--colors-itcj-primary);
     border-radius: var(--size-border-radius-medium);
   }

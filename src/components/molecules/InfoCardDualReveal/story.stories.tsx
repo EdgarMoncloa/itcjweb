@@ -1,4 +1,3 @@
-import { SiPhpmyadmin } from 'react-icons/si';
 import { Meta, StoryObj } from '@storybook/react';
 import {
   InfoCardDualReveal,
@@ -13,7 +12,15 @@ export default {
   parameters: {
     layout: 'centered',
   },
-  args: {},
+  argTypes: {
+    colorVariant: {
+      description: 'Variante del componente',
+      control: {
+        type: 'select',
+        options: ['primary', 'neutral'],
+      },
+    },
+  },
 } as Meta<typeof InfoCardDualReveal>;
 
 type MyComponentStoryProps = Omit<
@@ -26,9 +33,9 @@ type MyComponentStoryProps = Omit<
 
 export const Base: StoryObj<MyComponentStoryProps> = {
   args: {
-    title: postgraduatePrograms[0].title,
+    title: postgraduatePrograms[0].name,
     description: postgraduatePrograms[0].description,
-    tags: postgraduatePrograms[0].campus.join(','),
+    tags: postgraduatePrograms[0].campuses.join(','),
     icon: postgraduatePrograms[0].icon,
     subtitle: postgraduatePrograms[0].key,
   },

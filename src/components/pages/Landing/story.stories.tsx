@@ -3,6 +3,8 @@ import { LandingPage } from './';
 import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
 import { news } from '../../../mocks/news';
 import { TriadGridSliderInfoCardProps } from '../../molecules/TriadGridSliderInfoCard';
+import { blogsMock } from '../../../mocks/blogs';
+import { postgraduatePrograms } from '../../../mocks/postgraduatePrograms';
 
 export default {
   title: 'Pages/Landing Page',
@@ -16,44 +18,6 @@ export default {
 
 export const Base: StoryObj<typeof LandingPage> = {
   render: () => {
-    const blogContents = [
-      {
-        imgSrc: `https://storage.googleapis.com/pod_public/750/177679.jpg`,
-        title: `Imagen Alta tesgin`,
-        content: 'Este es un texto de prueba',
-      },
-      {
-        imgSrc: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJt3e_-wd8i6DJP8jA-1qq-L_DI93zynb_Eg&s`,
-        title: `Imagen Cuadrada`,
-        content: 'Este es un texto de prueba',
-      },
-      {
-        imgSrc: `https://img.freepik.com/premium-photo/bright-abstract-waves-rainbow-celebration-flow-smoothly-generated-by-ai_188544-9530.jpg?semt=ais_hybrid`,
-        title: `Imagen Ancha`,
-        content: 'Este es un texto de prueba',
-      },
-      {
-        imgSrc: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSUCTw93YX-C0tIyAHP-2iySLP2OlE9CWPgQ&s`,
-        title: `Imagen Panoramica`,
-        content: 'Este es un texto de prueba',
-      },
-      {
-        imgSrc: `https://storage.googleapis.com/pod_public/750/177679.jpg`,
-        title: `Imagen Alta 2`,
-        content: 'Este es un texto de prueba',
-      },
-      {
-        imgSrc: `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTJt3e_-wd8i6DJP8jA-1qq-L_DI93zynb_Eg&s`,
-        title: `Imagen Cuadrada 2`,
-        content: 'Este es un texto de prueba',
-      },
-      {
-        imgSrc: `https://img.freepik.com/premium-photo/bright-abstract-waves-rainbow-celebration-flow-smoothly-generated-by-ai_188544-9530.jpg?semt=ais_hybrid`,
-        title: `Imagen Ancha 2`,
-        content: 'Este es un texto de prueba',
-      },
-    ];
-
     const undergraduateItems: TriadGridSliderInfoCardProps[] =
       undergraduatePrograms.map((item) => ({
         title: item.title,
@@ -67,7 +31,11 @@ export const Base: StoryObj<typeof LandingPage> = {
       <LandingPage
         heroContentLinks={news}
         undergraduateContent={undergraduateItems}
-        blogsContent={blogContents}
+        blogsContent={blogsMock}
+        postgraduateContent={{ 
+          // title: 'Programas de postgrado',
+          postgraduatePrograms: postgraduatePrograms,
+        }}
       />
     );
   },

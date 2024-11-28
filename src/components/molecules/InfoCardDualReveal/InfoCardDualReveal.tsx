@@ -1,10 +1,13 @@
 import styled from 'styled-components';
-import { StyledBody1, StyledH4, StyledH6 } from '../../../tokens/CustomText';
+import {
+  StyledBody1,
+  StyledH4,
+  StyledH5,
+  StyledH6,
+} from '../../../tokens/CustomText';
 import { colorVariant, TextTypes } from '../../../types/GlobalTypes';
 import { Tag } from '../../atoms/Tag';
 import { DualContentHoverReveal } from '../../atoms/DualContentHoverReveal';
-
-type InfoCardColorVariants = Omit<colorVariant, 'secondary'>;
 
 export interface InfoCardDualRevealProps {
   defaultSize?: boolean;
@@ -13,7 +16,7 @@ export interface InfoCardDualRevealProps {
   tags?: string[];
   subtitle: string;
   description: string;
-  colorVariant?: colorVariant;
+  colorVariant?: 'primary' | 'neutral';
 }
 
 export const InfoCardDualReveal = ({
@@ -23,7 +26,7 @@ export const InfoCardDualReveal = ({
   tags,
   subtitle,
   description,
-  colorVariant = 'neutral',
+  colorVariant = 'primary',
 }: InfoCardDualRevealProps) => {
   return (
     <StyledInfoCardDualReveal className={defaultSize ? 'defaultSize' : ''}>
@@ -32,7 +35,7 @@ export const InfoCardDualReveal = ({
         primaryContent={
           <>
             <StyledIconWrapper>{icon}</StyledIconWrapper>
-            <StyledTitle as={StyledH4}>{title}</StyledTitle>
+            <StyledTitle as={StyledH6}>{title}</StyledTitle>
             {tags && (
               <StyledTagsContainer>
                 {tags.map((tag, index) => {
@@ -52,7 +55,7 @@ export const InfoCardDualReveal = ({
         }
         secondaryContent={
           <>
-            <StyledTitle as={StyledH4}>{subtitle}</StyledTitle>
+            <StyledSubtitle as={StyledH6}>{subtitle}</StyledSubtitle>
             <StyledDescription>{description}</StyledDescription>
           </>
         }
@@ -94,6 +97,12 @@ const StyledTitle = styled.div`
   }
   .neutral & {
     color: var(--colors-app-text-dark);
+  }
+`;
+
+const StyledSubtitle = styled(StyledTitle)`
+  .neutral & {
+    color: var(--colors-app-text-light);
   }
 `;
 
