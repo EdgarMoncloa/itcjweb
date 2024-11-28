@@ -1,8 +1,8 @@
-import styled, { useTheme } from 'styled-components';
-import { StyledH2, StyledH3 } from '../../../tokens/CustomText';
-import { ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import styled from 'styled-components';
+import { StyledH3 } from '../../../tokens/CustomText';
+import { ReactNode, useEffect, useRef, useState } from 'react';
 import { alignItemsInGrid } from '../../../utils/alignItemsInGrid';
-import { InfoCard, InfoCardProps } from '../../molecules/InfoCard';
+import { InfoCard } from '../../molecules/InfoCard';
 import {
   TriadGridSliderInfoCard,
   TriadGridSliderInfoCardProps,

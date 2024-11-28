@@ -1,7 +1,4 @@
 import styled from 'styled-components';
-import { InfoCardHorizontal } from './variants/InfoCardHorizontal';
-import { InfoCardVertical } from './variants/InfoCardVertical';
-
 export interface InfoCardProps {
   title: string;
   description?: {
@@ -16,18 +13,10 @@ export interface InfoCardProps {
   colorScheme?: 'primary' | 'primary-intercalated' | 'neutral';
 }
 
-export const InfoCard = ({
-  variant = 'horizontal',
-  ...props
-}: InfoCardProps) => {
+export const InfoCard = ({ variant = 'blank', ...props }: InfoCardProps) => {
   let element: React.ReactNode;
 
   switch (variant) {
-    case 'horizontal':
-      return <InfoCardHorizontal {...props} />;
-    case 'vertical':
-      return <InfoCardVertical {...props} />;
-
     case 'blank':
       return (
         <StyledMainWrapper className={props.defaultSize ? 'defaultSize' : ''}>

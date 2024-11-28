@@ -10,16 +10,12 @@ import { ContentLinkProps } from '../../atoms/ContentLink';
 import { TecFooter } from '../../molecules/TecFooter';
 import { GobFooter } from '../../molecules/GobFooter';
 import { UndergraduateSection } from '../../organisms/UnderGraduateSection';
-import { InfoCardProps } from '../../molecules/InfoCard';
-import { news } from '../../../mocks/news';
-import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
 import { BlogCardProps } from '../../molecules/BlogCard';
 import { TriadGridSliderInfoCardProps } from '../../molecules/TriadGridSliderInfoCard';
 import {
   PostGraduateSectionProps,
   PostgraduateSection,
 } from '../../organisms/PostgraduateSection';
-import { postgraduatePrograms } from '../../../mocks/postgraduatePrograms';
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];

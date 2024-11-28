@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
 import { InfoCardDualReveal } from '../../molecules/InfoCardDualReveal';
 import styled from 'styled-components';
-import { StyledH1, StyledH2 } from '../../../tokens/CustomText';
+import { StyledH2 } from '../../../tokens/CustomText';
 
 export interface PostgraduateItemProps {
   name: string;
@@ -44,12 +44,12 @@ export const PostgraduateSection = ({
 };
 
 const StyledMainContainer = styled.div`
-  padding: var(--size-padding-large) var(--size-gutter);
+  padding: var(--size-padding-large) var(--size-margin-xl);
   background-color: var(--colors-itcj-primary);
   display: flex;
   flex-direction: column;
   gap: var(--size-gap-medium);
-  height: var(--size-height-13-row);
+  height: var(--size-height-14-row);
 `;
 
 const StyledTitle = styled(StyledH2)`

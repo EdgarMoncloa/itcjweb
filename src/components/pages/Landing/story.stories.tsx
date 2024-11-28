@@ -7,7 +7,7 @@ import { blogsMock } from '../../../mocks/blogs';
 import { postgraduatePrograms } from '../../../mocks/postgraduatePrograms';
 
 export default {
-  title: 'Pages/Landing Page',
+  title: 'Pages/LandingPage',
   component: LandingPage,
   tags: ['autodocs'],
   parameters: {
