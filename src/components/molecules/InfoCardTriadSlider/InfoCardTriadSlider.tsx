@@ -3,21 +3,21 @@ import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
 import { TextTypes } from '../../../types/GlobalTypes';
 import { Tag } from '../../atoms/Tag';
 import {
-  InteractiveTriadGrid,
-  InteractiveTriadGridSize,
-} from '../../atoms/InteractiveTriadGrid';
+  TriadContentHoverSlider,
+  TriadContentHoverSliderSize,
+} from '../../atoms/TriadContentHoverSlider';
 
-export interface TriadGridSliderInfoCardProps {
+export interface InfoCardTrialSliderProps {
   title: string;
   subtitle: string;
   description: string;
   tags?: string[];
   icon?: React.ReactNode;
   defaultSize?: boolean;
-  gridSize?: InteractiveTriadGridSize;
+  gridSize?: TriadContentHoverSliderSize;
 }
 
-export const TriadGridSliderInfoCard = ({
+export const InfoCardTrialSlider = ({
   title,
   subtitle,
   description,
@@ -25,7 +25,7 @@ export const TriadGridSliderInfoCard = ({
   icon,
   defaultSize,
   gridSize = '2-1-2',
-}: TriadGridSliderInfoCardProps) => {
+}: InfoCardTrialSliderProps) => {
   const primaryContent = (
     <StyledPrimaryContent>
       <StyledTitle as={StyledH6}>{title}</StyledTitle>
@@ -58,7 +58,7 @@ export const TriadGridSliderInfoCard = ({
 
   return (
     <StyledGridSliderInfoCard className={defaultSize ? 'default-size' : ''}>
-      <InteractiveTriadGrid
+      <TriadContentHoverSlider
         primaryContent={primaryContent}
         secondaryContent={secondaryContent}
         tertiaryContent={tertiaryContent}

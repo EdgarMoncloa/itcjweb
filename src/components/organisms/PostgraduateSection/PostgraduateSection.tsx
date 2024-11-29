@@ -44,12 +44,13 @@ export const PostgraduateSection = ({
 };
 
 const StyledMainContainer = styled.div`
-  padding: var(--size-padding-large) var(--size-margin-xl);
+  padding: var(--size-padding-large) var(--size-margin-body);
   background-color: var(--colors-itcj-primary);
   display: flex;
   flex-direction: column;
   gap: var(--size-gap-medium);
   height: var(--size-height-14-row);
+  overflow: hidden;
 `;
 
 const StyledTitle = styled(StyledH2)`

@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 
-export type InteractiveTriadGridSize = '1-1-1' | '2-1-2';
-export interface InteractiveTriadGridProps {
+export type TriadContentHoverSliderSize = '1-1-1' | '2-1-2';
+export interface TriadContentHoverSliderProps {
   defaultSize?: boolean;
   primaryContent: React.ReactNode;
   secondaryContent: React.ReactNode;
   tertiaryContent?: React.ReactNode;
-  gridSize?: InteractiveTriadGridSize;
+  gridSize?: TriadContentHoverSliderSize;
 }
 
-export const InteractiveTriadGrid = ({
+export const TriadContentHoverSlider = ({
   defaultSize,
   primaryContent,
   secondaryContent,
   tertiaryContent,
   gridSize = '1-1-1',
-}: InteractiveTriadGridProps) => {
+}: TriadContentHoverSliderProps) => {
   let gridClassName = `grid-${gridSize}`;
   return (
     <StyledMainWrapper

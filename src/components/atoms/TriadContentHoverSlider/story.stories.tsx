@@ -1,15 +1,15 @@
 import styled from 'styled-components';
 import {
-  InteractiveTriadGrid,
-  InteractiveTriadGridProps,
-  InteractiveTriadGridSize,
-} from './InteractiveTriadGrid';
+  TriadContentHoverSlider,
+  TriadContentHoverSliderProps,
+  TriadContentHoverSliderSize,
+} from './TriadContentHoverSlider';
 import { ExampleContainer, ExampleContainerColors } from '../ExampleContainer';
 import { Meta, StoryObj } from '@storybook/react';
 
 export default {
-  title: 'Atoms/InteractiveTriadGrid',
-  component: InteractiveTriadGrid,
+  title: 'Atoms/TriadContentHoverSlider',
+  component: TriadContentHoverSlider,
   tags: ['autodocs'],
   argTypes: {
     gridSize: {
@@ -57,10 +57,10 @@ export default {
 } as Meta;
 
 type MyComponentStoryProps = Omit<
-  InteractiveTriadGridProps,
+  TriadContentHoverSliderProps,
   'primaryContent' & 'secondaryContent' & 'tertiaryContent'
 > & {
-  gridSize: InteractiveTriadGridSize;
+  gridSize: TriadContentHoverSliderSize;
   primaryContent: string;
   secondaryContent: string;
   tertiaryContent: string;
@@ -77,7 +77,7 @@ export const Default: Story = {
   },
   render: (args) => {
     return (
-      <InteractiveTriadGrid
+      <TriadContentHoverSlider
         {...args}
         defaultSize
         primaryContent={

@@ -11,7 +11,7 @@ import { TecFooter } from '../../molecules/TecFooter';
 import { GobFooter } from '../../molecules/GobFooter';
 import { UndergraduateSection } from '../../organisms/UnderGraduateSection';
 import { BlogCardProps } from '../../molecules/BlogCard';
-import { TriadGridSliderInfoCardProps } from '../../molecules/TriadGridSliderInfoCard';
+import { InfoCardTrialSliderProps } from '../../molecules/InfoCardTriadSlider';
 import {
   PostGraduateSectionProps,
   PostgraduateSection,
@@ -19,7 +19,7 @@ import {
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];
-  undergraduateContent: TriadGridSliderInfoCardProps[];
+  undergraduateContent: InfoCardTrialSliderProps[];
   blogsContent: BlogCardProps[];
   postgraduateContent: PostGraduateSectionProps;
 }
@@ -43,7 +43,9 @@ export const LandingPage = ({
       <TecHeader />
       <CustomDivider />
       <StyledHeroGap />
-      <HeroSection contentLikItems={heroContentLinks} />
+      <StyledHeroWrapper>
+        <HeroSection contentLikItems={heroContentLinks} />
+      </StyledHeroWrapper>
       <StyledBaseMaringContainer>
         <RelevantSites />
       </StyledBaseMaringContainer>
@@ -69,11 +71,16 @@ export const LandingPage = ({
 
 const StyledLanding = styled.div``;
 
+const StyledHeroWrapper = styled.div`
+  @media (min-width: ${(props) => props.theme.breakpoints.extraLargeDesktop}) {
+  }
+`;
+
 const StyledBaseMaringContainer = styled.div`
   /* display: flex; */
   /* gap: var(--size-gap-medium); */
   /* flex-direction: column; */
-  margin: var(--size-margin-large) var(--size-margin-xl);
+  margin: var(--size-margin-large) var(--size-margin-body);
 `;
 
 const StyledHeroGap = styled.div`

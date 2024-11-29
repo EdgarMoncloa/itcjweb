@@ -27,6 +27,7 @@ const StyledLogosHeader = styled.div`
   justify-content: center;
   align-items: center;
   gap: 32px;
+  overflow: hidden;
   height: var(--size-height-2-row);
 `;
 

@@ -1,14 +1,8 @@
-import { MdNavigateNext } from 'react-icons/md';
-import { GrCaretNext } from 'react-icons/gr';
 import { BlogCard, BlogCardProps } from '../../molecules/BlogCard';
 import { useEffect, useRef, useState } from 'react';
-import {
-  StyledBlogsSection,
-  StyledBlogCardsContainer,
-  StyledBlogCardWrapper,
-} from './styles';
 import { SlideCover } from '../../atoms/SlideCover';
 import { NextArrow } from '../../atoms/NextArrow';
+import styled from 'styled-components';
 
 // TODO EN EL PRIMER RENDER NO SE ESTA RENDERIZANDO PORQUE EL TAMANO ES 0
 
@@ -71,7 +65,7 @@ export const BlogsSection = ({ blogCards }: BlogsSectionProps) => {
           });
         });
 
-        setVisibleCount(localVisibleItems);
+        setVisibleCount(localVisibleItems > 0 ? localVisibleItems : 1);
       }
     }
   };
@@ -128,7 +122,6 @@ export const BlogsSection = ({ blogCards }: BlogsSectionProps) => {
                 title={item.title}
                 imgSrc={item.imgSrc}
                 content={item.content}
-                height='300px'
               />
             </StyledBlogCardWrapper>
           ))}
@@ -153,3 +146,37 @@ export const BlogsSection = ({ blogCards }: BlogsSectionProps) => {
     </StyledBlogsSection>
   );
 };
+
+const StyledBlogsSection = styled.div`
+  display: grid;
+  grid-template-columns: var(--size-width-1-cols) 14fr var(--size-width-1-cols);
+  width: calc(100%);
+  overflow: hidden;
+  height: var(--size-height-10-row);
+  gap: var(--size-gap-small);
+`;
+
+const StyledBlogCardsContainer = styled.div`
+  align-items: center;
+  display: grid;
+  grid-auto-columns: var(--size-width-4-cols);
+  grid-auto-flow: column;
+  grid-template-rows: 100%;
+  height: 100%;
+  justify-items: center;
+  overflow: hidden;
+  justify-content: space-evenly;
+  position: relative;
+`;
+
+const StyledBlogCardWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.4s ease-in-out;
+
+  & > * {
+    margin: auto;
+    height: 100%;
+    width: 90%;
+  }
+`;

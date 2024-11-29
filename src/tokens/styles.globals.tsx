@@ -7,6 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
+  /* SECTION HTML\BODY */
   html,
   body {
     -webkit-font-smoothing: antialiased;
@@ -31,11 +32,27 @@ export const GlobalStyle = createGlobalStyle`
     -webkit-text-size-adjust: 100%;
     tab-size: 4;
     font-feature-settings: normal;
-  }
+    font-size: 16px;
 
+    @media (min-width: ${(props) => props.theme.breakpoints.mobile}) {
+      font-size: 16px;
+    }
+    @media (min-width: ${(props) => props.theme.breakpoints.fullHDDesktop}) {
+      font-size: 18px;
+    }
+    @media (min-width: ${(props) => props.theme.breakpoints.twoKDesktop}) {
+      font-size: 24px;
+    }
+    @media (min-width: ${(props) => props.theme.breakpoints.fourKDesktop}) {
+      font-size: 36px;
+    } 
+  }
+  /* !SECTION HTML\BODY */
+
+  /* SECTION ROOT */
   :root {
-  /* Mode 1 */
-  /* colors */
+  /* SECTION COLORS */
+  /* ANCHOR Base colors */
   --colors-app-accent: var(--colors-app-secondary-700);
   --colors-app-background: var(--colors-app-neutral-50);
   --colors-app-text-dark: var(--colors-app-neutral-900);
@@ -89,116 +106,138 @@ export const GlobalStyle = createGlobalStyle`
   
   --colors-transparent-itcj-primary: #c11627A0;
   --colors-transparent: #00000000;
-
-  /* SIZES */
-   /* Font Sizes */
-  --font-size-overline: 10px;
-  --font-size-body3: 12px;
-  --font-size-body2: 14px;
-  --font-size-body1: 16px;
-  --font-size-h6: 20px;
-  --font-size-h5: 24px;
-  --font-size-h4: 28px;
-  --font-size-h3: 32px;
-  --font-size-h2: 40px;
-  --font-size-h1: 48px;
   
-  /* Border Sizes */
-  --size-border-xs: 1px;
-  --size-border-small: 2px;
-  --size-border-medium: 4px;
-  --size-border-large: 6px;
-  --size-border-xl: 8px;
-
-  --size-border-radius-small: 4px;
-  --size-border-radius-medium: 8px;
-  --size-border-radius-large: 16px;
-  --size-border-radius-full: 50%;
-
-  /* Heights */
-  --size-height-xs: 16px;
-  --size-height-small: 24px;
-  --size-height-medium: 32px;
-  --size-height-large: 40px;
-  --size-height-xl: 48px;
-
-  --size-height-1-row: 32px;
-  --size-height-2-row: 72px;
-  --size-height-3-row: 112px;
-  --size-height-4-row: 152px;
-  --size-height-5-row: 192px;
-  --size-height-6-row: 232px;
-  --size-height-7-row: 272px;
-  --size-height-8-row: 312px;
-  --size-height-9-row: 352px;
-  --size-height-10-row: 392px;
-  --size-height-11-row: 432px;
-  --size-height-12-row: 472px;
-  --size-height-13-row: 512px;
-  --size-height-14-row: 552px;
-  --size-height-15-row: 592px;
-  --size-height-16-row: 632px;
-
-  /* Icons */
-  --size-icon-xs: 4px;
-  --size-icon-small: 8px;
-  --size-icon-medium: 16px;
-  --size-icon-large: 24px;
-  --size-icon-xl: 32px;
-  --size-icon-2xl: 48px;
-  --size-icon-3xl: 64px;
-  --size-icon-4xl: 96px ;
-  
-  /* Padding */
-  --size-padding-2xs: 2px;
-  --size-padding-xs: 4px;
-  --size-padding-small: 8px;
-  --size-padding-medium: 16px;
-  --size-padding-large: 32px;
-  --size-padding-xl: 64px;
-
-  /* Margins (similar a padding) */
-  --size-margin-xs: 4px;
-  --size-margin-small: 8px;
-  --size-margin-medium: 16px;
-  --size-margin-large: 32px;
-  --size-margin-xl: 64px;
-
-  --size-gutter:16px;
-
-  --size-width-1-cols: 64px;
-  --size-width-2-cols: 144px;
-  --size-width-3-cols: 224px;
-  --size-width-4-cols: 304px;
-  --size-width-5-cols: 384px;
-  --size-width-6-cols: 464px;
-  --size-width-7-cols: 544px;
-  --size-width-8-cols: 624px;
-  --size-width-9-cols: 704px;
-  --size-width-10-cols: 784px;
-  --size-width-11-cols: 864px;
-  --size-width-12-cols: 944px;
-  --size-width-13-cols: 1024px;
-  --size-width-14-cols: 1104px;
-  --size-width-15-cols: 1184px;
-  --size-width-16-cols: 1264px;
-
-  /* Gaps (useful for grid/flex layouts) */
-  --size-gap-2xs: 2px;
-  --size-gap-xs: 4px;
-  --size-gap-small: 8px;
-  --size-gap-medium: 16px;
-  --size-gap-large: 32px;
-  --size-gap-xl: 48px;
-  --size-gap-2xl: 64px;
-
-  /* Shadows */
+  /* ANCHOR Shadows */
   --shadow-primary: 4px 4px 4px rgba(0, 0, 0, 0.4);
   --shadow-light: 2px 2px 4px rgba(0, 0, 0, 0.1);
   --shadow-heavy: 8px 8px 16px rgba(0, 0, 0, 0.6);
+    /* !SECTION COLORS */
 
-  /* TIMES */
-  /* Transitions */
+  /* SECTION SIZES */
+  /* ANCHOR Font */
+
+  --font-size-overline: 0.625em;  /* 10px / 16px */
+  --font-size-body3: 0.75em;      /* 12px / 16px */
+  --font-size-body2: 0.875em;     /* 14px / 16px */
+  --font-size-body1: 1em;         /* 16px / 16px */
+  --font-size-h6: 1.25em;         /* 20px / 16px */
+  --font-size-h5: 1.5em;          /* 24px / 16px */
+  --font-size-h4: 1.75em;         /* 28px / 16px */
+  --font-size-h3: 2em;            /* 32px / 16px */
+  --font-size-h2: 2.5em;          /* 40px / 16px */
+  --font-size-h1: 3em;            /* 48px / 16px */
+  
+
+  
+  /* ANCHOR Border */
+  --size-border-xs: 0.0625rem;    /* 1px / 16px = 0.0625rem */
+  --size-border-small: 0.125rem;  /* 2px / 16px = 0.125rem */
+  --size-border-medium: 0.25rem;  /* 4px / 16px = 0.25rem */
+  --size-border-large: 0.375rem;  /* 6px / 16px = 0.375rem */
+  --size-border-xl: 0.5rem;       /* 8px / 16px = 0.5rem */
+
+
+  --size-border-radius-small: 0.25rem;   /* 4px / 16px = 0.25rem */
+  --size-border-radius-medium: 0.5rem;   /* 8px / 16px = 0.5rem */
+  --size-border-radius-large: 1rem;      /* 16px / 16px = 1rem */
+  --size-border-radius-full: 50%;        
+
+
+  /* ANCHOR Heights */
+  --size-height-xs: 1em;             /* 16px / 16px */
+  --size-height-small: 1.5em;        /* 24px / 16px */
+  --size-height-medium: 2em;         /* 32px / 16px */
+  --size-height-large: 2.5em;        /* 40px / 16px */
+  --size-height-xl: 3em;             /* 48px / 16px */
+
+  --size-height-1-row: 2em;          /* 32px / 16px */
+  --size-height-2-row: 4.5em;        /* 72px / 16px */
+  --size-height-3-row: 7em;          /* 112px / 16px */
+  --size-height-4-row: 9.5em;        /* 152px / 16px */
+  --size-height-5-row: 12em;         /* 192px / 16px */
+  --size-height-6-row: 14.5em;       /* 232px / 16px */
+  --size-height-7-row: 17em;         /* 272px / 16px */
+  --size-height-8-row: 19.5em;       /* 312px / 16px */
+  --size-height-9-row: 22em;         /* 352px / 16px */
+  --size-height-10-row: 24.5em;      /* 392px / 16px */
+  --size-height-11-row: 27em;        /* 432px / 16px */
+  --size-height-12-row: 29.5em;      /* 472px / 16px */
+  --size-height-13-row: 32em;        /* 512px / 16px */
+  --size-height-14-row: 34.5em;      /* 552px / 16px */
+  --size-height-15-row: 37em;        /* 592px / 16px */
+  --size-height-16-row: 39.5em;      /* 632px / 16px */
+
+    /* ANCHOR Icons */
+  --size-icon-xs: 0.25rem;      /* 4px / 16px = 0.25rem */
+  --size-icon-small: 0.5rem;    /* 8px / 16px = 0.5rem */
+  --size-icon-medium: 1rem;     /* 16px / 16px = 1rem */
+  --size-icon-large: 1.5rem;    /* 24px / 16px = 1.5rem */
+  --size-icon-xl: 2rem;         /* 32px / 16px = 2rem */
+  --size-icon-2xl: 3rem;        /* 48px / 16px = 3rem */
+  --size-icon-3xl: 4rem;        /* 64px / 16px = 4rem */
+  --size-icon-4xl: 6rem;        /* 96px / 16px = 6rem */
+
+  
+  /* ANCHOR Padding */
+  --size-padding-2xs: 0.125em;  /* 2px / 16px */
+  --size-padding-xs: 0.25em;    /* 4px / 16px */
+  --size-padding-small: 0.5em;  /* 8px / 16px */
+  --size-padding-medium: 1em;   /* 16px / 16px */
+  --size-padding-large: 2em;    /* 32px / 16px */
+  --size-padding-xl: 4em;       /* 64px / 16px */
+
+  /* SECTION Margins */
+  /* ANCHOR Base margins */
+  --size-margin-xs: 0.25em;     /* 4px / 16px */
+  --size-margin-small: 0.5em;   /* 8px / 16px */
+  --size-margin-medium: 1em;    /* 16px / 16px */
+  --size-margin-large: 2em;     /* 32px / 16px */
+  --size-margin-xl: 4em;        /* 64px / 16px */
+
+  /* ANCHOR Gutter */
+  --size-gutter:16px;
+
+  /* ANCHOR Margin body */
+  --size-margin-body: 4em;  /* 16px / 16px */
+
+  --size-width-1-cols: 4em;        /* 64px / 16px */
+  --size-width-2-cols: 9em;        /* 144px / 16px */
+  --size-width-3-cols: 14em;       /* 224px / 16px */
+  --size-width-4-cols: 19em;       /* 304px / 16px */
+  --size-width-5-cols: 24em;       /* 384px / 16px */
+  --size-width-6-cols: 29em;       /* 464px / 16px */
+  --size-width-7-cols: 34em;       /* 544px / 16px */
+  --size-width-8-cols: 39em;       /* 624px / 16px */
+  --size-width-9-cols: 44em;       /* 704px / 16px */
+  --size-width-10-cols: 49em;      /* 784px / 16px */
+  --size-width-11-cols: 54em;      /* 864px / 16px */
+  --size-width-12-cols: 59em;      /* 944px / 16px */
+  --size-width-13-cols: 64em;      /* 1024px / 16px */
+  --size-width-14-cols: 69em;      /* 1104px / 16px */
+  --size-width-15-cols: 74em;      /* 1184px / 16px */
+  --size-width-16-cols: 79em;      /* 1264px / 16px */
+  /* !SECTION Margins */
+  
+  /* ANCHOR Gaps */
+  --size-gap-2xs: 0.125em;   /* 2px / 16px */
+  --size-gap-xs: 0.25em;     /* 4px / 16px */
+  --size-gap-small: 0.5em;   /* 8px / 16px */
+  --size-gap-medium: 1em;    /* 16px / 16px */
+  --size-gap-large: 2em;     /* 32px / 16px */
+  --size-gap-xl: 3em;        /* 48px / 16px */
+  --size-gap-2xl: 4em;       /* 64px / 16px */
+  
+  /* ANCHOR line-height */
+  --line-height-xs: 1;
+  --line-height-small: 1.2;
+  --line-height-medium: 1.5;
+  --line-height-large: 1.75;
+  
+  /* !SECTION SIZES */
+
+
+  /* SECTION TIMES */
+  /* ANCHOR Transitions */
   /* These transition values must be the same as the ones in AppConfigStoreProvider */
   --transition-very-fast: 0.1s ease-in-out;
   --transition-fast: 0.2s ease-in-out;
@@ -206,13 +245,14 @@ export const GlobalStyle = createGlobalStyle`
   --transition-slow: 0.6s ease-in-out;
   --transition-very-slow: 1s ease-in-out;
 
-  /* Delays */
+  /* ANCHOR Delays */
   --delay-very-fast: 0.1s;
   --delay-fast: 0.2s;
   --delay-normal: 0.4s;
-  --delay-slow: 0.6s;
+  --delay-slow: 0.6s;  
+  /* !SECTION TIMES */
 
-  /* z-index */
+  /* ANCHOR z-index */
   --z-index-background-lowest: -5;
   --z-index-background-lower: -4;
   --z-index-background-middle: -3;
@@ -230,11 +270,6 @@ export const GlobalStyle = createGlobalStyle`
   --z-index-fullscreen: 1300;
 
 
-  /* line-height */
-  --line-height-xs: 1;
-  --line-height-small: 1.2;
-  --line-height-medium: 1.5;
-  --line-height-large: 1.75;
-
 }
 `;
+/* !SECTION ROOT */

@@ -17,11 +17,12 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Base: Story = {
+export const Default: Story = {
   args: {
     imgSrc: 'https://picsum.photos/200/300',
     title: 'Este es un titulo',
     content: `Este es un texto de prueba para ver como funciona el contenido. Contenido de la card: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Contenido de la card: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut et massa mi. Aliquam in hendrerit urna.`,
     // url: "http://cdjuarez.tecnm.mx",
   },
+  render: (args) => <BlogCard {...args} defaultSize />,
 };

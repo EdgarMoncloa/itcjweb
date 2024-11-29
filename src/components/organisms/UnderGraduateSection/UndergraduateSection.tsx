@@ -4,13 +4,13 @@ import { ReactNode, useEffect, useRef, useState } from 'react';
 import { alignItemsInGrid } from '../../../utils/alignItemsInGrid';
 import { InfoCard } from '../../molecules/InfoCard';
 import {
-  TriadGridSliderInfoCard,
-  TriadGridSliderInfoCardProps,
-} from '../../molecules/TriadGridSliderInfoCard/TriadGridSliderInfoCard';
+  InfoCardTrialSlider,
+  InfoCardTrialSliderProps,
+} from '../../molecules/InfoCardTriadSlider/InfoCardTriadSlider';
 
 export interface UndergraduateSectionProps {
   title: string;
-  items: TriadGridSliderInfoCardProps[];
+  items: InfoCardTrialSliderProps[];
   blankItem?: ReactNode;
   lastRowAlign?: 'left' | 'center' | 'right';
 }
@@ -23,14 +23,12 @@ export const UndergraduateSection = ({
   const itemsContainer = useRef<HTMLDivElement>(null);
 
   const baseUndergraduateCards = items.map((item, index) => (
-    <TriadGridSliderInfoCard key={index} {...item} />
+    <InfoCardTrialSlider key={index} {...item} />
   ));
   const [undergraduateCards, setUndergraduateCards] = useState<ReactNode[]>(
     baseUndergraduateCards
   );
-  const [itemsColumns, setItemsColumns] = useState<number>(4);
-
-  const lastRowItems = items.length % itemsColumns;
+  const [itemsColumns, setItemsColumns] = useState<number>(0);
 
   const handleResize = () => {
     if (itemsContainer.current) {
@@ -53,7 +51,7 @@ export const UndergraduateSection = ({
       setUndergraduateCards(
         alignItemsInGrid({
           items: baseUndergraduateCards,
-          lastRowItems,
+          lastRowItems: items.length % itemsColumns,
           columns: columnCount,
           blankItem: <InfoCard variant='blank' title='' />,
           lastRowAlign: 'center',
@@ -63,6 +61,7 @@ export const UndergraduateSection = ({
   };
 
   useEffect(() => {
+    handleResize();
     window.addEventListener('resize', handleResize);
 
     return () => {
@@ -109,10 +108,10 @@ const StyledItemsContainer = styled.div`
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.largeDesktop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.desktopLarge}) {
     grid-template-columns: repeat(4, 1fr);
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.extraLargeDesktop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.fourKDesktop}) {
     grid-template-columns: repeat(5, 1fr);
   }
 `;

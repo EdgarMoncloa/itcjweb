@@ -1,10 +1,10 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { TriadGridSliderInfoCard } from './TriadGridSliderInfoCard';
+import { InfoCardTrialSlider } from './InfoCardTriadSlider';
 import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
 
 const meta: Meta = {
-  title: 'Molecules/TriadGridSliderInfoCard',
-  component: TriadGridSliderInfoCard,
+  title: 'Molecules/InfoCardTrialSlider',
+  component: InfoCardTrialSlider,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
@@ -28,6 +28,6 @@ export const Default: StoryObj<MyComponentStoryProps> = {
       icon: undergraduatePrograms[0].icon,
     };
 
-    return <TriadGridSliderInfoCard {...undergraduateData} defaultSize />;
+    return <InfoCardTrialSlider {...undergraduateData} defaultSize />;
   },
 };

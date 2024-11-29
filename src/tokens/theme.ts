@@ -4,8 +4,11 @@ export const theme = {
     tablet: '720px',
     laptop: '1024px',
     desktop: '1280px',
-    largeDesktop: '1440px',
+    desktopLarge: '1440px',
     extraLargeDesktop: '1600px',
-    ultraWideDesktop: '1920px',
+    fullHDDesktop: '1920px',
+    twoKDesktop: '2560px',
+    fourKDesktop: '3840px',
+    eightKDesktop: '7680px',
   },
 };

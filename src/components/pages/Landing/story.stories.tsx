@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { LandingPage } from './';
 import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
 import { news } from '../../../mocks/news';
-import { TriadGridSliderInfoCardProps } from '../../molecules/TriadGridSliderInfoCard';
+import { InfoCardTrialSliderProps } from '../../molecules/InfoCardTriadSlider';
 import { blogsMock } from '../../../mocks/blogs';
 import { postgraduatePrograms } from '../../../mocks/postgraduatePrograms';
 
@@ -18,7 +18,7 @@ export default {
 
 export const Base: StoryObj<typeof LandingPage> = {
   render: () => {
-    const undergraduateItems: TriadGridSliderInfoCardProps[] =
+    const undergraduateItems: InfoCardTrialSliderProps[] =
       undergraduatePrograms.map((item) => ({
         title: item.title,
         subtitle: item.key,

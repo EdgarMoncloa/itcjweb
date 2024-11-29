@@ -1,11 +1,6 @@
 import styled from 'styled-components';
-import {
-  StyledBody1,
-  StyledH4,
-  StyledH5,
-  StyledH6,
-} from '../../../tokens/CustomText';
-import { colorVariant, TextTypes } from '../../../types/GlobalTypes';
+import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
+import { TextTypes } from '../../../types/GlobalTypes';
 import { Tag } from '../../atoms/Tag';
 import { DualContentHoverReveal } from '../../atoms/DualContentHoverReveal';
 
