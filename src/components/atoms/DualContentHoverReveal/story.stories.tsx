@@ -32,13 +32,13 @@ export const Base: StoryObj<typeof DualContentHoverReveal> = {
         primaryContent={
           <ExampleContainer
             color={ExampleContainerColors.transparent}
-            text='Primary Content'
+            children='Primary Content'
           />
         }
         secondaryContent={
           <ExampleContainer
             color={ExampleContainerColors.transparent}
-            text='Secondary Content'
+            children='Secondary Content'
           />
         }
       />

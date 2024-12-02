@@ -83,19 +83,19 @@ export const Default: Story = {
         primaryContent={
           <ExampleContainer
             color={ExampleContainerColors.Primary100}
-            text={args.primaryContent}
+            children={args.primaryContent}
           />
         }
         secondaryContent={
           <ExampleContainer
             color={ExampleContainerColors.Primary500}
-            text={args.secondaryContent}
+            children={args.secondaryContent}
           />
         }
         tertiaryContent={
           <ExampleContainer
             color={ExampleContainerColors.Primary700}
-            text={args.tertiaryContent}
+            children={args.tertiaryContent}
           />
         }
       />

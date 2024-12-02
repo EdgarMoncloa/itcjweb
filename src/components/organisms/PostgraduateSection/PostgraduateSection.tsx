@@ -61,21 +61,19 @@ const StyledTitle = styled(StyledH2)`
 const StyledPostGraduateContainer = styled.div`
   height: 100%;
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  grid-template-rows: var(--size-height-10-row);
+  grid-template-columns: 1fr;
+  grid-auto-rows: var(--size-height-10-row);
   gap: var(--size-gap-medium);
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
-    grid-template-rows: var(--size-height-9-row) var(--size-height-9-row);
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    grid-template-rows: repeat(2, var(--size-height-10-row));
     grid-template-columns: 1fr 1fr;
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.laptop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: var(--size-height-8-row);
   }
-  @media (max-width: ${(props) => props.theme.breakpoints.extraLargeDesktop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.desktopLarge}) {
     grid-template-rows: var(--size-height-12-row);
-  }
-  @media (max-width: ${(props) => props.theme.breakpoints.fullHDDesktop}) {
-    grid-template-rows: var(--size-height-14-row);
   }
 `;

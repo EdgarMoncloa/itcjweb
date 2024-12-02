@@ -34,7 +34,7 @@ type MyComponentStoryProps = Omit<ExampleContainerProps, 'color'> & {
 export const Default: StoryObj<MyComponentStoryProps> = {
   args: {
     color: 'Primary100',
-    text: 'Example',
+    children: 'Example',
   },
   render: (args) => {
     const colorValue =

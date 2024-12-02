@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import { StyledH1 } from '../../../tokens/CustomText';
+import { getStyledTextByName, StyledH1 } from '../../../tokens/CustomText';
+import { ReactNode } from 'react';
+import { TextTypes } from '../../../types/GlobalTypes';
 
 export enum ExampleContainerColors {
   Primary100 = '--colors-app-primary-100',
@@ -25,14 +27,16 @@ export enum ExampleContainerColors {
 
 export interface ExampleContainerProps {
   color?: ExampleContainerColors;
-  text?: string;
   defaultSize?: boolean;
+  children?: ReactNode;
+  textType?: TextTypes;
 }
 
 export const ExampleContainer = ({
   color,
-  text = 'Example',
+  children,
   defaultSize = false,
+  textType = TextTypes.H1,
 }: ExampleContainerProps) => {
   let localColor = color || ExampleContainerColors.Primary300;
   if (!color) {
@@ -44,13 +48,14 @@ export const ExampleContainer = ({
         colorKeys[index] as keyof typeof ExampleContainerColors
       ];
   }
+  const StyledText = getStyledTextByName(textType);
   return (
     <StyledExampleContainer
-      as={StyledH1}
+      as={StyledText}
       $color={localColor}
       className={defaultSize ? 'defaultSize' : ''}
     >
-      {text}
+      {children}
     </StyledExampleContainer>
   );
 };
