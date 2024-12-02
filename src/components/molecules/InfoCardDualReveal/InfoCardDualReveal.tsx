@@ -3,6 +3,7 @@ import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
 import { TextTypes } from '../../../types/GlobalTypes';
 import { Tag } from '../../atoms/Tag';
 import { DualContentHoverReveal } from '../../atoms/DualContentHoverReveal';
+import { Icon } from '../../atoms/Icon/Icon';
 
 export interface InfoCardDualRevealProps {
   defaultSize?: boolean;
@@ -29,7 +30,7 @@ export const InfoCardDualReveal = ({
         colorVariant={colorVariant}
         primaryContent={
           <>
-            <StyledIconWrapper>{icon}</StyledIconWrapper>
+            <Icon icon={icon} size={'4xl'} colorVariant={colorVariant} />
             <StyledTitle as={StyledH6}>{title}</StyledTitle>
             {tags && (
               <StyledTagsContainer>
@@ -63,23 +64,6 @@ const StyledInfoCardDualReveal = styled.div`
   &.defaultSize {
     width: var(--size-width-4-cols);
     height: calc(var(--size-height-10-row));
-  }
-`;
-
-const StyledIconWrapper = styled.div`
-  align-items: center;
-  display: flex;
-  font-size: var(--size-icon-4xl);
-  height: var(--size-icon-4xl);
-  justify-content: center;
-  width: var(--size-icon-4xl);
-
-  /* Variants */
-  .primary & {
-    color: var(--colors-app-primary-700);
-  }
-  .neutral & {
-    color: var(--colors-app-text-dark);
   }
 `;
 

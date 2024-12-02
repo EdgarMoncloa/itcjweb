@@ -14,3 +14,13 @@ export enum TextTypes {
 }
 
 export type colorVariant = 'primary' | 'secondary' | 'neutral';
+
+export type IconSize =
+  | 'xs'
+  | 'small'
+  | 'medium'
+  | 'large'
+  | 'xl'
+  | '2xl'
+  | '3xl'
+  | '4xl';

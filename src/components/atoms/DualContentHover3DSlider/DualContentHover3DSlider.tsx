@@ -48,15 +48,15 @@ const StyledContentContainer = styled.div`
   width: 100%;
   height: 100%;
   transition: color var(--transition-fast);
-  transition-delay: calc(var(--delay-fast) + var(--delay-very-fast));
-  padding: var(--size-padding-medium);
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 const StyledLeftContainer = styled(StyledContentContainer)`
+  transition-delay: var(--delay-fast);
   ${StyledMainContainer}:hover & {
+    transition-delay: var(--delay-very-fast);
     color: var(--colors-app-text-dark);
   }
   /* Variants */
@@ -66,7 +66,9 @@ const StyledLeftContainer = styled(StyledContentContainer)`
 `;
 
 const StyledRightContainer = styled(StyledContentContainer)`
+  transition-delay: var(--delay-very-fast);
   ${StyledMainContainer}:hover & {
+    transition-delay: var(--delay-fast);
     color: var(--colors-app-text-light);
   }
   /* Variants */
