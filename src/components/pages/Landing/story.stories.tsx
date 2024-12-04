@@ -5,6 +5,7 @@ import { news } from '../../../mocks/news';
 import { InfoCardTrialSliderProps } from '../../molecules/InfoCardTriadSlider';
 import { blogsMock } from '../../../mocks/blogs';
 import { postgraduatePrograms } from '../../../mocks/postgraduatePrograms';
+import { ServicesMoock } from '../../../mocks/services.mock';
 
 export default {
   title: 'Pages/LandingPage',
@@ -32,9 +33,12 @@ export const Base: StoryObj<typeof LandingPage> = {
         heroContentLinks={news}
         undergraduateContent={undergraduateItems}
         blogsContent={blogsMock}
-        postgraduateContent={{ 
+        postgraduateContent={{
           // title: 'Programas de postgrado',
           postgraduatePrograms: postgraduatePrograms,
+        }}
+        servicesSection={{
+          services: ServicesMoock,
         }}
       />
     );

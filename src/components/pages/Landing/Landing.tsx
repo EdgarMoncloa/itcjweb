@@ -16,12 +16,18 @@ import {
   PostGraduateSectionProps,
   PostgraduateSection,
 } from '../../organisms/PostgraduateSection';
+import {
+  ServicesSection,
+  ServicesSectionProps,
+} from '../../organisms/ServicesSection';
+import Logo_ITCJ_base from '/images/Logo_ITCJ_base.png';
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];
   undergraduateContent: InfoCardTrialSliderProps[];
   blogsContent: BlogCardProps[];
   postgraduateContent: PostGraduateSectionProps;
+  servicesSection: ServicesSectionProps;
 }
 
 export const LandingPage = ({
@@ -29,6 +35,7 @@ export const LandingPage = ({
   undergraduateContent,
   blogsContent,
   postgraduateContent,
+  servicesSection,
 }: LandingProps) => {
   const blogCards = blogsContent.map((item) => ({
     title: item.title,
@@ -63,6 +70,10 @@ export const LandingPage = ({
       <PostgraduateSection {...postgraduateContent} />
       <StyledTitleMargin />
       <CustomDivider content='Servicios' />
+      <ServicesSection {...servicesSection} />
+      <StyledTitleMargin />
+      <CustomDivider content={<img src={Logo_ITCJ_base} alt='Logo ITCJ' />} />
+      <StyledTitleMargin />
       <TecFooter />
       <GobFooter />
     </StyledLanding>

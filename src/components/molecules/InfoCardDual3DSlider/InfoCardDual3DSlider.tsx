@@ -32,7 +32,7 @@ export const InfoCardDual3DSlider = ({
     </StyledLeftContainer>
   );
   return (
-    <SyledInfoCardDual3DSlider className='defaultSize'>
+    <SyledInfoCardDual3DSlider className={defaultSize ? 'defaultSize' : ''}>
       <DualContentHover3DSlider
         firstContent={firstContent}
         secondContent={secondContent}
