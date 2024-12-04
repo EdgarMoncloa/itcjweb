@@ -4,7 +4,7 @@ import Logo_Contraloria from '/images/Logo_Contraloria.png';
 import Logo_inai from '/images/Logo_inai.png';
 import Logo_Plataforma_Nacional_de_transparencia from '/images/Logo_Plataforma_Nacional_de_transparencia.png';
 
-export const RELEVANT_SITES_MOCK = [
+export const relevantSitesMock = [
   {
     name: 'Conahcyt',
     href: 'https://conahcyt.mx',

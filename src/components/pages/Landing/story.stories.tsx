@@ -6,6 +6,7 @@ import { InfoCardTrialSliderProps } from '../../molecules/InfoCardTriadSlider';
 import { blogsMock } from '../../../mocks/blogs';
 import { postgraduatePrograms } from '../../../mocks/postgraduatePrograms';
 import { ServicesMoock } from '../../../mocks/services.mock';
+import { relevantSitesMock } from '../../../mocks/relevantSitesMock';
 
 export default {
   title: 'Pages/LandingPage',
@@ -39,6 +40,10 @@ export const Base: StoryObj<typeof LandingPage> = {
         }}
         servicesSection={{
           services: ServicesMoock,
+        }}
+        interestSitesContent={{
+          sites: relevantSitesMock,
+          title: 'Sitios de interés',
         }}
       />
     );

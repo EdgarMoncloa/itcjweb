@@ -122,7 +122,10 @@ export const LogoLink3D = ({
   );
 };
 
-const StyledAnchorWrapper = styled.a``;
+const StyledAnchorWrapper = styled.a`
+  height: 100%;
+  width: 100%;
+`;
 
 const StyledLogoLink3dWrapper = styled.div`
   border-radius: var(--size-border-radius-medium);
@@ -146,7 +149,7 @@ const StyledLogoLink3dWrapper = styled.div`
   }
 `;
 
-const StyledLogoLink3D = styled.a`
+const StyledLogoLink3D = styled.div`
   background-color: var(--colors-app-neutral-200);
 
   height: 100%;
@@ -180,6 +183,6 @@ const StyledLogoLink3D = styled.a`
 `;
 
 const StyledLogoImg = styled.img`
-  width: 90%;
+  width: 85%;
   object-fit: contain;
 `;

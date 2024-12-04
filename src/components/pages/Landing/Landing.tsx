@@ -21,6 +21,7 @@ import {
   ServicesSectionProps,
 } from '../../organisms/ServicesSection';
 import Logo_ITCJ_base from '/images/Logo_ITCJ_base.png';
+import { Logo3DGrid, Logo3DGridProps } from '../../molecules/Logo3DGrid';
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];
@@ -28,6 +29,7 @@ interface LandingProps {
   blogsContent: BlogCardProps[];
   postgraduateContent: PostGraduateSectionProps;
   servicesSection: ServicesSectionProps;
+  interestSitesContent: Logo3DGridProps;
 }
 
 export const LandingPage = ({
@@ -36,6 +38,7 @@ export const LandingPage = ({
   blogsContent,
   postgraduateContent,
   servicesSection,
+  interestSitesContent,
 }: LandingProps) => {
   const blogCards = blogsContent.map((item) => ({
     title: item.title,
@@ -74,6 +77,9 @@ export const LandingPage = ({
       <StyledTitleMargin />
       <CustomDivider content={<img src={Logo_ITCJ_base} alt='Logo ITCJ' />} />
       <StyledTitleMargin />
+      <StyledInterestSitesWrapper>
+        <Logo3DGrid {...interestSitesContent} />
+      </StyledInterestSitesWrapper>
       <TecFooter />
       <GobFooter />
     </StyledLanding>
@@ -100,4 +106,11 @@ const StyledHeroGap = styled.div`
 
 const StyledTitleMargin = styled.div`
   margin: var(--size-margin-large) 0;
+`;
+
+const StyledInterestSitesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: var(--size-gap-medium);
+  margin: var(--size-margin-large) var(--size-margin-body);
 `;
