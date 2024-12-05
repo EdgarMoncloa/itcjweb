@@ -105,6 +105,7 @@ export const GlobalStyle = createGlobalStyle`
   --colors-tecnm-logo-pantone-cool-gray-10-c: #807e82;
   
   --colors-transparent-itcj-primary: #c11627A0;
+  --colors-transparent-tecnm-primary: #1969dcA0;
   --colors-transparent: #00000000;
   
   /* ANCHOR Shadows */

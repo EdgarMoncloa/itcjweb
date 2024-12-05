@@ -1,10 +1,7 @@
-import { GobHeader } from '../../molecules/GobHeader';
-import { TecHeader } from '../../molecules/TecHeader';
 import { RelevantSites } from '../../molecules/RelevantSites';
 import { BlogsSection } from '../../organisms/BlogsSection';
 import styled from 'styled-components';
 import { CustomDivider } from '../../atoms/CustomDivider';
-import { LogosHeader } from '../../molecules/LogosHeader';
 import { HeroSection } from '../../organisms/HeroSection';
 import { ContentLinkProps } from '../../atoms/ContentLink';
 import { TecFooter } from '../../molecules/TecFooter';
@@ -22,6 +19,7 @@ import {
 } from '../../organisms/ServicesSection';
 import Logo_ITCJ_base from '/images/Logo_ITCJ_base.png';
 import { Logo3DGrid, Logo3DGridProps } from '../../molecules/Logo3DGrid';
+import { AllHeaders } from '../../organisms/AllHeaders';
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];
@@ -48,9 +46,7 @@ export const LandingPage = ({
 
   return (
     <StyledLanding>
-      <GobHeader />
-      <LogosHeader />
-      <TecHeader />
+      <AllHeaders />
       <CustomDivider />
       <StyledHeroGap />
       <StyledHeroWrapper>

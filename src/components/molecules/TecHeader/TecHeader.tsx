@@ -1,9 +1,13 @@
 import { SimpleNavMenu, SimpleNavMenuTypes } from '../../atoms/SimpleNavMenu';
-import { StyledTecHeader } from './style';
+import styled from 'styled-components';
 
-export const TecHeader = () => {
+export interface TecHeaderProps {
+  withOpacity?: boolean;
+}
+
+export const TecHeader = ({ withOpacity = false }: TecHeaderProps) => {
   return (
-    <StyledTecHeader>
+    <StyledTecHeader className={withOpacity ? 'withOpacity' : ''}>
       <SimpleNavMenu
         type={SimpleNavMenuTypes.tecnm}
         content={'Conocenos'}
@@ -41,3 +45,21 @@ export const TecHeader = () => {
     </StyledTecHeader>
   );
 };
+
+export const StyledTecHeader = styled.div`
+  height: var(--size-height-medium);
+  overflow: hidden;
+  width: 100%;
+  background-color: var(--colors-app-secondary-950);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--size-padding-medium);
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-header);
+
+  &.withOpacity {
+    opacity: 0.75;
+  }
+`;
