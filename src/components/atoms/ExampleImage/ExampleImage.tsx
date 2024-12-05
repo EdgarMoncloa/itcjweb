@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import { generateRandomImageLink } from '../../../utils/generateRandomImageLink';
 
 export interface ExampleImageProps {
   alt?: string;
@@ -15,8 +16,7 @@ export const ExampleImage = ({
   seed,
   defaultSize = false,
 }: ExampleImageProps) => {
-  const imgSrc = `https://picsum.photos/${seed ? `seed/${seed}/` : ''}${width}/${height}`;
-  console.log(imgSrc);
+  const imgSrc = generateRandomImageLink(width, height, seed);
   return (
     <StyledExampleImage
       $width={defaultSize ? width : undefined}

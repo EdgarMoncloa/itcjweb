@@ -58,6 +58,7 @@ export const StyledTecHeader = styled.div`
   position: sticky;
   top: 0;
   z-index: var(--z-index-header);
+  transition: var(--transition-fast) opacity;
 
   &.withOpacity {
     opacity: 0.75;

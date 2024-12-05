@@ -194,13 +194,29 @@ export const GlobalStyle = createGlobalStyle`
   --size-margin-medium: 1em;    /* 16px / 16px */
   --size-margin-large: 2em;     /* 32px / 16px */
   --size-margin-xl: 4em;        /* 64px / 16px */
+  --size-margin-2xl: 6em;       /* 96px / 16px */
 
   /* ANCHOR Gutter */
   --size-gutter:16px;
 
   /* ANCHOR Margin body */
   --size-margin-body: 4em;  /* 16px / 16px */
+  --size-margin-body-large: 16em;  /* 16px / 16px */
 
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+    --size-margin-body-large: 1em;
+  }
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    --size-margin-body-large: 4em;
+  }
+  @media (min-width: ${(props) => props.theme.breakpoints.desktopLarge}) {
+    --size-margin-body-large: 16em;  /* 16px / 16px */
+  }
+  
+  
+  /* !SECTION Margins */
+
+  /* ANCHOR Widths */
   --size-width-1-cols: 4em;        /* 64px / 16px */
   --size-width-2-cols: 9em;        /* 144px / 16px */
   --size-width-3-cols: 14em;       /* 224px / 16px */
@@ -217,7 +233,6 @@ export const GlobalStyle = createGlobalStyle`
   --size-width-14-cols: 69em;      /* 1104px / 16px */
   --size-width-15-cols: 74em;      /* 1184px / 16px */
   --size-width-16-cols: 79em;      /* 1264px / 16px */
-  /* !SECTION Margins */
   
   /* ANCHOR Gaps */
   --size-gap-2xs: 0.125em;   /* 2px / 16px */

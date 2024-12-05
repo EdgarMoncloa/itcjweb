@@ -5,6 +5,7 @@ import { TecHeader } from '../../molecules/TecHeader';
 
 export interface AllHeadersProps {
   tecHeaderHaveOpacity?: boolean;
+  tecHeaderRef?: React.RefObject<HTMLDivElement>;
 }
 
 export const AllHeaders = ({
