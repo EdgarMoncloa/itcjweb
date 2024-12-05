@@ -7,17 +7,16 @@ export type RelevantSiteProps = {
   icon?: ReactElement;
   text: string;
   toSite: string;
+  defaultSize?: boolean;
 };
 
-export const RelevantSite = ({ icon, text, toSite }: RelevantSiteProps) => {
+export const RelevantSite = ({
+  icon,
+  text,
+  toSite,
+  defaultSize,
+}: RelevantSiteProps) => {
   const [isHovered, setIsHovered] = useState(false);
-
-  let IconElement;
-  // if (icon) {
-  //   IconElement = React.cloneElement(icon, {
-  //     size: 40,
-  //   });
-  // }
 
   return (
     <StyledRelevantSite
@@ -25,6 +24,7 @@ export const RelevantSite = ({ icon, text, toSite }: RelevantSiteProps) => {
       target='_blank'
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      className={defaultSize ? 'defaultSize' : ''}
     >
       <StyledIconContainer>{icon}</StyledIconContainer>
       <StyledBaseContainer>{text}</StyledBaseContainer>
@@ -50,11 +50,16 @@ export const StyledRelevantSite = styled.a`
   display: flex;
   flex-shrink: 0;
   gap: 16px;
-  height: var(--size-height-2-row);
   justify-content: center;
   padding: 8px;
   position: relative;
   width: 100%;
+  height: 100%;
+
+  &.defaultSize {
+    height: var(--size-height-2-row);
+    width: var(--size-width-4-cols);
+  }
 
   &:hover {
     animation: ${colorCHange} 300ms ease forwards;

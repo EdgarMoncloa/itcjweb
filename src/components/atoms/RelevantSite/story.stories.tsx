@@ -22,4 +22,5 @@ export const Base: Story = {
     text: 'SII',
     toSite: 'http://sii.cdjuarez.tecnm.mx/',
   },
+  render: (args) => <RelevantSite {...args} defaultSize />,
 };

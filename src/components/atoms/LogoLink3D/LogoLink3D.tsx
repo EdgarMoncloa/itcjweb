@@ -16,6 +16,9 @@ export const LogoLink3D = ({
   target,
   defaultSize,
 }: LogoLink3DProps) => {
+  // Maximum rotation limit in degrees
+  const maxRotation = 45;
+
   const wrapperRef = useRef<HTMLDivElement>(null);
   const timeWhenMouseEnter = useRef<number>(0);
   const isRotating = useRef<boolean>(false);
@@ -52,8 +55,6 @@ export const LogoLink3D = ({
     ) {
       return;
     }
-    // Maximum rotation limit in degrees
-    const maxRotation = 60;
 
     const rect = wrapperRef.current.getBoundingClientRect();
     // Current normalized X/Y position

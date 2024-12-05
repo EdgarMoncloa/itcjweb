@@ -33,9 +33,20 @@ export const RelevantSites = ({}: RelevantSitesProps) => {
 
 const StyledRelevantSites = styled.div`
   display: grid;
-  gap: var(--size-gap-medium);
-  grid-template-columns: repeat(6, 1fr);
+  gap: var(--size-gap-small);
+  grid-auto-rows: var(--size-height-2-row);
   width: 100%;
   overflow: hidden;
-  padding: 0 var(--size-padding-medium);
+  justify-content: center;
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    grid-template-columns: 1fr;
+    border: 1px solid blue;
+  }
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+    grid-template-columns: repeat(6, 1fr);
+  }
 `;
