@@ -71,11 +71,14 @@ export const LandingPage = ({
       <CustomDivider content='Servicios' />
       <ServicesSection {...servicesSection} />
       <StyledTitleMargin />
-      <CustomDivider content={<img src={Logo_ITCJ_base} alt='Logo ITCJ' />} />
       <StyledTitleMargin />
       <StyledInterestSitesWrapper>
         <Logo3DGrid {...interestSitesContent} />
       </StyledInterestSitesWrapper>
+      <CustomDivider
+        content={<img src={Logo_ITCJ_base} alt='Logo ITCJ' />}
+        dividerOnSides
+      />
       <TecFooter />
       <GobFooter />
     </StyledLanding>

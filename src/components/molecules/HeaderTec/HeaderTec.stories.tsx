@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { TecHeader } from '.';
+import { HeaderTec } from '.';
 import styled from 'styled-components';
 
 export default {
-  title: 'Molecules/TecHeader',
-  component: TecHeader,
+  title: 'Molecules/HeaderTec',
+  component: HeaderTec,
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
@@ -17,16 +17,16 @@ export default {
       },
     },
   },
-} satisfies Meta<typeof TecHeader>;
+} satisfies Meta<typeof HeaderTec>;
 
-export const Base: StoryObj<typeof TecHeader> = {
+export const Base: StoryObj<typeof HeaderTec> = {
   args: {
     withOpacity: false,
   },
   render: (args) => {
     return (
       <StyledContainer>
-        <TecHeader {...args} />
+        <HeaderTec {...args} />
       </StyledContainer>
     );
   },

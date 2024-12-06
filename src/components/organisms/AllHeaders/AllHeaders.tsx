@@ -1,21 +1,21 @@
 import styled from 'styled-components';
 import { GobHeader } from '../../molecules/GobHeader';
 import { LogosHeader } from '../../molecules/LogosHeader';
-import { TecHeader } from '../../molecules/TecHeader';
+import { HeaderTec } from '../../molecules/HeaderTec';
 
 export interface AllHeadersProps {
-  tecHeaderHaveOpacity?: boolean;
-  tecHeaderRef?: React.RefObject<HTMLDivElement>;
+  HeaderTecHaveOpacity?: boolean;
+  HeaderTecRef?: React.RefObject<HTMLDivElement>;
 }
 
 export const AllHeaders = ({
-  tecHeaderHaveOpacity = false,
+  HeaderTecHaveOpacity = false,
 }: AllHeadersProps) => {
   return (
     <>
       <GobHeader />
       <LogosHeader />
-      <TecHeader withOpacity={tecHeaderHaveOpacity} />
+      <HeaderTec withOpacity={HeaderTecHaveOpacity} />
     </>
   );
 };

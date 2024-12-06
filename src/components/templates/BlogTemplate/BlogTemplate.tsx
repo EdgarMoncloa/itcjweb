@@ -18,7 +18,7 @@ export const BlogTemplate = ({
   alt,
 }: BlogTemplateProps) => {
   const refBlogImage = useRef<HTMLDivElement>(null);
-  const [tecHeaderHaveOpacity, setTecHeaderHaveOpacity] = useState(false);
+  const [HeaderTecHaveOpacity, setHeaderTecHaveOpacity] = useState(false);
 
   const handleWindowScroll = (event: Event) => {
     if (refBlogImage.current) {
@@ -29,7 +29,7 @@ export const BlogTemplate = ({
         window.scrollY <= blogImageBottomPosition &&
         window.scrollY >= blogImageTopPosition;
 
-      setTecHeaderHaveOpacity(haveOpacity);
+      setHeaderTecHaveOpacity(haveOpacity);
     }
   };
 
@@ -48,7 +48,7 @@ export const BlogTemplate = ({
 
   return (
     <StyledBLogTemplate>
-      <AllHeaders tecHeaderHaveOpacity={tecHeaderHaveOpacity} />
+      <AllHeaders HeaderTecHaveOpacity={HeaderTecHaveOpacity} />
       <StyledBlogImage ref={refBlogImage}>
         <StyledImg src={imgSrc} alt={alt} />
       </StyledBlogImage>
