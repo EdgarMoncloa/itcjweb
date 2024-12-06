@@ -1,4 +1,9 @@
-import { SimpleNavMenu, SimpleNavMenuTypes } from '../../atoms/SimpleNavMenu';
+import { headerTecItems } from '../../../data/headerTecItems';
+import {
+  SimpleNavMenu,
+  SimpleNavMenuProps,
+  SimpleNavMenuTypes,
+} from '../../atoms/SimpleNavMenu';
 import styled from 'styled-components';
 
 export interface HeaderTecProps {
@@ -8,40 +13,15 @@ export interface HeaderTecProps {
 export const HeaderTec = ({ withOpacity = false }: HeaderTecProps) => {
   return (
     <StyledHeaderTec className={withOpacity ? 'withOpacity' : ''}>
-      <SimpleNavMenu
-        type={SimpleNavMenuTypes.tecnm}
-        content={'Conocenos'}
-        link={'#'}
-        subItems={[
-          { content: 'Contenido', link: '#' },
-          { content: 'Contenido', link: '#' },
-        ]}
-      />
-      <SimpleNavMenu
-        type={SimpleNavMenuTypes.tecnm}
-        content={'Aspirantes'}
-        link={'#'}
-      />
-      <SimpleNavMenu
-        type={SimpleNavMenuTypes.tecnm}
-        content={'Oferta educativa'}
-        link={'#'}
-      />
-      <SimpleNavMenu
-        type={SimpleNavMenuTypes.tecnm}
-        content={'Alumnos'}
-        link={'#'}
-      />
-      <SimpleNavMenu
-        type={SimpleNavMenuTypes.tecnm}
-        content={'Personal'}
-        link={'#'}
-      />
-      <SimpleNavMenu
-        type={SimpleNavMenuTypes.tecnm}
-        content={'Egresados'}
-        link={'#'}
-      />
+      {headerTecItems.map((item) => (
+        <SimpleNavMenu
+          key={item.content}
+          type={SimpleNavMenuTypes.tecnm}
+          content={item.content}
+          link={item.link}
+          subItems={item.subItems}
+        />
+      ))}
     </StyledHeaderTec>
   );
 };
