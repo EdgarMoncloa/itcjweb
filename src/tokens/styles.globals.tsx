@@ -54,10 +54,14 @@ export const GlobalStyle = createGlobalStyle`
   /* SECTION COLORS */
   /* ANCHOR Base colors */
   --colors-app-accent: var(--colors-app-secondary-700);
+
   --colors-app-background: var(--colors-app-neutral-50);
+
   --colors-app-text-dark: var(--colors-app-neutral-900);
   --colors-app-text-light: var(--colors-app-neutral-50);
+
   --colors-app-white: #ffffff;
+
   --colors-app-primary-50: #fff5f6;
   --colors-app-primary-100: #ffd2d6;
   --colors-app-primary-200: #ffafb7;
@@ -69,6 +73,7 @@ export const GlobalStyle = createGlobalStyle`
   --colors-app-primary-800: #ae0003;
   --colors-app-primary-900: #8e0000;
   --colors-app-primary-950: #590000;
+
   --colors-app-neutral-50: #fcfcfc;
   --colors-app-neutral-100: #f1f0f1;
   --colors-app-neutral-200: #e6e5e6;
@@ -80,18 +85,23 @@ export const GlobalStyle = createGlobalStyle`
   --colors-app-neutral-800: #605f61;
   --colors-app-neutral-900: #353536;
   --colors-app-neutral-950: #0b0b0b;
+
   --colors-app-notification-alert: #fffccc;
   --colors-app-notification-success: #ccffcc;
   --colors-app-notification-wrong: #ffcccc;
+
+  --colors-app-secondary-50: #eff8ff;
   --colors-app-secondary-100: #daf0ff;
   --colors-app-secondary-300: #91d6ff;
   --colors-app-secondary-500: #379efa;
   --colors-app-secondary-700: #1969dc;
-  --colors-app-secondary-900: #1c4a8c;
+  --colors-app-secondary-900: #1c4a8c;  
   --colors-app-secondary-950: var(--colors-tecnm-logo-pantone-294-c);
-  --colors-app-secondary-secondary-50: #eff8ff;
+  
   --colors-documentation-contrast-background: #fbd0fb;
+
   --colors-itcj-primary: #c11627;
+
   --colors-tecnm-black: #000000;
   --colors-tecnm-pantone-424-c: #6f7271;
   --colors-tecnm-pantone-465-c: #b38e5d;
@@ -100,6 +110,7 @@ export const GlobalStyle = createGlobalStyle`
   --colors-tecnm-pantone-627-c: #10312b;
   --colors-tecnm-pantone-7420-c: #9d2449;
   --colors-tecnm-pantone-7421-c: #621132;
+
   --colors-tecnm-logo-black: var(--colors-tecnm-black);
   --colors-tecnm-logo-pantone-294-c: #1b396a;
   --colors-tecnm-logo-pantone-cool-gray-10-c: #807e82;
@@ -141,6 +152,7 @@ export const GlobalStyle = createGlobalStyle`
   --size-border-radius-small: 0.25rem;   /* 4px / 16px = 0.25rem */
   --size-border-radius-medium: 0.5rem;   /* 8px / 16px = 0.5rem */
   --size-border-radius-large: 1rem;      /* 16px / 16px = 1rem */
+
   --size-border-radius-full: 50%;        
 
 
@@ -201,7 +213,7 @@ export const GlobalStyle = createGlobalStyle`
 
   /* ANCHOR Margin body */
   --size-margin-body: 4em;  /* 16px / 16px */
-  --size-margin-body-large: 16em;  /* 16px / 16px */
+  --size-margin-body-large: 16em;  
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
     --size-margin-body-large: 1em;

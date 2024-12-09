@@ -1,9 +1,5 @@
 import { headerTecItems } from '../../../data/headerTecItems';
-import {
-  SimpleNavMenu,
-  SimpleNavMenuProps,
-  SimpleNavMenuTypes,
-} from '../../atoms/SimpleNavMenu';
+import { SimpleNavMenu, SimpleNavMenuTypes } from '../../atoms/SimpleNavMenu';
 import styled from 'styled-components';
 
 export interface HeaderTecProps {
@@ -13,13 +9,14 @@ export interface HeaderTecProps {
 export const HeaderTec = ({ withOpacity = false }: HeaderTecProps) => {
   return (
     <StyledHeaderTec className={withOpacity ? 'withOpacity' : ''}>
-      {headerTecItems.map((item) => (
+      {headerTecItems.map((item, idx) => (
         <SimpleNavMenu
-          key={item.content}
+          key={idx}
           type={SimpleNavMenuTypes.tecnm}
           content={item.content}
           link={item.link}
           subItems={item.subItems}
+          icon={item.icon}
         />
       ))}
     </StyledHeaderTec>
@@ -28,8 +25,7 @@ export const HeaderTec = ({ withOpacity = false }: HeaderTecProps) => {
 
 export const StyledHeaderTec = styled.div`
   height: var(--size-height-medium);
-  overflow: hidden;
-  width: 100%;
+  width: 100vw;
   background-color: var(--colors-app-secondary-950);
   display: flex;
   align-items: center;
