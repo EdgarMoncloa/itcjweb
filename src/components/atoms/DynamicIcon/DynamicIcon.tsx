@@ -1,16 +1,35 @@
 import styled from 'styled-components';
 import { IconSize } from '../../../types/GlobalTypes';
+import { ComponentType, ReactNode, useEffect, useState } from 'react';
+import * as Icons from 'react-icons/fa';
 
-export interface IconProps {
-  icon: React.ReactNode;
+export interface DynamicIconProps {
+  icon?: React.ReactNode | string;
   colorVariant?: 'primary' | 'neutral' | 'light';
-  size: IconSize;
+  size?: IconSize;
 }
 
-export const Icon = ({ icon, colorVariant, size = 'medium' }: IconProps) => {
+export const DynamicIcon = ({
+  icon,
+  colorVariant,
+  size = 'medium',
+}: DynamicIconProps) => {
+  let iconElement: ReactNode = icon;
+
+  if (typeof icon === 'string') {
+    const IconComponent = (Icons as Record<string, React.ComponentType>)[icon];
+
+    if (!IconComponent) {
+      console.error(`El ícono "${icon}" no existe en react-icons/fa`);
+      iconElement = null;
+    } else {
+      iconElement = <IconComponent />;
+    }
+  }
+
   return (
     <StyledIconWrapper className={colorVariant && colorVariant} $size={size}>
-      {icon}
+      {iconElement}
     </StyledIconWrapper>
   );
 };

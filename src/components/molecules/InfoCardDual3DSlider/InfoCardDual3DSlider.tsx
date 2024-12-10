@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { DualContentHover3DSlider } from '../../atoms/DualContentHover3DSlider';
-import { Icon } from '../../atoms/Icon/Icon';
+import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
 import { StyledBody1, StyledH5, StyledH6 } from '../../../tokens/CustomText';
 
 export interface InfoCardDual3DSliderProps {
@@ -22,7 +22,7 @@ export const InfoCardDual3DSlider = ({
 }: InfoCardDual3DSliderProps) => {
   const firstContent = (
     <StyledContent>
-      <Icon icon={icon} size={'3xl'} />
+      <DynamicIcon icon={icon} size={'3xl'} />
       <StyledH6>{title}</StyledH6>
     </StyledContent>
   );

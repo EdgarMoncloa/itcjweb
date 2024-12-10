@@ -3,7 +3,7 @@ import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
 import { TextTypes } from '../../../types/GlobalTypes';
 import { Tag } from '../../atoms/Tag';
 import { DualContentHoverReveal } from '../../atoms/DualContentHoverReveal';
-import { Icon } from '../../atoms/Icon/Icon';
+import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
 
 export interface InfoCardDualRevealProps {
   defaultSize?: boolean;
@@ -30,7 +30,7 @@ export const InfoCardDualReveal = ({
         colorVariant={colorVariant}
         primaryContent={
           <>
-            <Icon icon={icon} size={'4xl'} colorVariant={colorVariant} />
+            <DynamicIcon icon={icon} size={'4xl'} colorVariant={colorVariant} />
             <StyledTitle as={StyledH6}>{title}</StyledTitle>
             {tags && (
               <StyledTagsContainer>
