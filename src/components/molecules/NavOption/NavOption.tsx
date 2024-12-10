@@ -2,26 +2,51 @@ import styled, { css } from 'styled-components';
 import { StyledH6 } from '../../../tokens/CustomText';
 import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
 
+interface NavItem {
+  content: string;
+  link: string;
+}
+
 export interface NavOptionProps {
   content: string;
   link: string;
   defaultSize?: boolean;
-  icon?: React.ReactNode | string;
+  leftIcon?: React.ReactNode | string;
+  rightIcon?: React.ReactNode | string;
+  subitems?: NavItem[];
 }
 
 export const NavOption = ({
   content,
   link,
   defaultSize = true,
-  icon,
+  leftIcon,
+  rightIcon,
+  subitems,
 }: NavOptionProps) => {
+  let leftIconElement = null;
+  if (leftIcon) {
+    leftIconElement = (
+      <StyledIconWrapper>
+        <DynamicIcon icon={leftIcon} size={'large'} />
+      </StyledIconWrapper>
+    );
+  }
+
+  let rightIconElement = null;
+  if (rightIcon) {
+    rightIconElement = (
+      <StyledRightIconWrapper>
+        <DynamicIcon icon={rightIcon} size={'large'} />
+      </StyledRightIconWrapper>
+    );
+  }
   return (
     <StyledNavOption href={link} className={defaultSize ? 'defaultSize' : ''}>
       <StyledContent>
-        <StyledIconWrapper>
-          <DynamicIcon icon={icon} size={'large'} />
-        </StyledIconWrapper>
+        {leftIconElement}
         <StyledH6>{content}</StyledH6>
+        {rightIconElement}
       </StyledContent>
       <StyledBorderX />
       <StyledBorderY />
@@ -52,7 +77,7 @@ const StyledNavOption = styled.a`
 const StyledContent = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   gap: var(--size-gap-small);
   width: 100%;
   height: 100%;
@@ -67,6 +92,23 @@ const StyledIconWrapper = styled.div`
   justify-content: center;
   border-radius: var(--size-border-radius-medium);
   color: var(--colors-app-text-light);
+`;
+
+const StyledRightIconWrapper = styled(StyledIconWrapper)`
+  background-color: transparent;
+  color: var(--colors-app-text-dark);
+  margin-left: auto;
+  opacity: 0;
+  transition:
+    var(--transition-fast) opacity,
+    var(--transition-fast) transform;
+  transform: translateY(-25%);
+
+  &:hover,
+  ${StyledNavOption}:hover & {
+    opacity: 1;
+    transform: translateX(0);
+  }
 `;
 
 const StyledBorderBase = css`

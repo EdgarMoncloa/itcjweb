@@ -12,7 +12,7 @@ export default {
     layout: 'centered',
   },
   argTypes: {
-    icon: {
+    leftIcon: {
       control: {
         type: 'select',
       },
@@ -28,13 +28,13 @@ export default {
 } as Meta<typeof NavOption>;
 
 type MyStoryProps = Omit<NavOptionProps, 'icon'> & {
-  icon: string;
+  leftIcon: string;
 };
 type Story = StoryObj<MyStoryProps>;
 
 export const Template: Story = {
   args: {
-    icon: 'Fa500Px',
+    leftIcon: 'Fa500Px',
     content: 'NavOption',
     link: '#',
     defaultSize: true,

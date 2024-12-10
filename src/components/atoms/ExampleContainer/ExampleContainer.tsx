@@ -8,19 +8,15 @@ export enum ExampleContainerColors {
   Primary300 = '--colors-app-primary-300',
   Primary500 = '--colors-app-primary-500',
   Primary700 = '--colors-app-primary-700',
-  Primary900 = '--colors-app-primary-900',
 
   Secondary100 = '--colors-app-secondary-100',
   Secondary300 = '--colors-app-secondary-300',
   Secondary500 = '--colors-app-secondary-500',
   Secondary700 = '--colors-app-secondary-700',
-  Secondary900 = '--colors-app-secondary-900',
 
   Neutral100 = '--colors-app-neutral-100',
   Neutral300 = '--colors-app-neutral-300',
   Neutral500 = '--colors-app-neutral-500',
-  Neutral700 = '--colors-app-neutral-700',
-  Neutral900 = '--colors-app-neutral-900',
 
   transparent = '--colors-transparent',
 }
@@ -70,6 +66,7 @@ const StyledExampleContainer = styled.div<{ $color: ExampleContainerColors }>`
   word-break: break-all;
   line-height: var(--line-height-xs);
   overflow: hidden;
+  padding: var(--size-padding-small);
 
   &.defaultSize {
     width: 480px;
