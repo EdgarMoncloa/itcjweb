@@ -87,7 +87,6 @@ const StyledContentSelector = styled.div`
   /* filter: drop-shadow(4px 4px 4px rgba(0, 0, 0, 0.4)); */
 
   &.defaultSize {
-    border: 1px solid red;
     height: var(--size-icon-xl);
     width: var(--size-icon-xl);
   }

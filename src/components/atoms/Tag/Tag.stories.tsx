@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Tag } from './';
+import { Tag } from '.';
 import { TextTypes } from '../../../types/GlobalTypes';
 
 const meta = {
@@ -7,10 +7,10 @@ const meta = {
   component: Tag,
   tags: ['autodocs'],
   argTypes: {
-    variant: {
+    colorVariant: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'default'],
-      defaultValue: 'default',
+      options: ['primary', 'secondary', 'neutral'],
+      defaultValue: 'neutral',
     },
     text: {
       control: { type: 'text' },
@@ -19,7 +19,7 @@ const meta = {
     textSize: {
       control: { type: 'select' },
       options: Object.values(TextTypes),
-      defaultValue: 'body3',
+      defaultValue: TextTypes.body3,
     },
     hasPadding: {
       control: { type: 'boolean' },
@@ -34,21 +34,21 @@ type Story = StoryObj<typeof meta>;
 
 export const Base: Story = {
   args: {
-    variant: 'default',
+    colorVariant: 'neutral',
     text: 'Default example',
   },
 };
 
 export const Primary: Story = {
   args: {
-    variant: 'primary',
+    colorVariant: 'primary',
     text: 'Primary example',
   },
 };
 
 export const Secondary: Story = {
   args: {
-    variant: 'secondary',
+    colorVariant: 'secondary',
     text: 'Secondary example',
   },
 };

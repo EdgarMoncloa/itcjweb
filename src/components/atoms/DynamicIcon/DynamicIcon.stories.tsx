@@ -1,15 +1,26 @@
 import { StoryObj, Meta } from '@storybook/react';
 import { DynamicIcon } from './DynamicIcon';
+import * as Icons from 'react-icons/fa';
+
+const iconNames = Object.keys(Icons);
 
 const meta: Meta<typeof DynamicIcon> = {
   title: 'Atoms/DynamicIcon',
   component: DynamicIcon,
   tags: ['autodocs'],
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
   },
   args: {
     icon: 'Fa500Px',
+  },
+  argTypes: {
+    icon: {
+      control: {
+        type: 'select',
+      },
+      options: iconNames,
+    },
   },
 };
 

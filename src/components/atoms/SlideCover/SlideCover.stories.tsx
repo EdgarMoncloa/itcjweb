@@ -13,7 +13,7 @@ const meta: Meta = {
   component: SlideCover,
   tags: ['autodocs'],
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
   },
   args: {},
   argTypes: {
