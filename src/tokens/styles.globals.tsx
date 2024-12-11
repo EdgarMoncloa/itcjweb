@@ -48,6 +48,7 @@ export const GlobalStyle = createGlobalStyle`
     } 
   }
   /* !SECTION HTML\BODY */
+ 
 
   /* SECTION ROOT */
   :root {

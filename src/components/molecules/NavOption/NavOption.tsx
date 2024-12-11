@@ -1,6 +1,12 @@
 import styled, { css } from 'styled-components';
 import { StyledH6 } from '../../../tokens/CustomText';
 import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
+import { MdExpandMore } from 'react-icons/md';
+import { DropdownContainer } from '../../atoms/DropdownContainer';
+import { useState } from 'react';
+import { StyledUnstyledButton } from '../../../tokens/UnstyledElements';
+import { StyledRelevantSite } from '../../atoms/RelevantSite';
+import { BorderHoverReveal } from '../../atoms/BorderHoverReveal/BorderHoverReveal';
 
 interface NavItem {
   content: string;
@@ -9,8 +15,7 @@ interface NavItem {
 
 export interface NavOptionProps {
   content: string;
-  link: string;
-  defaultSize?: boolean;
+  link?: string;
   leftIcon?: React.ReactNode | string;
   rightIcon?: React.ReactNode | string;
   subitems?: NavItem[];
@@ -19,68 +24,99 @@ export interface NavOptionProps {
 export const NavOption = ({
   content,
   link,
-  defaultSize = true,
   leftIcon,
-  rightIcon,
   subitems,
 }: NavOptionProps) => {
-  let leftIconElement = null;
-  if (leftIcon) {
-    leftIconElement = (
-      <StyledIconWrapper>
-        <DynamicIcon icon={leftIcon} size={'large'} />
-      </StyledIconWrapper>
-    );
-  }
+  const haveSubitems = subitems && subitems.length > 0;
+  const [showSubitems, setShowSubitems] = useState(false);
 
-  let rightIconElement = null;
-  if (rightIcon) {
-    rightIconElement = (
-      <StyledRightIconWrapper>
-        <DynamicIcon icon={rightIcon} size={'large'} />
-      </StyledRightIconWrapper>
-    );
-  }
+  const primaryContentElement = (
+    <StyledPrimaryContent
+      href={!haveSubitems ? link : undefined}
+      className={showSubitems ? 'expanded' : ''}
+      as={haveSubitems ? StyledUnstyledButton : 'div'}
+      onClick={() => setShowSubitems(!showSubitems)}
+    >
+      <BorderHoverReveal>
+        <StyledBorderHoverRevealContent>
+          {leftIcon && (
+            <StyledIconWrapper>
+              <DynamicIcon icon={leftIcon} size={'large'} />
+            </StyledIconWrapper>
+          )}
+
+          <StyledH6>{content}</StyledH6>
+
+          {haveSubitems && (
+            <StyledRightIconWrapper>
+              <DynamicIcon icon={<MdExpandMore />} size={'large'} />
+            </StyledRightIconWrapper>
+          )}
+        </StyledBorderHoverRevealContent>
+      </BorderHoverReveal>
+    </StyledPrimaryContent>
+  );
+
+  const secondaryContentElement = (
+    <StyledSecondaryContent>
+      {subitems?.map((item, index) => (
+        <StyledPrimaryContent key={index} href={item.link}>
+          <BorderHoverReveal>
+            <StyledBorderHoverRevealContent>
+              <StyledH6>{item.content}</StyledH6>
+            </StyledBorderHoverRevealContent>
+          </BorderHoverReveal>
+        </StyledPrimaryContent>
+      ))}
+    </StyledSecondaryContent>
+  );
+
   return (
-    <StyledNavOption href={link} className={defaultSize ? 'defaultSize' : ''}>
-      <StyledContent>
-        {leftIconElement}
-        <StyledH6>{content}</StyledH6>
-        {rightIconElement}
-      </StyledContent>
-      <StyledBorderX />
-      <StyledBorderY />
+    <StyledNavOption>
+      <DropdownContainer
+        showContent={haveSubitems && showSubitems}
+        primaryContent={primaryContentElement}
+        secondaryContent={secondaryContentElement}
+      />
     </StyledNavOption>
   );
 };
 
-const StyledNavOption = styled.a`
-  text-decoration: none;
-  color: inherit;
-  border-radius: var(--size-border-radius-medium);
-  overflow: hidden;
-  height: 100%;
+const StyledNavOption = styled.div`
+  height: max-content;
   width: 100%;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-sizing: content-box;
-  padding: var(--size-padding-small);
-
-  &.defaultSize {
-    width: var(--size-width-4-cols);
-    height: var(--size-height-1-row);
-  }
+  border-radius: var(--size-border-radius-medium);
 `;
 
-const StyledContent = styled.div`
+const StyledPrimaryContent = styled.a`
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+`;
+
+const StyledBorderHoverRevealContent = styled.div`
+  width: 100%;
+  height: 100%;
+  padding: var(--size-padding-small);
   display: flex;
   align-items: center;
   justify-content: flex-start;
   gap: var(--size-gap-small);
+`;
+
+const StyledSecondaryContent = styled.div`
+  display: flex;
   width: 100%;
   height: 100%;
+  overflow: hidden;
+  flex-direction: column;
+  gap: var(--size-gap-medium);
+  padding: var(--size-gap-medium);
 `;
 
 const StyledIconWrapper = styled.div`
@@ -105,49 +141,17 @@ const StyledRightIconWrapper = styled(StyledIconWrapper)`
   transform: translateY(-25%);
 
   &:hover,
-  ${StyledNavOption}:hover & {
+  ${StyledPrimaryContent}:hover & {
     opacity: 1;
     transform: translateX(0);
   }
-`;
 
-const StyledBorderBase = css`
-  border-radius: var(--size-border-radius-medium);
-  position: absolute;
-  left: 0;
-  top: 0;
-  content: '';
-  width: 100%;
-  height: 100%;
-  box-sizing: border-box;
-  transition: transform var(--transition-fast);
-
-  ${StyledNavOption}:hover & {
-    transform: translateX(0);
+  .expanded & {
+    transform: rotate(90deg) translateX(0);
+    opacity: 1;
   }
-`;
-
-const StyledBorderX = styled.div`
-  &::after {
-    ${StyledBorderBase};
-    border-top: var(--size-border-small) solid var(--colors-app-primary-600);
-    transform: translateX(-100%);
-  }
-  &::before {
-    ${StyledBorderBase};
-    border-bottom: var(--size-border-small) solid var(--colors-app-primary-600);
-    transform: translateX(100%);
-  }
-`;
-const StyledBorderY = styled.div`
-  &::after {
-    ${StyledBorderBase};
-    transform: translateY(-100%);
-    border-right: var(--size-border-small) solid var(--colors-app-primary-600);
-  }
-  &::before {
-    ${StyledBorderBase};
-    transform: translateY(100%);
-    border-left: var(--size-border-small) solid var(--colors-app-primary-600);
+  ${StyledPrimaryContent}.expanded:hover & {
+    opacity: 1;
+    transform: rotate(90deg) translateX(0);
   }
 `;

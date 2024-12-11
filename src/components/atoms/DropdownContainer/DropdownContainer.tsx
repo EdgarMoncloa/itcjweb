@@ -53,8 +53,8 @@ const StyledSecondaryContent = styled.div`
   overflow: hidden;
   opacity: 0.5;
   transition:
-    max-height var(--transition-normal),
-    opacity var(--transition-slow);
+    max-height var(--transition-fast),
+    opacity var(--transition-normal);
 
   &.showContent {
     max-height: var(--size-height-10-row);

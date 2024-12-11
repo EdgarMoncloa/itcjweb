@@ -8,6 +8,9 @@ const cssUnstyled = css`
   cursor: pointer;
   padding: 0;
   margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+  font-family: inherit;
 `;
 
 export const StyledUnstyledButton = styled.button`
