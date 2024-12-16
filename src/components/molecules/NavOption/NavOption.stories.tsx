@@ -18,21 +18,78 @@ export default {
     layout: 'centered',
   },
   argTypes: {
+    // ANCHOR Contenido
     leftIcon: {
       control: {
         type: 'select',
       },
       options: iconNames,
+      table: {
+        category: 'Contenido',
+        type: {
+          summary: ['string', 'React.ReactNode'],
+        },
+      },
     },
+    content: {
+      description: 'El texto que se mostrará en el componente',
+      control: {
+        type: 'text',
+      },
+      table: {
+        category: 'Contenido',
+      },
+    },
+    link: {
+      description:
+        'En caso de que el componente tenga un link, se debe de poner la ruta',
+      control: {
+        type: 'text',
+      },
+      table: {
+        category: 'Contenido',
+        defaultValue: {
+          summary: '#',
+        },
+      },
+    },
+    subitems: {
+      description: 'Subelementos que se mostrarán cuando se hace click',
+      control: {
+        type: 'object',
+        disable: true,
+      },
+      table: {
+        category: 'Contenido',
+        defaultValue: {
+          summary: undefined,
+        },
+        types: {
+          summary: 'NavItem[]',
+        },
+      },
+    },
+    // Storybook
     haveSubitems: {
       control: {
         type: 'boolean',
       },
+      table: {
+        category: 'Solo para storybook',
+        defaultValue: {
+          summary: false,
+        },
+      },
     },
-    defaultSize: {
+    subitemsCount: {
       control: {
-        type: 'boolean',
-        disable: true,
+        type: 'range',
+        min: 1,
+        max: 10,
+        step: 1,
+      },
+      table: {
+        category: 'Solo para storybook',
       },
     },
   },
@@ -40,33 +97,25 @@ export default {
 
 type MyStoryProps = Omit<NavOptionProps, 'icon'> & {
   leftIcon: string;
-  haveSubItems: boolean;
+  haveSubitems: boolean;
+  subitemsCount: number;
 };
 type Story = StoryObj<MyStoryProps>;
 
 export const Template: Story = {
   args: {
     leftIcon: 'Fa500Px',
-    content: 'NavOption',
-    // link: '#',
-    haveSubItems: true,
+    content: 'Texto del link',
+    link: '#',
+    haveSubitems: true,
+    subitemsCount: 3,
   },
   render: (args) => {
-    const subitems = args.haveSubItems
-      ? [
-          {
-            content: 'Subitem 1',
-            link: '#',
-          },
-          {
-            content: 'Subitem 2',
-            link: '#',
-          },
-          {
-            content: 'Subitem 3',
-            link: '#',
-          },
-        ]
+    const subitems = args.haveSubitems
+      ? Array.from({ length: args.subitemsCount }, (_, index) => ({
+          content: `Subitem ${index + 1}`,
+          link: `#${index + 1}`,
+        }))
       : undefined;
     const mainElement = <NavOption {...args} subitems={subitems} />;
 

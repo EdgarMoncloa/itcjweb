@@ -17,13 +17,12 @@ export interface NavOptionProps {
   content: string;
   link?: string;
   leftIcon?: React.ReactNode | string;
-  rightIcon?: React.ReactNode | string;
   subitems?: NavItem[];
 }
 
 export const NavOption = ({
   content,
-  link,
+  link = '#',
   leftIcon,
   subitems,
 }: NavOptionProps) => {
@@ -31,7 +30,7 @@ export const NavOption = ({
   const [showSubitems, setShowSubitems] = useState(false);
 
   const primaryContentElement = (
-    <StyledPrimaryContent
+    <StyledOptionContent
       href={!haveSubitems ? link : undefined}
       className={showSubitems ? 'expanded' : ''}
       as={haveSubitems ? StyledUnstyledButton : 'div'}
@@ -54,19 +53,21 @@ export const NavOption = ({
           )}
         </StyledBorderHoverRevealContent>
       </BorderHoverReveal>
-    </StyledPrimaryContent>
+    </StyledOptionContent>
   );
 
   const secondaryContentElement = (
     <StyledSecondaryContent>
       {subitems?.map((item, index) => (
-        <StyledPrimaryContent key={index} href={item.link}>
-          <BorderHoverReveal>
-            <StyledBorderHoverRevealContent>
-              <StyledH6>{item.content}</StyledH6>
-            </StyledBorderHoverRevealContent>
-          </BorderHoverReveal>
-        </StyledPrimaryContent>
+        <StyledOptionContent
+          key={index}
+          href={item.link}
+          as={BorderHoverReveal}
+        >
+          <StyledBorderHoverRevealContent>
+            <StyledH6>{item.content}</StyledH6>
+          </StyledBorderHoverRevealContent>
+        </StyledOptionContent>
       ))}
     </StyledSecondaryContent>
   );
@@ -91,12 +92,13 @@ const StyledNavOption = styled.div`
   border-radius: var(--size-border-radius-medium);
 `;
 
-const StyledPrimaryContent = styled.a`
+const StyledOptionContent = styled.a`
   text-decoration: none;
   color: inherit;
   overflow: hidden;
   width: 100%;
   height: 100%;
+  cursor: pointer;
 `;
 
 const StyledBorderHoverRevealContent = styled.div`
@@ -141,7 +143,7 @@ const StyledRightIconWrapper = styled(StyledIconWrapper)`
   transform: translateY(-25%);
 
   &:hover,
-  ${StyledPrimaryContent}:hover & {
+  ${StyledOptionContent}:hover & {
     opacity: 1;
     transform: translateX(0);
   }
@@ -150,7 +152,7 @@ const StyledRightIconWrapper = styled(StyledIconWrapper)`
     transform: rotate(90deg) translateX(0);
     opacity: 1;
   }
-  ${StyledPrimaryContent}.expanded:hover & {
+  ${StyledOptionContent}.expanded:hover & {
     opacity: 1;
     transform: rotate(90deg) translateX(0);
   }

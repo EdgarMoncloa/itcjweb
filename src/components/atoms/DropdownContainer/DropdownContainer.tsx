@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export interface DropdownContainerProps {
   primaryContent: React.ReactNode;
@@ -42,7 +42,29 @@ const StyledPrimaryContent = styled.div`
   border-radius: var(--size-border-radius-medium);
 `;
 
+const showContentAnimation = keyframes`
+  0% {
+    opacity: 0;
+    pointer-events: none;
+  }
+  100% {
+    opacity: 1;
+    pointer-events: all;
+  }
+`;
+const hideContentAnimation = keyframes`
+  0% {
+    opacity: 1;
+    pointer-events: all;
+  }
+  100% {
+    opacity: 0;
+    pointer-events: none;
+  }
+`;
+
 const StyledSecondaryContent = styled.div`
+  animation: ${hideContentAnimation} var(--transition-normal) forwards;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,12 +74,11 @@ const StyledSecondaryContent = styled.div`
   max-height: 0;
   overflow: hidden;
   opacity: 0.5;
-  transition:
-    max-height var(--transition-fast),
-    opacity var(--transition-normal);
+  pointer-events: none;
+  transition: max-height var(--transition-fast);
 
   &.showContent {
-    max-height: var(--size-height-10-row);
-    opacity: 1;
+    animation: ${showContentAnimation} var(--transition-normal) forwards;
+    max-height: var(--size-height-16-row);
   }
 `;
