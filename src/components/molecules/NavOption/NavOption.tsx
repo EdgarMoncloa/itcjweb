@@ -1,11 +1,11 @@
-import styled, { css } from 'styled-components';
+import { GoTriangleRight } from 'react-icons/go';
+import styled from 'styled-components';
 import { StyledH6 } from '../../../tokens/CustomText';
 import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
 import { MdExpandMore } from 'react-icons/md';
 import { DropdownContainer } from '../../atoms/DropdownContainer';
 import { useState } from 'react';
 import { StyledUnstyledButton } from '../../../tokens/UnstyledElements';
-import { StyledRelevantSite } from '../../atoms/RelevantSite';
 import { BorderHoverReveal } from '../../atoms/BorderHoverReveal/BorderHoverReveal';
 
 interface NavItem {
@@ -30,17 +30,21 @@ export const NavOption = ({
   const [showSubitems, setShowSubitems] = useState(false);
 
   const primaryContentElement = (
-    <StyledOptionContent
+    <StyledOptionWrapper
       href={!haveSubitems ? link : undefined}
       className={showSubitems ? 'expanded' : ''}
       as={haveSubitems ? StyledUnstyledButton : 'div'}
       onClick={() => setShowSubitems(!showSubitems)}
     >
       <BorderHoverReveal>
-        <StyledBorderHoverRevealContent>
+        <StyledOptionContent>
           {leftIcon && (
             <StyledIconWrapper>
-              <DynamicIcon icon={leftIcon} size={'large'} />
+              <DynamicIcon
+                icon={leftIcon}
+                size={'large'}
+                colorVariant='neutral'
+              />
             </StyledIconWrapper>
           )}
 
@@ -51,23 +55,30 @@ export const NavOption = ({
               <DynamicIcon icon={<MdExpandMore />} size={'large'} />
             </StyledRightIconWrapper>
           )}
-        </StyledBorderHoverRevealContent>
+        </StyledOptionContent>
       </BorderHoverReveal>
-    </StyledOptionContent>
+    </StyledOptionWrapper>
   );
 
   const secondaryContentElement = (
     <StyledSecondaryContent>
       {subitems?.map((item, index) => (
-        <StyledOptionContent
+        <StyledOptionWrapper
           key={index}
           href={item.link}
           as={BorderHoverReveal}
         >
-          <StyledBorderHoverRevealContent>
+          <StyledSubitemOptionContent>
+            <StyledSecondatyLefticonWrapper>
+              <DynamicIcon
+                icon={<GoTriangleRight />}
+                size={'large'}
+                colorVariant='neutral'
+              />
+            </StyledSecondatyLefticonWrapper>
             <StyledH6>{item.content}</StyledH6>
-          </StyledBorderHoverRevealContent>
-        </StyledOptionContent>
+          </StyledSubitemOptionContent>
+        </StyledOptionWrapper>
       ))}
     </StyledSecondaryContent>
   );
@@ -92,16 +103,16 @@ const StyledNavOption = styled.div`
   border-radius: var(--size-border-radius-medium);
 `;
 
-const StyledOptionContent = styled.a`
+const StyledOptionWrapper = styled.a`
   text-decoration: none;
   color: inherit;
   overflow: hidden;
   width: 100%;
   height: 100%;
-  cursor: pointer;
 `;
 
-const StyledBorderHoverRevealContent = styled.div`
+const StyledOptionContent = styled.div`
+  cursor: pointer;
   width: 100%;
   height: 100%;
   padding: var(--size-padding-small);
@@ -109,6 +120,15 @@ const StyledBorderHoverRevealContent = styled.div`
   align-items: center;
   justify-content: flex-start;
   gap: var(--size-gap-small);
+  transition: background-color var(--transition-normal);
+  min-height: var(--size-height-xl);
+
+  &:hover {
+    background-color: var(--colors-app-primary-100);
+  }
+`;
+const StyledSubitemOptionContent = styled(StyledOptionContent)`
+  padding: var(--size-padding-xs);
 `;
 
 const StyledSecondaryContent = styled.div`
@@ -117,19 +137,24 @@ const StyledSecondaryContent = styled.div`
   height: 100%;
   overflow: hidden;
   flex-direction: column;
-  gap: var(--size-gap-medium);
-  padding: var(--size-gap-medium);
+  gap: var(--size-gap-small);
+  padding: var(--size-gap-small);
 `;
 
 const StyledIconWrapper = styled.div`
   width: var(--size-icon-xl);
   height: var(--size-icon-xl);
-  background-color: var(--colors-app-primary-700);
+  /* background-color: var(--colors-app-primary-700); */
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: var(--size-border-radius-medium);
+  border-radius: var(--size-border-radius-small);
   color: var(--colors-app-text-light);
+`;
+
+const StyledSecondatyLefticonWrapper = styled(StyledIconWrapper)`
+  background-color: transparent;
+  color: var(--colors-app-primary-700);
 `;
 
 const StyledRightIconWrapper = styled(StyledIconWrapper)`
@@ -143,7 +168,7 @@ const StyledRightIconWrapper = styled(StyledIconWrapper)`
   transform: translateY(-25%);
 
   &:hover,
-  ${StyledOptionContent}:hover & {
+  ${StyledOptionWrapper}:hover & {
     opacity: 1;
     transform: translateX(0);
   }
@@ -152,7 +177,7 @@ const StyledRightIconWrapper = styled(StyledIconWrapper)`
     transform: rotate(90deg) translateX(0);
     opacity: 1;
   }
-  ${StyledOptionContent}.expanded:hover & {
+  ${StyledOptionWrapper}.expanded:hover & {
     opacity: 1;
     transform: rotate(90deg) translateX(0);
   }

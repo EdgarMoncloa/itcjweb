@@ -23,7 +23,7 @@ export default {
       control: {
         type: 'select',
       },
-      options: iconNames,
+      options: ['None', ...iconNames],
       table: {
         category: 'Contenido',
         type: {
@@ -117,7 +117,13 @@ export const Template: Story = {
           link: `#${index + 1}`,
         }))
       : undefined;
-    const mainElement = <NavOption {...args} subitems={subitems} />;
+    const mainElement = (
+      <NavOption
+        {...args}
+        subitems={subitems}
+        leftIcon={args.leftIcon === 'none' ? undefined : args.leftIcon}
+      />
+    );
 
     return (
       <StoryContainer>

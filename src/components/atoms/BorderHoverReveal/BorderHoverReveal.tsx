@@ -56,7 +56,7 @@ const StyledBorderBase = css`
 
   ${StyledBorderHoverReveal}:hover & {
     transform: translateX(0);
-    border-radius: var(--size-border-radius-medium);
+    border-radius: var(--size-border-radius-small);
     opacity: 1;
   }
 `;
