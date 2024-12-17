@@ -1,6 +1,6 @@
 import { GoTriangleRight } from 'react-icons/go';
 import styled from 'styled-components';
-import { StyledH6 } from '../../../tokens/CustomText';
+import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
 import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
 import { MdExpandMore } from 'react-icons/md';
 import { DropdownContainer } from '../../atoms/DropdownContainer';
@@ -42,17 +42,17 @@ export const NavOption = ({
             <StyledIconWrapper>
               <DynamicIcon
                 icon={leftIcon}
-                size={'large'}
+                size={'medium'}
                 colorVariant='neutral'
               />
             </StyledIconWrapper>
           )}
 
-          <StyledH6>{content}</StyledH6>
+          <StyledBody1>{content}</StyledBody1>
 
           {haveSubitems && (
             <StyledRightIconWrapper>
-              <DynamicIcon icon={<MdExpandMore />} size={'large'} />
+              <DynamicIcon icon={<MdExpandMore />} size={'medium'} />
             </StyledRightIconWrapper>
           )}
         </StyledOptionContent>
@@ -76,7 +76,7 @@ export const NavOption = ({
                 colorVariant='neutral'
               />
             </StyledSecondatyLefticonWrapper>
-            <StyledH6>{item.content}</StyledH6>
+            <StyledBody1>{item.content}</StyledBody1>
           </StyledSubitemOptionContent>
         </StyledOptionWrapper>
       ))}
@@ -121,10 +121,10 @@ const StyledOptionContent = styled.div`
   justify-content: flex-start;
   gap: var(--size-gap-small);
   transition: background-color var(--transition-normal);
-  min-height: var(--size-height-xl);
+  min-height: var(--size-height-large);
 
   &:hover {
-    background-color: var(--colors-app-primary-100);
+    background-color: var(--colors-app-primary-200);
   }
 `;
 const StyledSubitemOptionContent = styled(StyledOptionContent)`
@@ -142,9 +142,8 @@ const StyledSecondaryContent = styled.div`
 `;
 
 const StyledIconWrapper = styled.div`
-  width: var(--size-icon-xl);
-  height: var(--size-icon-xl);
-  /* background-color: var(--colors-app-primary-700); */
+  width: var(--size-icon-large);
+  height: var(--size-icon-large);
   display: flex;
   align-items: center;
   justify-content: center;
