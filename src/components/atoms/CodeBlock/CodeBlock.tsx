@@ -53,6 +53,9 @@ const StyledCodeBlock = styled.pre`
   overflow: auto;
   display: flex;
   flex-direction: column;
+  width: max-content;
+  min-width: 25%;
+  max-width: 100%;
 `;
 
 const StyledCodeBlockTitle = styled.div`

@@ -6,6 +6,20 @@ Los encabezados se crean utilizando el símbolo `#`. Cuantos más `#` se utilice
 
 Ejemplo:
 
+```
+# Encabezado Nivel 1
+
+## Encabezado Nivel 2
+
+### Encabezado Nivel 3
+
+#### Encabezado Nivel 4
+
+##### Encabezado Nivel 5
+
+###### Encabezado Nivel 6
+```
+
 # Encabezado Nivel 1
 
 ## Encabezado Nivel 2
@@ -25,6 +39,12 @@ Ejemplo:
 
 Ejemplo:
 
+```
+**Texto en negrita**
+
+_Texto en cursiva_
+```
+
 **Texto en negrita**
 
 _Texto en cursiva_
@@ -37,6 +57,12 @@ Se crea utilizando números seguidos de un punto.
 
 Ejemplo:
 
+```
+1. Primer elemento
+2. Segundo elemento
+3. Tercer elemento
+```
+
 1. Primer elemento
 2. Segundo elemento
 3. Tercer elemento
@@ -47,6 +73,12 @@ Se crea utilizando asteriscos `*`, signos de más `+` o guiones `-`.
 
 Ejemplo:
 
+```
+- Elemento 1
+- Elemento 2
+- Elemento 3
+```
+
 - Elemento 1
 - Elemento 2
 - Elemento 3
@@ -56,6 +88,13 @@ Ejemplo:
 Las tablas en Markdown se crean con tuberías `|` y guiones `-`.
 
 Ejemplo:
+
+```
+| Columna 1 | Columna 2 |
+| --------- | --------- |
+| Dato 1    | Dato 2    |
+| Dato 3    | Dato 4    |
+```
 
 | Columna 1 | Columna 2 |
 | --------- | --------- |
@@ -68,6 +107,10 @@ Las citas se crean utilizando el símbolo de mayor que `>` al inicio de la líne
 
 Ejemplo:
 
+```
+> Esta es una cita en Markdown.
+```
+
 > Esta es una cita en Markdown.
 
 ### 6. **Enlaces**
@@ -75,6 +118,10 @@ Ejemplo:
 Los enlaces se crean con corchetes `[]` para el texto y paréntesis `()` para la URL.
 
 Ejemplo:
+
+```
+[Google](https://www.google.com)
+```
 
 [Google](https://www.google.com)
 
@@ -84,11 +131,15 @@ Las imágenes son similares a los enlaces, pero precedidas por un signo de excla
 
 Ejemplo:
 
-![Texto alternativo](https://www.example.com/imagen.jpg)
+```
+![Texto alternativo](https://picsum.photos/seed/nature2/200/200)
+```
+
+![Texto alternativo](https://picsum.photos/seed/nature2/200/200)
 
 ### 8. **Código**
 
-El código en línea se encierra entre comillas invertidas `` ` ``.
+El código en línea se encierra entre comillas invertidas ` ``` `.
 
 Ejemplo:
 
@@ -96,11 +147,17 @@ Ejemplo:
 Este es un `código en línea`.
 ```
 
+Este es un `código en línea`.
+
 ### 9. **Horizontal Rule**
 
 Una regla horizontal se crea utilizando tres guiones `---`, tres asteriscos `***` o tres guiones bajos `___`.
 
 Ejemplo:
+
+```
+---
+```
 
 ---
 
@@ -108,10 +165,18 @@ Ejemplo:
 
 Los bloques de código se rodean con tres comillas invertidas `  `. Además, puedes especificar el lenguaje de programación.
 
-Ejemplo:
+Ejemplo (quitar \\):
 
+````
+\```javascript
+console.log("Hola Mundo");
+\```
+````
+
+```
 javascript
 console.log("Hola Mundo");
+```
 
 ### 11. **Footnote (Nota al pie)**
 
@@ -129,26 +194,4 @@ Este es un texto con una referencia a una nota al pie[^1].
 
 [^1]: Esta es la nota al pie.
 
-### 12. **Highlight (Resaltado)**
-
-El resaltado de texto se hace utilizando el doble `==` alrededor del texto.
-
-Ejemplo:
-
-Este es un texto con ==resaltado==.
-
-### 13. **Subscript (Subíndice)**
-
-El subíndice se crea usando tildes `~`.
-
-Ejemplo:
-
-H~2~O
-
-### 14. **Superscript (Superíndice)**
-
-El superíndice se crea usando el caret `^`.
-
-Ejemplo:
-
-x^2^
+---
