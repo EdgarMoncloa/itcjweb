@@ -1,7 +1,8 @@
-import styled, { keyframes } from 'styled-components';
-import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
-import { useEffect, useRef, useState } from 'react';
-import { useAppConfig } from '../../../store/useAppConfig';
+import styled, { keyframes } from "styled-components";
+import { StyledBody1, StyledH6 } from "../../../tokens/CustomText";
+import { useEffect, useRef, useState } from "react";
+import { useAppConfig } from "../../../store/useAppConfig";
+import { Tooltip } from "../../atoms/Tooltip";
 
 export interface ContentSelectorProps {
   title: string;
@@ -29,11 +30,11 @@ export const ContentSelector = ({
       if (onClick) {
         onClick(event);
       }
-    }, transition['fast']);
+    }, transition["fast"]);
 
     animationTimeout.current = setTimeout(() => {
       setIsClicked(false);
-    }, transition['normal']);
+    }, transition["normal"]);
   };
 
   useEffect(() => {
@@ -46,38 +47,24 @@ export const ContentSelector = ({
   }, []);
 
   return (
-    <StyledContentSelector className={defaultSize ? 'defaultSize' : ''}>
-      <StyledSelectorIcon
-        onClick={handleOnClick}
-        className={isClicked ? 'animate-on-click' : ''}
-      />
-      <StyledDescriptionTooltip>
-        <StyledH6>{title}</StyledH6>
-        <StyledBody1>{caption}</StyledBody1>
-      </StyledDescriptionTooltip>
+    <StyledContentSelector className={defaultSize ? "defaultSize" : ""}>
+      <Tooltip
+        tooltipContent={
+          <>
+            <StyledH6>{title}</StyledH6>
+            <StyledBody1>{caption}</StyledBody1>
+          </>
+        }
+        position="right"
+      >
+        <StyledSelectorIcon
+          onClick={handleOnClick}
+          className={isClicked ? "animate-on-click" : ""}
+        />
+      </Tooltip>
     </StyledContentSelector>
   );
 };
-
-const StyledDescriptionTooltip = styled.div`
-  align-items: center;
-  background-color: var(--colors-app-primary-500);
-  border-radius: var(--size-border-radius-medium);
-  color: var(--colors-app-text-light);
-  display: flex;
-  flex-direction: column;
-  left: calc(100% + var(--size-margin-small));
-  opacity: 0;
-  padding: var(--size-padding-small) var(--size-padding-medium);
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: 1s opacity;
-  width: max-content;
-  z-index: var(--z-index-background-middle);
-
-  visibility: hidden;
-`;
 
 const StyledContentSelector = styled.div`
   position: relative;
@@ -89,12 +76,6 @@ const StyledContentSelector = styled.div`
   &.defaultSize {
     height: var(--size-icon-xl);
     width: var(--size-icon-xl);
-  }
-
-  &:hover ${StyledDescriptionTooltip} {
-    opacity: 1;
-    visibility: visible;
-    z-index: var(--z-index-tooltip);
   }
 `;
 

@@ -1,11 +1,11 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type { Meta, StoryObj } from "@storybook/react";
 
-import { ContentSelector } from '.';
+import { ContentSelector } from ".";
 
 const meta = {
-  title: 'Atoms/ContentSelector',
+  title: "Molecules/ContentSelector",
   component: ContentSelector,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
     // layout: "centered",
   },
@@ -18,8 +18,8 @@ type Story = StoryObj<typeof meta>;
 export const Base = (args: any) => {
   return (
     <ContentSelector
-      title='Título de la noticia'
-      caption='Esta es la descripcion corta que ira en la imagen'
+      title="Título de la noticia"
+      caption="Esta es la descripcion corta que ira en la imagen"
       defaultSize
     />
   );

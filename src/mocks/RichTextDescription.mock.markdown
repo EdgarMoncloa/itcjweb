@@ -1,107 +1,154 @@
-# **1. ¿Qué es el Rich Text y Cómo se Utiliza en la Plataforma?**
+# Opciones de Markdown
 
-En **la plataforma**, el **Rich Text** se refiere a la capacidad de enriquecer el contenido de texto, lo que permite incluir **formatos complejos**, **enlaces**, **listas**, **citas** y mucho más, sin necesidad de escribir HTML a mano. Este tipo de texto es ideal cuando queremos gestionar contenido dinámico con una interfaz visual fácil de usar.
+### 1. **Encabezados**
 
----
+Los encabezados se crean utilizando el símbolo `#`. Cuantos más `#` se utilicen, menor será el nivel del encabezado.
 
-## **2. Componentes Principales del Rich Text en la Plataforma**
+Ejemplo:
 
-### **2.1. Encabezados**
+# Encabezado Nivel 1
 
-En el Rich Text de **la plataforma**, los **encabezados** se utilizan para dividir el contenido en secciones claras. Son útiles para crear una estructura jerárquica y ayudar a los usuarios a navegar por el texto. Los encabezados también son importantes para el **SEO**, ya que ayudan a los motores de búsqueda a entender la organización del contenido.
+## Encabezado Nivel 2
 
-### Ejemplo de encabezado:
+### Encabezado Nivel 3
 
-```markdown
-## Encabezado de Nivel 2
+#### Encabezado Nivel 4
+
+##### Encabezado Nivel 5
+
+###### Encabezado Nivel 6
+
+### 2. **Texto en Negrita y Cursiva**
+
+- **Negrita**: Se utiliza con dos asteriscos `**` o guiones bajos `__`.
+- **Cursiva**: Se utiliza con un solo asterisco `*` o guion bajo `_`.
+
+Ejemplo:
+
+**Texto en negrita**
+
+_Texto en cursiva_
+
+### 3. **Listas Numeradas y con Viñetas**
+
+#### Lista Numerada:
+
+Se crea utilizando números seguidos de un punto.
+
+Ejemplo:
+
+1. Primer elemento
+2. Segundo elemento
+3. Tercer elemento
+
+#### Lista con Viñetas:
+
+Se crea utilizando asteriscos `*`, signos de más `+` o guiones `-`.
+
+Ejemplo:
+
+- Elemento 1
+- Elemento 2
+- Elemento 3
+
+### 4. **Tablas en Rich Text**
+
+Las tablas en Markdown se crean con tuberías `|` y guiones `-`.
+
+Ejemplo:
+
+| Columna 1 | Columna 2 |
+| --------- | --------- |
+| Dato 1    | Dato 2    |
+| Dato 3    | Dato 4    |
+
+### 5. **Citas**
+
+Las citas se crean utilizando el símbolo de mayor que `>` al inicio de la línea.
+
+Ejemplo:
+
+> Esta es una cita en Markdown.
+
+### 6. **Enlaces**
+
+Los enlaces se crean con corchetes `[]` para el texto y paréntesis `()` para la URL.
+
+Ejemplo:
+
+[Google](https://www.google.com)
+
+### 7. **Imágenes**
+
+Las imágenes son similares a los enlaces, pero precedidas por un signo de exclamación `!`.
+
+Ejemplo:
+
+![Texto alternativo](https://www.example.com/imagen.jpg)
+
+### 8. **Código**
+
+El código en línea se encierra entre comillas invertidas `` ` ``.
+
+Ejemplo:
+
+```
+Este es un `código en línea`.
 ```
 
-### **2.2. Texto en Negrita y Cursiva**
+### 9. **Horizontal Rule**
 
-El texto en **negrita** o **cursiva** es útil para destacar información importante o para dar énfasis a ciertas palabras dentro de una oración. En **la plataforma**, puedes hacer esto fácilmente con la barra de herramientas del editor Rich Text.
+Una regla horizontal se crea utilizando tres guiones `---`, tres asteriscos `***` o tres guiones bajos `___`.
 
-### Ejemplo:
-
-- **Negrita**: Resalta algo importante.
-- _Cursiva_: Indica énfasis o palabras extranjeras.
-
-### Cómo usar:
-
-- Para **negrita**, selecciona el texto y haz clic en el ícono de **B**.
-- Para **cursiva**, selecciona el texto y haz clic en el ícono de **I**.
+Ejemplo:
 
 ---
 
-## **3. Listas Numeradas y con Viñetas**
+### 10. **Fenced Code Block**
 
-Las **listas numeradas** y **con viñetas** son componentes esenciales para organizar contenido, especialmente cuando se necesita mostrar pasos o elementos relacionados.
+Los bloques de código se rodean con tres comillas invertidas `  `. Además, puedes especificar el lenguaje de programación.
 
-### **3.1. Lista Numerada**
+Ejemplo:
 
-La lista numerada se usa para representar pasos en un proceso o para ordenar ideas de forma secuencial.
+javascript
+console.log("Hola Mundo");
 
-### Ejemplo:
+### 11. **Footnote (Nota al pie)**
 
-1. **Paso 1**: Inicia sesión en tu cuenta.
-2. **Paso 2**: Completa el formulario.
-3. **Paso 3**: Envía la solicitud.
+Las notas al pie se crean usando corchetes seguidos de un identificador.
 
-### **3.2. Lista con Viñetas**
+Ejemplo:
 
-La lista con viñetas se usa para representar puntos clave o elementos sin necesidad de un orden específico.
+```
+Este es un texto con una referencia a una nota al pie[^1].
 
-### Ejemplo:
+[^1]: Esta es la nota al pie.
+```
 
-- **Producto A**: Descripción breve.
-- **Producto B**: Descripción breve.
+Este es un texto con una referencia a una nota al pie[^1].
 
----
+[^1]: Esta es la nota al pie.
 
-## **4. Tablas en Rich Text**
+### 12. **Highlight (Resaltado)**
 
-Las **tablas** son perfectas para organizar datos de manera clara y estructurada. Pueden ser utilizadas para mostrar comparaciones, estadísticas o cualquier tipo de información que requiera organización en columnas y filas.
+El resaltado de texto se hace utilizando el doble `==` alrededor del texto.
 
-### Ejemplo de tabla:
+Ejemplo:
 
-| **Producto** | **Precio** | **Cantidad** |
-| ------------ | ---------- | ------------ |
-| Producto 1   | $10.00     | 50           |
-| Producto 2   | $15.00     | 30           |
-| Producto 3   | $20.00     | 20           |
+Este es un texto con ==resaltado==.
 
----
+### 13. **Subscript (Subíndice)**
 
-## **5. Citas**
+El subíndice se crea usando tildes `~`.
 
-Las **citas** son útiles cuando quieres resaltar palabras o frases de alguien más, ya sea un testimonio, una referencia o una declaración importante. En **la plataforma**, las citas se muestran con un estilo de sangría, lo que las hace visualmente diferentes del resto del texto.
+Ejemplo:
 
-### Ejemplo de cita:
+H~2~O
 
-> "El contenido de la plataforma es increíblemente fácil de usar y me ha ahorrado mucho tiempo en mis proyectos."
-> — Juan Pérez, Desarrollador
+### 14. **Superscript (Superíndice)**
 
----
+El superíndice se crea usando el caret `^`.
 
-## **6. Enlaces**
+Ejemplo:
 
-Los **enlaces** permiten que el contenido de Rich Text sea interactivo. Puedes agregar enlaces a páginas internas o externas, lo que facilita la navegación a otros recursos relacionados.
-
-### Ejemplo de enlace:
-
-Para más información, visita nuestro [sitio web](https://www.google.com/).
-
----
-
-## **7. Imágenes**
-
-Las **imágenes** son una excelente forma de enriquecer el contenido visualmente. Puedes insertar imágenes directamente en tu texto, y en **la plataforma**, el editor de Rich Text permite que estas imágenes sean ajustadas en tamaño y alineación para que se vean bien en diferentes dispositivos.
-
----
-
-## **8. Resumen**
-
-El Rich Text de **la plataforma** es una herramienta poderosa que permite crear contenido altamente flexible y enriquecido de forma sencilla. Los **encabezados**, **negritas**, **listas**, **tablas**, **citas**, **enlaces** e **imágenes** son solo algunos de los componentes que puedes utilizar para mejorar la presentación y la estructura de tu contenido. Al dominar estas herramientas, puedes crear documentos mucho más dinámicos e interactivos, adecuados para diversos tipos de aplicaciones.
-
----
-
-**Consejo**: Cuando uses Rich Text en **la plataforma**, recuerda siempre asegurarte de que el contenido esté bien estructurado, con suficiente **espaciado** entre secciones y una **jerarquía clara** de información. Esto no solo mejora la lectura, sino que también favorece la accesibilidad y el SEO.
+x^2^

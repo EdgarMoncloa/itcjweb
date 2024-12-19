@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {
   ContentSelector,
   ContentSelectorProps,
-} from '../../atoms/ContentSelector';
+} from '../../molecules/ContentSelector';
 import { ContentList } from '../../molecules/ContentList';
 import { TransitionDisplay } from '../../atoms/TransitionDisplay';
 import { ContentLink, ContentLinkProps } from '../../atoms/ContentLink';

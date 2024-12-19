@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import {
   ContentSelector,
   ContentSelectorProps,
-} from '../../atoms/ContentSelector';
+} from '../ContentSelector';
 
 export interface ContentListProps {
   contentSelectorItems: ContentSelectorProps[];

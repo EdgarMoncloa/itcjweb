@@ -1,9 +1,9 @@
-import type { Preview } from '@storybook/react';
-import { GlobalStyle } from '../src/tokens/styles.globals';
-import React from 'react';
-import { AppConfigStoreProvider } from '../src/store/AppConfigStore';
-import { ThemeProvider } from 'styled-components';
-import { theme } from '../src/tokens/theme';
+import type { Preview } from "@storybook/react";
+import { GlobalStyle } from "../src/tokens/styles.globals";
+import React from "react";
+import { AppConfigStoreProvider } from "../src/store/AppConfigStore";
+import { ThemeProvider } from "styled-components";
+import { theme } from "../src/tokens/theme";
 
 const preview: Preview = {
   decorators: [
@@ -20,8 +20,8 @@ const preview: Preview = {
   parameters: {
     options: {
       storySort: {
-        order: ['Atoms', 'Molecules', 'Organisms', 'Templates', 'Pages'],
-        method: 'alphabetical',
+        order: ["Atoms", "Molecules", "Organisms", "Templates", "Pages"],
+        method: "alphabetical",
       },
     },
 
