@@ -1,24 +1,24 @@
-import styled from 'styled-components';
-import { getStyledTextByName, StyledH1 } from '../../../tokens/CustomText';
-import { ReactNode } from 'react';
-import { TextTypes } from '../../../types/GlobalTypes';
+import styled from "styled-components";
+import { getStyledTextByName, StyledH1 } from "../../../tokens/CustomText";
+import { ReactNode } from "react";
+import { TextTypes } from "../../../types/GlobalTypes";
 
 export enum ExampleContainerColors {
-  Primary100 = '--colors-app-primary-100',
-  Primary300 = '--colors-app-primary-300',
-  Primary500 = '--colors-app-primary-500',
-  Primary700 = '--colors-app-primary-700',
+  // Primary100 = "--colors-app-primary-100",
+  Primary300 = "--colors-app-primary-300",
+  Primary500 = "--colors-app-primary-500",
+  Primary700 = "--colors-app-primary-700",
 
-  Secondary100 = '--colors-app-secondary-100',
-  Secondary300 = '--colors-app-secondary-300',
-  Secondary500 = '--colors-app-secondary-500',
-  Secondary700 = '--colors-app-secondary-700',
+  // Secondary100 = "--colors-app-secondary-100",
+  Secondary300 = "--colors-app-secondary-300",
+  Secondary500 = "--colors-app-secondary-500",
+  Secondary700 = "--colors-app-secondary-700",
 
-  Neutral100 = '--colors-app-neutral-100',
-  Neutral300 = '--colors-app-neutral-300',
-  Neutral500 = '--colors-app-neutral-500',
+  // Neutral100 = "--colors-app-neutral-100",
+  Neutral300 = "--colors-app-neutral-300",
+  Neutral500 = "--colors-app-neutral-500",
 
-  transparent = '--colors-transparent',
+  transparent = "--colors-transparent",
 }
 
 export interface ExampleContainerProps {
@@ -38,7 +38,7 @@ export const ExampleContainer = ({
   if (!color) {
     // Get random from enum ExampleContainerColors
     const colorKeys = Object.keys(ExampleContainerColors);
-    let index = Math.floor(Math.random() * colorKeys.length);
+    const index = Math.floor(Math.random() * colorKeys.length);
     localColor =
       ExampleContainerColors[
         colorKeys[index] as keyof typeof ExampleContainerColors
@@ -49,7 +49,7 @@ export const ExampleContainer = ({
     <StyledExampleContainer
       as={StyledText}
       $color={localColor}
-      className={defaultSize ? 'defaultSize' : ''}
+      className={defaultSize ? "defaultSize" : ""}
     >
       {children}
     </StyledExampleContainer>

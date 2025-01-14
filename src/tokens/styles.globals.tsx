@@ -1,6 +1,6 @@
 /* globalStyle.jsx */
 
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -46,6 +46,60 @@ export const GlobalStyle = createGlobalStyle`
     @media (min-width: ${(props) => props.theme.breakpoints.fourKDesktop}) {
       font-size: 36px;
     } 
+
+    /* !SECTION Scrollbars */
+
+    /* ANCHOR Webkit scrollbar */
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 0.75rem; 
+    }
+
+    /* Scrollbar background */
+    ::-webkit-scrollbar-track {
+      background-color: var(--colors-app-primary-100); 
+      border-radius: var(--size-border-radius-large); 
+    }
+
+    /* Scrollbar thumb */
+    ::-webkit-scrollbar-thumb {
+      background-color: var(--colors-app-primary-700); 
+      border-radius: var(--size-border-radius-large); 
+      border: var(--size-border-small) solid var(--colors-app-primary-100); 
+    }
+
+    /* Scrollbar thumb on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: var(--colors-app-primary-900);  
+    }
+
+    /* ANCHOR Firefox scrollbar */
+    @-moz-document url-prefix() {
+      scrollbar-width: thin; 
+      scrollbar-color: var(--colors-app-primary-700) var(--colors-app-primary-100); 
+
+      ::-moz-scrollbar {
+        width: 0.75rem;
+        scrollbar-width: thin; 
+      }
+
+      ::-moz-scrollbar-track {
+        background-color: var(--colors-app-primary-100);
+        border-radius: var(--size-border-radius-large);
+      }
+
+      ::-moz-scrollbar-thumb {
+        background-color: var(--colors-app-primary-700);
+        border-radius: var(--size-border-radius-large);
+        border: var(--size-border-small) solid var(--colors-app-primary-100);
+      }
+
+      ::-moz-scrollbar-thumb:hover {
+        background-color: var(--colors-app-primary-900);
+      }
+    }
+    
+    /* !SECTION Scrollbars */
   }
   /* !SECTION HTML\BODY */
  
@@ -230,22 +284,22 @@ export const GlobalStyle = createGlobalStyle`
   /* !SECTION Margins */
 
   /* ANCHOR Widths */
-  --size-width-1-cols: 4em;        /* 64px / 16px */
-  --size-width-2-cols: 9em;        /* 144px / 16px */
-  --size-width-3-cols: 14em;       /* 224px / 16px */
-  --size-width-4-cols: 19em;       /* 304px / 16px */
-  --size-width-5-cols: 24em;       /* 384px / 16px */
-  --size-width-6-cols: 29em;       /* 464px / 16px */
-  --size-width-7-cols: 34em;       /* 544px / 16px */
-  --size-width-8-cols: 39em;       /* 624px / 16px */
-  --size-width-9-cols: 44em;       /* 704px / 16px */
-  --size-width-10-cols: 49em;      /* 784px / 16px */
-  --size-width-11-cols: 54em;      /* 864px / 16px */
-  --size-width-12-cols: 59em;      /* 944px / 16px */
-  --size-width-13-cols: 64em;      /* 1024px / 16px */
-  --size-width-14-cols: 69em;      /* 1104px / 16px */
-  --size-width-15-cols: 74em;      /* 1184px / 16px */
-  --size-width-16-cols: 79em;      /* 1264px / 16px */
+  --size-width-1-cols: 5em;        /* 64px / 16px */
+  --size-width-2-cols: 10em;        /* 144px / 16px */
+  --size-width-3-cols: 15em;       /* 224px / 16px */
+  --size-width-4-cols: 20em;       /* 304px / 16px */
+  --size-width-5-cols: 25em;       /* 384px / 16px */
+  --size-width-6-cols: 30em;       /* 464px / 16px */
+  --size-width-7-cols: 35em;       /* 544px / 16px */
+  --size-width-8-cols: 40em;       /* 624px / 16px */
+  --size-width-9-cols: 45em;       /* 704px / 16px */
+  --size-width-10-cols: 50em;      /* 784px / 16px */
+  --size-width-11-cols: 55em;      /* 864px / 16px */
+  --size-width-12-cols: 60em;      /* 944px / 16px */
+  --size-width-13-cols: 65em;      /* 1024px / 16px */
+  --size-width-14-cols: 70em;      /* 1104px / 16px */
+  --size-width-15-cols: 75em;      /* 1184px / 16px */
+  --size-width-16-cols: 80em;      /* 1264px / 16px */
   
   /* ANCHOR Gaps */
   --size-gap-2xs: 0.125em;   /* 2px / 16px */
@@ -299,6 +353,6 @@ export const GlobalStyle = createGlobalStyle`
   --z-index-fullscreen: 1300;
 
 
-}
-`;
+  }
 /* !SECTION ROOT */
+`;

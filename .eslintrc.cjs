@@ -21,5 +21,6 @@ module.exports = {
       { args: "none", ignoreRestSiblings: true },
     ],
     "no-useless-escape": "off",
+    "no-empty-pattern": "warn",
   },
 };
