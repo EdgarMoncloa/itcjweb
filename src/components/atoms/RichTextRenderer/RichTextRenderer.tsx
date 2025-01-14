@@ -19,6 +19,7 @@ import { StyledUnstyledButton } from "../../../tokens/UnstyledElements";
 import React from "react";
 import { extractTextFromReactElement } from "../../../utils/extractTextFromReactElement";
 import { CodeBlock } from "../CodeBlock/CodeBlock";
+import { StyledBlockquote, StyledHr } from "../../../tokens/CustomHTMLElements";
 
 export interface RichTextRendererProps {
   text: string;
@@ -29,7 +30,7 @@ export const RichTextRenderer = ({ text }: RichTextRendererProps) => {
     <ReactMarkdown
       remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
       components={{
-        h1: ({ children }) => <StyledMarkdownH1>{children}</StyledMarkdownH1>,
+        h1: ({ children }) => <StyledH1>{children}</StyledH1>,
         h2: ({ children }) => <StyledH2>{children}</StyledH2>,
         h3: ({ children }) => <StyledH3>{children}</StyledH3>,
         h4: ({ children }) => <StyledH4>{children}</StyledH4>,
@@ -56,17 +57,3 @@ export const RichTextRenderer = ({ text }: RichTextRendererProps) => {
     </ReactMarkdown>
   );
 };
-
-const StyledMarkdownH1 = styled(StyledH1)``;
-
-const StyledHr = styled.hr`
-  border: 0;
-  height: var(--size-border-xs);
-  background-color: var(--colors-app-primary-700);
-`;
-
-const StyledBlockquote = styled.blockquote`
-  background-color: var(--colors-app-primary-50);
-  padding: var(--size-padding-xs) var(--size-padding-medium);
-  border-radius: var(--size-border-radius-small);
-`;

@@ -25,7 +25,7 @@ export const HeaderTec = ({ withOpacity = false }: HeaderTecProps) => {
 
 export const StyledHeaderTec = styled.div`
   height: var(--size-height-medium);
-  width: 100vw;
+  width: 100%;
   background-color: var(--colors-app-secondary-950);
   display: flex;
   align-items: center;

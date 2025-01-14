@@ -1,12 +1,15 @@
-import styled from 'styled-components';
-import { AllHeaders } from '../../organisms/AllHeaders';
-import { NavMenu } from '../../organisms/NavMenu';
-import { TecFooter } from '../../molecules/TecFooter';
-import { GobFooter } from '../../molecules/GobFooter';
+import styled from "styled-components";
+import { AllHeaders } from "../../organisms/AllHeaders";
+import { NavMenu } from "../../organisms/NavMenu";
+import { TecFooter } from "../../molecules/TecFooter";
+import { GobFooter } from "../../molecules/GobFooter";
+import { RichTextRenderer } from "../../atoms/RichTextRenderer";
 
-export interface InfoHubProps {}
+export interface InfoHubProps {
+  content: string;
+}
 
-export const InfoHub: React.FC<InfoHubProps> = () => {
+export const InfoHub = ({ content }: InfoHubProps) => {
   return (
     <StyledMainContainer>
       <AllHeaders />
@@ -14,7 +17,9 @@ export const InfoHub: React.FC<InfoHubProps> = () => {
         <StyledNavMenuWrapper>
           <NavMenu />
         </StyledNavMenuWrapper>
-        <StyledInfoContainer>Info</StyledInfoContainer>
+        <StyledInfoContainer>
+          <RichTextRenderer text={content} />
+        </StyledInfoContainer>
       </StyledInfoHubContainer>
       <TecFooter />
       <GobFooter />
@@ -31,23 +36,27 @@ const StyledMainContainer = styled.div`
 const StyledInfoHubContainer = styled.div`
   width: 100%;
   height: 100%;
-  display: flex;
+  display: grid;
+  grid-template-rows: 100%;
+  grid-template-columns: var(--size-width-4-cols) 1fr;
+  gap: var(--size-gap-large);
+  background-color: var(--colors-app-neutral-50);
+  padding: var(--size-padding-medium) 0;
 `;
 
 const StyledNavMenuWrapper = styled.div`
-  width: var(--size-width-4-cols);
+  width: 100%;
   height: max-content;
   max-height: 75vh;
   box-sizing: border-box;
-  padding: var(--size-padding-small);
   position: sticky;
   top: var(--size-height-1-row);
   overflow-y: auto;
 `;
 
 const StyledInfoContainer = styled.div`
-  width: 100%;
-  height: 100%;
-  min-height: 200vh;
-  background-color: var(--colors-app-primary-500);
+  border-radius: var(--size-border-radius-medium);
+  width: 95%;
+  padding: var(--size-padding-medium);
+  background-color: var(--colors-app-neutral-50);
 `;

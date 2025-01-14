@@ -83,7 +83,7 @@ Ejemplo:
 - Elemento 2
 - Elemento 3
 
-### 4. **Tablas en Rich Text**
+### 4. **Tablas**
 
 Las tablas en Markdown se crean con tuberías `|` y guiones `-`.
 
@@ -177,21 +177,3 @@ console.log("Hola Mundo");
 javascript
 console.log("Hola Mundo");
 ```
-
-### 11. **Footnote (Nota al pie)**
-
-Las notas al pie se crean usando corchetes seguidos de un identificador.
-
-Ejemplo:
-
-```
-Este es un texto con una referencia a una nota al pie[^1].
-
-[^1]: Esta es la nota al pie.
-```
-
-Este es un texto con una referencia a una nota al pie[^1].
-
-[^1]: Esta es la nota al pie.
-
----
