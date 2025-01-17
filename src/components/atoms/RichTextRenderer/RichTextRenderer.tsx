@@ -20,12 +20,13 @@ import React from "react";
 import { extractTextFromReactElement } from "../../../utils/extractTextFromReactElement";
 import { CodeBlock } from "../CodeBlock/CodeBlock";
 import { StyledBlockquote, StyledHr } from "../../../tokens/CustomHTMLElements";
+import { StyledImg } from "../../../tokens/CustomImg";
 
 export interface RichTextRendererProps {
-  text: string;
+  content: string;
 }
 
-export const RichTextRenderer = ({ text }: RichTextRendererProps) => {
+export const RichTextRenderer = ({ content }: RichTextRendererProps) => {
   return (
     <ReactMarkdown
       remarkPlugins={[[remarkGfm, { singleTilde: false }]]}
@@ -51,9 +52,10 @@ export const RichTextRenderer = ({ text }: RichTextRendererProps) => {
           <StyledBlockquote>{children}</StyledBlockquote>
         ),
         pre: ({ children }) => <CodeBlock>{children}</CodeBlock>,
+        img: ({ src, alt }) => <StyledImg src={src} alt={alt} />,
       }}
     >
-      {text}
+      {content}
     </ReactMarkdown>
   );
 };

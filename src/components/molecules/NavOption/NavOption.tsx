@@ -1,12 +1,12 @@
 import { GoTriangleRight } from 'react-icons/go';
 import styled from 'styled-components';
 import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
-import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
 import { MdExpandMore } from 'react-icons/md';
 import { DropdownContainer } from '../../atoms/Grids/DropdownContainer';
 import { useState } from 'react';
 import { StyledUnstyledButton } from '../../../tokens/UnstyledElements';
 import { BorderHoverReveal } from '../../atoms/Grids/BorderHoverReveal/BorderHoverReveal';
+import { DynamicIcon } from '../../atoms/Icons/DynamicIcon';
 
 interface NavItem {
   content: string;

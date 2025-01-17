@@ -1,6 +1,6 @@
 import { BiBlanket } from 'react-icons/bi';
-import { RelevantSite, RelevantSiteProps } from '../../atoms/RelevantSite';
 import styled from 'styled-components';
+import { RelevantSite } from '../../atoms/Buttons/RelevantSite';
 
 interface RelevantSitesProps {
   // sites: RelevantSiteProps[];

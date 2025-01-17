@@ -12,7 +12,7 @@ type Story = StoryObj<RichTextRendererProps>;
 
 export const Base: Story = {
   args: {
-    text: '',
+    content: '',
   },
   render: (args) => {
     const [markdownContent, setMarkdownContent] = useState('');
@@ -24,6 +24,6 @@ export const Base: Story = {
         .catch((error) => console.error('Error loading markdown:', error));
     }, []);
 
-    return <RichTextRenderer {...args} text={markdownContent} />;
+    return <RichTextRenderer {...args} content={markdownContent} />;
   },
 };
