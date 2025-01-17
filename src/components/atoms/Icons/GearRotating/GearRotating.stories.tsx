@@ -2,7 +2,7 @@ import { StoryObj, Meta } from '@storybook/react';
 import { GearRotating } from './GearRotating';
 
 export default {
-  title: 'Atoms/GearRotating',
+  title: 'Atoms/Icons/GearRotating',
   component: GearRotating,
   tags: ['autodocs'],
   argTypes: {

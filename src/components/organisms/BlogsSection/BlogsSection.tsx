@@ -1,7 +1,7 @@
 import { BlogCard, BlogCardProps } from '../../molecules/BlogCard';
 import { useEffect, useRef, useState } from 'react';
-import { SlideCover } from '../../atoms/SlideCover';
-import { NextArrow } from '../../atoms/NextArrow';
+import { SlideCover } from '../../atoms/Animations/SlideCover';
+import { NextArrow } from '../../atoms/Buttons/NextArrow';
 import styled from 'styled-components';
 
 // TODO EN EL PRIMER RENDER NO SE ESTA RENDERIZANDO PORQUE EL TAMANO ES 0

@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { NextArrow } from '.';
 
 const meta = {
-  title: 'Atoms/NextArrow',
+  title: 'Atoms/Buttons/NextArrow',
   component: NextArrow,
   tags: ['autodocs'],
   parameters: {

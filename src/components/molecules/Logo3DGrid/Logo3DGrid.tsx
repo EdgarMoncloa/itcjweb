@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { LogoLink3D, LogoLink3DProps } from '../../atoms/LogoLink3D';
+import { LogoLink3D, LogoLink3DProps } from '../../atoms/Buttons/LogoLink3D';
 import { StyledH3 } from '../../../tokens/CustomText';
 
 export interface Logo3DGridProps {

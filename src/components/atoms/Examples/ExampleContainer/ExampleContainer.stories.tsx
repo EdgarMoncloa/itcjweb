@@ -1,40 +1,40 @@
-import { StoryObj } from '@storybook/react';
+import { StoryObj } from "@storybook/react";
 import {
   ExampleContainerColors,
   ExampleContainer,
   ExampleContainerProps,
-} from './ExampleContainer';
+} from "./ExampleContainer";
 
 export default {
-  title: 'Atoms/ExampleContainer',
+  title: "Atoms/Examples/ExampleContainer",
   component: ExampleContainer,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
   argTypes: {
     color: {
       control: {
-        type: 'select',
+        type: "select",
       },
       options: Object.keys(ExampleContainerColors),
     },
     text: {
       control: {
-        type: 'text',
+        type: "text",
       },
     },
   },
 };
 
-type MyComponentStoryProps = Omit<ExampleContainerProps, 'color'> & {
+type MyComponentStoryProps = Omit<ExampleContainerProps, "color"> & {
   color: keyof typeof ExampleContainerColors;
 };
 
 export const Default: StoryObj<MyComponentStoryProps> = {
   args: {
-    color: 'Primary100',
-    children: 'Example',
+    color: "Primary300",
+    children: "Example",
   },
   render: (args) => {
     const colorValue =

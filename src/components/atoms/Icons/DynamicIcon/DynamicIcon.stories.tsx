@@ -5,7 +5,7 @@ import * as Icons from 'react-icons/fa';
 const iconNames = Object.keys(Icons);
 
 const meta: Meta<typeof DynamicIcon> = {
-  title: 'Atoms/DynamicIcon',
+  title: 'Atoms/Icons/DynamicIcon',
   component: DynamicIcon,
   tags: ['autodocs'],
   parameters: {

@@ -3,7 +3,7 @@ import {
   StyledLogoMexWrapper,
   StyledGobHeader,
 } from './style';
-import { SimpleNavMenu, SimpleNavMenuTypes } from '../../atoms/SimpleNavMenu';
+import { SimpleNavMenu, SimpleNavMenuTypes } from '../../atoms/Buttons/SimpleNavMenu';
 import { FaSearch } from 'react-icons/fa';
 
 export const GobHeader = () => {

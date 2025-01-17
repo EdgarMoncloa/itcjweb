@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { SimpleNavMenu, SimpleNavMenuTypes } from '.';
 
 const meta = {
-  title: 'Atoms/SimpleNavMenu',
+  title: 'Atoms/Buttons/SimpleNavMenu',
   component: SimpleNavMenu,
   // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/writing-docs/autodocs
   tags: ['autodocs'],
@@ -29,5 +29,6 @@ type Story = StoryObj<typeof meta>;
 export const Base: Story = {
   args: {
     type: SimpleNavMenuTypes.gob,
+    link:"#"
   },
 };

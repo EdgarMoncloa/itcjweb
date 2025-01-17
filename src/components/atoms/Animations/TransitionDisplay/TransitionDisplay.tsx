@@ -1,19 +1,24 @@
-import styled, { keyframes } from 'styled-components';
-import { ContentLink, ContentLinkProps } from '../ContentLink';
-import React, { useEffect, useRef } from 'react';
+import styled, { keyframes } from "styled-components";
+import { ContentLink, ContentLinkProps } from "../../ContentLink";
+import React, { useEffect, useRef } from "react";
 
-type DelayType = 'none' | 'very-fast' | 'fast' | 'normal' | 'slow';
+export type TransitionDelayType =
+  | "none"
+  | "very-fast"
+  | "fast"
+  | "normal"
+  | "slow";
 
 export interface TransitionDisplayProps {
   fromElement?: React.ReactNode;
   toElement: React.ReactNode;
   toElementKey?: string;
   haveDefaultSize?: boolean;
-  transition?: 'circleFromCenter';
+  transition?: "circleFromCenter";
   /**
    * Delay in miliseconds
    */
-  delay?: DelayType;
+  delay?: TransitionDelayType;
   animate?: boolean;
 }
 
@@ -22,17 +27,17 @@ export const TransitionDisplay = ({
   fromElement,
   toElement,
   toElementKey,
-  transition = 'circleFromCenter',
+  transition = "circleFromCenter",
   delay,
   animate = true,
 }: TransitionDisplayProps) => {
   return (
-    <StyledContentDisplay className={haveDefaultSize ? 'default-size' : ''}>
+    <StyledContentDisplay className={haveDefaultSize ? "default-size" : ""}>
       {fromElement && (
         <StyledFromElementWrapper>{fromElement}</StyledFromElementWrapper>
       )}
       <StyledToElementWrapper
-        className={animate === true ? transition : ''}
+        className={animate === true ? transition : ""}
         $delay={delay}
         key={toElementKey}
       >
@@ -84,7 +89,7 @@ const StyledFromElementWrapper = styled.div`
 `;
 
 const StyledToElementWrapper = styled.div<{
-  $delay?: DelayType;
+  $delay?: TransitionDelayType;
 }>`
   width: 100%;
   height: 100%;
@@ -93,19 +98,19 @@ const StyledToElementWrapper = styled.div<{
   &.circleFromCenter {
     animation: ${keyFramesClipPath} var(--transition-slow) forwards;
     animation-delay: ${(props) =>
-      props.$delay && props.$delay !== 'none'
+      props.$delay && props.$delay !== "none"
         ? `var(--delay-${props.$delay})`
-        : '0s'};
+        : "0s"};
 
     &::after {
       animation: ${keyFramesClipPathMask} var(--transition-slow) forwards;
       animation-delay: ${(props) =>
-        props.$delay && props.$delay !== 'none'
+        props.$delay && props.$delay !== "none"
           ? `var(--delay-${props.$delay})`
-          : '0s'};
+          : "0s"};
       background-color: var(--colors-itcj-primary);
       border-radius: var(--size-border-radius-full);
-      content: '';
+      content: "";
       height: 200%;
       left: 50%;
       opacity: 0;

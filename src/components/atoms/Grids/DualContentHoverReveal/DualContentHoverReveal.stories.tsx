@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { DualContentHoverReveal } from './DualContentHoverReveal';
-import { ExampleContainer, ExampleContainerColors } from '../../ExampleContainer';
+import { ExampleContainer, ExampleContainerColors } from '../../Examples/ExampleContainer';
 
 export default {
   title: 'Atoms/Grids/DualContentHoverReveal',

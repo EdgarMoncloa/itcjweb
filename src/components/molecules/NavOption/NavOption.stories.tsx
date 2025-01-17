@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import {
   ExampleContainer,
   ExampleContainerColors,
-} from '../../atoms/ExampleContainer';
+} from '../../atoms/Examples/ExampleContainer';
 import { TextTypes } from '../../../types/GlobalTypes';
 
 const iconNames = Object.keys(Icons);

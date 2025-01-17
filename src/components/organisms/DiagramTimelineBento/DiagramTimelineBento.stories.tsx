@@ -3,7 +3,7 @@ import {
   DiagramTimelineBento,
   DiagramTimelineBentoProps,
 } from "./DiagramTimelineBento";
-import { ExampleContainer } from "../../atoms/ExampleContainer";
+import { ExampleContainer } from "../../atoms/Examples/ExampleContainer";
 import { CKEditorRenderer } from "../CKEditorRenderer";
 
 export default {

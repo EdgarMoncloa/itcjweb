@@ -1,6 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react';
 import { DropdownContainer } from './DropdownContainer';
-import { ExampleContainer, ExampleContainerColors } from '../../ExampleContainer';
+import { ExampleContainer, ExampleContainerColors } from '../../Examples/ExampleContainer';
 import { TextTypes } from '../../../../types/GlobalTypes';
 import styled from 'styled-components';
 import { StyledUnstyledButton } from '../../../../tokens/UnstyledElements';

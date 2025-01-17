@@ -6,7 +6,7 @@ import {
 import {
   ExampleContainer,
   ExampleContainerColors,
-} from "../../ExampleContainer";
+} from "../../Examples/ExampleContainer";
 import { Meta, StoryObj } from "@storybook/react";
 
 export default {

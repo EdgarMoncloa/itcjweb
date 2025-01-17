@@ -1,7 +1,7 @@
-import { SlideCover } from '../SlideCover';
-import React, { ReactElement, useState } from 'react';
-import styled, { css, keyframes } from 'styled-components';
-import { StyledH6 } from '../../../tokens/CustomText';
+import { ReactElement, useState } from "react";
+import styled, { keyframes } from "styled-components";
+import { SlideCover } from "../../Animations/SlideCover";
+import { StyledH6 } from "../../../../tokens/CustomText";
 
 export type RelevantSiteProps = {
   icon?: ReactElement;
@@ -21,14 +21,14 @@ export const RelevantSite = ({
   return (
     <StyledRelevantSite
       href={toSite}
-      target='_blank'
+      target="_blank"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={defaultSize ? 'defaultSize' : ''}
+      className={defaultSize ? "defaultSize" : ""}
     >
       <StyledIconContainer>{icon}</StyledIconContainer>
       <StyledBaseContainer>{text}</StyledBaseContainer>
-      <SlideCover position={'bottom'} isVisible={isHovered} />
+      <SlideCover position={"bottom"} isVisible={isHovered} />
     </StyledRelevantSite>
   );
 };

@@ -4,7 +4,7 @@ import { RelevantSite } from '.';
 import { RxValueNone } from 'react-icons/rx';
 
 const meta = {
-  title: 'Atoms/RelevantSite',
+  title: 'Atoms/Buttons/RelevantSite',
   component: RelevantSite,
   tags: ['autodocs'],
   parameters: {

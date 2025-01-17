@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { GearRotating } from '../../atoms/GearRotating';
+import { GearRotating } from '../../atoms/Icons/GearRotating';
 import { StyledH1 } from '../../../tokens/CustomText';
 
 export interface TitleWithGearRotatingProps {

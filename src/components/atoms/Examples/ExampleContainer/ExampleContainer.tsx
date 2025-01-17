@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { getStyledTextByName, StyledH1 } from "../../../tokens/CustomText";
+import { getStyledTextByName, StyledH1 } from "../../../../tokens/CustomText";
 import { ReactNode } from "react";
-import { TextTypes } from "../../../types/GlobalTypes";
+import { TextTypes } from "../../../../types/GlobalTypes";
 
 export enum ExampleContainerColors {
   // Primary100 = "--colors-app-primary-100",

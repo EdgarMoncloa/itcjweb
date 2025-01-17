@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { generateRandomImageLink } from '../../../utils/generateRandomImageLink';
+import { generateRandomImageLink } from '../../../../utils/generateRandomImageLink';
 
 export interface ExampleImageProps {
   alt?: string;

@@ -2,14 +2,14 @@ import type { Meta, StoryObj, StoryFn } from '@storybook/react';
 import { SlideCover } from '.';
 import styled, { keyframes } from 'styled-components';
 import { useState } from 'react';
-import { StyledH1 } from '../../../tokens/CustomText';
+import { StyledH1 } from '../../../../tokens/CustomText';
 
 interface MyComponentStoryProps {
   numItems: number;
 }
 
 const meta: Meta = {
-  title: 'Atoms/Slide Cover',
+  title: 'Atoms/Animations/SlideCover',
   component: SlideCover,
   tags: ['autodocs'],
   parameters: {

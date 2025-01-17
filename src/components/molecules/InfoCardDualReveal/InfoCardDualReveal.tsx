@@ -3,7 +3,7 @@ import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
 import { TextTypes } from '../../../types/GlobalTypes';
 import { Tag } from '../../atoms/Tag';
 import { DualContentHoverReveal } from '../../atoms/Grids/DualContentHoverReveal';
-import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
+import { DynamicIcon } from '../../atoms/Icons/DynamicIcon';
 
 export interface InfoCardDualRevealProps {
   defaultSize?: boolean;

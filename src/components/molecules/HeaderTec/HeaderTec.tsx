@@ -1,5 +1,5 @@
 import { headerTecItems } from '../../../data/headerTecItems';
-import { SimpleNavMenu, SimpleNavMenuTypes } from '../../atoms/SimpleNavMenu';
+import { SimpleNavMenu, SimpleNavMenuTypes } from '../../atoms/Buttons/SimpleNavMenu';
 import styled from 'styled-components';
 
 export interface HeaderTecProps {

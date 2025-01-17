@@ -3,7 +3,7 @@ import { DualContentHover3DSlider } from "./DualContentHover3DSlider";
 import {
   ExampleContainer,
   ExampleContainerColors,
-} from "../../ExampleContainer";
+} from "../../Examples/ExampleContainer";
 import { TextTypes } from "../../../../types/GlobalTypes";
 
 interface MyStory {

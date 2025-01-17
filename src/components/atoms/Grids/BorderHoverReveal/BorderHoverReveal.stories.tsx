@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { BorderHoverReveal } from './BorderHoverReveal';
-import { ExampleContainer, ExampleContainerColors } from '../ExampleContainer';
-import { TextTypes } from '../../../types/GlobalTypes';
+import { ExampleContainer, ExampleContainerColors } from '../../Examples/ExampleContainer';
+import { TextTypes } from '../../../../types/GlobalTypes';
 
 export default {
   title: 'Atoms/Grids/BorderHoverReveal',

@@ -4,7 +4,7 @@ import {
   ContentSelectorProps,
 } from '../../molecules/ContentSelector';
 import { ContentList } from '../../molecules/ContentList';
-import { TransitionDisplay } from '../../atoms/TransitionDisplay';
+import { TransitionDisplay } from '../../atoms/Animations/TransitionDisplay';
 import { ContentLink, ContentLinkProps } from '../../atoms/ContentLink';
 import { useEffect, useRef, useState } from 'react';
 import { useAppConfig } from '../../../store/useAppConfig';
