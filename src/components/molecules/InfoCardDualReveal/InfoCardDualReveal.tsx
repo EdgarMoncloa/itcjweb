@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
 import { TextTypes } from '../../../types/GlobalTypes';
 import { Tag } from '../../atoms/Tag';
-import { DualContentHoverReveal } from '../../atoms/DualContentHoverReveal';
+import { DualContentHoverReveal } from '../../atoms/Grids/DualContentHoverReveal';
 import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
 
 export interface InfoCardDualRevealProps {

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
 import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
 import { MdExpandMore } from 'react-icons/md';
-import { DropdownContainer } from '../../atoms/DropdownContainer';
+import { DropdownContainer } from '../../atoms/Grids/DropdownContainer';
 import { useState } from 'react';
 import { StyledUnstyledButton } from '../../../tokens/UnstyledElements';
 import { BorderHoverReveal } from '../../atoms/BorderHoverReveal/BorderHoverReveal';

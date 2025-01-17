@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ReactNode } from 'react';
-import { colorVariant } from '../../../types/GlobalTypes';
+import { colorVariant } from '../../../../types/GlobalTypes';
 
 type InfoCardColorVariants = Omit<colorVariant, 'secondary'>;
 

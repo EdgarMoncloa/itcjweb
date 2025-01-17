@@ -2,54 +2,57 @@ import {
   TriadContentHoverSlider,
   TriadContentHoverSliderProps,
   TriadContentHoverSliderSize,
-} from './TriadContentHoverSlider';
-import { ExampleContainer, ExampleContainerColors } from '../ExampleContainer';
-import { Meta, StoryObj } from '@storybook/react';
+} from "./TriadContentHoverSlider";
+import {
+  ExampleContainer,
+  ExampleContainerColors,
+} from "../../ExampleContainer";
+import { Meta, StoryObj } from "@storybook/react";
 
 export default {
-  title: 'Atoms/TriadContentHoverSlider',
+  title: "Atoms/Grids/TriadContentHoverSlider",
   component: TriadContentHoverSlider,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     gridSize: {
-      description: 'Tamaño del grid',
+      description: "Tamaño del grid",
       control: {
-        type: 'select',
-        options: ['1-1-1', '2-1-2'],
+        type: "select",
+        options: ["1-1-1", "2-1-2"],
       },
     },
     defaultSize: {
-      description: 'Define un tamaño estandar para mostrar en storybook',
+      description: "Define un tamaño estandar para mostrar en storybook",
       control: {
-        type: 'boolean',
+        type: "boolean",
         disable: true,
       },
     },
     primaryContent: {
-      description: 'Primer elemento',
+      description: "Primer elemento",
       control: {
-        type: 'text',
+        type: "text",
       },
       table: {
-        type: { summary: 'ReactNode' },
+        type: { summary: "ReactNode" },
       },
     },
     secondaryContent: {
-      description: 'Segundo elemento',
+      description: "Segundo elemento",
       control: {
-        type: 'text',
+        type: "text",
       },
       table: {
-        type: { summary: 'ReactNode' },
+        type: { summary: "ReactNode" },
       },
     },
     tertiaryContent: {
-      description: 'Segundo elemento',
+      description: "Segundo elemento",
       control: {
-        type: 'text',
+        type: "text",
       },
       table: {
-        type: { summary: 'ReactNode' },
+        type: { summary: "ReactNode" },
       },
     },
   },
@@ -57,7 +60,7 @@ export default {
 
 type MyComponentStoryProps = Omit<
   TriadContentHoverSliderProps,
-  'primaryContent' & 'secondaryContent' & 'tertiaryContent'
+  "primaryContent" & "secondaryContent" & "tertiaryContent"
 > & {
   gridSize: TriadContentHoverSliderSize;
   primaryContent: string;
@@ -69,10 +72,10 @@ type Story = StoryObj<MyComponentStoryProps>;
 
 export const Default: Story = {
   args: {
-    gridSize: '1-1-1',
-    primaryContent: 'Example 1',
-    secondaryContent: 'Example 2',
-    tertiaryContent: 'Example 3',
+    gridSize: "1-1-1",
+    primaryContent: "Example 1",
+    secondaryContent: "Example 2",
+    tertiaryContent: "Example 3",
   },
   render: (args) => {
     return (
@@ -81,7 +84,7 @@ export const Default: Story = {
         defaultSize
         primaryContent={
           <ExampleContainer
-            color={ExampleContainerColors.Primary100}
+            color={ExampleContainerColors.Primary300}
             children={args.primaryContent}
           />
         }

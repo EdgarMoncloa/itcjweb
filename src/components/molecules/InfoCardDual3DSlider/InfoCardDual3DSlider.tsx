@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { DualContentHover3DSlider } from '../../atoms/DualContentHover3DSlider';
+import { DualContentHover3DSlider } from '../../atoms/Grids/DualContentHover3DSlider';
 import { DynamicIcon } from '../../atoms/DynamicIcon/DynamicIcon';
 import { StyledBody1, StyledH5, StyledH6 } from '../../../tokens/CustomText';
 

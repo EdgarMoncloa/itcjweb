@@ -5,7 +5,7 @@ import { Tag } from '../../atoms/Tag';
 import {
   TriadContentHoverSlider,
   TriadContentHoverSliderSize,
-} from '../../atoms/TriadContentHoverSlider';
+} from '../../atoms/Grids/TriadContentHoverSlider';
 
 export interface InfoCardTrialSliderProps {
   title: string;

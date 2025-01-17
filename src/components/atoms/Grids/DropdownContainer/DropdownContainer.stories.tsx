@@ -1,13 +1,13 @@
 import { StoryObj, Meta } from '@storybook/react';
 import { DropdownContainer } from './DropdownContainer';
-import { ExampleContainer, ExampleContainerColors } from '../ExampleContainer';
-import { TextTypes } from '../../../types/GlobalTypes';
+import { ExampleContainer, ExampleContainerColors } from '../../ExampleContainer';
+import { TextTypes } from '../../../../types/GlobalTypes';
 import styled from 'styled-components';
-import { StyledUnstyledButton } from '../../../tokens/UnstyledElements';
+import { StyledUnstyledButton } from '../../../../tokens/UnstyledElements';
 import { useState } from 'react';
 
 const meta: Meta<typeof DropdownContainer> = {
-  title: 'Atoms/DropdownContainer',
+  title: 'Atoms/Grids/DropdownContainer',
   component: DropdownContainer,
   tags: ['autodocs'],
   parameters: {
@@ -57,7 +57,7 @@ export const Base: Story = {
       <StoryContainer>
         <ExampleContainer
           textType={TextTypes.H5}
-          color={ExampleContainerColors.Neutral100}
+          color={ExampleContainerColors.Neutral300}
         >
           Contenido Anterior
         </ExampleContainer>
@@ -69,7 +69,7 @@ export const Base: Story = {
         />
         <ExampleContainer
           textType={TextTypes.H5}
-          color={ExampleContainerColors.Neutral100}
+          color={ExampleContainerColors.Neutral300}
         >
           Contenido siguiente
         </ExampleContainer>

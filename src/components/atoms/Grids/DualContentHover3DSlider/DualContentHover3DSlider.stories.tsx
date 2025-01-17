@@ -1,39 +1,42 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { DualContentHover3DSlider } from './DualContentHover3DSlider';
-import { ExampleContainer, ExampleContainerColors } from '../ExampleContainer';
-import { TextTypes } from '../../../types/GlobalTypes';
+import { Meta, StoryObj } from "@storybook/react";
+import { DualContentHover3DSlider } from "./DualContentHover3DSlider";
+import {
+  ExampleContainer,
+  ExampleContainerColors,
+} from "../../ExampleContainer";
+import { TextTypes } from "../../../../types/GlobalTypes";
 
 interface MyStory {
   defaultSize?: boolean;
-  colorVariant: 'primary';
+  colorVariant: "primary";
   firstContent: string;
   secondContent: string;
 }
 
 export default {
-  title: 'Atoms/DualContentHover3DSlider',
+  title: "Atoms/Grids/DualContentHover3DSlider",
   component: DualContentHover3DSlider,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   argTypes: {
     colorVariant: {
-      description: 'Variante del componente',
+      description: "Variante del componente",
       control: {
-        type: 'select',
-        options: ['primary', 'neutral'],
+        type: "select",
+        options: ["primary", "neutral"],
       },
       firstContent: {
-        description: 'Contenido del componente',
+        description: "Contenido del componente",
         control: {
-          type: 'text',
+          type: "text",
         },
       },
       secondContent: {
-        description: 'Contenido del componente',
+        description: "Contenido del componente",
         control: {
-          type: 'text',
+          type: "text",
         },
       },
     },
@@ -42,9 +45,9 @@ export default {
 
 export const Default: StoryObj<MyStory> = {
   args: {
-    colorVariant: 'primary',
-    firstContent: 'Contenido 1',
-    secondContent: 'Contenido 2',
+    colorVariant: "primary",
+    firstContent: "Contenido 1",
+    secondContent: "Contenido 2",
   },
   render: (args) => {
     const firstContent = (
