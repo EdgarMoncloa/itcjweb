@@ -52,7 +52,7 @@ export const GlobalStyle = createGlobalStyle`
     /* ANCHOR Webkit scrollbar */
     /* Scrollbar */
     ::-webkit-scrollbar {
-      width: 0.75rem; 
+      width: 0.75rem;
     }
 
     /* Scrollbar background */
@@ -244,6 +244,7 @@ export const GlobalStyle = createGlobalStyle`
   --size-icon-2xl: 3rem;        /* 48px / 16px = 3rem */
   --size-icon-3xl: 4rem;        /* 64px / 16px = 4rem */
   --size-icon-4xl: 6rem;        /* 96px / 16px = 6rem */
+  --size-icon-5xl: 8rem;        /* 128px / 16px = 8rem */
 
   
   /* ANCHOR Padding */

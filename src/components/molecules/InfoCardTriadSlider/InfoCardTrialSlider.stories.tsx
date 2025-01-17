@@ -1,13 +1,13 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { InfoCardTrialSlider } from './InfoCardTriadSlider';
-import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
+import { Meta, StoryObj } from "@storybook/react";
+import { InfoCardTrialSlider } from "./InfoCardTriadSlider";
+import { undergraduatePrograms } from "../../../mocks/undergraduatePrograms";
 
 const meta: Meta = {
-  title: 'Molecules/InfoCardTrialSlider',
+  title: "Molecules/Cards/InfoCardTrialSlider",
   component: InfoCardTrialSlider,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
   args: {},
   argTypes: {},

@@ -40,22 +40,22 @@ export const CKEditorRenderer = ({ content }: CKEditorRendererProps) => {
         ) as React.ReactNode;
         switch (domNode.name) {
           case "h1": {
-            return <StyledH1 {...props}>{children}</StyledH1>;
-          }
-          case "h2": {
-            return <StyledH2 {...props}>{children}</StyledH2>;
-          }
-          case "h3": {
             return <StyledH3 {...props}>{children}</StyledH3>;
           }
-          case "h4": {
+          case "h2": {
             return <StyledH4 {...props}>{children}</StyledH4>;
           }
-          case "h5": {
+          case "h3": {
             return <StyledH5 {...props}>{children}</StyledH5>;
           }
-          case "h6": {
+          case "h4": {
             return <StyledH6 {...props}>{children}</StyledH6>;
+          }
+          case "h5": {
+            return <StyledBody1 {...props}>{children}</StyledBody1>;
+          }
+          case "h6": {
+            return <StyledBody1 {...props}>{children}</StyledBody1>;
           }
           case "p": {
             return <StyledP {...props}>{children}</StyledP>;
@@ -88,4 +88,5 @@ export const CKEditorRenderer = ({ content }: CKEditorRendererProps) => {
 
 const StyledP = styled(StyledBody1)`
   display: flex;
+  flex-direction: column;
 `;

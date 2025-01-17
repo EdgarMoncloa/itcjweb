@@ -1,24 +1,30 @@
-import { StoryObj, Meta } from "@storybook/react";
-import { InfoHub, InfoHubProps } from "./InfoHub";
-import { useEffect, useState } from "react";
-import { CKEditorRenderer } from "../../organisms/CKEditorRenderer";
-import { DiagramTimelineBento } from "../../organisms/DiagramTimelineBento";
-import { StyledH1 } from "../../../tokens/CustomText";
+import { Meta, StoryObj } from "@storybook/react";
+import {
+  DiagramTimelineBento,
+  DiagramTimelineBentoProps,
+} from "./DiagramTimelineBento";
+import { ExampleContainer } from "../../atoms/ExampleContainer";
+import { CKEditorRenderer } from "../CKEditorRenderer";
 
 export default {
-  title: "Templates/InfoHub",
-  component: InfoHub,
+  title: "Organisms/Diagrams/DiagramTimelineBento",
+  component: DiagramTimelineBento,
   tags: ["autodocs"],
-  parameters: {
-    layout: "fullscreen",
+  argTypes: {
+    items: {
+      control: {
+        type: "range",
+        min: 2,
+        max: 15,
+      },
+    },
   },
-  argTypes: {},
-} as Meta<InfoHubProps>;
-
-type MyStoryProps = Omit<InfoHubProps, "icon"> & {
-  icon: string;
 };
-type Story = StoryObj<MyStoryProps>;
+type MyComponentStoryProps = {
+  items: number;
+};
+
+type Story = StoryObj<MyComponentStoryProps>;
 
 const timeLineContents = [
   `<h1 style=\"text-align:center;\">1 Ingresa</h1><p style=\"text-align:center;\">Ingresa a <a href=\"http://www.sii.cdjuarez.tecnm.mx/\">http://www.sii.cdjuarez.tecnm.mx</a> Selecciona la opción aspirantes.</p>`,
@@ -28,23 +34,21 @@ const timeLineContents = [
   `<h1 style=\"text-align:center;\">5 Formularios</h1><p style=\"text-align:center;\">El proceso de llenado de la solicitud consta de dos formularios</p><ol><li><p style=\"text-align:center;\">La solicitud de ficha de examen de selección</p></li><li><p style=\"text-align:center;\">El formulario de datos socioeconómicos del aspirante</p></li></ol><p style=\"text-align:center;\">Es importante que llenes ambos en su totalidad.</p>`,
   `<h1 style=\"text-align:center;\">6 Descargas</h1><ul><li><p style=\"text-align:center;\">Descarga e imprime tu acceso al examen</p><ul><li><p style=\"text-align:center;\">FORMATOS IMPRESOS I</p></li><li><p style=\"text-align:center;\">MODALIDAD ESCOLARIZADA I</p></li><li><p style=\"text-align:center;\">FORMATO UBICACIÓN AULA PARA EXAMEN</p></li></ul></li><li><p style=\"text-align:center;\">Descarga tu guía de estudios para el examen de admisión</p><ul><li><p style=\"text-align:center;\">FORMATOS IMPRESOS I</p></li><li><p style=\"text-align:center;\">GUIA DE ESTUDIO PARA EXAMEN DE SELECCIÓN</p></li></ul></li></ul>`,
 ];
+
 const timelineItems = timeLineContents.map((item, idx) => ({
   content: <CKEditorRenderer content={item} />,
 }));
-export const Template: Story = {
+
+export const Base: Story = {
   args: {
-    icon: "Fa500Px",
+    items: 3,
   },
   render: (args) => {
     return (
-      <InfoHub
-        {...args}
-        content={
-          <DiagramTimelineBento
-            items={timelineItems}
-            title={<StyledH1>Proceso de admisión</StyledH1>}
-          />
-        }
+      <DiagramTimelineBento
+        items={timelineItems}
+        haveIcons={false}
+        title="Proceso de admisión"
       />
     );
   },

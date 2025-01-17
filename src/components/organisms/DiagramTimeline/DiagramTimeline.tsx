@@ -30,7 +30,9 @@ export const DiagramTimeline = ({
               <AiOutlineFieldTime />
             </StyledItemIcon>
           )}
-          <StyledContent className={contentClassname}>{item}</StyledContent>
+          <StyledContentWrapper className={contentClassname}>
+            <StyledContent>{item}</StyledContent>
+          </StyledContentWrapper>
         </StyledItem>
         {idx !== items.length - 1 && (
           <StyledArrowIcon>
@@ -59,15 +61,13 @@ const StyledItem = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-
-  &:hover {
-    background-color: var(--colors-app-primary-100);
-  }
+  display: flex;
 `;
 
 const StyledItemIcon = styled.div`
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height: 80%;
+  margin: auto;
   font-size: var(--size-icon-2xl);
   justify-content: center;
   align-items: center;
@@ -75,16 +75,20 @@ const StyledItemIcon = styled.div`
   border-radius: var(--size-border-radius-medium);
   border: var(--size-border-small) solid var(--colors-app-neutral-900);
   cursor: pointer;
+
+  ${StyledItem}:hover & {
+    background-color: var(--colors-app-primary-100);
+  }
 `;
 
-const StyledContent = styled.div`
+const StyledContentWrapper = styled.div`
   position: absolute;
   top: 50%;
   width: var(--size-width-4-cols);
   height: 175%;
-  overflow: auto;
+  overflow: hidden;
   border: var(--size-border-small) solid var(--colors-app-neutral-700);
-  padding: var(--size-padding-small);
+
   border-start-start-radius: var(--size-border-radius-large);
   border-end-start-radius: var(--size-border-radius-large);
 
@@ -99,26 +103,32 @@ const StyledContent = styled.div`
     text-align: left;
   }
 
-  &.center-first {
-    border-radius: var(--size-border-radius-large);
-    width: var(--size-width-9-cols);
-    transform: translateX(-50%);
-    left: 50%;
-    top: -100%;
-    text-align: center;
-  }
+  &.center-first,
   &.center-last {
     border-radius: var(--size-border-radius-large);
     width: var(--size-width-9-cols);
     transform: translateX(-50%);
     left: 50%;
-    top: 0;
     text-align: center;
+  }
+  &.center-first {
+    top: inherit;
+    bottom: 0;
+  }
+  &.center-last {
+    top: 0;
   }
 
   ${StyledItem}:hover & {
     border: var(--size-border-small) solid var(--colors-app-primary-700);
   }
+`;
+
+const StyledContent = styled.div`
+  overflow: auto;
+  height: 100%;
+  width: 100%;
+  padding: var(--size-padding-small);
 `;
 
 const StyledArrowIcon = styled.div`

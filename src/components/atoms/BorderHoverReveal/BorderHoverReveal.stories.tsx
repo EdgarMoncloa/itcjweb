@@ -4,7 +4,7 @@ import { ExampleContainer, ExampleContainerColors } from '../ExampleContainer';
 import { TextTypes } from '../../../types/GlobalTypes';
 
 export default {
-  title: 'Atoms/BorderHoverReveal',
+  title: 'Atoms/Grids/BorderHoverReveal',
   component: BorderHoverReveal,
   tags: ['autodocs'],
   parameters: {

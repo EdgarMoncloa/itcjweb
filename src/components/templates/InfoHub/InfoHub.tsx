@@ -4,9 +4,10 @@ import { NavMenu } from "../../organisms/NavMenu";
 import { TecFooter } from "../../molecules/TecFooter";
 import { GobFooter } from "../../molecules/GobFooter";
 import { RichTextRenderer } from "../../atoms/RichTextRenderer";
+import { ReactNode } from "react";
 
 export interface InfoHubProps {
-  content: string;
+  content: ReactNode;
 }
 
 export const InfoHub = ({ content }: InfoHubProps) => {
@@ -17,9 +18,7 @@ export const InfoHub = ({ content }: InfoHubProps) => {
         <StyledNavMenuWrapper>
           <NavMenu />
         </StyledNavMenuWrapper>
-        <StyledInfoContainer>
-          <RichTextRenderer text={content} />
-        </StyledInfoContainer>
+        <StyledInfoContainer>{content}</StyledInfoContainer>
       </StyledInfoHubContainer>
       <TecFooter />
       <GobFooter />
