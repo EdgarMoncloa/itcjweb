@@ -14,18 +14,32 @@ export const SimpleDualGrid = ({
   secondContent,
 }: SimpleDualGridProps) => {
   return (
-    <StyledSimpleDialGrid $firstContentWidht={firstContentWidht}>
+    <StyledSimpleDualGrid $firstContentWidht={firstContentWidht}>
       <StyedContent>{firstContent}</StyedContent>
       <StyedContent>{secondContent}</StyedContent>
-    </StyledSimpleDialGrid>
+    </StyledSimpleDualGrid>
   );
 };
 
-const StyledSimpleDialGrid = styled.div<{ $firstContentWidht: number }>`
+const getGridTemplateColumns = (firstContentWidht: number) => {
+  return `
+    ${firstContentWidht}fr
+    ${17 - firstContentWidht}fr
+  `;
+};
+const StyledSimpleDualGrid = styled.div<{ $firstContentWidht: number }>`
   display: grid;
-  grid-template-columns: ${(p) => getWithColsVar(p.$firstContentWidht)} 1fr;
   width: 100%;
+  height: 100%;
   gap: var(--size-gap-small);
+
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+    grid-template-columns: ${(p) =>
+      getGridTemplateColumns(p.$firstContentWidht)};
+  }
 `;
 
 const StyedContent = styled.div`

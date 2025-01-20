@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { StyledH3 } from '../../../tokens/CustomText';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import { alignItemsInGrid } from '../../../utils/alignItemsInGrid';
-import { InfoCard } from '../../molecules/InfoCard';
+import { SingleInfoCard } from '../../molecules/InfoCard';
 import {
   InfoCardTrialSlider,
   InfoCardTrialSliderProps,
@@ -53,7 +53,7 @@ export const UndergraduateSection = ({
           items: baseUndergraduateCards,
           lastRowItems: items.length % itemsColumns,
           columns: columnCount,
-          blankItem: <InfoCard variant='blank' title='' />,
+          blankItem: <SingleInfoCard variant='blank' title='' />,
           lastRowAlign: 'center',
         })
       );
