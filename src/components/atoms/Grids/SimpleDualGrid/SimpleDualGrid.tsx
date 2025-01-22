@@ -9,7 +9,7 @@ export interface SimpleDualGridProps {
 }
 
 export const SimpleDualGrid = ({
-  firstContentWidht = 1,
+  firstContentWidht = 8,
   firstContent,
   secondContent,
 }: SimpleDualGridProps) => {

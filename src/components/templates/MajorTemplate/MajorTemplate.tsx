@@ -25,6 +25,11 @@ export interface MajorTemplateProps {
     description: string;
     areas: OportunitiesArea[];
   };
+  competencies: {
+    description: string;
+    specifics: string[];
+    generals: string[];
+  };
 }
 
 export const MajorTemplate = ({
@@ -32,6 +37,7 @@ export const MajorTemplate = ({
   descriptionImage,
   description,
   oportunities,
+  competencies,
 }: MajorTemplateProps) => {
   return (
     <StyledMajorTemplate>
@@ -39,7 +45,7 @@ export const MajorTemplate = ({
       <StyledSubTitle>Objetivo de la carrera</StyledSubTitle>
       <StyledDualGridWrapper>
         <SimpleDualGrid
-          firstContentWidht={6}
+          firstContentWidht={3}
           firstContent={<StyledImg src={descriptionImage} alt={name} />}
           secondContent={description}
         />
@@ -62,6 +68,82 @@ export const MajorTemplate = ({
           ))}
         </DynamicGrid>
       </StyledDynamicGridWrapper>
+      <StyledSubTitle>Competencias </StyledSubTitle>
+      <div>{competencies.description}</div>
+      <StyledTwoColumnsGrid>
+        <StyledSingleInfoCard>
+          <StyledSubTitle>Competencias Específicas</StyledSubTitle>
+          <ul>
+            {competencies.specifics.map((item, index) => (
+              <li key={index}>{item}</li>
+            ))}
+          </ul>
+        </StyledSingleInfoCard>
+        <StyledSingleInfoCard>
+          <div>
+            <StyledSubTitle>Competencias Generales</StyledSubTitle>
+            <ul>
+              {competencies.generals.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </StyledSingleInfoCard>
+      </StyledTwoColumnsGrid>
+
+      <StyledSubTitle>Perfil</StyledSubTitle>
+      <StyledTwoColumnsGrid>
+        <StyledSingleInfoCard>
+          <StyledSubTitle>Aspirante</StyledSubTitle>
+          <ul>
+            <li>
+              Interés por la tecnología, la programación y el análisis de
+              sistemas.
+            </li>
+            <li>
+              Facilidad para resolver problemas mediante el razonamiento lógico
+              y matemático.
+            </li>
+            <li>Habilidades básicas en el uso de computadoras y software.</li>
+            <li>
+              Capacidad de aprendizaje autodidacta y adaptabilidad a nuevas
+              herramientas.
+            </li>
+            <li>Gusto por el trabajo colaborativo y en equipo.</li>
+          </ul>
+        </StyledSingleInfoCard>
+        <StyledSingleInfoCard>
+          <StyledSubTitle>Egresado</StyledSubTitle>
+          <ul>
+            <li>
+              Capacidad para diseñar, desarrollar e implementar soluciones
+              tecnológicas innovadoras.
+            </li>
+            <li>
+              Habilidades avanzadas en programación, bases de datos, redes y
+              ciberseguridad.
+            </li>
+            <li>Adaptabilidad a entornos de trabajo diversos y dinámicos.</li>
+            <li>
+              Competencias para liderar proyectos tecnológicos de gran escala.
+            </li>
+            <li>
+              Enfoque ético, sostenible y responsable en la práctica
+              profesional.
+            </li>
+            <li>
+              Preparación para certificaciones y especializaciones tecnológicas.
+            </li>
+            <li>
+              Orientación hacia la investigación y el desarrollo de tecnologías
+              emergentes.
+            </li>
+          </ul>
+        </StyledSingleInfoCard>
+      </StyledTwoColumnsGrid>
+
+      <StyledSubTitle>Plan de estudios</StyledSubTitle>
+      <StyledSubTitle>Especialidades</StyledSubTitle>
     </StyledMajorTemplate>
   );
 };
@@ -125,4 +207,20 @@ const StyledOportunitiesArea = styled.div`
 
 const StyledOportunitiesOverline = styled(StyledOverline)`
   text-align: center;
+`;
+
+// ANCHOR Competences
+const StyledTwoColumnsGrid = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: var(--size-padding-medium);
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+`;
+
+const StyledSingleInfoCard = styled(SingleInfoCard)`
+  width: 80%;
+  overflow: hidden;
+  padding: var(--size-padding-medium);
 `;

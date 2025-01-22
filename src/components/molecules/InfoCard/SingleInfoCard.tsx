@@ -2,11 +2,20 @@ import { ReactNode } from "react";
 import styled from "styled-components";
 export interface SingleInfoCardProps {
   children?: ReactNode;
-  // colorScheme?: "primary" | "primary-intercalated" | "neutral";
+  className?: string;
+  style?: React.CSSProperties;
 }
 
-export const SingleInfoCard = ({ children }: SingleInfoCardProps) => {
-  return <StyledSingleInfoCard>{children}</StyledSingleInfoCard>;
+export const SingleInfoCard = ({
+  children,
+  className,
+  style,
+}: SingleInfoCardProps) => {
+  return (
+    <StyledSingleInfoCard className={className} style={style}>
+      {children}
+    </StyledSingleInfoCard>
+  );
 };
 
 const StyledSingleInfoCard = styled.div`
