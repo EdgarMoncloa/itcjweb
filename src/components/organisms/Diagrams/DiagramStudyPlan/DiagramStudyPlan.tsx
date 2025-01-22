@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import { StyledH3 } from "../../../../tokens/CustomText";
+import styled, { css } from "styled-components";
+import { StyledH3, StyledH6 } from "../../../../tokens/CustomText";
 import { ReactNode } from "react";
 import { SingleInfoCard } from "../../../molecules/InfoCard";
 
@@ -49,15 +49,13 @@ export const DiagramStudyPlan = ({ title, columns }: DiagramStudyPlanProps) => {
       usedRows.add(1);
       if (column.title) {
         columnItems.push(
-          <StyledSubject $col={columnIdx} $row={1}>
+          <StyledColTitle $col={columnIdx} $row={1}>
             {column.title}
-          </StyledSubject>
+          </StyledColTitle>
         );
       } else {
         columnItems.push(
-          <StyledSubject $col={columnIdx} $row={1}>
-            Title Blank
-          </StyledSubject>
+          <StyledColTitle $col={columnIdx} $row={1}></StyledColTitle>
         );
       }
     }
@@ -83,9 +81,11 @@ export const DiagramStudyPlan = ({ title, columns }: DiagramStudyPlanProps) => {
     for (let row = 1; row <= baseNumRows + (haveTitles ? 1 : 0); row++) {
       if (usedRows.has(row)) continue;
       columnItems.push(
-        <StyledSubject $col={columnIdx} $row={row}>
-          Blank
-        </StyledSubject>
+        <StyledSubject
+          $col={columnIdx}
+          $row={row}
+          variant="blank"
+        ></StyledSubject>
       );
     }
     items.push(columnItems);
@@ -93,10 +93,11 @@ export const DiagramStudyPlan = ({ title, columns }: DiagramStudyPlanProps) => {
 
   return (
     <StyledDiagramStudyPlan>
-      <StyledH3>{title}</StyledH3>
+      <StyledTitle>{title}</StyledTitle>
       <StyledStudyPlanContainer
         $columns={numCols}
         $rows={(haveTitles ? 1 : 0) + baseNumRows}
+        $haveTitles={haveTitles}
       >
         {items}
       </StyledStudyPlanContainer>
@@ -104,17 +105,23 @@ export const DiagramStudyPlan = ({ title, columns }: DiagramStudyPlanProps) => {
   );
 };
 
+const StyledTitle = styled(StyledH3)`
+  text-align: center;
+`;
+
 const StyledDiagramStudyPlan = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
   overflow: hidden;
   flex-direction: column;
+  gap: var(--size-gap-medium);
 `;
 
 type StudyPlanContainerProps = {
   $columns: number;
   $rows: number;
+  $haveTitles: boolean;
 };
 const StyledStudyPlanContainer = styled.div<StudyPlanContainerProps>`
   width: 100%;
@@ -125,17 +132,28 @@ const StyledStudyPlanContainer = styled.div<StudyPlanContainerProps>`
     ${(props) => props.$columns},
     var(--size-width-2-cols)
   );
-  grid-template-rows: repeat(
-    ${(props) => props.$rows},
-    var(--size-height-2-row)
-  );
+  grid-template-rows:
+    ${(props) => props.$haveTitles && "var(--size-height-1-row)"}
+    repeat(${(props) => props.$rows}, var(--size-height-2-row));
   gap: var(--size-gap-small);
 `;
 
-const StyledSubject = styled(SingleInfoCard)<{ $col: number; $row: number }>`
+const cssInfoCard = css<{ $col: number; $row: number }>`
   grid-column: ${(props) => props.$col};
   grid-row: ${(props) => props.$row};
   width: 100%;
   height: 100%;
   overflow: hidden;
+  padding: var(--size-padding-small);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+`;
+const StyledColTitle = styled(StyledH6)<{ $col: number; $row: number }>`
+  ${cssInfoCard}
+`;
+
+const StyledSubject = styled(SingleInfoCard)<{ $col: number; $row: number }>`
+  ${cssInfoCard}
 `;

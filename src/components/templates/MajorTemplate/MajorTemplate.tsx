@@ -11,6 +11,8 @@ import { DynamicGrid } from "../../atoms/Grids/DynamicGrid";
 import { SingleInfoCard } from "../../molecules/InfoCard";
 import { ReactNode } from "react";
 import { DynamicIcon } from "../../atoms/Icons/DynamicIcon";
+import { DiagramStudyPlan } from "../../organisms/Diagrams/DiagramStudyPlan";
+import { IngenieriaEnSistemas } from "../../../mocks/Majors/IngenieriaEnSistemas.mock";
 
 type OportunitiesArea = {
   title: string;
@@ -143,6 +145,10 @@ export const MajorTemplate = ({
       </StyledTwoColumnsGrid>
 
       <StyledSubTitle>Plan de estudios</StyledSubTitle>
+      <DiagramStudyPlan
+        title="Plan de estudios"
+        columns={IngenieriaEnSistemas.columns}
+      />
       <StyledSubTitle>Especialidades</StyledSubTitle>
     </StyledMajorTemplate>
   );
