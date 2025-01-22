@@ -2,7 +2,7 @@ import { AiFillCaretDown } from "react-icons/ai";
 import { AiOutlineFieldTime } from "react-icons/ai";
 import { ReactNode } from "react";
 import styled from "styled-components";
-import { DynamicIcon } from "../../atoms/Icons/DynamicIcon";
+import { DynamicIcon } from "../../../atoms/Icons/DynamicIcon";
 
 export interface DiagramTimelineProps {
   items: ReactNode[];

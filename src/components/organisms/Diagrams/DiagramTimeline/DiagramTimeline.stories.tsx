@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { DiagramTimeline, DiagramTimelineProps } from "./";
-import { ExampleContainer } from "../../atoms/Examples/ExampleContainer";
+import { DiagramTimeline, DiagramTimelineProps } from ".";
+import { ExampleContainer } from "../../../atoms/Examples/ExampleContainer";
 
 export default {
   title: "Organisms/Diagrams/DiagramTimeline",

@@ -2,7 +2,7 @@ import { StoryObj, Meta } from "@storybook/react";
 import { InfoHub, InfoHubProps } from "./InfoHub";
 import { useEffect, useState } from "react";
 import { CKEditorRenderer } from "../../organisms/CKEditorRenderer";
-import { DiagramTimelineBento } from "../../organisms/DiagramTimelineBento";
+import { DiagramTimelineBento } from "../../organisms/Diagrams/DiagramTimelineBento";
 import { StyledH1 } from "../../../tokens/CustomText";
 
 export default {

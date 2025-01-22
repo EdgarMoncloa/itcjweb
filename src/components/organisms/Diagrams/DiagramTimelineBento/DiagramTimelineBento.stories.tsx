@@ -3,8 +3,8 @@ import {
   DiagramTimelineBento,
   DiagramTimelineBentoProps,
 } from "./DiagramTimelineBento";
-import { ExampleContainer } from "../../atoms/Examples/ExampleContainer";
-import { CKEditorRenderer } from "../CKEditorRenderer";
+import { ExampleContainer } from "../../../atoms/Examples/ExampleContainer";
+import { CKEditorRenderer } from "../../CKEditorRenderer";
 
 export default {
   title: "Organisms/Diagrams/DiagramTimelineBento",

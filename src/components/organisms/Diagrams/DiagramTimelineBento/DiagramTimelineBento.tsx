@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { StyledH2 } from "../../../tokens/CustomText";
+import { StyledH2 } from "../../../../tokens/CustomText";
 
 export interface Item {
   content: ReactNode;
