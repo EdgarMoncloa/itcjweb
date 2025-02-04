@@ -35,7 +35,7 @@ const StyledServicesSection = styled.div`
   width: 100%;
   overflow: hidden;
   display: grid;
-  grid-auto-rows: var(--size-height-6-row);
+  grid-auto-rows: var(--size-height-6-rows);
   gap: var(--size-gap-medium);
 
   @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {

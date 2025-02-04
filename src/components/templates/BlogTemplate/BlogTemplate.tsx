@@ -71,7 +71,7 @@ const StyledBlogImage = styled.div`
 const StyledImg = styled.img`
   width: 100%;
   object-fit: cover;
-  height: var(--size-height-10-row);
+  height: var(--size-height-10-rows);
 `;
 
 const StyledBlogContent = styled.div`

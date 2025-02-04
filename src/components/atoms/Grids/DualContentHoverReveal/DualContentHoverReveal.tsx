@@ -80,7 +80,7 @@ const StyledMainContainer = styled.div`
   /* Variants */
   &.defaultSize {
     width: var(--size-width-8-cols);
-    height: calc(var(--size-height-10-row));
+    height: calc(var(--size-height-10-rows));
   }
 
   &.primary {

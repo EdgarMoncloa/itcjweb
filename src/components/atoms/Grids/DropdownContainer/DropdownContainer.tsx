@@ -78,6 +78,6 @@ const StyledSecondaryContent = styled.div`
 
   &.showContent {
     animation: ${showContentAnimation} var(--transition-normal) forwards;
-    max-height: var(--size-height-16-row);
+    max-height: var(--size-height-16-rows);
   }
 `;

@@ -26,7 +26,7 @@ const StyledBorderHoverReveal = styled.div`
 
   .defaultSize {
     width: var(--size-width-5-cols);
-    height: var(--size-height-4-row);
+    height: var(--size-height-4-rows);
   }
 `;
 

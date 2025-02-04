@@ -49,7 +49,7 @@ const StyledNavMenuWrapper = styled.div`
   max-height: 75vh;
   box-sizing: border-box;
   position: sticky;
-  top: var(--size-height-1-row);
+  top: var(--size-height-1-rows);
   overflow-y: auto;
 `;
 

@@ -59,7 +59,7 @@ const StyledDiagramWrapper = styled.div`
 const StyledDiagramTimeLineBento = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-auto-rows: var(--size-height-5-row);
+  grid-auto-rows: var(--size-height-5-rows);
   padding: 0 var(--size-padding-small);
 `;
 

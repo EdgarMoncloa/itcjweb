@@ -57,7 +57,7 @@ const StyledMainWrapper = styled.div`
   overflow: hidden;
   transition: var(--transition-fast) background-color;
   width: 100%;
-  height: calc(var(--size-height-4-row));
+  height: calc(var(--size-height-4-rows));
   will-change: background-color;
 
   &:hover {
@@ -70,7 +70,7 @@ const StyledMainWrapper = styled.div`
 
   &.defaultSize {
     width: var(--size-width-8-cols);
-    height: calc(var(--size-height-4-row));
+    height: calc(var(--size-height-4-rows));
   }
 
   &.grid-2-1-2 {

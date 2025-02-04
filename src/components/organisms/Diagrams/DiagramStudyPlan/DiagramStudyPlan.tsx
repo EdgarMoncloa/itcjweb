@@ -9,12 +9,12 @@ interface Subject {
 }
 
 interface Column {
-  title: string;
+  title?: string;
   subjects: Subject[];
 }
 
 export interface DiagramStudyPlanProps {
-  title: string;
+  title?: string;
   columns: Column[];
 }
 
@@ -93,7 +93,7 @@ export const DiagramStudyPlan = ({ title, columns }: DiagramStudyPlanProps) => {
 
   return (
     <StyledDiagramStudyPlan>
-      <StyledTitle>{title}</StyledTitle>
+      {title && <StyledTitle>{title}</StyledTitle>}
       <StyledStudyPlanContainer
         $columns={numCols}
         $rows={(haveTitles ? 1 : 0) + baseNumRows}
@@ -111,11 +111,14 @@ const StyledTitle = styled(StyledH3)`
 
 const StyledDiagramStudyPlan = styled.div`
   width: 100%;
-  height: 100%;
+  max-height: var(--size-height-16-rows);
   display: flex;
   overflow: hidden;
   flex-direction: column;
   gap: var(--size-gap-medium);
+  border: var(--size-border-small) solid var(--colors-app-primary-700);
+  border-radius: var(--size-border-radius-medium);
+  padding: var(--size-padding-xs);
 `;
 
 type StudyPlanContainerProps = {
@@ -124,18 +127,20 @@ type StudyPlanContainerProps = {
   $haveTitles: boolean;
 };
 const StyledStudyPlanContainer = styled.div<StudyPlanContainerProps>`
-  width: 100%;
+  display: grid;
+  gap: var(--size-gap-small);
   height: 100%;
   overflow: auto;
-  display: grid;
+  padding: var(--size-padding-medium);
+  width: 100%;
+
   grid-template-columns: repeat(
     ${(props) => props.$columns},
     var(--size-width-2-cols)
   );
   grid-template-rows:
-    ${(props) => props.$haveTitles && "var(--size-height-1-row)"}
-    repeat(${(props) => props.$rows}, var(--size-height-2-row));
-  gap: var(--size-gap-small);
+    ${(props) => props.$haveTitles && "var(--size-height-1-rows)"}
+    repeat(${(props) => props.$rows}, var(--size-height-2-rows));
 `;
 
 const cssInfoCard = css<{ $col: number; $row: number }>`

@@ -34,7 +34,7 @@ export const RelevantSites = ({}: RelevantSitesProps) => {
 const StyledRelevantSites = styled.div`
   display: grid;
   gap: var(--size-gap-small);
-  grid-auto-rows: var(--size-height-2-row);
+  grid-auto-rows: var(--size-height-2-rows);
   width: 100%;
   overflow: hidden;
   justify-content: center;

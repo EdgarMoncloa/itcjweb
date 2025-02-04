@@ -41,10 +41,13 @@ export const GlobalStyle = createGlobalStyle`
       font-size: 18px;
     }
     @media (min-width: ${(props) => props.theme.breakpoints.twoKDesktop}) {
-      font-size: 24px;
+      font-size: 28px;
     }
     @media (min-width: ${(props) => props.theme.breakpoints.fourKDesktop}) {
       font-size: 36px;
+    } 
+    @media (min-width: ${(props) => props.theme.breakpoints.eightKDesktop}) {
+      font-size: 72px;
     } 
 
     /* !SECTION Scrollbars */
@@ -218,22 +221,22 @@ export const GlobalStyle = createGlobalStyle`
   --size-height-large: 2.5em;        /* 40px / 16px */
   --size-height-xl: 3em;             /* 48px / 16px */
 
-  --size-height-1-row: 2em;          /* 32px / 16px */
-  --size-height-2-row: 4.5em;        /* 72px / 16px */
-  --size-height-3-row: 7em;          /* 112px / 16px */
-  --size-height-4-row: 9.5em;        /* 152px / 16px */
-  --size-height-5-row: 12em;         /* 192px / 16px */
-  --size-height-6-row: 14.5em;       /* 232px / 16px */
-  --size-height-7-row: 17em;         /* 272px / 16px */
-  --size-height-8-row: 19.5em;       /* 312px / 16px */
-  --size-height-9-row: 22em;         /* 352px / 16px */
-  --size-height-10-row: 24.5em;      /* 392px / 16px */
-  --size-height-11-row: 27em;        /* 432px / 16px */
-  --size-height-12-row: 29.5em;      /* 472px / 16px */
-  --size-height-13-row: 32em;        /* 512px / 16px */
-  --size-height-14-row: 34.5em;      /* 552px / 16px */
-  --size-height-15-row: 37em;        /* 592px / 16px */
-  --size-height-16-row: 39.5em;      /* 632px / 16px */
+  --size-height-1-rows: 2em;          /* 32px / 16px */
+  --size-height-2-rows: 4.5em;        /* 72px / 16px */
+  --size-height-3-rows: 7em;          /* 112px / 16px */
+  --size-height-4-rows: 9.5em;        /* 152px / 16px */
+  --size-height-5-rows: 12em;         /* 192px / 16px */
+  --size-height-6-rows: 14.5em;       /* 232px / 16px */
+  --size-height-7-rows: 17em;         /* 272px / 16px */
+  --size-height-8-rows: 19.5em;       /* 312px / 16px */
+  --size-height-9-rows: 22em;         /* 352px / 16px */
+  --size-height-10-rows: 24.5em;      /* 392px / 16px */
+  --size-height-11-rows: 27em;        /* 432px / 16px */
+  --size-height-12-rows: 29.5em;      /* 472px / 16px */
+  --size-height-13-rows: 32em;        /* 512px / 16px */
+  --size-height-14-rows: 34.5em;      /* 552px / 16px */
+  --size-height-15-rows: 37em;        /* 592px / 16px */
+  --size-height-16-rows: 39.5em;      /* 632px / 16px */
 
     /* ANCHOR Icons */
   --size-icon-xs: 0.25rem;      /* 4px / 16px = 0.25rem */

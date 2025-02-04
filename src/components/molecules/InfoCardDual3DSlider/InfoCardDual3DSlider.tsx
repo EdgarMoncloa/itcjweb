@@ -47,7 +47,7 @@ const SyledInfoCardDual3DSlider = styled.div`
   height: 100%;
   &.defaultSize {
     width: var(--size-width-5-cols);
-    height: calc(var(--size-height-5-row));
+    height: calc(var(--size-height-5-rows));
   }
 `;
 

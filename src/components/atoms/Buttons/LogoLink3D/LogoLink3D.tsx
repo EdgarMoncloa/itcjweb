@@ -1,5 +1,5 @@
-import { useRef } from 'react';
-import styled from 'styled-components';
+import { useRef } from "react";
+import styled from "styled-components";
 
 export interface LogoLink3DProps {
   href: string;
@@ -66,11 +66,11 @@ export const LogoLink3D = ({
     const yDelta = y - initialMousePosition.current.y;
 
     // Scale the relative movement to calculate rotations
-    let xRotation = Math.max(
+    const xRotation = Math.max(
       -maxRotation,
       Math.min(maxRotation, yDelta * -maxRotation)
     );
-    let yRotation = Math.max(
+    const yRotation = Math.max(
       -maxRotation,
       Math.min(maxRotation, xDelta * maxRotation)
     );
@@ -95,14 +95,14 @@ export const LogoLink3D = ({
       timeExit - timeWhenMouseEnter.current < 328 &&
       timeExit - timeWhenMouseEnter.current > 264
     ) {
-      element.style.animation = 'rotateAnimation 1s linear 0s infinite';
+      element.style.animation = "rotateAnimation 1s linear 0s infinite";
       setTimeout(() => {
-        element.style.animation = '';
+        element.style.animation = "";
       }, 5000);
     }
     timeWhenMouseEnter.current = 0;
 
-    element.style.transform = 'rotateX(0deg) rotateY(0deg)';
+    element.style.transform = "rotateX(0deg) rotateY(0deg)";
     initialMousePosition.current = { x: 0, y: 0 };
   };
 
@@ -110,7 +110,7 @@ export const LogoLink3D = ({
     <StyledAnchorWrapper href={href} target={target}>
       <StyledLogoLink3dWrapper
         ref={wrapperRef}
-        className={defaultSize ? 'defaultSize' : ''}
+        className={defaultSize ? "defaultSize" : ""}
         onMouseEnter={handleMouseEnter}
         onMouseMove={handleMouseMove}
         onMouseLeave={handleMouseLeave}

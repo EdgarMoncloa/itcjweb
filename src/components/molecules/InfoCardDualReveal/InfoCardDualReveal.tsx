@@ -63,7 +63,7 @@ export const InfoCardDualReveal = ({
 const StyledInfoCardDualReveal = styled.div`
   &.defaultSize {
     width: var(--size-width-4-cols);
-    height: calc(var(--size-height-10-row));
+    height: calc(var(--size-height-10-rows));
   }
 `;
 

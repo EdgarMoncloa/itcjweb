@@ -40,7 +40,7 @@ const StyledMainContainer = styled.div`
 
   &.defaultSize {
     width: var(--size-width-6-cols);
-    height: var(--size-height-7-row);
+    height: var(--size-height-7-rows);
   }
 `;
 

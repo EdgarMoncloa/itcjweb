@@ -2,10 +2,20 @@ import styled from "styled-components";
 
 export interface DynamicGridProps {
   children: React.ReactNode;
+  className?: string;
+  style?: React.CSSProperties;
 }
 
-export const DynamicGrid = ({ children }: DynamicGridProps) => {
-  return <StyledDynamicGrid>{children}</StyledDynamicGrid>;
+export const DynamicGrid = ({
+  children,
+  className,
+  style,
+}: DynamicGridProps) => {
+  return (
+    <StyledDynamicGrid className={className} style={style}>
+      {children}
+    </StyledDynamicGrid>
+  );
 };
 
 const StyledDynamicGrid = styled.div`

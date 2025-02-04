@@ -72,7 +72,7 @@ const StyledGridSliderInfoCard = styled.div`
   overflow: hidden;
   &.default-size {
     width: var(--size-width-5-cols);
-    height: var(--size-height-4-row);
+    height: var(--size-height-4-rows);
   }
 `;
 

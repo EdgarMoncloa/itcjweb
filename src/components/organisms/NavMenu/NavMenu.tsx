@@ -101,6 +101,6 @@ const StyledNavMenu = styled.div`
 
   &.defaultSize {
     width: var(--size-width-5-cols);
-    height: var(--size-height-16-row);
+    height: var(--size-height-16-rows);
   }
 `;

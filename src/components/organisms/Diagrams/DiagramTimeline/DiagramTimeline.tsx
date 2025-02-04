@@ -49,11 +49,11 @@ const StyledDiagramTimeLine = styled.div`
   width: 100%;
   /* height: 100%; */
   overflow: auto;
-  padding: var(--size-height-2-row) var(--size-padding-medium);
+  padding: var(--size-height-2-rows) var(--size-padding-medium);
   border: var(--size-border-medium) solid var(--colors-app-primary-700);
   display: grid;
   grid-template-columns: var(--size-width-1-cols);
-  grid-auto-rows: var(--size-height-2-row) var(--size-icon-xl);
+  grid-auto-rows: var(--size-height-2-rows) var(--size-icon-xl);
   justify-content: center;
 `;
 

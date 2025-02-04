@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import styled from "styled-components";
 export interface SingleInfoCardProps {
-  variant?: "blank" | "primary";
+  variant?: "blank" | "primary" | "primary-filled";
   children?: ReactNode;
   className?: string;
   style?: React.CSSProperties;
@@ -14,7 +14,7 @@ export const SingleInfoCard = ({
   style,
 }: SingleInfoCardProps) => {
   return (
-    <StyledSingleInfoCard className={`${className} ${variant}`} style={style}>
+    <StyledSingleInfoCard className={`${variant} ${className}`} style={style}>
       {children}
     </StyledSingleInfoCard>
   );
@@ -32,7 +32,7 @@ const StyledSingleInfoCard = styled.div`
 
   &.defaultSize {
     width: var(--size-width-4-cols);
-    height: calc(var(--size-height-4-row));
+    height: calc(var(--size-height-4-rows));
   }
 
   /* ANCHOR Variants */
@@ -48,6 +48,16 @@ const StyledSingleInfoCard = styled.div`
 
     &:hover {
       background-color: var(--colors-app-primary-200);
+    }
+  }
+
+  &.primary-filled {
+    background-color: var(--colors-app-primary-200);
+    border: var(--size-border-small) solid var(--colors-app-primary-200);
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--colors-app-primary-400);
     }
   }
 `;

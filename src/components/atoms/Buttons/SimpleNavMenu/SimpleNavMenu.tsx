@@ -131,7 +131,7 @@ const StyledSubOptionsWrapper = styled.div`
   padding-top: var(--size-padding-2xs);
   position: absolute;
   left: 50%;
-  transform: translate(-50%, calc(var(--size-height-1-row) * -1));
+  transform: translate(-50%, calc(var(--size-height-1-rows) * -1));
   background-color: transparent;
   opacity: 0;
   transition:

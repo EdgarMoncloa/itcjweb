@@ -5,7 +5,7 @@ export const GobFooter = () => {
 };
 
 const StyledGobFooter = styled.div`
-  height: var(--size-height-8-row);
+  height: var(--size-height-8-rows);
   text-align: center;
   overflow: hidden;
   width: 100%;

@@ -37,6 +37,7 @@ export const Base: Story = {
         { title: "Tecnologías emergentes", icon: <AiFillAlert /> },
         { title: "Consultoría tecnológica", icon: <AiFillAlert /> },
         { title: "Industria de videojuegos", icon: <AiFillAlert /> },
+        { title: "Industria de videojuegos", icon: <AiFillAlert /> },
       ],
     },
     competencies: {

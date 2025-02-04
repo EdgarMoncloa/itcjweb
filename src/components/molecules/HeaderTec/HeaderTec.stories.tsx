@@ -33,7 +33,7 @@ export const Base: StoryObj<typeof HeaderTec> = {
 };
 
 const StyledContainer = styled.div`
-  height: var(--size-height-3-row);
+  height: var(--size-height-3-rows);
   display: flex;
   flex-direction: column;
   gap: var(--size-gap-medium);

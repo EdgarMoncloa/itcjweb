@@ -57,7 +57,7 @@ export const StyledRelevantSite = styled.a`
   height: 100%;
 
   &.defaultSize {
-    height: var(--size-height-2-row);
+    height: var(--size-height-2-rows);
     width: var(--size-width-4-cols);
   }
 

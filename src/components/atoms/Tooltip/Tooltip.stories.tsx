@@ -56,11 +56,11 @@ const StyledTooltipWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: var(--size-height-7-row);
+  height: var(--size-height-7-rows);
   width: 100%;
 `;
 const StyledTooltip = styled.div`
-  height: var(--size-height-1-row);
+  height: var(--size-height-1-rows);
   width: var(--size-width-2-cols);
   border: var(--size-border-small) solid var(--colors-app-primary-700);
   border-radius: var(--size-border-radius-small);

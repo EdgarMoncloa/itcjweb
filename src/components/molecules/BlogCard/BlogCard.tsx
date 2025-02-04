@@ -43,7 +43,7 @@ export const StyledBlogCard = styled.a`
   width: 100%;
   overflow: hidden;
   height: 100%;
-  /* max-height: var(--size-height-8-row); */
+  /* max-height: var(--size-height-8-rows); */
 
   border-radius: var(--size-border-radius-medium, 8px);
   border: var(--size-border-small, 2px) solid
@@ -63,7 +63,7 @@ export const StyledBlogCard = styled.a`
 
   &.defaultSize {
     width: var(--size-width-3-cols);
-    height: var(--size-height-8-row);
+    height: var(--size-height-8-rows);
   }
 `;
 export const StyledImageContainer = styled.div`

@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { LogoLink3D, LogoLink3DProps } from "./LogoLink3D";
 
 export default {
-  title: "Buttons/LogoLink3D",
+  title: "Atoms/Buttons/LogoLink3D",
   component: LogoLink3D,
   tags: ["autodocs"],
   argTypes: {
