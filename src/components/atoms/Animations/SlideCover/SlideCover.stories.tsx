@@ -19,7 +19,7 @@ const meta: Meta = {
   argTypes: {
     numItems: {
       control: { type: 'number', min: 0, max: 10 }, // Control tipo número
-      defaultValue: 3, // El valor por defecto es 3
+    defaultValue: 3, // El valor por defecto es 3
     },
   },
 };

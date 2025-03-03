@@ -6,7 +6,7 @@ export interface ItemsToAlignProps {
   lastRowItems: number;
   columns: number;
   blankItem: ReactNode;
-  lastRowAlign: 'left' | 'center' | 'right'; // O puede ser 'auto' si no quieres restringir a estos 3 valores
+  lastRowAlign: 'left' | 'center' | 'right';
 }
 
 export const alignItemsInGrid = ({

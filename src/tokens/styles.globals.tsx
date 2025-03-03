@@ -207,9 +207,9 @@ export const GlobalStyle = createGlobalStyle`
   --size-border-xl: 0.5rem;       /* 8px / 16px = 0.5rem */
 
 
-  --size-border-radius-small: 0.25rem;   /* 4px / 16px = 0.25rem */
-  --size-border-radius-medium: 0.5rem;   /* 8px / 16px = 0.5rem */
-  --size-border-radius-large: 1rem;      /* 16px / 16px = 1rem */
+  --size-border-radius-small: 0.125rem;   /* 2px / 16px = 0.125rem */
+  --size-border-radius-medium: 0.25rem;   /* 4px / 16px = 0.25rem */
+  --size-border-radius-large: 0.5rem;     /* 8px / 16px = 0.5rem */
 
   --size-border-radius-full: 50%;        
 

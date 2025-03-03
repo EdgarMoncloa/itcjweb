@@ -4,6 +4,7 @@ import {
   StyledH1,
   StyledH2,
   StyledH3,
+  StyledH4,
   StyledOverline,
 } from "../../../tokens/CustomText";
 import { SimpleDualGrid } from "../../atoms/Grids/SimpleDualGrid";
@@ -52,7 +53,9 @@ export const MajorTemplate = ({
       <StyledDescription className="noBorder">
         <StyledCustomImg src={descriptionImage} alt={name} />
         <div>
-          <StyledSubTitle>Objetivo de la carrera</StyledSubTitle>
+          <StyledDescriptionTitle>
+            Objetivo de la carrera
+          </StyledDescriptionTitle>
           <StyledBody1>{description}</StyledBody1>
         </div>
       </StyledDescription>
@@ -116,59 +119,67 @@ export const MajorTemplate = ({
       </StyledCompetences>
 
       {/* ANCHOR Perfil */}
-      <StyledSubTitle>Perfil</StyledSubTitle>
-      <StyledTwoColumnsGrid>
-        <StyledSingleInfoCard>
-          <StyledSubTitle>Aspirante</StyledSubTitle>
-          <ul>
-            <li>
-              Interés por la tecnología, la programación y el análisis de
-              sistemas.
-            </li>
-            <li>
-              Facilidad para resolver problemas mediante el razonamiento lógico
-              y matemático.
-            </li>
-            <li>Habilidades básicas en el uso de computadoras y software.</li>
-            <li>
-              Capacidad de aprendizaje autodidacta y adaptabilidad a nuevas
-              herramientas.
-            </li>
-            <li>Gusto por el trabajo colaborativo y en equipo.</li>
-          </ul>
-        </StyledSingleInfoCard>
-        <StyledSingleInfoCard>
-          <StyledSubTitle>Egresado</StyledSubTitle>
-          <ul>
-            <li>
-              Capacidad para diseñar, desarrollar e implementar soluciones
-              tecnológicas innovadoras.
-            </li>
-            <li>
-              Habilidades avanzadas en programación, bases de datos, redes y
-              ciberseguridad.
-            </li>
-            <li>Adaptabilidad a entornos de trabajo diversos y dinámicos.</li>
-            <li>
-              Competencias para liderar proyectos tecnológicos de gran escala.
-            </li>
-            <li>
-              Enfoque ético, sostenible y responsable en la práctica
-              profesional.
-            </li>
-            <li>
-              Preparación para certificaciones y especializaciones tecnológicas.
-            </li>
-            <li>
-              Orientación hacia la investigación y el desarrollo de tecnologías
-              emergentes.
-            </li>
-          </ul>
-        </StyledSingleInfoCard>
-      </StyledTwoColumnsGrid>
+      <StyledBaseMarginContainer>
+        <StyledPerfilTitle>Perfil</StyledPerfilTitle>
+        <StyledTwoColumnsGrid>
+          <StyledSingleInfoCard>
+            <StyledSubTitle2>Aspirante</StyledSubTitle2>
+            <ul>
+              <li>
+                Interés por la tecnología, la programación y el análisis de
+                sistemas.
+              </li>
+              <li>
+                Facilidad para resolver problemas mediante el razonamiento
+                lógico y matemático.
+              </li>
+              <li>Habilidades básicas en el uso de computadoras y software.</li>
+              <li>
+                Capacidad de aprendizaje autodidacta y adaptabilidad a nuevas
+                herramientas.
+              </li>
+              <li>Gusto por el trabajo colaborativo y en equipo.</li>
+            </ul>
+          </StyledSingleInfoCard>
+          <StyledSingleInfoCard>
+            <StyledSubTitle2>Egresado</StyledSubTitle2>
+            <ul>
+              <li>
+                Capacidad para diseñar, desarrollar e implementar soluciones
+                tecnológicas innovadoras.
+              </li>
+              <li>
+                Habilidades avanzadas en programación, bases de datos, redes y
+                ciberseguridad.
+              </li>
+              <li>Adaptabilidad a entornos de trabajo diversos y dinámicos.</li>
+              <li>
+                Competencias para liderar proyectos tecnológicos de gran escala.
+              </li>
+              <li>
+                Enfoque ético, sostenible y responsable en la práctica
+                profesional.
+              </li>
+              <li>
+                Preparación para certificaciones y especializaciones
+                tecnológicas.
+              </li>
+              <li>
+                Orientación hacia la investigación y el desarrollo de
+                tecnologías emergentes.
+              </li>
+            </ul>
+          </StyledSingleInfoCard>
+        </StyledTwoColumnsGrid>
+      </StyledBaseMarginContainer>
 
-      <StyledSubTitle>Plan de estudios</StyledSubTitle>
-      <DiagramStudyPlan columns={IngenieriaEnSistemas.columns} />
+      {/* ANCHOR Study Plan */}
+      <StyledStudyPlanContainer>
+        <StyledStudyPlanTitle>Plan de estudios</StyledStudyPlanTitle>
+        <DiagramStudyPlan columns={IngenieriaEnSistemas.columns} />
+      </StyledStudyPlanContainer>
+
+      {/* ANCHOR Specialties */}
       <StyledSubTitle>Especialidades</StyledSubTitle>
     </StyledMajorTemplate>
   );
@@ -179,12 +190,22 @@ export const MajorTemplate = ({
 
 const StyledTitle = styled(StyledH1)`
   text-align: center;
+  margin: var(--size-margin-small) 0;
 `;
 
 const StyledSubTitle = styled(StyledH3)`
+  text-align: center;
+  overflow: hidden;
+  width: 100%;
+  /* margin: var(--size-margin-medium) 0; */
+  color: var(--colors-app-primary-700);
+`;
+
+const StyledSubTitle2 = styled(StyledH4)`
   /* text-align: center; */
   overflow: hidden;
   width: 100%;
+  /* margin: var(--size-margin-xs) 0; */
 `;
 
 const StyledText = styled(StyledBody1)`
@@ -200,12 +221,17 @@ const cssBasePadding = css`
   padding: 0 var(--size-margin-2xl);
 `;
 
+// ANCHOR Shared
+const StyledBaseMarginContainer = styled.div`
+  ${cssBaseMargin}
+`;
+
 // ANCHOR Major Template
 const StyledMajorTemplate = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  gap: var(--size-gap-medium);
+  gap: var(--size-gap-large);
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -237,10 +263,15 @@ const StyledCustomImg = styled(CustomImg)`
   height: 100%;
 `;
 
+const StyledDescriptionTitle = styled(StyledSubTitle)`
+  text-align: left;
+`;
+
 // ANCHOR Oportunities Area
 const StyledOportinitiesWrapper = styled.div`
   width: 100%;
   background-color: var(--colors-app-primary-200);
+  ${cssBasePadding}
 `;
 const StyledOportunities = styled.div`
   display: grid;
@@ -251,7 +282,6 @@ const StyledOportunities = styled.div`
   height: var(--size-height-8-rows);
   overflow: hidden;
   padding: var(--size-padding-large) var(--size-padding-xl);
-  ${cssBaseMargin}
 `;
 
 const StyledDynamicGrid = styled.div`
@@ -301,7 +331,7 @@ const StyledCompetences = styled.div`
     "specifics generals";
 `;
 
-const StyledCompetencesSubtitle = styled(StyledSubTitle)`
+const StyledCompetencesSubtitle = styled(StyledSubTitle2)`
   background-color: var(--colors-app-primary-200);
   border-bottom: 4px solid var(--colors-app-primary-500);
 `;
@@ -334,4 +364,23 @@ const StyledTwoColumnsGrid = styled.div`
   align-items: center;
   justify-items: center;
 `;
+
+// ANCHOR Perfil
+const StyledPerfilTitle = styled(StyledSubTitle)`
+  margin-bottom: var(--size-margin-medium);
+`;
+
+// ANCHOR Study Plan
+const StyledStudyPlanContainer = styled.div`
+  width: 100%;
+  background-color: var(--colors-app-primary-200);
+
+  ${cssBasePadding}
+  padding-bottom: var(--size-padding-large);
+`;
+
+const StyledStudyPlanTitle = styled(StyledSubTitle)`
+  margin: var(--size-margin-small) 0;
+`;
+
 // !SECTION Styles
