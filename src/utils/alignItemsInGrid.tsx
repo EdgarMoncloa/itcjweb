@@ -1,21 +1,20 @@
-import { ReactNode } from 'react';
-import styled from 'styled-components';
+import { ReactNode } from "react";
+import styled from "styled-components";
 
 export interface ItemsToAlignProps {
   items: ReactNode[];
-  lastRowItems: number;
   columns: number;
   blankItem: ReactNode;
-  lastRowAlign: 'left' | 'center' | 'right';
+  lastRowAlign: "left" | "center" | "right";
 }
 
 export const alignItemsInGrid = ({
   items,
-  lastRowItems,
   columns,
   blankItem,
   lastRowAlign,
 }: ItemsToAlignProps): ReactNode[] => {
+  const lastRowItems = items.length % columns;
   const lastRowFirstItemIndex = items.length - lastRowItems;
   const itemsWithFills: ReactNode[] = [];
 
@@ -28,13 +27,13 @@ export const alignItemsInGrid = ({
   let numBlackItemsLeft = 0;
   let numBlackItemsRight = 0;
 
-  if (lastRowAlign === 'left') {
+  if (lastRowAlign === "left") {
     numBlackItemsLeft = 0;
     numBlackItemsRight = columns - lastRowItems;
-  } else if (lastRowAlign === 'center') {
+  } else if (lastRowAlign === "center") {
     numBlackItemsLeft = Math.floor((columns - lastRowItems) / 2);
     numBlackItemsRight = Math.ceil((columns - lastRowItems) / 2);
-  } else if (lastRowAlign === 'right') {
+  } else if (lastRowAlign === "right") {
     numBlackItemsLeft = columns - lastRowItems;
     numBlackItemsRight = 0;
   }

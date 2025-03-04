@@ -40,7 +40,7 @@ type Story = StoryObj<MyStoryProps>;
 
 export const Base: Story = {
   args: {
-    numItems: 3,
+    numItems: 7,
     size: "medium",
   },
   render: (args) => {
@@ -55,7 +55,25 @@ export const Base: Story = {
         </ExampleContainer>
       </StyledExampleContainer>
     ));
-    return <DynamicGrid {...args} children={children} />;
+    const blankItem = (
+      <StyledExampleContainer className={args.size}>
+        <ExampleContainer
+          textType={TextTypes.body1}
+          color={ExampleContainerColors.Neutral300}
+        >
+          Blank
+        </ExampleContainer>
+      </StyledExampleContainer>
+    );
+    return (
+      <DynamicGrid
+        {...args}
+        children={children}
+        items={children}
+        blankItem={blankItem}
+        itemWidth={160}
+      />
+    );
   },
 };
 

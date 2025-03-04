@@ -1,18 +1,18 @@
-import styled from 'styled-components';
-import { StyledH3 } from '../../../tokens/CustomText';
-import { ReactNode, useEffect, useRef, useState } from 'react';
-import { alignItemsInGrid } from '../../../utils/alignItemsInGrid';
-import { SingleInfoCard } from '../../molecules/InfoCard';
+import styled from "styled-components";
+import { StyledH3 } from "../../../tokens/CustomText";
+import { ReactNode, useEffect, useRef, useState } from "react";
+import { alignItemsInGrid } from "../../../utils/alignItemsInGrid";
+import { SingleInfoCard } from "../../molecules/InfoCard";
 import {
   InfoCardTrialSlider,
   InfoCardTrialSliderProps,
-} from '../../molecules/InfoCardTriadSlider/InfoCardTriadSlider';
+} from "../../molecules/InfoCardTriadSlider/InfoCardTriadSlider";
 
 export interface UndergraduateSectionProps {
   title: string;
   items: InfoCardTrialSliderProps[];
   blankItem?: ReactNode;
-  lastRowAlign?: 'left' | 'center' | 'right';
+  lastRowAlign?: "left" | "center" | "right";
 }
 
 export const UndergraduateSection = ({
@@ -34,9 +34,9 @@ export const UndergraduateSection = ({
     if (itemsContainer.current) {
       const style = window.getComputedStyle(itemsContainer.current);
       const gridTemplateColumns = style.getPropertyValue(
-        'grid-template-columns'
+        "grid-template-columns"
       );
-      const columnCount = gridTemplateColumns.split(' ').length;
+      const columnCount = gridTemplateColumns.split(" ").length;
       setItemsColumns(columnCount);
     }
   };
@@ -45,16 +45,15 @@ export const UndergraduateSection = ({
     if (itemsContainer.current) {
       const style = window.getComputedStyle(itemsContainer.current);
       const gridTemplateColumns = style.getPropertyValue(
-        'grid-template-columns'
+        "grid-template-columns"
       );
-      const columnCount = gridTemplateColumns.split(' ').length;
+      const columnCount = gridTemplateColumns.split(" ").length;
       setUndergraduateCards(
         alignItemsInGrid({
           items: baseUndergraduateCards,
-          lastRowItems: items.length % itemsColumns,
           columns: columnCount,
-          blankItem: <SingleInfoCard variant='blank' title='' />,
-          lastRowAlign: 'center',
+          blankItem: <SingleInfoCard variant="blank" />,
+          lastRowAlign: "center",
         })
       );
     }
@@ -62,10 +61,10 @@ export const UndergraduateSection = ({
 
   useEffect(() => {
     handleResize();
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
 

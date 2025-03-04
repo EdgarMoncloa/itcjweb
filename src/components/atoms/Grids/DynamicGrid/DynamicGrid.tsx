@@ -1,31 +1,165 @@
+import {
+  ReactNode,
+  useCallback,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import styled from "styled-components";
 
 export interface DynamicGridProps {
   children: React.ReactNode;
+  items: React.ReactNode[];
+  itemWidth: number;
   className?: string;
   style?: React.CSSProperties;
+  numColumns?: number;
+  blankItem?: React.ReactNode;
+  fillMethod: "start" | "end" | "center";
 }
 
 export const DynamicGrid = ({
   children,
+  items,
+  itemWidth,
   className,
   style,
+  numColumns = -1,
+  blankItem,
+  fillMethod = "center",
 }: DynamicGridProps) => {
+  const paddingToCenter = useRef(0);
+  const gridContainerRef = useRef<HTMLDivElement>(null);
+
+  const [columns, setColumns] = useState(1);
+
+  const calcColumns = useCallback(() => {
+    if (!gridContainerRef.current) return 1;
+    const containerWidth =
+      gridContainerRef.current.offsetWidth - paddingToCenter.current * 2;
+    const columnsCount = Math.floor(containerWidth / itemWidth);
+    return columnsCount;
+  }, [itemWidth]);
+
+  const memoUpdateColumnsCentered = useMemo(() => {
+    return () => {
+      if (!gridContainerRef.current) return;
+      let columnsCount = calcColumns();
+
+      if (columnsCount % 2 === 0 && numOfBlanks % 2 !== 0) {
+        paddingToCenter.current = itemWidth / 2;
+        columnsCount = calcColumns();
+      }
+
+      gridContainerRef.current.style.padding = `0 ${paddingToCenter.current}px`;
+      setColumns(columnsCount);
+
+      // setForceRefresh(!forceRefresh);
+    };
+  }, [itemWidth]);
+
+  useEffect(() => {
+    const localUpdateColumns = () => {
+      if (fillMethod === "center") {
+        paddingToCenter.current = 0;
+        memoUpdateColumnsCentered();
+      } else {
+        setColumns(calcColumns());
+      }
+    };
+
+    localUpdateColumns();
+    window.addEventListener("resize", localUpdateColumns);
+
+    return () => {
+      window.removeEventListener("resize", localUpdateColumns);
+    };
+  }, [numColumns, itemWidth, memoUpdateColumnsCentered]);
+
+  // ANCHOR Render
+
+  const numOfItemsInLastCol = items.length % columns;
+  const numItemsWithFilledCols = items.length - numOfItemsInLastCol;
+  const numOfBlanks = columns - numOfItemsInLastCol;
+  let itemsWithFills: ReactNode[] = [];
+
+  const shouldAddCenterBlank = columns % 2 !== 0 && numOfBlanks % 2 !== 0;
+  switch (fillMethod) {
+    case "start":
+      itemsWithFills = [
+        ...items.slice(0, numItemsWithFilledCols),
+        ...Array.from(
+          {
+            length: numOfItemsInLastCol !== 0 ? numOfBlanks : 0,
+          },
+          () => blankItem
+        ),
+        ...items.slice(numItemsWithFilledCols),
+      ];
+      break;
+    case "end":
+      itemsWithFills = [
+        ...items,
+        ...Array.from(
+          {
+            length: numOfItemsInLastCol !== 0 ? numOfBlanks : 0,
+          },
+          () => blankItem
+        ),
+      ];
+      break;
+    case "center":
+      if (numOfBlanks === columns) {
+        itemsWithFills = [...items];
+      } else {
+        itemsWithFills = [
+          ...items.slice(0, numItemsWithFilledCols),
+          ...Array.from(
+            { length: Math.floor(numOfBlanks / 2) },
+            () => blankItem
+          ),
+          ...items.slice(numItemsWithFilledCols),
+          ...Array.from(
+            { length: Math.ceil(numOfBlanks / 2) },
+            () => blankItem
+          ),
+        ];
+        if (shouldAddCenterBlank) {
+          const centerIndex = numItemsWithFilledCols + Math.floor(columns / 2);
+          itemsWithFills.splice(centerIndex, 0, blankItem);
+          itemsWithFills.splice(itemsWithFills.length - 1, 1);
+        }
+      }
+      break;
+    default:
+      break;
+  }
+
   return (
-    <StyledDynamicGrid className={className} style={style}>
-      {children}
+    <StyledDynamicGrid
+      ref={gridContainerRef}
+      className={className}
+      style={style}
+      $paddingToCenter={paddingToCenter.current}
+    >
+      {itemsWithFills}
     </StyledDynamicGrid>
   );
 };
 
-const StyledDynamicGrid = styled.div`
+type StyledDynamicGridProps = {
+  $paddingToCenter: number;
+};
+const StyledDynamicGrid = styled.div<StyledDynamicGridProps>`
   width: 100%;
   height: 100%;
   display: flex;
   flex-direction: row;
-  gap: var(--size-gap-medium);
   align-items: center;
   justify-content: center;
   overflow: hidden;
   flex-wrap: wrap;
+
+  /* padding: 0 ${(props) => props.$paddingToCenter}px; */
 `;
