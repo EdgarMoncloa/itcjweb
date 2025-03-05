@@ -44,7 +44,19 @@ export const Base: Story = {
     size: "medium",
   },
   render: (args) => {
-    const children = Array.from({ length: args.numItems }, (_, idx) => (
+    let width = "";
+    switch (args.size) {
+      case "small":
+        width = "--size-width-3-cols";
+        break;
+      case "medium":
+        width = "--size-width-6-cols";
+        break;
+      case "large":
+        width = "--size-width-9-cols";
+        break;
+    }
+    const items = Array.from({ length: args.numItems }, (_, idx) => (
       <StyledExampleContainer className={args.size}>
         <ExampleContainer
           key={idx}
@@ -61,15 +73,15 @@ export const Base: Story = {
           textType={TextTypes.body1}
           color={ExampleContainerColors.Neutral300}
         >
-          Blank
+          Vacio
         </ExampleContainer>
       </StyledExampleContainer>
     );
+
     return (
       <DynamicGrid
-        {...args}
-        children={children}
-        items={children}
+        fillMethod={"start"}
+        items={items}
         blankItem={blankItem}
         itemWidth={160}
       />

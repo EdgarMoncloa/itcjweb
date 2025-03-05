@@ -22,5 +22,6 @@ module.exports = {
     ],
     "no-useless-escape": "off",
     "no-empty-pattern": "warn",
+    "react-hooks/exhaustive-deps": "off",
   },
 };

@@ -1,15 +1,7 @@
-import {
-  ReactNode,
-  useCallback,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-} from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 export interface DynamicGridProps {
-  children: React.ReactNode;
   items: React.ReactNode[];
   itemWidth: number;
   className?: string;
@@ -20,62 +12,55 @@ export interface DynamicGridProps {
 }
 
 export const DynamicGrid = ({
-  children,
   items,
   itemWidth,
   className,
   style,
   numColumns = -1,
   blankItem,
-  fillMethod = "center",
+  fillMethod = "start",
 }: DynamicGridProps) => {
   const paddingToCenter = useRef(0);
   const gridContainerRef = useRef<HTMLDivElement>(null);
 
   const [columns, setColumns] = useState(1);
 
-  const calcColumns = useCallback(() => {
-    if (!gridContainerRef.current) return 1;
-    const containerWidth =
-      gridContainerRef.current.offsetWidth - paddingToCenter.current * 2;
-    const columnsCount = Math.floor(containerWidth / itemWidth);
-    return columnsCount;
-  }, [itemWidth]);
-
-  const memoUpdateColumnsCentered = useMemo(() => {
-    return () => {
-      if (!gridContainerRef.current) return;
-      let columnsCount = calcColumns();
-
-      if (columnsCount % 2 === 0 && numOfBlanks % 2 !== 0) {
-        paddingToCenter.current = itemWidth / 2;
-        columnsCount = calcColumns();
-      }
-
-      gridContainerRef.current.style.padding = `0 ${paddingToCenter.current}px`;
-      setColumns(columnsCount);
-
-      // setForceRefresh(!forceRefresh);
-    };
-  }, [itemWidth]);
-
   useEffect(() => {
-    const localUpdateColumns = () => {
+    const calcColumns = () => {
+      if (!gridContainerRef.current) return 1;
+
+      const totalPadding = paddingToCenter.current * 2;
+      const containerWidth =
+        gridContainerRef.current.offsetWidth - totalPadding;
+      return Math.floor(containerWidth / itemWidth);
+    };
+
+    const updateColumns = () => {
+      if (!gridContainerRef.current) return;
       if (fillMethod === "center") {
         paddingToCenter.current = 0;
-        memoUpdateColumnsCentered();
+        let newColumns = calcColumns();
+        const newNumBlanks = newColumns - (items.length % newColumns);
+
+        if (newColumns % 2 === 0 && newNumBlanks % 2 !== 0) {
+          paddingToCenter.current = itemWidth / 2;
+          newColumns = calcColumns();
+        }
+
+        gridContainerRef.current.style.padding = `0 ${paddingToCenter.current}px`;
+        setColumns(newColumns);
       } else {
         setColumns(calcColumns());
       }
     };
 
-    localUpdateColumns();
-    window.addEventListener("resize", localUpdateColumns);
+    updateColumns();
+    window.addEventListener("resize", updateColumns);
 
     return () => {
-      window.removeEventListener("resize", localUpdateColumns);
+      window.removeEventListener("resize", updateColumns);
     };
-  }, [numColumns, itemWidth, memoUpdateColumnsCentered]);
+  }, [numColumns, itemWidth, items]);
 
   // ANCHOR Render
 
