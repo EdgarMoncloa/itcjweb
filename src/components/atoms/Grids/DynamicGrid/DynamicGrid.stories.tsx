@@ -1,11 +1,16 @@
 import { StoryObj, Meta } from "@storybook/react";
-import { DynamicGrid, DynamicGridProps } from "./DynamicGrid";
-import { TextTypes } from "../../../../types/GlobalTypes";
+import { DynamicGrid, DynamicGrid_Props } from "./DynamicGrid";
+import {
+  CSS_VAR_GAP,
+  CSS_VAR_ROW_HEIGHT,
+  TextTypes,
+} from "../../../../types/GlobalTypes";
 import {
   ExampleContainer,
   ExampleContainerColors,
 } from "../../Examples/ExampleContainer";
 import styled from "styled-components";
+import { DynamicGrid_FillMethod } from "./DynamicGrid.types";
 
 export default {
   title: "Atoms/Grids/DynamicGrid",
@@ -15,49 +20,90 @@ export default {
     layout: "fullscreen",
   },
   argTypes: {
+    // ANCHOR Style
+    numColumns: {
+      control: {
+        type: "range",
+        min: 1,
+        max: 16,
+      },
+      table: {
+        category: "Style",
+      },
+    },
+    fillMethod: {
+      control: {
+        type: "select",
+        defaultValue: DynamicGrid_FillMethod.Center,
+      },
+      options: Object.values(DynamicGrid_FillMethod),
+      table: {
+        category: "Style",
+      },
+    },
+    gap: {
+      control: {
+        type: "select",
+      },
+      options: Object.values(CSS_VAR_GAP),
+      table: {
+        category: "Style",
+      },
+    },
+
+    // ANCHOR Other
+    items: {
+      table: { category: "Other" },
+    },
+    blankItem: {
+      table: { category: "Other" },
+    },
+    className: {
+      table: { category: "Other" },
+    },
+    style: {
+      table: { category: "Other" },
+    },
+
+    // ANCHOR Only for storybook
     numItems: {
       control: {
         type: "range",
         min: 1,
         max: 24,
       },
+      table: {
+        category: "Only for storybook",
+      },
     },
-
-    size: {
+    height: {
       control: {
         type: "select",
       },
-      options: ["small", "medium", "large"],
+      options: Object.values(CSS_VAR_ROW_HEIGHT),
+      table: { category: "Only for storybook" },
     },
   },
 };
-type MyStoryProps = {
+interface MyStoryProps extends DynamicGrid_Props {
   numItems: number;
-  size?: "small" | "medium" | "large";
-};
+  numColumns: number;
+  height: CSS_VAR_ROW_HEIGHT;
+}
 
 type Story = StoryObj<MyStoryProps>;
 
 export const Base: Story = {
   args: {
     numItems: 7,
-    size: "medium",
+    numColumns: 5,
+    height: CSS_VAR_ROW_HEIGHT["6-rows"],
+    fillMethod: DynamicGrid_FillMethod.Center,
+    gap: CSS_VAR_GAP.small,
   },
   render: (args) => {
-    let width = "";
-    switch (args.size) {
-      case "small":
-        width = "--size-width-3-cols";
-        break;
-      case "medium":
-        width = "--size-width-6-cols";
-        break;
-      case "large":
-        width = "--size-width-9-cols";
-        break;
-    }
     const items = Array.from({ length: args.numItems }, (_, idx) => (
-      <StyledExampleContainer className={args.size}>
+      <StyledExampleContainer $height={args.height}>
         <ExampleContainer
           key={idx}
           textType={TextTypes.body1}
@@ -68,7 +114,7 @@ export const Base: Story = {
       </StyledExampleContainer>
     ));
     const blankItem = (
-      <StyledExampleContainer className={args.size}>
+      <StyledExampleContainer $height={args.height}>
         <ExampleContainer
           textType={TextTypes.body1}
           color={ExampleContainerColors.Neutral300}
@@ -78,27 +124,14 @@ export const Base: Story = {
       </StyledExampleContainer>
     );
 
-    return (
-      <DynamicGrid
-        items={items}
-        blankItem={blankItem}
-        itemWidth={160}
-      />
-    );
+    return <DynamicGrid {...args} items={items} blankItem={blankItem} />;
   },
 };
 
-const StyledExampleContainer = styled.div`
-  &.small {
-    height: var(--size-width-1-cols);
-    width: var(--size-width-1-cols);
-  }
-  &.medium {
-    height: var(--size-width-2-cols);
-    width: var(--size-width-2-cols);
-  }
-  &.large {
-    height: var(--size-width-3-cols);
-    width: var(--size-width-3-cols);
-  }
+type propsExampleContainer = {
+  $height: CSS_VAR_ROW_HEIGHT;
+};
+const StyledExampleContainer = styled.div<propsExampleContainer>`
+  width: 100%;
+  height: var(${(props) => props.$height});
 `;

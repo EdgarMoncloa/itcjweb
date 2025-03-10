@@ -306,6 +306,7 @@ export const GlobalStyle = createGlobalStyle`
   --size-width-16-cols: 80em;      /* 1264px / 16px */
   
   /* ANCHOR Gaps */
+  --size-gap-none: 0;
   --size-gap-2xs: 0.125em;   /* 2px / 16px */
   --size-gap-xs: 0.25em;     /* 4px / 16px */
   --size-gap-small: 0.5em;   /* 8px / 16px */

@@ -25,7 +25,18 @@ export type IconSize =
   | "3xl"
   | "4xl";
 
-export enum ColWidht {
+// ANCHOR CSS_VAR
+export enum CSS_VAR_GAP {
+  none = "--size-gap-none",
+  "2xs" = "--size-gap-2xs",
+  xs = "--size-gap-xs",
+  small = "--size-gap-small",
+  medium = "--size-gap-medium",
+  large = "--size-gap-large",
+  xl = "--size-gap-xl",
+  "2xl" = "--size-gap-2xl",
+}
+export enum CSS_VAR_COL_WIDTH {
   "1-cols" = "var(--size-width-1-cols)",
   "2-cols" = "var(--size-width-2-cols)",
   "3-cols" = "var(--size-width-3-cols)",
@@ -43,9 +54,28 @@ export enum ColWidht {
   "15-cols" = "var(--size-width-15-cols)",
   "16-cols" = "var(--size-width-16-cols)",
 }
-
+export enum CSS_VAR_ROW_HEIGHT {
+  "1-rows" = "--size-height-1-rows",
+  "2-rows" = "--size-height-2-rows",
+  "3-rows" = "--size-height-3-rows",
+  "4-rows" = "--size-height-4-rows",
+  "5-rows" = "--size-height-5-rows",
+  "6-rows" = "--size-height-6-rows",
+  "7-rows" = "--size-height-7-rows",
+  "8-rows" = "--size-height-8-rows",
+  "9-rows" = "--size-height-9-rows",
+  "10-rows" = "--size-height-10-rows",
+  "11-rows" = "--size-height-11-rows",
+  "12-rows" = "--size-height-12-rows",
+  "13-rows" = "--size-height-13-rows",
+  "14-rows" = "--size-height-14-rows",
+  "15-rows" = "--size-height-15-rows",
+  "16-rows" = "--size-height-16-rows",
+}
+// ANCHOR UTILS
 export const getWithColsVar = (cols: number): string => {
-  const col = ColWidht[`${cols}-cols` as keyof typeof ColWidht];
+  const col =
+    CSS_VAR_COL_WIDTH[`${cols}-cols` as keyof typeof CSS_VAR_COL_WIDTH];
   if (col) {
     return col;
   }
