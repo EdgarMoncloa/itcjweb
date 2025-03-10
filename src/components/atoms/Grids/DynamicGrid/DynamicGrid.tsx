@@ -8,7 +8,7 @@ export interface DynamicGridProps {
   style?: React.CSSProperties;
   numColumns?: number;
   blankItem?: React.ReactNode;
-  fillMethod: "start" | "end" | "center";
+  fillMethod?: "start" | "end" | "center";
 }
 
 export const DynamicGrid = ({
@@ -18,7 +18,7 @@ export const DynamicGrid = ({
   style,
   numColumns = -1,
   blankItem,
-  fillMethod = "start",
+  fillMethod = "center",
 }: DynamicGridProps) => {
   const paddingToCenter = useRef(0);
   const gridContainerRef = useRef<HTMLDivElement>(null);

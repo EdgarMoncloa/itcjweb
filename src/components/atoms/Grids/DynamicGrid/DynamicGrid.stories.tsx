@@ -80,7 +80,6 @@ export const Base: Story = {
 
     return (
       <DynamicGrid
-        fillMethod={"start"}
         items={items}
         blankItem={blankItem}
         itemWidth={160}
