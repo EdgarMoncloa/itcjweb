@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css, useTheme } from "styled-components";
 import {
   StyledBody1,
   StyledH1,
@@ -10,19 +10,25 @@ import {
 import { SimpleDualGrid } from "../../atoms/Grids/SimpleDualGrid";
 import { DynamicGrid } from "../../atoms/Grids/DynamicGrid";
 import { SingleInfoCard } from "../../molecules/InfoCard";
-import { ReactNode } from "react";
+import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { DynamicIcon } from "../../atoms/Icons/DynamicIcon";
 import { DiagramStudyPlan } from "../../organisms/Diagrams/DiagramStudyPlan";
 import { IngenieriaEnSistemas } from "../../../mocks/Majors/IngenieriaEnSistemas.mock";
 import { CustomImg } from "../../atoms/CustomImg";
 import { StyledImg } from "../../../tokens/CustomImg";
 import Logo_Liebre_Circuitos from "/images/Logo_Liebre_Circuitos.png";
+import { DynamicGrid_FillMethod } from "../../atoms/Grids/DynamicGrid/DynamicGrid.types";
+import { ThemeType } from "../../../tokens/theme";
+import { CSS_VAR_GAP } from "../../../types/GlobalTypes";
 
 type OportunitiesArea = {
   title: string;
   icon: ReactNode;
 };
-
+type speciality = {
+  name: string;
+  description: string;
+};
 export interface MajorTemplateProps {
   name: string;
   descriptionImage: string;
@@ -36,6 +42,7 @@ export interface MajorTemplateProps {
     specifics: string[];
     generals: string[];
   };
+  specialities: speciality[];
 }
 
 // SECTION Component
@@ -45,7 +52,38 @@ export const MajorTemplate = ({
   description,
   oportunities,
   competencies,
+  specialities,
 }: MajorTemplateProps) => {
+  const theme = useTheme() as ThemeType;
+  const specialitiesRef = useRef<HTMLDivElement>(null);
+  const [specialitiesCols, setSpecialitiesCols] = useState(3);
+
+  const handleResise = useCallback(() => {
+    if (specialitiesRef.current) {
+      const specialitiesContainerWidth = specialitiesRef.current.clientWidth;
+      if (specialitiesContainerWidth < theme.breakpoints.mobile) {
+        setSpecialitiesCols(1);
+        return;
+      }
+      if (specialitiesContainerWidth < theme.breakpoints.tablet) {
+        setSpecialitiesCols(2);
+        return;
+      }
+      if (specialitiesContainerWidth < theme.breakpoints.laptop) {
+        setSpecialitiesCols(3);
+        return;
+      }
+    }
+  }, [specialities]);
+
+  useEffect(() => {
+    handleResise();
+    window.addEventListener("resize", handleResise);
+    return () => {
+      window.removeEventListener("resize", handleResise);
+    };
+  }, []);
+
   return (
     <StyledMajorTemplate>
       {/* ANCHOR Objective */}
@@ -181,6 +219,27 @@ export const MajorTemplate = ({
 
       {/* ANCHOR Specialties */}
       <StyledSubTitle>Especialidades</StyledSubTitle>
+      <StyledSpecialtiesContainer ref={specialitiesRef}>
+        <DynamicGrid
+          fillMethod={DynamicGrid_FillMethod.Center}
+          numColumns={specialitiesCols}
+          gap={CSS_VAR_GAP.medium}
+          items={specialities.map((speciality: speciality) => (
+            <StyledSingleInfoCard>
+              <StyledSubTitle2>{speciality.name}</StyledSubTitle2>
+              <StyledBody1>{speciality.description}</StyledBody1>
+            </StyledSingleInfoCard>
+          ))}
+        />
+      </StyledSpecialtiesContainer>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </StyledMajorTemplate>
   );
 };
@@ -351,7 +410,7 @@ const StyledCompetencesListContainer = styled.div`
 `;
 
 const StyledSingleInfoCard = styled(SingleInfoCard)`
-  width: 90%;
+  width: 100%;
   overflow: hidden;
   padding: var(--size-padding-medium);
 `;
@@ -381,6 +440,12 @@ const StyledStudyPlanContainer = styled.div`
 
 const StyledStudyPlanTitle = styled(StyledSubTitle)`
   margin: var(--size-margin-small) 0;
+`;
+
+// ANCHOR Specialties
+const StyledSpecialtiesContainer = styled.div`
+  width: 100%;
+  ${cssBaseMargin}
 `;
 
 // !SECTION Styles

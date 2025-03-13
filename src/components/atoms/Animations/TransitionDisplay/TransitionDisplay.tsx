@@ -1,6 +1,8 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes, useTheme } from "styled-components";
 import { ContentLink, ContentLinkProps } from "../../ContentLink";
 import React, { useEffect, useRef } from "react";
+import { ThemeType } from "../../../../tokens/theme";
+import { CSS_VAR_DURATION } from "../../../../types/GlobalTypes";
 
 export type TransitionDelayType =
   | "none"
@@ -18,7 +20,7 @@ export interface TransitionDisplayProps {
   /**
    * Delay in miliseconds
    */
-  delay?: TransitionDelayType;
+  delay?: CSS_VAR_DURATION;
   animate?: boolean;
 }
 
@@ -89,7 +91,7 @@ const StyledFromElementWrapper = styled.div`
 `;
 
 const StyledToElementWrapper = styled.div<{
-  $delay?: TransitionDelayType;
+  $delay?: CSS_VAR_DURATION;
 }>`
   width: 100%;
   height: 100%;
@@ -97,17 +99,11 @@ const StyledToElementWrapper = styled.div<{
 
   &.circleFromCenter {
     animation: ${keyFramesClipPath} var(--transition-slow) forwards;
-    animation-delay: ${(props) =>
-      props.$delay && props.$delay !== "none"
-        ? `var(--delay-${props.$delay})`
-        : "0s"};
+    animation-delay: ${(props) => `var(${props.$delay})`};
 
     &::after {
       animation: ${keyFramesClipPathMask} var(--transition-slow) forwards;
-      animation-delay: ${(props) =>
-        props.$delay && props.$delay !== "none"
-          ? `var(--delay-${props.$delay})`
-          : "0s"};
+      animation-delay: ${(props) => `var(${props.$delay})`};
       background-color: var(--colors-itcj-primary);
       border-radius: var(--size-border-radius-full);
       content: "";

@@ -34,19 +34,19 @@ export const GlobalStyle = createGlobalStyle`
     font-feature-settings: normal;
     font-size: 16px;
 
-    @media (min-width: ${(props) => props.theme.breakpoints.mobile}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.mobile}px) {
       font-size: 16px;
     }
-    @media (min-width: ${(props) => props.theme.breakpoints.fullHDDesktop}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.fullHDDesktop}px) {
       font-size: 18px;
     }
-    @media (min-width: ${(props) => props.theme.breakpoints.twoKDesktop}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.twoKDesktop}px) {
       font-size: 28px;
     }
-    @media (min-width: ${(props) => props.theme.breakpoints.fourKDesktop}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.fourKDesktop}px) {
       font-size: 36px;
     } 
-    @media (min-width: ${(props) => props.theme.breakpoints.eightKDesktop}) {
+    @media (min-width: ${(props) => props.theme.breakpoints.eightKDesktop}px) {
       font-size: 72px;
     } 
 
@@ -274,13 +274,13 @@ export const GlobalStyle = createGlobalStyle`
   --size-margin-body: 4em;  /* 16px / 16px */
   --size-margin-body-large: 16em;  
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}px) {
     --size-margin-body-large: 1em;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}px) {
     --size-margin-body-large: 4em;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.desktopLarge}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.desktopLarge}px) {
     --size-margin-body-large: 16em;  /* 16px / 16px */
   }
   
@@ -325,19 +325,23 @@ export const GlobalStyle = createGlobalStyle`
 
 
   /* SECTION TIMES */
-  /* ANCHOR Transitions */
-  /* These transition values must be the same as the ones in AppConfigStoreProvider */
-  --transition-very-fast: 0.1s ease-in-out;
-  --transition-fast: 0.2s ease-in-out;
-  --transition-normal: 0.4s ease-in-out;
-  --transition-slow: 0.6s ease-in-out;
-  --transition-very-slow: 1s ease-in-out;
-
   /* ANCHOR Delays */
-  --delay-very-fast: 0.1s;
-  --delay-fast: 0.2s;
-  --delay-normal: 0.4s;
-  --delay-slow: 0.6s;  
+  /* These transition values must be the same as the ones in AppConfigStoreProvider */
+  --duration-none: ${(p) => p.theme.duration.none}s;
+  --duration-very-fast: ${(p) => p.theme.duration["very-fast"]}s;
+  --duration-fast: ${(p) => p.theme.duration.fast}s;
+  --duration-normal: ${(p) => p.theme.duration.normal}s;
+  --duration-slow: ${(p) => p.theme.duration.slow}s;
+  --duration-very-slow: ${(p) => p.theme.duration["very-slow"]}s;
+
+  /* ANCHOR Transitions */
+  --transition-none: var(--duration-none) ease-in-out;
+  --transition-very-fast: var(--duration-very-fast) ease-in-out;
+  --transition-fast: var(--duration-fast) ease-in-out;
+  --transition-normal: var(--duration-normal) ease-in-out;
+  --transition-slow: var(--duration-slow) ease-in-out;
+  --transition-very-slow: var(--duration-very-slow) ease-in-out;
+
   /* !SECTION TIMES */
 
   /* ANCHOR z-index */

@@ -54,9 +54,9 @@ const StyledContentContainer = styled.div`
 `;
 
 const StyledLeftContainer = styled(StyledContentContainer)`
-  transition-delay: var(--delay-fast);
+  transition-delay: var(--duration-fast);
   ${StyledMainContainer}:hover & {
-    transition-delay: var(--delay-very-fast);
+    transition-delay: var(--duration-very-fast);
     color: var(--colors-app-text-dark);
   }
   /* Variants */
@@ -66,9 +66,9 @@ const StyledLeftContainer = styled(StyledContentContainer)`
 `;
 
 const StyledRightContainer = styled(StyledContentContainer)`
-  transition-delay: var(--delay-very-fast);
+  transition-delay: var(--duration-very-fast);
   ${StyledMainContainer}:hover & {
-    transition-delay: var(--delay-fast);
+    transition-delay: var(--duration-fast);
     color: var(--colors-app-text-light);
   }
   /* Variants */

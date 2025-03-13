@@ -58,6 +58,28 @@ export const Base: Story = {
         "Compromiso con el aprendizaje continuo y la innovación.",
       ],
     },
+    specialities: [
+      {
+        name: "Ingeniería de software",
+        description:
+          "Ingeniería de software es una especialidad que se enfoca en el diseño, desarrollo y mantenimiento de software. Esta especialidad se centra en la creación de soluciones tecnológicas que pueden ser utilizadas en una amplia variedad de aplicaciones y procesos.",
+      },
+      {
+        name: "Ingeniería de hardware",
+        description:
+          "Ingeniería de hardware es una especialidad que se enfoca en el diseño, construcción y mantenimiento de hardware. Esta especialidad se centra en la creación de soluciones tecnológicas que pueden ser utilizadas en una amplia variedad de aplicaciones y procesos.",
+      },
+      {
+        name: "Ingeniería de datos",
+        description:
+          "Ingeniería de datos es una especialidad que se enfoca en el diseño, construcción y mantenimiento de hardware. Esta especialidad se centra en la creación de soluciones tecnológicas que pueden ser utilizadas en una amplia variedad de aplicaciones y procesos.",
+      },
+      {
+        name: "Ingeniería de software",
+        description:
+          "Ingeniería de software es una especialidad que se enfoca en el diseño, desarrollo y mantenimiento de software. Esta especialidad se centra en la creación de soluciones tecnológicas que pueden ser utilizadas en una amplia variedad de aplicaciones y procesos.",
+      },
+    ],
   },
   render: (args) => <MajorTemplate {...args} />,
 };

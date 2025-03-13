@@ -33,10 +33,10 @@ const StyledSimpleDualGrid = styled.div<{ $firstContentWidht: number }>`
   height: 100%;
   gap: var(--size-gap-small);
 
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}px) {
     grid-template-columns: 1fr;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}px) {
     grid-template-columns: ${(p) =>
       getGridTemplateColumns(p.$firstContentWidht)};
   }

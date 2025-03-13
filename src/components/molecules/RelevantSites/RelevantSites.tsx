@@ -39,14 +39,14 @@ const StyledRelevantSites = styled.div`
   overflow: hidden;
   justify-content: center;
 
-  @media (max-width: ${(props) => props.theme.breakpoints.mobile}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.mobile}px) {
     grid-template-columns: 1fr;
     border: 1px solid blue;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}px) {
     grid-template-columns: repeat(6, 1fr);
   }
 `;

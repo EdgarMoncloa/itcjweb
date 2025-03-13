@@ -65,15 +65,15 @@ const StyledPostGraduateContainer = styled.div`
   grid-auto-rows: var(--size-height-10-rows);
   gap: var(--size-gap-medium);
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}px) {
     grid-template-rows: repeat(2, var(--size-height-10-rows));
     grid-template-columns: 1fr 1fr;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: var(--size-height-8-rows);
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.desktopLarge}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.desktopLarge}px) {
     grid-template-rows: var(--size-height-12-rows);
   }
 `;

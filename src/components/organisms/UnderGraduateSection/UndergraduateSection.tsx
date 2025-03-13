@@ -101,16 +101,16 @@ const StyledItemsContainer = styled.div`
   grid-template-columns: repeat(1, 1fr);
   gap: var(--size-gap-large);
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.desktopLarge}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.desktopLarge}px) {
     grid-template-columns: repeat(4, 1fr);
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.fourKDesktop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.fourKDesktop}px) {
     grid-template-columns: repeat(5, 1fr);
   }
 `;

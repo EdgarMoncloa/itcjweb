@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { TransitionDelayType, TransitionDisplay } from ".";
 import { StoryObj } from "@storybook/react";
+import { theme, ThemeType } from "../../../../tokens/theme";
+import { CSS_VAR_DURATION } from "../../../../types/GlobalTypes";
 
 export default {
   title: "Atoms/Animations/TransitionDisplay",
@@ -10,17 +12,19 @@ export default {
     layout: "centered",
   },
   args: {
-    Animar: true,
-    delay: "normal",
+    animate: true,
+    delay: CSS_VAR_DURATION.normal,
   },
   argTypes: {
-    Animar: {
+    animate: {
       control: { type: "boolean" },
     },
     delay: {
       control: {
         type: "select",
       },
+      options: Object.values(CSS_VAR_DURATION),
+      defaultValue: CSS_VAR_DURATION.normal,
     },
     fromElement: {
       control: { type: "object" },
@@ -34,24 +38,23 @@ export default {
 };
 
 interface MyStory {
-  Animar: boolean;
-  delay: TransitionDelayType;
+  animate: boolean;
+  delay: CSS_VAR_DURATION;
 }
 
 export const Base: StoryObj<MyStory> = {
   args: {},
-  render: (args: MyStory) => {
+  render: (args) => {
     const fromElement = <StyledFromELement>Primer Elemento</StyledFromELement>;
     const toElement = <StyledToElement>Segundo Elemento</StyledToElement>;
 
     return (
       <TransitionDisplay
-        animate={args["Animar"]}
         fromElement={fromElement}
         toElement={toElement}
         haveDefaultSize
         transition="circleFromCenter"
-        // delay={args.delay}
+        {...args}
       />
     );
   },

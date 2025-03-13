@@ -72,6 +72,22 @@ export enum CSS_VAR_ROW_HEIGHT {
   "15-rows" = "--size-height-15-rows",
   "16-rows" = "--size-height-16-rows",
 }
+export enum CSS_VAR_TRANSITION {
+  "none" = "--transition-none",
+  "very-fast" = "--transition-very-fast",
+  "fast" = "--transition-fast",
+  "normal" = "--transition-normal",
+  "slow" = "--transition-slow",
+  "very-slow" = "--transition-very-slow",
+}
+export enum CSS_VAR_DURATION {
+  "none" = "--duration-none",
+  "very-fast" = "--duration-very-fast",
+  "fast" = "--duration-fast",
+  "normal" = "--duration-normal",
+  "slow" = "--duration-slow",
+  "very-slow" = "--duration-very-slow",
+}
 // ANCHOR UTILS
 export const getWithColsVar = (cols: number): string => {
   const col =

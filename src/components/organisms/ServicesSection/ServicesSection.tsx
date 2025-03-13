@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { InfoCardDual3DSlider } from '../../molecules/InfoCardDual3DSlider';
+import styled from "styled-components";
+import { InfoCardDual3DSlider } from "../../molecules/InfoCardDual3DSlider";
 
 interface Service {
   name: string;
@@ -38,20 +38,20 @@ const StyledServicesSection = styled.div`
   grid-auto-rows: var(--size-height-6-rows);
   gap: var(--size-gap-medium);
 
-  @media (max-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (max-width: ${(props) => props.theme.breakpoints.tablet}px) {
     grid-template-columns: 1fr;
   }
 
-  @media (min-width: ${(props) => props.theme.breakpoints.tablet}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.tablet}px) {
     grid-template-columns: 1fr;
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.laptop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.laptop}px) {
     grid-template-columns: repeat(2, 1fr);
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.desktop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.desktop}px) {
     grid-template-columns: repeat(3, 1fr);
   }
-  @media (min-width: ${(props) => props.theme.breakpoints.eightKDesktop}) {
+  @media (min-width: ${(props) => props.theme.breakpoints.eightKDesktop}px) {
     width: 50%;
     margin: 0 auto;
   }

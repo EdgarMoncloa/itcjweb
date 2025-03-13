@@ -80,7 +80,7 @@ const getItemsWithFills = (
 
 export const DynamicGrid = ({
   items,
-  blankItem,
+  blankItem = <div></div>,
   className,
   numColumns = 5,
   fillMethod = DynamicGrid_FillMethod.Center,

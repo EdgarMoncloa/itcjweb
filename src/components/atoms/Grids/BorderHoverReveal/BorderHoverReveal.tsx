@@ -71,7 +71,7 @@ const StyledBorderX = styled.div`
     ${StyledBorderBase};
     border-bottom: var(--size-border-small) solid var(--colors-app-primary-600);
     transform: translateX(100%);
-    /* transition-delay: calc(var(--delay-fast) * 1); */
+    /* transition-delay: calc(var(--duration-fast) * 1); */
   }
 `;
 const StyledBorderY = styled.div`
@@ -79,12 +79,12 @@ const StyledBorderY = styled.div`
     ${StyledBorderBase};
     transform: translateY(-100%);
     border-right: var(--size-border-small) solid var(--colors-app-primary-600);
-    /* transition-delay: calc(var(--delay-fast) * 0.5); */
+    /* transition-delay: calc(var(--duration-fast) * 0.5); */
   }
   &::before {
     ${StyledBorderBase};
     transform: translateY(100%);
     border-left: var(--size-border-small) solid var(--colors-app-primary-600);
-    /* transition-delay: calc(var(--delay-fast) * 2); */
+    /* transition-delay: calc(var(--duration-fast) * 2); */
   }
 `;
