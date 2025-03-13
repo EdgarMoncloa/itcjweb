@@ -17,6 +17,7 @@ export default {
     delay: CSS_VAR_DURATION.normal,
     haveDefaultSize: true,
     transitionType: TransitionDisplay_TransitionType.fade,
+    preserveFromElement: true,
   },
   argTypes: {
     // ANCHOR Only for storybook
@@ -44,6 +45,15 @@ export default {
       options: Object.values(TransitionDisplay_TransitionType),
       defaultValue: TransitionDisplay_TransitionType.fade,
       table: { category: "Style" },
+    },
+    preserveFromElement: {
+      control: {
+        type: "boolean",
+      },
+      description: "Si esta activado, el primer elemento seguira visible",
+      table: {
+        category: "Style",
+      },
     },
     // ANCHOR Code
     fromElement: {
