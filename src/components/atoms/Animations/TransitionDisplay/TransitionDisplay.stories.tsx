@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { TransitionDelayType, TransitionDisplay } from ".";
+import { TransitionDisplay } from ".";
 import { StoryObj } from "@storybook/react";
 import { theme, ThemeType } from "../../../../tokens/theme";
 import { CSS_VAR_DURATION } from "../../../../types/GlobalTypes";
+import { TransitionDisplay_TransitionType } from "./TransitionDisplay.types";
 
 export default {
   title: "Atoms/Animations/TransitionDisplay",
@@ -14,24 +15,62 @@ export default {
   args: {
     animate: true,
     delay: CSS_VAR_DURATION.normal,
+    haveDefaultSize: true,
+    transitionType: TransitionDisplay_TransitionType.fade,
   },
   argTypes: {
+    // ANCHOR Only for storybook
     animate: {
       control: { type: "boolean" },
+      table: { category: "Only for storybook" },
     },
+    haveDefaultSize: {
+      control: { type: "boolean" },
+      table: { category: "Only for storybook" },
+    },
+    // ANCHOR Style
     delay: {
       control: {
         type: "select",
       },
       options: Object.values(CSS_VAR_DURATION),
       defaultValue: CSS_VAR_DURATION.normal,
+      table: { category: "Style" },
     },
+    transitionType: {
+      control: {
+        type: "select",
+      },
+      options: Object.values(TransitionDisplay_TransitionType),
+      defaultValue: TransitionDisplay_TransitionType.fade,
+      table: { category: "Style" },
+    },
+    // ANCHOR Code
     fromElement: {
-      control: { type: "object" },
+      control: false,
       description: "Es el primer elemento a mostrar",
       table: {
         type: { summary: "ReactNode" },
         defaultValue: { summary: "null" },
+        category: "Code",
+      },
+    },
+    toElement: {
+      control: false,
+      description: "Es el segundo elemento a mostrar",
+      table: {
+        type: { summary: "ReactNode" },
+        defaultValue: { summary: "null" },
+        category: "Code",
+      },
+    },
+    toElementKey: {
+      control: false,
+      description: "Es la key del segundo elemento a mostrar",
+      table: {
+        type: { summary: "number" },
+        defaultValue: { summary: "null" },
+        category: "Code",
       },
     },
   },
@@ -52,8 +91,6 @@ export const Base: StoryObj<MyStory> = {
       <TransitionDisplay
         fromElement={fromElement}
         toElement={toElement}
-        haveDefaultSize
-        transition="circleFromCenter"
         {...args}
       />
     );

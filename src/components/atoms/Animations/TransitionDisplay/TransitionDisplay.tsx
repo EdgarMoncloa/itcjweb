@@ -1,27 +1,17 @@
-import styled, { keyframes, useTheme } from "styled-components";
-import { ContentLink, ContentLinkProps } from "../../ContentLink";
-import React, { useEffect, useRef } from "react";
-import { ThemeType } from "../../../../tokens/theme";
+import styled, { css, keyframes } from "styled-components";
+import React from "react";
 import { CSS_VAR_DURATION } from "../../../../types/GlobalTypes";
-
-export type TransitionDelayType =
-  | "none"
-  | "very-fast"
-  | "fast"
-  | "normal"
-  | "slow";
+import { TransitionDisplay_TransitionType } from "./TransitionDisplay.types";
 
 export interface TransitionDisplayProps {
   fromElement?: React.ReactNode;
   toElement: React.ReactNode;
   toElementKey?: string;
   haveDefaultSize?: boolean;
-  transition?: "circleFromCenter";
-  /**
-   * Delay in miliseconds
-   */
   delay?: CSS_VAR_DURATION;
   animate?: boolean;
+  transitionType?: TransitionDisplay_TransitionType;
+  preserveFromElement?: boolean;
 }
 
 export const TransitionDisplay = ({
@@ -29,17 +19,24 @@ export const TransitionDisplay = ({
   fromElement,
   toElement,
   toElementKey,
-  transition = "circleFromCenter",
-  delay,
+  delay = CSS_VAR_DURATION.fast,
   animate = true,
+  transitionType = TransitionDisplay_TransitionType.fade,
+  preserveFromElement = true,
 }: TransitionDisplayProps) => {
   return (
     <StyledContentDisplay className={haveDefaultSize ? "default-size" : ""}>
       {fromElement && (
-        <StyledFromElementWrapper>{fromElement}</StyledFromElementWrapper>
+        <StyledFromElementWrapper
+          $delay={delay}
+          className={animate === true ? transitionType : ""}
+          $preserveFromElement={preserveFromElement}
+        >
+          {fromElement}
+        </StyledFromElementWrapper>
       )}
       <StyledToElementWrapper
-        className={animate === true ? transition : ""}
+        className={animate === true ? transitionType : ""}
         $delay={delay}
         key={toElementKey}
       >
@@ -61,7 +58,56 @@ const StyledContentDisplay = styled.div`
   }
 `;
 
-const keyFramesClipPath = keyframes`
+const framesCircleFromCenter_From = keyframes`
+  0% {
+    opacity: 1;
+  }
+  99%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+`;
+const framesFade_From = keyframes`
+  0%{
+    opacity: 1;
+  }
+  100%{
+    opacity: 0;
+  }
+`;
+type FromElementWrapperProps = {
+  $delay: CSS_VAR_DURATION;
+  $preserveFromElement: boolean;
+};
+const cssNotPreserveElement = (delay: string) => {
+  return css`
+    opacity: 1;
+
+    &.circleFromCenter {
+      animation: ${framesCircleFromCenter_From} var(--transition-slow) forwards;
+      animation-delay: var(${delay});
+    }
+
+    &.fade {
+      animation: ${framesFade_From} var(--transition-slow) forwards;
+      animation-delay: var(${delay});
+    }
+  `;
+};
+const StyledFromElementWrapper = styled.div<FromElementWrapperProps>`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  ${(props) =>
+    props.$preserveFromElement === false && cssNotPreserveElement(props.$delay)}
+`;
+// ANCHOR StyledToElementWrapper
+const framesCircleFromCenter_To = keyframes`
   0% {
     clip-path: circle(0% at 50% 50%);
   }
@@ -70,7 +116,7 @@ const keyFramesClipPath = keyframes`
     border: none; 
   }
 `;
-const keyFramesClipPathMask = keyframes`
+const framesCircleFromCenterMask_To = keyframes`
   0% {
     opacity: 1;
     clip-path: circle(10% at 50% 50%);
@@ -81,28 +127,29 @@ const keyFramesClipPathMask = keyframes`
     border: none; 
   }
 `;
-
-const StyledFromElementWrapper = styled.div`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+const framesFade_To = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 `;
-
-const StyledToElementWrapper = styled.div<{
+type ToElementWrapperProps = {
   $delay?: CSS_VAR_DURATION;
-}>`
+};
+const StyledToElementWrapper = styled.div<ToElementWrapperProps>`
   width: 100%;
   height: 100%;
   overflow: hidden;
 
   &.circleFromCenter {
-    animation: ${keyFramesClipPath} var(--transition-slow) forwards;
+    animation: ${framesCircleFromCenter_To} var(--transition-slow) forwards;
     animation-delay: ${(props) => `var(${props.$delay})`};
 
     &::after {
-      animation: ${keyFramesClipPathMask} var(--transition-slow) forwards;
+      animation: ${framesCircleFromCenterMask_To} var(--transition-slow)
+        forwards;
       animation-delay: ${(props) => `var(${props.$delay})`};
       background-color: var(--colors-itcj-primary);
       border-radius: var(--size-border-radius-full);
@@ -116,5 +163,11 @@ const StyledToElementWrapper = styled.div<{
       transform: translate(-50%, -50%);
       width: 200%;
     }
+  }
+
+  &.fade {
+    opacity: 0;
+    animation: ${framesFade_To} var(--transition-slow) forwards;
+    animation-delay: ${(props) => `var(${props.$delay})`};
   }
 `;

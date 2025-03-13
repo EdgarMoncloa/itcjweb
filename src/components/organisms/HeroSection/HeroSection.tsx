@@ -1,27 +1,23 @@
-import styled from 'styled-components';
-import {
-  ContentSelector,
-  ContentSelectorProps,
-} from '../../molecules/ContentSelector';
-import { ContentList } from '../../molecules/ContentList';
-import { TransitionDisplay } from '../../atoms/Animations/TransitionDisplay';
-import { ContentLink, ContentLinkProps } from '../../atoms/ContentLink';
-import { useEffect, useRef, useState } from 'react';
-import { useAppConfig } from '../../../store/useAppConfig';
+import styled, { useTheme } from "styled-components";
+import { ContentList } from "../../molecules/ContentList";
+import { TransitionDisplay } from "../../atoms/Animations/TransitionDisplay";
+import { ContentLink, ContentLinkProps } from "../../atoms/ContentLink";
+import { useEffect, useRef, useState } from "react";
+import { TransitionDisplay_TransitionType } from "../../atoms/Animations/TransitionDisplay/TransitionDisplay.types";
+import { CSS_VAR_DURATION } from "../../../types/GlobalTypes";
+import { ThemeType } from "../../../tokens/theme";
 
 export interface HeroSectionProps {
   contentLikItems: ContentLinkProps[];
 }
 
-type StateType = 'loading' | 'base' | 'error' | 'inTransition';
+type StateType = "loading" | "base" | "error" | "inTransition";
 
 export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
-  const { transition } = useAppConfig();
+  const theme = useTheme() as ThemeType;
 
   const prevIndex = useRef(0);
 
-  const [state, setState] = useState<StateType>('loading');
-  const [loadedImgs, setLoadedImgs] = useState<string[]>([]);
   const [allLoaded, setAllLoaded] = useState(false);
   const [actualIndex, setActualIndex] = useState(0);
   const [firstRenderWithImg, setFirstRenderWithImg] = useState(true);
@@ -39,7 +35,6 @@ export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
         loadedCount++;
 
         if (loadedCount === contentLikItems.length) {
-          setLoadedImgs(tempLoadedImages);
           setAllLoaded(true);
         }
       };
@@ -61,7 +56,7 @@ export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
       // use "normal" transition instead of "slow" to avoid flickering
       // when the user clicks on the next or previous button
       // and the animation is in the last frames
-    }, transition['normal']);
+    }, theme.duration.normal * 1000);
 
     return () => {
       clearTimeout(timeout);
@@ -89,10 +84,12 @@ export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
         toElement={contentLinkElements[actualIndex]}
         toElementKey={`${actualIndex}`}
         animate={firstRenderWithImg === false}
+        transitionType={TransitionDisplay_TransitionType.circleFromCenter}
+        delay={CSS_VAR_DURATION.none}
       />
     </StyledHero>
   ) : (
-    'Loading'
+    "Loading"
   );
 };
 
