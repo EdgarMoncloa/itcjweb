@@ -103,7 +103,7 @@ export const Base: Story = {
   },
   render: (args) => {
     const items = Array.from({ length: args.numItems }, (_, idx) => (
-      <StyledExampleContainer $height={args.height}>
+      <StyledExampleContainer $height={args.height} key={idx}>
         <ExampleContainer
           key={idx}
           textType={TextTypes.body1}

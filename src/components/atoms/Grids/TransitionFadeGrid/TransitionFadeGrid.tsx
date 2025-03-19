@@ -1,4 +1,11 @@
-import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
+import {
+  HTMLAttributes,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState,
+} from "react";
 import styled from "styled-components";
 import { TransitionDisplay } from "../../Animations/TransitionDisplay";
 import { TransitionDisplay_TransitionType } from "../../Animations/TransitionDisplay/TransitionDisplay.types";
@@ -13,7 +20,8 @@ type ItemData = {
 };
 
 // SECTION Component
-export interface TransitionFadeGridProps {
+export interface TransitionFadeGridProps
+  extends HTMLAttributes<HTMLDivElement> {
   cols: number;
   rows: number;
   items: ReactNode[];
@@ -35,6 +43,7 @@ export const TransitionFadeGrid = ({
   maxDuration,
   transitionType = TransitionDisplay_TransitionType.fade,
   preserveFromElement = false,
+  ...props
 }: TransitionFadeGridProps) => {
   // ANCHOR Constants
   const localMaxDuration = minDuration || duration;
@@ -44,7 +53,11 @@ export const TransitionFadeGrid = ({
     () => localMinDuration - localMaxDuration + localMaxDuration,
     [localMaxDuration, localMinDuration]
   );
-  const getRandomTime = () => Math.random() * randomFactorMemo;
+  const getRandomTime = () => {
+    return minDuration && maxDuration
+      ? Math.random() * randomFactorMemo
+      : duration;
+  };
 
   // ANCHOR State
   const [isFirstRender, setIsFirstRender] = useState(true);
@@ -65,11 +78,17 @@ export const TransitionFadeGrid = ({
       const newItemsData = [...prevItemsData];
       newItemsData.forEach((itemData) => {
         if (itemData.timeToChange <= 0) {
-          if (nextIndexRef.current === items.length - 1) {
-            nextIndexRef.current = 0;
-          } else {
-            nextIndexRef.current += 1;
+          const getNextIndex = () => {
+            return nextIndexRef.current === items.length - 1
+              ? 0
+              : nextIndexRef.current + 1;
+          };
+
+          nextIndexRef.current = getNextIndex();
+          if (nextIndexRef.current === itemData.actualIndex) {
+            nextIndexRef.current = getNextIndex();
           }
+
           itemData.timeToChange = getRandomTime();
           itemData.prevIndex = itemData.actualIndex;
           itemData.actualIndex = nextIndexRef.current;
@@ -100,7 +119,7 @@ export const TransitionFadeGrid = ({
 
   // ANCHOR render
   return (
-    <StyledContainer $cols={cols} $rows={rows}>
+    <StyledContainer $cols={cols} $rows={rows} {...props}>
       {itemsData.map((itemData, index) => {
         return (
           <TransitionDisplay

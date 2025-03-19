@@ -20,6 +20,7 @@ import Logo_Liebre_Circuitos from "/images/Logo_Liebre_Circuitos.png";
 import { DynamicGrid_FillMethod } from "../../atoms/Grids/DynamicGrid/DynamicGrid.types";
 import { ThemeType } from "../../../tokens/theme";
 import { CSS_VAR_GAP } from "../../../types/GlobalTypes";
+import { TransitionFadeGrid } from "../../atoms/Grids/TransitionFadeGrid";
 
 type OportunitiesArea = {
   title: string;
@@ -105,9 +106,15 @@ export const MajorTemplate = ({
             Oportunidades de trabajo
           </StyledSubTitle>
           <StyledText>{oportunities.description}</StyledText>
-          <StyledDynamicGrid style={{ gridArea: "oportunities" }}>
-            {oportunities.areas.map((area, index) => (
-              <StyledOportunityItem>
+          <StyledDynamicGrid
+            style={{ gridArea: "oportunities" }}
+            as={TransitionFadeGrid}
+            cols={3}
+            rows={3}
+            minDuration={2500}
+            maxDuration={7500}
+            items={oportunities.areas.map((area, index) => (
+              <StyledOportunityItem key={index}>
                 <DynamicIcon
                   icon={area.icon}
                   size={"xl"}
@@ -116,7 +123,7 @@ export const MajorTemplate = ({
                 <StyledOportunitiesText>{area.title}</StyledOportunitiesText>
               </StyledOportunityItem>
             ))}
-          </StyledDynamicGrid>
+          />
         </StyledOportunities>
       </StyledOportinitiesWrapper>
 
@@ -224,8 +231,8 @@ export const MajorTemplate = ({
           fillMethod={DynamicGrid_FillMethod.Center}
           numColumns={specialitiesCols}
           gap={CSS_VAR_GAP.medium}
-          items={specialities.map((speciality: speciality) => (
-            <StyledSingleInfoCard>
+          items={specialities.map((speciality: speciality, key: number) => (
+            <StyledSingleInfoCard key={key}>
               <StyledSubTitle2>{speciality.name}</StyledSubTitle2>
               <StyledBody1>{speciality.description}</StyledBody1>
             </StyledSingleInfoCard>
