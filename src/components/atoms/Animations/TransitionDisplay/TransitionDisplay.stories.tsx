@@ -1,9 +1,18 @@
 import styled from "styled-components";
 import { TransitionDisplay } from ".";
 import { StoryObj } from "@storybook/react";
-import { theme, ThemeType } from "../../../../tokens/theme";
 import { CSS_VAR_DURATION } from "../../../../types/GlobalTypes";
 import { TransitionDisplay_TransitionType } from "./TransitionDisplay.types";
+import { STORYBOOK_CATEGORIES } from "../../../../types/StoryBookTypes";
+
+export const Story_TransitionDisplay_TransitionType = {
+  control: {
+    type: "select",
+  },
+  options: Object.values(TransitionDisplay_TransitionType),
+  defaultValue: TransitionDisplay_TransitionType.fade,
+  table: { category: STORYBOOK_CATEGORIES.style },
+};
 
 export default {
   title: "Atoms/Animations/TransitionDisplay",
@@ -38,14 +47,7 @@ export default {
       defaultValue: CSS_VAR_DURATION.normal,
       table: { category: "Style" },
     },
-    transitionType: {
-      control: {
-        type: "select",
-      },
-      options: Object.values(TransitionDisplay_TransitionType),
-      defaultValue: TransitionDisplay_TransitionType.fade,
-      table: { category: "Style" },
-    },
+    transitionType: Story_TransitionDisplay_TransitionType,
     preserveFromElement: {
       control: {
         type: "boolean",

@@ -1,25 +1,30 @@
+export type THEME_BREACKPOINT = {
+  mobile: number;
+  tablet: number;
+  laptop: number;
+  desktop: number;
+  desktopLarge: number;
+  extraLargeDesktop: number;
+  fullHDDesktop: number;
+  twoKDesktop: number;
+  fourKDesktop: number;
+  eightKDesktop: number;
+};
+
+export type THEME_DURATION = {
+  none: number;
+  "very-fast": number;
+  fast: number;
+  normal: number;
+  slow: number;
+  "very-slow": number;
+};
+
 export interface ThemeType {
-  breakpoints: {
-    mobile: number;
-    tablet: number;
-    laptop: number;
-    desktop: number;
-    desktopLarge: number;
-    extraLargeDesktop: number;
-    fullHDDesktop: number;
-    twoKDesktop: number;
-    fourKDesktop: number;
-    eightKDesktop: number;
-  };
-  duration: {
-    none: number;
-    "very-fast": number;
-    fast: number;
-    normal: number;
-    slow: number;
-    "very-slow": number;
-  };
+  breakpoints: THEME_BREACKPOINT;
+  duration: THEME_DURATION;
 }
+
 export const theme: ThemeType = {
   breakpoints: {
     mobile: 480,

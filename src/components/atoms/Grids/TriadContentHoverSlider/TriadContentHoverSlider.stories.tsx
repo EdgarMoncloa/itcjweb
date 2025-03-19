@@ -5,7 +5,7 @@ import {
 } from "./TriadContentHoverSlider";
 import {
   ExampleContainer,
-  ExampleContainerColors,
+  ExampleContainer_Colors,
 } from "../../Examples/ExampleContainer";
 import { Meta, StoryObj } from "@storybook/react";
 
@@ -84,19 +84,19 @@ export const Default: Story = {
         defaultSize
         primaryContent={
           <ExampleContainer
-            color={ExampleContainerColors.Primary300}
+            color={ExampleContainer_Colors.Primary300}
             children={args.primaryContent}
           />
         }
         secondaryContent={
           <ExampleContainer
-            color={ExampleContainerColors.Primary500}
+            color={ExampleContainer_Colors.Primary500}
             children={args.secondaryContent}
           />
         }
         tertiaryContent={
           <ExampleContainer
-            color={ExampleContainerColors.Primary700}
+            color={ExampleContainer_Colors.Primary700}
             children={args.tertiaryContent}
           />
         }

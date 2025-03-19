@@ -3,7 +3,7 @@ import { getStyledTextByName, StyledH1 } from "../../../../tokens/CustomText";
 import { ReactNode } from "react";
 import { TextTypes } from "../../../../types/GlobalTypes";
 
-export enum ExampleContainerColors {
+export enum ExampleContainer_Colors {
   // Primary100 = "--colors-app-primary-100",
   Primary300 = "--colors-app-primary-300",
   Primary500 = "--colors-app-primary-500",
@@ -22,7 +22,7 @@ export enum ExampleContainerColors {
 }
 
 export interface ExampleContainerProps {
-  color?: ExampleContainerColors;
+  color?: ExampleContainer_Colors;
   defaultSize?: boolean;
   children?: ReactNode;
   textType?: TextTypes;
@@ -34,14 +34,14 @@ export const ExampleContainer = ({
   defaultSize = false,
   textType = TextTypes.H1,
 }: ExampleContainerProps) => {
-  let localColor = color || ExampleContainerColors.Primary300;
+  let localColor = color || ExampleContainer_Colors.Primary300;
   if (!color) {
     // Get random from enum ExampleContainerColors
-    const colorKeys = Object.keys(ExampleContainerColors);
+    const colorKeys = Object.keys(ExampleContainer_Colors);
     const index = Math.floor(Math.random() * colorKeys.length);
     localColor =
-      ExampleContainerColors[
-        colorKeys[index] as keyof typeof ExampleContainerColors
+      ExampleContainer_Colors[
+        colorKeys[index] as keyof typeof ExampleContainer_Colors
       ];
   }
   const StyledText = getStyledTextByName(textType);
@@ -56,7 +56,7 @@ export const ExampleContainer = ({
   );
 };
 
-const StyledExampleContainer = styled.div<{ $color: ExampleContainerColors }>`
+const StyledExampleContainer = styled.div<{ $color: ExampleContainer_Colors }>`
   background-color: var(${(props) => props.$color});
   display: flex;
   align-items: center;

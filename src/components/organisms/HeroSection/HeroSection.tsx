@@ -11,8 +11,6 @@ export interface HeroSectionProps {
   contentLikItems: ContentLinkProps[];
 }
 
-type StateType = "loading" | "base" | "error" | "inTransition";
-
 export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
   const theme = useTheme() as ThemeType;
 

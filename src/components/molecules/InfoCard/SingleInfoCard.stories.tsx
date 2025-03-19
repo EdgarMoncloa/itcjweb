@@ -2,7 +2,7 @@ import { StoryObj } from "@storybook/react";
 import { SingleInfoCard } from "./SingleInfoCard";
 import {
   ExampleContainer,
-  ExampleContainerColors,
+  ExampleContainer_Colors,
 } from "../../atoms/Examples/ExampleContainer";
 
 const meta = {
@@ -35,7 +35,7 @@ export const Default: Story = {
       <SingleInfoCard
         {...args}
         content={
-          <ExampleContainer color={ExampleContainerColors.transparent}>
+          <ExampleContainer color={ExampleContainer_Colors.transparent}>
             {args.text}
           </ExampleContainer>
         }

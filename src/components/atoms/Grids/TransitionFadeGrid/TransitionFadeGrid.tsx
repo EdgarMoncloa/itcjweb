@@ -1,76 +1,129 @@
-import { ReactNode, useRef, useState } from "react";
+import { ReactNode, useEffect, useMemo, useRef, useState } from "react";
 import styled from "styled-components";
+import { TransitionDisplay } from "../../Animations/TransitionDisplay";
+import { TransitionDisplay_TransitionType } from "../../Animations/TransitionDisplay/TransitionDisplay.types";
+import { CSS_VAR_DURATION } from "../../../../types/GlobalTypes";
+import { THEME_DURATION } from "../../../../tokens/theme";
 
-type PlacementMode = "random" | "sequential";
-type TransitionMode = "random" | "all";
-
-export interface TransitionFadeGridProps {
-  size: {
-    cols: number;
-    rows: number;
-  };
-  items: ReactNode[];
-  placementMode?: PlacementMode;
-  transitionMode?: TransitionMode;
-  transitionDuration?: number;
-}
-
+// ANCHOR Utils
 type ItemData = {
   timeToChange: number;
-  index: number;
-  nextIndex: number;
+  actualIndex: number;
+  prevIndex: number;
 };
 
+// SECTION Component
+export interface TransitionFadeGridProps {
+  cols: number;
+  rows: number;
+  items: ReactNode[];
+  refreshInterval?: number;
+  duration?: number;
+  minDuration?: number;
+  maxDuration?: number;
+  transitionType?: TransitionDisplay_TransitionType;
+  preserveFromElement?: boolean;
+}
+
 export const TransitionFadeGrid = ({
-  size,
+  rows,
+  cols,
   items,
-  placementMode = "random",
-  transitionMode = "random",
-  transitionDuration = 500,
+  refreshInterval = 1000,
+  duration = 5000,
+  minDuration,
+  maxDuration,
+  transitionType = TransitionDisplay_TransitionType.fade,
+  preserveFromElement = false,
 }: TransitionFadeGridProps) => {
-  const numVisibleItems = size.rows * size.cols;
-  const defaultVisibleItems = items.slice(0, numVisibleItems);
+  // ANCHOR Constants
+  const localMaxDuration = minDuration || duration;
+  const localMinDuration = maxDuration || duration;
+  const numVisibleItems = rows * cols;
+  const randomFactorMemo = useMemo(
+    () => localMinDuration - localMaxDuration + localMaxDuration,
+    [localMaxDuration, localMinDuration]
+  );
+  const getRandomTime = () => Math.random() * randomFactorMemo;
 
-  const [visibleIndexStart, setVisibleIndexStart] = useState(0);
-  const [visibleIndexEnd, setVisibleIndexEnd] = useState(numVisibleItems - 1);
-
-  const [visibleItems, setVisibleItems] =
-    useState<ReactNode[]>(defaultVisibleItems);
-
-  const itemsData = useRef<Array<ItemData | null>>(
-    Array.from({ length: numVisibleItems }, () => null)
+  // ANCHOR State
+  const [isFirstRender, setIsFirstRender] = useState(true);
+  const nextIndexRef = useRef(
+    numVisibleItems < items.length ? numVisibleItems - 1 : 0
+  );
+  const [itemsData, setItemsData] = useState<Array<ItemData>>(
+    Array.from({ length: numVisibleItems }, (_, index) => ({
+      timeToChange: getRandomTime(),
+      actualIndex: index,
+      prevIndex: -1,
+    }))
   );
 
-  const getNextVisibleItems = () => {
-    let nextVisibleIndexStart = visibleIndexEnd + 1;
-    if (nextVisibleIndexStart > items.length - 1) {
-      nextVisibleIndexStart = 0;
-    }
-    let nextVisibleIndexEnd = nextVisibleIndexStart + numVisibleItems;
-    let nextVisibleItems = [];
-    if (nextVisibleIndexEnd > items.length - 1) {
-      nextVisibleIndexEnd = nextVisibleIndexEnd - items.length;
-
-      nextVisibleItems = [
-        ...items.slice(nextVisibleIndexStart, items.length),
-        items.slice(0, nextVisibleIndexEnd),
-      ];
-    } else {
-      nextVisibleItems = items.slice(
-        nextVisibleIndexStart,
-        nextVisibleIndexEnd
-      );
-    }
+  // ANCHOR Handlers
+  const handleVisibleItems = (time: number) => {
+    setItemsData((prevItemsData) => {
+      const newItemsData = [...prevItemsData];
+      newItemsData.forEach((itemData) => {
+        if (itemData.timeToChange <= 0) {
+          if (nextIndexRef.current === items.length - 1) {
+            nextIndexRef.current = 0;
+          } else {
+            nextIndexRef.current += 1;
+          }
+          itemData.timeToChange = getRandomTime();
+          itemData.prevIndex = itemData.actualIndex;
+          itemData.actualIndex = nextIndexRef.current;
+        } else {
+          itemData.timeToChange -= time;
+        }
+      });
+      return newItemsData;
+    });
   };
+
+  // ANCHOR Effects
+  useEffect(() => {
+    if (isFirstRender === true) setIsFirstRender(false);
+
+    let timeout: ReturnType<typeof setTimeout> | null = null;
+    const repeatWithTimeout = () => {
+      if (timeout) clearTimeout(timeout);
+      handleVisibleItems(refreshInterval);
+      timeout = setTimeout(repeatWithTimeout, refreshInterval);
+    };
+    repeatWithTimeout();
+
+    return () => {
+      if (timeout) clearTimeout(timeout);
+    };
+  }, []);
 
   // ANCHOR render
   return (
-    <StyledContainer $cols={size.cols} $rows={size.rows}>
-      {visibleItems}
+    <StyledContainer $cols={cols} $rows={rows}>
+      {itemsData.map((itemData, index) => {
+        return (
+          <TransitionDisplay
+            key={index}
+            toElement={items[itemData.actualIndex]}
+            fromElement={
+              itemData.prevIndex === -1 ? null : items[itemData.prevIndex]
+            }
+            fromElementKey={`${itemData.prevIndex}`}
+            toElementKey={`${itemData.actualIndex}`}
+            animate={isFirstRender === false}
+            transitionType={transitionType}
+            delay={CSS_VAR_DURATION.none}
+            preserveFromElement={preserveFromElement}
+          />
+        );
+      })}
     </StyledContainer>
   );
 };
+// !SECTION Component
 
+// SECTION Styles
 type StyledContainerProps = {
   $cols: number;
   $rows: number;
@@ -81,3 +134,4 @@ const StyledContainer = styled.div<StyledContainerProps>`
   grid-template-columns: repeat(${(props) => props.$cols}, 1fr);
   grid-template-rows: repeat(${(props) => props.$rows}, 1fr);
 `;
+// !SECTION Styles

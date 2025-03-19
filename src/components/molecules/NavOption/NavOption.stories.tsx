@@ -4,7 +4,7 @@ import * as Icons from 'react-icons/fa';
 import styled from 'styled-components';
 import {
   ExampleContainer,
-  ExampleContainerColors,
+  ExampleContainer_Colors,
 } from '../../atoms/Examples/ExampleContainer';
 import { TextTypes } from '../../../types/GlobalTypes';
 
@@ -129,14 +129,14 @@ export const Template: Story = {
       <StoryContainer>
         <ExampleContainer
           textType={TextTypes.H5}
-          color={ExampleContainerColors.Neutral100}
+          color={ExampleContainer_Colors.Neutral100}
         >
           Contenido Anterior
         </ExampleContainer>
         {mainElement}
         <ExampleContainer
           textType={TextTypes.H5}
-          color={ExampleContainerColors.Neutral100}
+          color={ExampleContainer_Colors.Neutral100}
         >
           Contenido siguiente
         </ExampleContainer>

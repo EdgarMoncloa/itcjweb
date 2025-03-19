@@ -3,8 +3,10 @@ import React from "react";
 import { CSS_VAR_DURATION } from "../../../../types/GlobalTypes";
 import { TransitionDisplay_TransitionType } from "./TransitionDisplay.types";
 
+// SECTION Component
 export interface TransitionDisplayProps {
   fromElement?: React.ReactNode;
+  fromElementKey?: string;
   toElement: React.ReactNode;
   toElementKey?: string;
   haveDefaultSize?: boolean;
@@ -13,10 +15,10 @@ export interface TransitionDisplayProps {
   transitionType?: TransitionDisplay_TransitionType;
   preserveFromElement?: boolean;
 }
-
 export const TransitionDisplay = ({
   haveDefaultSize = false,
   fromElement,
+  fromElementKey,
   toElement,
   toElementKey,
   delay = CSS_VAR_DURATION.fast,
@@ -31,6 +33,7 @@ export const TransitionDisplay = ({
           $delay={delay}
           className={animate === true ? transitionType : ""}
           $preserveFromElement={preserveFromElement}
+          key={fromElementKey}
         >
           {fromElement}
         </StyledFromElementWrapper>
@@ -45,68 +48,29 @@ export const TransitionDisplay = ({
     </StyledContentDisplay>
   );
 };
+// !SECTION Component
 
-const StyledContentDisplay = styled.div`
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: relative;
-
-  &.default-size {
-    width: var(--size-width-10-cols);
-    height: var(--size-height-10-rows);
-  }
-`;
-
+// SECTION Styles
+// ANCHOR Keyframes
 const framesCircleFromCenter_From = keyframes`
-  0% {
-    opacity: 1;
-  }
-  99%{
-    opacity: 1;
-  }
-  100%{
-    opacity: 0;
-  }
+0% {
+  opacity: 1;
+}
+99%{
+  opacity: 1;
+}
+100%{
+  opacity: 0;
+}
 `;
 const framesFade_From = keyframes`
-  0%{
-    opacity: 1;
-  }
-  100%{
-    opacity: 0;
-  }
+0%{
+  opacity: 1;
+}
+100%{
+  opacity: 0;
+}
 `;
-type FromElementWrapperProps = {
-  $delay: CSS_VAR_DURATION;
-  $preserveFromElement: boolean;
-};
-const cssNotPreserveElement = (delay: string) => {
-  return css`
-    opacity: 1;
-
-    &.circleFromCenter {
-      animation: ${framesCircleFromCenter_From} var(--transition-slow) forwards;
-      animation-delay: var(${delay});
-    }
-
-    &.fade {
-      animation: ${framesFade_From} var(--transition-slow) forwards;
-      animation-delay: var(${delay});
-    }
-  `;
-};
-const StyledFromElementWrapper = styled.div<FromElementWrapperProps>`
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-  ${(props) =>
-    props.$preserveFromElement === false && cssNotPreserveElement(props.$delay)}
-`;
-// ANCHOR StyledToElementWrapper
 const framesCircleFromCenter_To = keyframes`
   0% {
     clip-path: circle(0% at 50% 50%);
@@ -122,7 +86,7 @@ const framesCircleFromCenterMask_To = keyframes`
     clip-path: circle(10% at 50% 50%);
   }
   100% {
-    opacity:  0;
+    opacity: 0;
     clip-path: circle(100% at 50% 50%);
     border: none; 
   }
@@ -135,6 +99,50 @@ const framesFade_To = keyframes`
     opacity: 1;
   }
 `;
+
+// SECTION Elements
+// ANCHOR StyledContentDisplay
+const StyledContentDisplay = styled.div`
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+
+  &.default-size {
+    width: var(--size-width-10-cols);
+    height: var(--size-height-10-rows);
+  }
+`;
+
+// ANCHOR StyledFromElementWrapper
+type FromElementWrapperProps = {
+  $delay: CSS_VAR_DURATION;
+  $preserveFromElement: boolean;
+};
+const cssNotPreserveElement = (delay: string) => css`
+  opacity: 0;
+  &.circleFromCenter {
+    animation: ${framesCircleFromCenter_From} var(--transition-slow) forwards;
+    animation-delay: var(${delay});
+  }
+
+  &.fade {
+    animation: ${framesFade_From} var(--transition-very-slow) forwards;
+    animation-delay: var(${delay});
+  }
+`;
+const StyledFromElementWrapper = styled.div<FromElementWrapperProps>`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  ${(props) =>
+    props.$preserveFromElement === false && cssNotPreserveElement(props.$delay)}
+`;
+
+// ANCHOR StyledToElementWrapper
 type ToElementWrapperProps = {
   $delay?: CSS_VAR_DURATION;
 };
@@ -166,8 +174,9 @@ const StyledToElementWrapper = styled.div<ToElementWrapperProps>`
   }
 
   &.fade {
-    opacity: 0;
-    animation: ${framesFade_To} var(--transition-slow) forwards;
+    animation: ${framesFade_To} var(--transition-very-slow) forwards;
     animation-delay: ${(props) => `var(${props.$delay})`};
   }
 `;
+// !SECTION Elements
+// !SECTION Styles

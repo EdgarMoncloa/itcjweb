@@ -1,6 +1,6 @@
 import { StoryObj } from "@storybook/react";
 import {
-  ExampleContainerColors,
+  ExampleContainer_Colors,
   ExampleContainer,
   ExampleContainerProps,
 } from "./ExampleContainer";
@@ -17,7 +17,7 @@ export default {
       control: {
         type: "select",
       },
-      options: Object.keys(ExampleContainerColors),
+      options: Object.keys(ExampleContainer_Colors),
     },
     text: {
       control: {
@@ -28,7 +28,7 @@ export default {
 };
 
 type MyComponentStoryProps = Omit<ExampleContainerProps, "color"> & {
-  color: keyof typeof ExampleContainerColors;
+  color: keyof typeof ExampleContainer_Colors;
 };
 
 export const Default: StoryObj<MyComponentStoryProps> = {
@@ -38,7 +38,7 @@ export const Default: StoryObj<MyComponentStoryProps> = {
   },
   render: (args) => {
     const colorValue =
-      ExampleContainerColors[args.color as keyof typeof ExampleContainerColors];
+      ExampleContainer_Colors[args.color as keyof typeof ExampleContainer_Colors];
 
     return <ExampleContainer {...args} color={colorValue} defaultSize />;
   },

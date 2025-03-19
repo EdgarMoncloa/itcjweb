@@ -1,6 +1,6 @@
 import { StoryObj, Meta } from '@storybook/react';
 import { DropdownContainer } from './DropdownContainer';
-import { ExampleContainer, ExampleContainerColors } from '../../Examples/ExampleContainer';
+import { ExampleContainer, ExampleContainer_Colors } from '../../Examples/ExampleContainer';
 import { TextTypes } from '../../../../types/GlobalTypes';
 import styled from 'styled-components';
 import { StyledUnstyledButton } from '../../../../tokens/UnstyledElements';
@@ -39,7 +39,7 @@ export const Base: Story = {
       <StyledUnstyledButton onClick={() => setShowContent(!showContent)}>
         <ExampleContainer
           textType={TextTypes.H5}
-          color={ExampleContainerColors.Primary500}
+          color={ExampleContainer_Colors.Primary500}
         >
           Contenedor primario (Clickeame 😉)
         </ExampleContainer>
@@ -48,7 +48,7 @@ export const Base: Story = {
     const secondaryContent = (
       <ExampleContainer
         textType={TextTypes.H5}
-        color={ExampleContainerColors.Primary300}
+        color={ExampleContainer_Colors.Primary300}
       >
         {args.secondaryContent}
       </ExampleContainer>
@@ -57,7 +57,7 @@ export const Base: Story = {
       <StoryContainer>
         <ExampleContainer
           textType={TextTypes.H5}
-          color={ExampleContainerColors.Neutral300}
+          color={ExampleContainer_Colors.Neutral300}
         >
           Contenido Anterior
         </ExampleContainer>
@@ -69,7 +69,7 @@ export const Base: Story = {
         />
         <ExampleContainer
           textType={TextTypes.H5}
-          color={ExampleContainerColors.Neutral300}
+          color={ExampleContainer_Colors.Neutral300}
         >
           Contenido siguiente
         </ExampleContainer>

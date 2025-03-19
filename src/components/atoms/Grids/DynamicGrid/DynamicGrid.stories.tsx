@@ -7,7 +7,7 @@ import {
 } from "../../../../types/GlobalTypes";
 import {
   ExampleContainer,
-  ExampleContainerColors,
+  ExampleContainer_Colors,
 } from "../../Examples/ExampleContainer";
 import styled from "styled-components";
 import { DynamicGrid_FillMethod } from "./DynamicGrid.types";
@@ -107,7 +107,7 @@ export const Base: Story = {
         <ExampleContainer
           key={idx}
           textType={TextTypes.body1}
-          color={ExampleContainerColors.Primary300}
+          color={ExampleContainer_Colors.Primary300}
         >
           Item {idx + 1}
         </ExampleContainer>
@@ -117,7 +117,7 @@ export const Base: Story = {
       <StyledExampleContainer $height={args.height}>
         <ExampleContainer
           textType={TextTypes.body1}
-          color={ExampleContainerColors.Neutral300}
+          color={ExampleContainer_Colors.Neutral300}
         >
           Vacio
         </ExampleContainer>

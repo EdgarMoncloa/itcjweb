@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { BorderHoverReveal } from './BorderHoverReveal';
-import { ExampleContainer, ExampleContainerColors } from '../../Examples/ExampleContainer';
+import { ExampleContainer, ExampleContainer_Colors } from '../../Examples/ExampleContainer';
 import { TextTypes } from '../../../../types/GlobalTypes';
 
 export default {
@@ -35,7 +35,7 @@ export const Base: Story = {
     const children = (
       <ExampleContainer
         textType={TextTypes.H5}
-        color={ExampleContainerColors.transparent}
+        color={ExampleContainer_Colors.transparent}
       >
         {args.children}
       </ExampleContainer>

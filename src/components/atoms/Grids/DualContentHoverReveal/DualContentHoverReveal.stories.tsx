@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { DualContentHoverReveal } from './DualContentHoverReveal';
-import { ExampleContainer, ExampleContainerColors } from '../../Examples/ExampleContainer';
+import { ExampleContainer, ExampleContainer_Colors } from '../../Examples/ExampleContainer';
 
 export default {
   title: 'Atoms/Grids/DualContentHoverReveal',
@@ -31,13 +31,13 @@ export const Base: StoryObj<typeof DualContentHoverReveal> = {
         defaultSize
         primaryContent={
           <ExampleContainer
-            color={ExampleContainerColors.transparent}
+            color={ExampleContainer_Colors.transparent}
             children='Primary Content'
           />
         }
         secondaryContent={
           <ExampleContainer
-            color={ExampleContainerColors.transparent}
+            color={ExampleContainer_Colors.transparent}
             children='Secondary Content'
           />
         }

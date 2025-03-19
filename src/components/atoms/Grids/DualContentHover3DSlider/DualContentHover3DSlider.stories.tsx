@@ -2,7 +2,7 @@ import { Meta, StoryObj } from "@storybook/react";
 import { DualContentHover3DSlider } from "./DualContentHover3DSlider";
 import {
   ExampleContainer,
-  ExampleContainerColors,
+  ExampleContainer_Colors,
 } from "../../Examples/ExampleContainer";
 import { TextTypes } from "../../../../types/GlobalTypes";
 
@@ -52,7 +52,7 @@ export const Default: StoryObj<MyStory> = {
   render: (args) => {
     const firstContent = (
       <ExampleContainer
-        color={ExampleContainerColors.transparent}
+        color={ExampleContainer_Colors.transparent}
         textType={TextTypes.H4}
       >
         {args.firstContent}
@@ -60,7 +60,7 @@ export const Default: StoryObj<MyStory> = {
     );
     const secondContent = (
       <ExampleContainer
-        color={ExampleContainerColors.transparent}
+        color={ExampleContainer_Colors.transparent}
         textType={TextTypes.H4}
       >
         {args.secondContent}
