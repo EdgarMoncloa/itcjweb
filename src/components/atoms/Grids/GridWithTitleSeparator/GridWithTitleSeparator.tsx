@@ -74,7 +74,9 @@ export const GridWithTitleSeparator = ({
                 </StyledSeparator>
               )}
               <StyledTitleWrapper>
-                <StyledTitle>{item.title}</StyledTitle>
+                <StyledTitlePadding>
+                  <StyledTitle>{item.title}</StyledTitle>
+                </StyledTitlePadding>
               </StyledTitleWrapper>
             </StyledTitleAndSeparatorContainer>
 
@@ -131,13 +133,21 @@ const StyledTitleWrapper = styled.div`
   width: 100%;
 `;
 
+const StyledTitlePadding = styled.div`
+  align-items: flex-end;
+  border-bottom: var(--size-border-small) solid var(--colors-app-primary-700);
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+  padding-bottom: var(--size-padding-small);
+  width: 100%;
+`;
+
 const StyledTitle = styled.div`
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  border-bottom: var(--size-border-small) solid var(--colors-app-primary-700);
   display: -webkit-box;
   overflow: hidden;
-  padding-bottom: var(--size-padding-small);
   text-align: center;
   text-overflow: ellipsis;
   width: 100%;
