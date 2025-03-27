@@ -216,12 +216,22 @@ const cssTextAlignToSeparator = css`
     text-align: right;
   }
 `;
+const cssTextAlignJustify = css`
+  &.float-left {
+    text-align-last: right;
+  }
+  &.float-right {
+    text-align-last: left;
+  }
+`;
 const StyledContentText = styled.div<StyledCOntentTextProps>`
   height: 100%;
   text-align: justify;
+
   width: 100%;
 
   ${(p) => p.$textAlign === "to-boder" && cssTextAlignToBorder}
   ${(p) => p.$textAlign === "to-separator" && cssTextAlignToSeparator}
+  ${(p) => p.$textAlign === "justify" && cssTextAlignJustify}
 `;
 // !SECTION Styles
