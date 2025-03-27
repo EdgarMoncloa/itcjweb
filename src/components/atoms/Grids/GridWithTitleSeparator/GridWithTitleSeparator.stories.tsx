@@ -1,9 +1,9 @@
-import { StoryObj, Meta } from "@storybook/react";
+import { StoryObj } from "@storybook/react";
 import {
   GridWithTitleSeparator,
   GridWithTitleSeparatorProps,
 } from "./GridWithTitleSeparator";
-import { StyledBody1, StyledH3, StyledH4 } from "../../../../tokens/CustomText";
+import { StyledBody1, StyledH4 } from "../../../../tokens/CustomText";
 import { ARG_TYPES } from "../../../../tokens/StorybookArgTypes";
 import { GridWithTitleSeparatorProps_TextAlign } from "./GridWithTitleSeparator.types";
 
@@ -72,24 +72,3 @@ export const Base: Story = {
     );
   },
 };
-
-// export const Base: Story = {
-//   render: () => {
-//     const items = [
-//       {
-//         title: <div>title</div>,
-//         element: <div>asdas</div>,
-//       },
-//       {
-//         title: <div>title</div>,
-//         element: <div>asdas</div>,
-//       },
-//     ];
-//     return (
-//       <div>
-//         {items.map((item) => item.element)}
-//         {items.map((item) => item.title)}
-//       </div>
-//     );
-//   },
-// };
