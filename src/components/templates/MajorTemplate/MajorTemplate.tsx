@@ -21,6 +21,7 @@ import { DynamicGrid_FillMethod } from "../../atoms/Grids/DynamicGrid/DynamicGri
 import { ThemeType } from "../../../tokens/theme";
 import { CSS_VAR_GAP } from "../../../types/GlobalTypes";
 import { TransitionFadeGrid } from "../../atoms/Grids/TransitionFadeGrid";
+import { GridWithTitleSeparator } from "../../atoms/Grids/GridWithTitleSeparator";
 
 type OportunitiesArea = {
   title: string;
@@ -133,34 +134,38 @@ export const MajorTemplate = ({
           Competencias
         </StyledSubTitle>
 
-        <StyledText style={{ gridArea: "description" }}>
-          {competencies.description}
-        </StyledText>
-        <StyledCompetencesListContainer>
-          <StyledCompetencesSubtitle>
-            Competencias Específicas
-          </StyledCompetencesSubtitle>
-          <ul>
-            {competencies.specifics.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </StyledCompetencesListContainer>
-        <StyledCompetencesListContainer>
-          <StyledcompetencesLogo
-            src={Logo_Liebre_Circuitos}
-            alt="Logo Liebre Circuitos"
-            style={{ gridArea: "logo" }}
-          />
-          <StyledCompetencesSubtitle>
-            Competencias Generales
-          </StyledCompetencesSubtitle>
-          <ul>
-            {competencies.generals.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
-        </StyledCompetencesListContainer>
+        <GridWithTitleSeparator
+          items={[
+            {
+              title: (
+                <StyledCompetencesSubtitle>
+                  Competencias <br /> Específicas
+                </StyledCompetencesSubtitle>
+              ),
+              element: (
+                <ul>
+                  {competencies.specifics.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              ),
+            },
+            {
+              title: (
+                <StyledCompetencesSubtitle className="markers-left">
+                  Competencias <br /> Generales
+                </StyledCompetencesSubtitle>
+              ),
+              element: (
+                <StyledLeftSideUl>
+                  {competencies.generals.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </StyledLeftSideUl>
+              ),
+            },
+          ]}
+        />
       </StyledCompetences>
 
       {/* ANCHOR Perfil */}
@@ -387,7 +392,7 @@ const StyledCompetences = styled.div`
   align-items: start;
   display: grid;
   gap: var(--size-gap-medium);
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   justify-content: center;
   justify-items: center;
 
@@ -397,9 +402,10 @@ const StyledCompetences = styled.div`
     "specifics generals";
 `;
 
-const StyledCompetencesSubtitle = styled(StyledSubTitle2)`
-  background-color: var(--colors-app-primary-200);
-  border-bottom: 4px solid var(--colors-app-primary-500);
+const StyledCompetencesSubtitle = styled(StyledSubTitle2)``;
+
+const StyledLeftSideUl = styled.ul`
+  direction: rtl;
 `;
 
 const StyledcompetencesLogo = styled.img`

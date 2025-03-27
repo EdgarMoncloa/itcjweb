@@ -28,7 +28,7 @@ export default {
     transitionType: TransitionDisplay_TransitionType.fade,
   },
   argTypes: {
-    items: ARG_TYPES.objectCode,
+    items: ARG_TYPES.object_OnlyCode,
     refreshInterval: ARG_TYPES.duration,
     duration: ARG_TYPES.duration,
     minDuration: ARG_TYPES.duration,
