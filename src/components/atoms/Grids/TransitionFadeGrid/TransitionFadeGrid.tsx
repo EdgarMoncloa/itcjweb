@@ -46,16 +46,16 @@ export const TransitionFadeGrid = ({
   ...props
 }: TransitionFadeGridProps) => {
   // ANCHOR Constants
-  const localMaxDuration = minDuration || duration;
-  const localMinDuration = maxDuration || duration;
+  const localMaxDuration = maxDuration || duration;
+  const localMinDuration = minDuration || duration;
   const numVisibleItems = rows * cols;
   const randomFactorMemo = useMemo(
-    () => localMinDuration - localMaxDuration + localMaxDuration,
+    () => localMinDuration - localMaxDuration + 1,
     [localMaxDuration, localMinDuration]
   );
   const getRandomTime = () => {
-    return minDuration && maxDuration
-      ? Math.random() * randomFactorMemo
+    return localMinDuration && localMaxDuration
+      ? Math.random() * randomFactorMemo + localMaxDuration
       : duration;
   };
 
