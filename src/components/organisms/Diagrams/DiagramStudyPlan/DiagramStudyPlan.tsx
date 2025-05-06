@@ -119,6 +119,7 @@ const StyledDiagramStudyPlan = styled.div`
   border: var(--size-border-small) solid var(--colors-app-primary-700);
   border-radius: var(--size-border-radius-medium);
   padding: var(--size-padding-xs);
+  background-color: var(--colors-app-primary-100);
 `;
 
 type StudyPlanContainerProps = {

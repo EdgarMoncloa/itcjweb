@@ -5,6 +5,7 @@ export interface SingleInfoCardProps {
   children?: ReactNode;
   className?: string;
   style?: React.CSSProperties;
+  activeHover?: boolean;
 }
 
 export const SingleInfoCard = ({
@@ -12,9 +13,11 @@ export const SingleInfoCard = ({
   children,
   className,
   style,
+  activeHover = true,
 }: SingleInfoCardProps) => {
+  const classNames = [variant, activeHover ? "hover" : "", className];
   return (
-    <StyledSingleInfoCard className={`${variant} ${className}`} style={style}>
+    <StyledSingleInfoCard className={classNames.join(" ")} style={style}>
       {children}
     </StyledSingleInfoCard>
   );
@@ -23,7 +26,6 @@ export const SingleInfoCard = ({
 const StyledSingleInfoCard = styled.div`
   align-items: center;
   border-radius: var(--size-border-radius-medium);
-  cursor: pointer;
   overflow: hidden;
   transition: var(--transition-fast) background-color;
   width: 100%;
@@ -41,23 +43,29 @@ const StyledSingleInfoCard = styled.div`
     border: var(--size-border-small) dashed var(--colors-app-neutral-500);
     cursor: default;
   }
+
   &.primary {
     background-color: var(--colors-app-neutral-50);
     border: var(--size-border-small) solid var(--colors-itcj-primary);
-    cursor: pointer;
 
-    &:hover {
-      background-color: var(--colors-app-primary-200);
+    &.hover {
+      cursor: pointer;
+
+      &:hover {
+        background-color: var(--colors-app-primary-200);
+      }
     }
   }
 
   &.primary-filled {
     background-color: var(--colors-app-primary-200);
     border: var(--size-border-small) solid var(--colors-app-primary-200);
-    cursor: pointer;
 
-    &:hover {
-      background-color: var(--colors-app-primary-400);
+    &.hover {
+      &:hover {
+        cursor: pointer;
+        background-color: var(--colors-app-primary-400);
+      }
     }
   }
 `;

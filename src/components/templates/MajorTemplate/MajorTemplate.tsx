@@ -22,6 +22,7 @@ import { ThemeType } from "../../../tokens/theme";
 import { CSS_VAR_GAP } from "../../../types/GlobalTypes";
 import { TransitionFadeGrid } from "../../atoms/Grids/TransitionFadeGrid";
 import { GridWithTitleSeparator } from "../../atoms/Grids/GridWithTitleSeparator";
+import { StyledUl } from "../../../tokens/CustomHTMLElements";
 
 type OportunitiesArea = {
   title: string;
@@ -101,6 +102,7 @@ export const MajorTemplate = ({
       </StyledDescription>
 
       {/* ANCHOR Oportunities Area */}
+
       <StyledOportinitiesWrapper>
         <StyledOportunities>
           <StyledSubTitle style={{ gridArea: "title" }}>
@@ -112,7 +114,7 @@ export const MajorTemplate = ({
             as={TransitionFadeGrid}
             cols={3}
             rows={3}
-            minDuration={2500}
+            minDuration={3000}
             maxDuration={7500}
             items={oportunities.areas.map((area, index) => (
               <StyledOportunityItem key={index}>
@@ -130,44 +132,46 @@ export const MajorTemplate = ({
 
       {/* ANCHOR Competences */}
       <StyledCompetences>
-        <StyledSubTitle style={{ gridArea: "title" }}>
-          Competencias
-        </StyledSubTitle>
+        <StyledSingleInfoCard activeHover={false}>
+          <StyledSubTitle style={{ gridArea: "title" }}>
+            Competencias
+          </StyledSubTitle>
 
-        <GridWithTitleSeparator
-          items={[
-            {
-              title: (
-                <StyledCompetencesSubtitle>
-                  Competencias <br /> Específicas
-                </StyledCompetencesSubtitle>
-              ),
-              element: (
-                <ul>
-                  {competencies.specifics.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              ),
-            },
-            {
-              title: (
-                <StyledCompetencesSubtitle className="markers-left">
-                  Competencias <br /> Generales
-                </StyledCompetencesSubtitle>
-              ),
-              element: (
-                <StyledLeftSideUl>
-                  {competencies.generals.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </StyledLeftSideUl>
-              ),
-            },
-          ]}
-        />
+          <GridWithTitleSeparator
+            style={{ margin: "2em 4em" }}
+            items={[
+              {
+                title: (
+                  <StyledCompetencesSubtitle>
+                    Competencias <br /> Específicas
+                  </StyledCompetencesSubtitle>
+                ),
+                element: (
+                  <StyledUl>
+                    {competencies.specifics.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </StyledUl>
+                ),
+              },
+              {
+                title: (
+                  <StyledCompetencesSubtitle className="markers-left">
+                    Competencias <br /> Generales
+                  </StyledCompetencesSubtitle>
+                ),
+                element: (
+                  <StyledUl $rtl>
+                    {competencies.generals.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </StyledUl>
+                ),
+              },
+            ]}
+          />
+        </StyledSingleInfoCard>
       </StyledCompetences>
-
       {/* ANCHOR Perfil */}
       <StyledBaseMarginContainer>
         <StyledPerfilTitle>Perfil</StyledPerfilTitle>
@@ -285,11 +289,11 @@ const StyledText = styled(StyledBody1)`
 `;
 
 const cssBaseMargin = css`
-  margin: 0 var(--size-margin-2xl);
-  width: calc(100% - 2 * var(--size-margin-2xl));
+  margin: 0 var(--size-margin-body-large);
+  width: calc(100% - 2 * var(--size-margin-body-large));
 `;
 const cssBasePadding = css`
-  padding: 0 var(--size-margin-2xl);
+  padding: 0 var(--size-margin-body-large);
 `;
 
 // ANCHOR Shared
@@ -404,7 +408,7 @@ const StyledCompetences = styled.div`
 
 const StyledCompetencesSubtitle = styled(StyledSubTitle2)``;
 
-const StyledLeftSideUl = styled.ul`
+const StyledLeftSideUl = styled.div`
   direction: rtl;
 `;
 
