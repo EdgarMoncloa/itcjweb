@@ -1,8 +1,5 @@
-import styled from 'styled-components';
-import {
-  ContentSelector,
-  ContentSelectorProps,
-} from '../ContentSelector';
+import styled from "styled-components";
+import { ContentSelector, ContentSelectorProps } from "../ContentSelector";
 
 export interface ContentListProps {
   contentSelectorItems: ContentSelectorProps[];
@@ -16,10 +13,10 @@ export const ContentList = ({
   setSelectedIndex,
 }: ContentListProps) => {
   return (
-    <StyledContentList className={defaultSize ? 'defaultSize' : ''}>
+    <StyledContentList className={defaultSize ? "defaultSize" : ""}>
       {contentSelectorItems.map((item, index) => (
         <ContentSelector
-          key={item.title}
+          key={`${item.title}-${index}`}
           title={item.title}
           caption={item.caption}
           onClick={() => {

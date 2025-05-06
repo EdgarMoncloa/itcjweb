@@ -6,12 +6,17 @@ import { useEffect, useRef, useState } from "react";
 import { TransitionDisplay_TransitionType } from "../../atoms/Animations/TransitionDisplay/TransitionDisplay.types";
 import { CSS_VAR_DURATION } from "../../../types/GlobalTypes";
 import { ThemeType } from "../../../tokens/theme";
+import { LoadingSection } from "../../atoms/LoadingSection";
 
 export interface HeroSectionProps {
   contentLikItems: ContentLinkProps[];
+  defaultSize?: boolean;
 }
 
-export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
+export const HeroSection = ({
+  contentLikItems,
+  defaultSize = false,
+}: HeroSectionProps) => {
   const theme = useTheme() as ThemeType;
 
   const prevIndex = useRef(0);
@@ -63,16 +68,15 @@ export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
 
   const contentLinkElements = contentLikItems.map((item, index) => (
     <ContentLink
-      key={index}
+      key={`${item.title}-${index}`}
       title={item.title}
       caption={item.caption}
       img={item.img}
       alt={item.alt}
     />
   ));
-
-  return allLoaded === true ? (
-    <StyledHero>
+  return (
+    <StyledHero className={defaultSize ? "defaultSize" : ""}>
       <ContentList
         contentSelectorItems={contentLikItems}
         setSelectedIndex={setActualIndex}
@@ -86,9 +90,27 @@ export const HeroSection = ({ contentLikItems }: HeroSectionProps) => {
         delay={CSS_VAR_DURATION.none}
       />
     </StyledHero>
-  ) : (
-    "Loading"
   );
+  // return allLoaded === true ? (
+  //   <StyledHero className={defaultSize ? "defaultSize" : ""}>
+  //     <ContentList
+  //       contentSelectorItems={contentLikItems}
+  //       setSelectedIndex={setActualIndex}
+  //     />
+  //     <TransitionDisplay
+  //       fromElement={contentLinkElements[prevIndex.current]}
+  //       toElement={contentLinkElements[actualIndex]}
+  //       toElementKey={`${actualIndex}`}
+  //       animate={firstRenderWithImg === false}
+  //       transitionType={TransitionDisplay_TransitionType.circleFromCenter}
+  //       delay={CSS_VAR_DURATION.none}
+  //     />
+  //   </StyledHero>
+  // ) : (
+  //   <StyledLoadingWrapper className={defaultSize ? "defaultSize" : ""}>
+  //     <LoadingSection />
+  //   </StyledLoadingWrapper>
+  // );
 };
 
 const StyledHero = styled.div`
@@ -104,4 +126,20 @@ const StyledHero = styled.div`
   overflow: hidden;
   padding: var(--size-margin-small) var(--size-margin-medium);
   width: 100%;
+
+  &.defaultSize {
+    height: var(--size-height-10-rows);
+    width: var(--size-width-10-cols);
+  }
+`;
+
+const StyledLoadingWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+
+  &.defaultSize {
+    height: var(--size-height-6-rows);
+    width: var(--size-width-6-cols);
+  }
 `;

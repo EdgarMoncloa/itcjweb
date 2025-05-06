@@ -1,5 +1,6 @@
-import styled, { css } from 'styled-components';
-import { generateRandomImageLink } from '../../../../utils/generateRandomImageLink';
+import styled, { css } from "styled-components";
+import { generateRandomImageLink } from "../../../../utils/generateRandomImageLink";
+import { CustomImg } from "../../../molecules/CustomImg";
 
 export interface ExampleImageProps {
   alt?: string;
@@ -22,7 +23,7 @@ export const ExampleImage = ({
       $width={defaultSize ? width : undefined}
       $height={defaultSize ? height : undefined}
     >
-      <StyledImg src={imgSrc} alt={alt || ''} />
+      <CustomImg src={imgSrc} alt={alt || ""} />
     </StyledExampleImage>
   );
 };

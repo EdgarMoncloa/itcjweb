@@ -1,5 +1,6 @@
-import styled from 'styled-components';
-import { StyledBody1, StyledH2, StyledH4 } from '../../../tokens/CustomText';
+import styled from "styled-components";
+import { StyledBody1, StyledH4 } from "../../../tokens/CustomText";
+import { CustomImg } from "../../molecules/CustomImg";
 
 export interface ContentLinkProps {
   img: string;
@@ -13,13 +14,13 @@ export const ContentLink = ({
   img,
   title,
   caption,
-  alt = 'Imagen de noticia principal',
+  alt = "Imagen de noticia principal",
   haveDefaultSize = false,
 }: ContentLinkProps) => {
   return (
-    <StyledContentLink className={haveDefaultSize ? 'default-size' : ''}>
+    <StyledContentLink className={haveDefaultSize ? "default-size" : ""}>
       <StyledImgWrapper>
-        <StyledImg src={img} alt={alt} />
+        <CustomImg src={img} alt={alt} />
       </StyledImgWrapper>
       <StyledDescriptionContainer>
         <StyledTitle>{title}</StyledTitle>
@@ -36,11 +37,6 @@ const StyledImgWrapper = styled.div`
   border-radius: var(--size-border-radius-medium);
   transition: var(--transition-normal) border-radius;
   background-color: var(--colors-app-primary-200);
-`;
-const StyledImg = styled.img`
-  height: 100%;
-  width: 100%;
-  object-fit: contain;
 `;
 const StyledDescriptionContainer = styled.div`
   border-bottom-left-radius: var(--size-border-radius-large);

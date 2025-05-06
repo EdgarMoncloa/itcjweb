@@ -14,7 +14,7 @@ import { ReactNode, useCallback, useEffect, useRef, useState } from "react";
 import { DynamicIcon } from "../../atoms/Icons/DynamicIcon";
 import { DiagramStudyPlan } from "../../organisms/Diagrams/DiagramStudyPlan";
 import { IngenieriaEnSistemas } from "../../../mocks/Majors/IngenieriaEnSistemas.mock";
-import { CustomImg } from "../../atoms/CustomImg";
+import { CustomImg } from "../../molecules/CustomImg";
 import { StyledImg } from "../../../tokens/CustomImg";
 import Logo_Liebre_Circuitos from "/images/Logo_Liebre_Circuitos.png";
 import { DynamicGrid_FillMethod } from "../../atoms/Grids/DynamicGrid/DynamicGrid.types";
