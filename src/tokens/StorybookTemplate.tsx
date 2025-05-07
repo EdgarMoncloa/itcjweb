@@ -1,4 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
+import { ARG_TYPES } from "./StorybookArgTypes";
 
 export default {
   title: "Atoms/Grids/TransitionFadeGrid",
@@ -8,7 +9,11 @@ export default {
     layout: "fullscreen",
   },
   args: {},
-  argTypes: {},
+  argTypes: {
+    numElements: {
+      ...ARG_TYPES.numItems,
+    },
+  },
 };
 
 // type MyStoryProps = {};
