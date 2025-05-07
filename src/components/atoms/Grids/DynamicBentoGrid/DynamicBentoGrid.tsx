@@ -5,9 +5,10 @@ import { SlideCover } from "../../Animations/SlideCover";
 
 // TODO EN EL PRIMER RENDER NO SE ESTA RENDERIZANDO PORQUE EL TAMANO ES 0
 
-interface BlogsSectionProps {
+interface DynamicBentoGridProps {
   children: ReactNode[];
   defaultSize?: boolean;
+  orientation?: "vertical" | "horizontal";
 }
 
 interface BlogInfo {
@@ -18,15 +19,16 @@ interface BlogInfo {
 export const DynamicBentoGrid = ({
   children,
   defaultSize = false,
-}: BlogsSectionProps) => {
+  orientation = "horizontal",
+}: DynamicBentoGridProps) => {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
-  const blogCards = children.map((item, index) => ({
+  const elementsData = children.map((item, index) => ({
     id: index.toString(),
     element: item,
   }));
 
-  const [visibleCount, setVisibleCount] = useState<number>(blogCards.length);
+  const [visibleCount, setVisibleCount] = useState<number>(elementsData.length);
   const [visibleIndex, setVisibleIndex] = useState<number>(0);
   const [refreshingAnimation, setRefreshingAnimation] = useState<
     "left" | "none" | "right"
@@ -34,48 +36,60 @@ export const DynamicBentoGrid = ({
 
   const calculateVisibleItems = () => {
     const container = containerRef.current;
+    if (!container) return;
 
-    if (container) {
-      const containerWidth = container.clientWidth;
-      const scrollLeft = container.scrollLeft; // Desplazamiento horizontal
+    let containerSize;
+    let scrollSize;
 
-      const item = container.children[0] as HTMLElement;
-      let localVisibleItems = 0;
-      if (item) {
-        const itemWidth = item.offsetWidth;
+    if (orientation === "horizontal") {
+      containerSize = container.clientWidth;
+      scrollSize = container.scrollLeft;
+    } else {
+      containerSize = container.clientHeight;
+      scrollSize = container.scrollTop;
+    }
 
-        // Filtrar elementos que están completamente visibles
-        const fullyVisibleItems: BlogInfo[] = [];
-        blogCards.map((item, index) => {
-          const itemLeftEdge = index * itemWidth - scrollLeft; // Posición izquierda del elemento teniendo en cuenta el scroll
-          const itemRightEdge = itemLeftEdge + itemWidth; // Posición derecha del elemento
-
-          let opacity = 0;
-
-          if (itemRightEdge <= 0) {
-            // Completamente a la izquierda
-            opacity = 0;
-          } else if (itemLeftEdge >= containerWidth) {
-            // Completamente a la derecha
-            opacity = 0;
-          } else {
-            // Parte visible
-            const visibleLeftEdge = Math.max(itemLeftEdge, 0); // Punto donde empieza a ser visible
-            const visibleRightEdge = Math.min(itemRightEdge, containerWidth); // Punto donde deja de ser visible
-
-            const visibleWidth = visibleRightEdge - visibleLeftEdge; // Ancho visible del elemento
-            opacity = Math.max(0, Math.min(1, visibleWidth / itemWidth)); // Ajustar a rango 0-1
-          }
-          if (opacity === 1) localVisibleItems++;
-
-          fullyVisibleItems.push({
-            opacity: opacity < 1 ? 0 : 1,
-            ...item,
-          });
-        });
-
-        setVisibleCount(localVisibleItems > 0 ? localVisibleItems : 1);
+    const item = container.children[0] as HTMLElement;
+    let localVisibleItems = 0;
+    if (item) {
+      let itemSize;
+      if (orientation === "horizontal") {
+        itemSize = item.offsetWidth;
+      } else {
+        itemSize = item.offsetHeight;
       }
+
+      // Filtrar elementos que están completamente visibles
+      const fullyVisibleItems: BlogInfo[] = [];
+      elementsData.map((item, index) => {
+        const itemStartEdge = index * itemSize - scrollSize; // Posición izquierda o top del elemento teniendo en cuenta el scroll
+        const itemEndEdge = itemStartEdge + itemSize; // Posición derecha o bottom del elemento
+
+        let opacity = 0;
+
+        if (itemEndEdge <= 0) {
+          // Completamente a la izquierda
+          opacity = 0;
+        } else if (itemStartEdge >= containerSize) {
+          // Completamente a la derecha
+          opacity = 0;
+        } else {
+          // Parte visible
+          const visibleStartEdge = Math.max(itemStartEdge, 0); // Punto donde empieza a ser visible
+          const visibleEndEdge = Math.min(itemEndEdge, containerSize); // Punto donde deja de ser visible
+
+          const visibleSize = visibleEndEdge - visibleStartEdge; // Ancho o alto visible del elemento
+          opacity = Math.max(0, Math.min(1, visibleSize / itemSize)); // Ajustar a rango 0 o 1
+        }
+        if (opacity === 1) localVisibleItems++;
+
+        fullyVisibleItems.push({
+          opacity: opacity < 1 ? 0 : 1,
+          ...item,
+        });
+      });
+
+      setVisibleCount(localVisibleItems > 0 ? localVisibleItems : 1);
     }
   };
 
@@ -106,7 +120,7 @@ export const DynamicBentoGrid = ({
         setVisibleIndex(visibleIndex - visibleCount);
       } else if (
         side === "right" &&
-        visibleIndex < blogCards.length - visibleCount
+        visibleIndex < elementsData.length - visibleCount
       ) {
         setVisibleIndex(visibleIndex + visibleCount);
       }
@@ -114,16 +128,17 @@ export const DynamicBentoGrid = ({
     }, 400);
   };
 
+  const classNames = [orientation, defaultSize ? "defaultSize" : ""];
   return (
-    <StyledDynamicBentoGrid className={defaultSize ? "defaultSize" : ""}>
+    <StyledDynamicBentoGrid className={classNames.join(" ")}>
       <NextArrow
-        inverted
+        direction={orientation === "horizontal" ? "left" : "up"}
         onClick={() => {
           handleScroll("left");
         }}
       />
       <StyledItemsContainer ref={containerRef}>
-        {blogCards
+        {elementsData
           .slice(visibleIndex, visibleIndex + visibleCount)
           .map((item) => item.element)}
         <SlideCover
@@ -140,6 +155,7 @@ export const DynamicBentoGrid = ({
         />
       </StyledItemsContainer>
       <NextArrow
+        direction={orientation === "horizontal" ? "right" : "down"}
         onClick={() => {
           handleScroll("right");
         }}
@@ -156,9 +172,14 @@ const StyledDynamicBentoGrid = styled.div`
   height: var(--size-height-10-rows);
   gap: var(--size-gap-small);
 
+  &.vertical {
+    grid-template-columns: 100%;
+    grid-template-rows: var(--size-width-1-cols) 14fr var(--size-width-1-cols);
+  }
+
   &.defaultSize {
     &.vertical {
-      width: var(--size-width-10-cols);
+      width: var(--size-width-16-cols);
       height: 100vh;
     }
   }
@@ -167,12 +188,22 @@ const StyledDynamicBentoGrid = styled.div`
 const StyledItemsContainer = styled.div`
   align-items: center;
   display: grid;
-  grid-auto-columns: var(--size-width-4-cols);
-  grid-auto-flow: column;
-  grid-template-rows: 100%;
   height: 100%;
   justify-items: center;
   overflow: hidden;
   justify-content: space-evenly;
+  align-content: space-evenly;
   position: relative;
+
+  .horizontal & {
+    grid-auto-columns: var(--size-width-4-cols);
+    grid-auto-flow: column;
+    grid-template-rows: 100%;
+  }
+
+  .vertical & {
+    grid-auto-rows: var(--size-height-4-rows);
+    grid-auto-flow: row;
+    grid-template-columns: 100%;
+  }
 `;

@@ -28,8 +28,18 @@ type Story = StoryObj<MyStoryProps>;
 export const Base: Story = {
   render: ({ ...args }) => {
     const children = Array.from({ length: args.numElements }, (_, index) => (
-      <ExampleContainer key={index}>Elemento {index + 1}</ExampleContainer>
+      <ExampleContainer key={index} style={{ width: "100%" }}>
+        Elemento {index + 1}
+      </ExampleContainer>
     ));
-    return <DynamicBentoGrid defaultSize>{children}</DynamicBentoGrid>;
+    return (
+      <DynamicBentoGrid
+        defaultSize
+        orientation="vertical"
+        // orientation="horizontal"
+      >
+        {children}
+      </DynamicBentoGrid>
+    );
   },
 };

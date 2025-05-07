@@ -26,6 +26,8 @@ export interface ExampleContainerProps {
   defaultSize?: boolean;
   children?: ReactNode;
   textType?: TextTypes;
+  width?: string;
+  style?: React.CSSProperties;
 }
 
 export const ExampleContainer = ({
@@ -33,6 +35,7 @@ export const ExampleContainer = ({
   children,
   defaultSize = false,
   textType = TextTypes.H1,
+  style,
 }: ExampleContainerProps) => {
   let localColor = color || ExampleContainer_Colors.Primary300;
   if (!color) {
@@ -50,6 +53,7 @@ export const ExampleContainer = ({
       as={StyledText}
       $color={localColor}
       className={defaultSize ? "defaultSize" : ""}
+      style={style}
     >
       {children}
     </StyledExampleContainer>

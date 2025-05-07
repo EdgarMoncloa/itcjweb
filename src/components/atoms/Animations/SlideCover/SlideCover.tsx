@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react';
-import styled, { css, keyframes, Styled } from 'styled-components';
+import { useEffect, useState } from "react";
+import styled, { css, keyframes, Styled } from "styled-components";
 
-type position = 'top' | 'bottom';
-type direction = 'toLeft' | 'toRight';
+type position = "top" | "bottom";
+type direction = "toLeft" | "toRight";
 
 interface SlideCoverProps {
   position?: position;
@@ -12,10 +12,10 @@ interface SlideCoverProps {
 }
 
 export const SlideCover = ({
-  position = 'bottom',
+  position = "bottom",
   isVisible = false,
   haveOutAnimation = false,
-  animationDirection = 'toLeft',
+  animationDirection = "toLeft",
 }: SlideCoverProps) => {
   const [shouldAnimate, setShouldAnimate] = useState(false);
 
@@ -98,9 +98,9 @@ const StyledAnimationContainer = styled.div<StyledAnimationContainerProps>`
   width: 200%;
   grid-template-columns: 1fr 1fr 4fr 50% 4fr 1fr 1fr;
   z-index: ${(p) =>
-    p.$position === 'top'
-      ? 'var(--z-index-above-background)'
-      : 'var(--z-index-background-middle)'};
+    p.$position === "top"
+      ? "var(--z-index-above-background)"
+      : "var(--z-index-background-middle)"};
   justify-items: center;
 
   & > * {
@@ -115,7 +115,7 @@ const StyledAnimationContainer = styled.div<StyledAnimationContainerProps>`
 
   ${(p) => {
     const [inAnimation, outAnimation] =
-      p.$animationDirection === 'toLeft'
+      p.$animationDirection === "toLeft"
         ? [toLeftInAnimation, toLeftOutAnimation]
         : [toRightInAnimation, toRightOutAnimation];
 
