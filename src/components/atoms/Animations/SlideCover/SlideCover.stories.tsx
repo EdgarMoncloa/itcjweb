@@ -1,25 +1,25 @@
-import type { Meta, StoryObj, StoryFn } from '@storybook/react';
-import { SlideCover } from '.';
-import styled, { keyframes } from 'styled-components';
-import { useState } from 'react';
-import { StyledH1 } from '../../../../tokens/CustomText';
+import type { Meta, StoryObj, StoryFn } from "@storybook/react";
+import { SlideCover } from ".";
+import styled, { keyframes } from "styled-components";
+import { useState } from "react";
+import { StyledH1 } from "../../../../tokens/CustomText";
 
 interface MyComponentStoryProps {
   numItems: number;
 }
 
 const meta: Meta = {
-  title: 'Atoms/Animations/SlideCover',
+  title: "Atoms/Animations/SlideCover",
   component: SlideCover,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'centered',
+    layout: "centered",
   },
   args: {},
   argTypes: {
     numItems: {
-      control: { type: 'number', min: 0, max: 10 }, // Control tipo número
-    defaultValue: 3, // El valor por defecto es 3
+      control: { type: "number", min: 0, max: 10 }, // Control tipo número
+      defaultValue: 3, // El valor por defecto es 3
     },
   },
 };
@@ -34,7 +34,7 @@ const Template: StoryFn<MyComponentStoryProps> = (args) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <StyledH1>Hover Me!</StyledH1>
-      <SlideCover isVisible={isHovered} position='bottom' />
+      <SlideCover isVisible={isHovered} position="bottom" />
     </StyledCoverExapleContainer>
   );
 };

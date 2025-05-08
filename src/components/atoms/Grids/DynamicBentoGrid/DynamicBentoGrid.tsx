@@ -145,13 +145,15 @@ export const DynamicBentoGrid = ({
           isVisible={refreshingAnimation === "left"}
           position="top"
           haveOutAnimation
-          animationDirection="toRight"
+          animationDirection={
+            orientation === "horizontal" ? "toRight" : "toBottom"
+          }
         />
         <SlideCover
           isVisible={refreshingAnimation === "right"}
           position="top"
           haveOutAnimation
-          animationDirection="toLeft"
+          animationDirection={orientation === "horizontal" ? "toLeft" : "toTop"}
         />
       </StyledItemsContainer>
       <NextArrow
@@ -179,8 +181,8 @@ const StyledDynamicBentoGrid = styled.div`
 
   &.defaultSize {
     &.vertical {
-      width: var(--size-width-16-cols);
-      height: 100vh;
+      width: 100%;
+      height: 720px;
     }
   }
 `;
