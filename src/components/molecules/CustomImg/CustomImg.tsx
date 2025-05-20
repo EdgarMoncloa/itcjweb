@@ -69,6 +69,9 @@ const StyledContainer = styled.div`
   border-radius: var(--size-border-radius-small);
   border: var(--size-border-small) solid var(--colors-app-primary-700);
   overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   &.defaultSize {
     height: var(--size-height-6-rows);
@@ -79,7 +82,7 @@ const StyledContainer = styled.div`
 const StyledCustomImg = styled.img`
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   max-height: 100%;
   max-width: 100%;

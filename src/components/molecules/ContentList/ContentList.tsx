@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import { ContentSelector, ContentSelectorProps } from "../ContentSelector";
 
-export interface ContentListProps {
+export interface ContentListProps
+  extends React.ComponentPropsWithoutRef<typeof StyledContentList> {
   contentSelectorItems: ContentSelectorProps[];
   defaultSize?: boolean;
   setSelectedIndex?: (index: number) => void;
@@ -11,9 +12,10 @@ export const ContentList = ({
   contentSelectorItems,
   defaultSize = false,
   setSelectedIndex,
+  ...rest
 }: ContentListProps) => {
   return (
-    <StyledContentList className={defaultSize ? "defaultSize" : ""}>
+    <StyledContentList className={defaultSize ? "defaultSize" : ""} {...rest}>
       {contentSelectorItems.map((item, index) => (
         <ContentSelector
           key={`${item.title}-${index}`}
@@ -39,6 +41,7 @@ const StyledContentList = styled.div`
   border-radius: var(--size-border-radius-medium);
   width: 100%;
   height: 100%;
+  justify-content: center;
 
   &.defaultSize {
     width: var(--size-width-1-cols);

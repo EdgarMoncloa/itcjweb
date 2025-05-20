@@ -3,17 +3,14 @@ import styled from "styled-components";
 import { NextArrow } from "../../Buttons/NextArrow";
 import { SlideCover } from "../../Animations/SlideCover";
 
-// TODO EN EL PRIMER RENDER NO SE ESTA RENDERIZANDO PORQUE EL TAMANO ES 0
-
+interface BlogInfo {
+  id?: string;
+  opacity?: number;
+}
 interface DynamicBentoGridProps {
   children: ReactNode[];
   defaultSize?: boolean;
   orientation?: "vertical" | "horizontal";
-}
-
-interface BlogInfo {
-  id?: string;
-  opacity?: number;
 }
 
 export const DynamicBentoGrid = ({
