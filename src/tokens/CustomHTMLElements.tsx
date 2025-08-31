@@ -51,3 +51,5 @@ export const StyledUl = styled.ul<StyledUlProps>`
   ${(p) => p.$rtl && cssRtl}
   ${(p) => !p.$rtl && cssLtr}
 `;
+
+export const StyledOl = styled.ol``;

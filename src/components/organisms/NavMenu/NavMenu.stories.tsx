@@ -1,17 +1,20 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { NavMenu } from './NavMenu';
+import { Meta, StoryObj } from "@storybook/react";
+import { NavMenu } from "./NavMenu";
+import styled from "styled-components";
+import { NavOption } from "../../molecules/NavOption";
+import { FaSchool } from "react-icons/fa";
 
 export default {
-  title: 'Organisms/NavMenu',
+  title: "Organisms/NavMenu",
   component: NavMenu,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
     defaultSize: {
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
       table: {
-        category: 'Solo para storybook',
+        category: "Solo para storybook",
       },
     },
   },
@@ -22,6 +25,80 @@ export const Base: StoryObj<typeof NavMenu> = {
     defaultSize: true,
   },
   render: (args) => {
-    return <NavMenu {...args} />;
+    const contentElements = (
+      <>
+        <NavOption
+          content={"Contenido"}
+          link={"#"}
+          leftIcon={<FaSchool />}
+          subitems={[
+            {
+              content: "Subitem 1",
+              link: "#",
+            },
+            {
+              content: "Subitem 2",
+              link: "#",
+            },
+            {
+              content: "Subitem 3",
+              link: "#",
+            },
+          ]}
+        />
+        <NavOption
+          content={"Contenido"}
+          link={"#"}
+          subitems={[
+            {
+              content: "Subitem 1",
+              link: "#",
+            },
+            {
+              content: "Subitem 2",
+              link: "#",
+            },
+            {
+              content: "Subitem 3",
+              link: "#",
+            },
+          ]}
+        />
+        <NavOption
+          content={"Contenido"}
+          link={"#"}
+          subitems={[
+            {
+              content: "Subitem 1",
+              link: "#",
+            },
+            {
+              content: "Subitem 2",
+              link: "#",
+            },
+            {
+              content: "Subitem 3",
+              link: "#",
+            },
+            {
+              content: "Subitem 1",
+              link: "#",
+            },
+            {
+              content: "Subitem 2",
+              link: "#",
+            },
+            {
+              content: "Subitem 3",
+              link: "#",
+            },
+          ]}
+        />
+        <NavOption content={"Contenido"} link={"#"} />
+      </>
+    );
+    return (
+      <NavMenu {...args} title="ITCJ" contentElelments={contentElements} />
+    );
   },
 };

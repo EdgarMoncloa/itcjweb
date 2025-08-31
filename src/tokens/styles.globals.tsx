@@ -33,6 +33,7 @@ export const GlobalStyle = createGlobalStyle`
     tab-size: 4;
     font-feature-settings: normal;
     font-size: 16px;
+    background-color: var(--colors-app-background);
 
     @media (min-width: ${(props) => props.theme.breakpoints.mobile}px) {
       font-size: 16px;
@@ -103,6 +104,9 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     /* !SECTION Scrollbars */
+  }
+  p{
+    margin: 0;
   }
   /* !SECTION HTML\BODY */
  

@@ -1,9 +1,5 @@
 import { StoryObj, Meta } from "@storybook/react";
 import { InfoHub, InfoHubProps } from "./InfoHub";
-import { useEffect, useState } from "react";
-import { CKEditorRenderer } from "../../organisms/CKEditorRenderer";
-import { DiagramTimelineBento } from "../../organisms/Diagrams/DiagramTimelineBento";
-import { StyledH1 } from "../../../tokens/CustomText";
 
 export default {
   title: "Templates/InfoHub",
@@ -20,17 +16,159 @@ type MyStoryProps = Omit<InfoHubProps, "icon"> & {
 };
 type Story = StoryObj<MyStoryProps>;
 
-const timeLineContents = [
-  `<h1 style=\"text-align:center;\">1 Ingresa</h1><p style=\"text-align:center;\">Ingresa a <a href=\"http://www.sii.cdjuarez.tecnm.mx/\">http://www.sii.cdjuarez.tecnm.mx</a> Selecciona la opción aspirantes.</p>`,
-  `<h1 style=\"text-align:center;\">2 Autentificación</h1><p style=\"text-align:center;\">En No. de solicitud teclea 0 y el NIP teclea 0 <strong>Importante</strong> Tener a la mano tu clave única de registro de población (CURP), si no cuentas con ella, puedes obtenerla en <a href=\"https://www.gob.mx/curp/\">https://www.gob.mx/curp/</a></p>`,
-  `<h1 style=\"text-align:center;\">3 Nuevo aspirante</h1><p style=\"text-align:center;\">Aparecen recomendaciones antes de iniciar, después de leer presiona <strong>continuar</strong>. En la pantalla Nuevo Aspirante, llena los campos con tu nombre completo como se encuentra en tu acta de nacimiento. Posteriormente, debes dar clic en el recuadro NIP GENERADO para obtener tu NIP.</p>`,
-  `<h1 style=\"text-align:center;\">4 Accesos</h1><p style=\"text-align:center;\">Aparecerá una nota con los No. de solicitud y NIP, debes de guardar estos datos, ya que serán tu acceso al SII como aspirante.</p>`,
-  `<h1 style=\"text-align:center;\">5 Formularios</h1><p style=\"text-align:center;\">El proceso de llenado de la solicitud consta de dos formularios</p><ol><li><p style=\"text-align:center;\">La solicitud de ficha de examen de selección</p></li><li><p style=\"text-align:center;\">El formulario de datos socioeconómicos del aspirante</p></li></ol><p style=\"text-align:center;\">Es importante que llenes ambos en su totalidad.</p>`,
-  `<h1 style=\"text-align:center;\">6 Descargas</h1><ul><li><p style=\"text-align:center;\">Descarga e imprime tu acceso al examen</p><ul><li><p style=\"text-align:center;\">FORMATOS IMPRESOS I</p></li><li><p style=\"text-align:center;\">MODALIDAD ESCOLARIZADA I</p></li><li><p style=\"text-align:center;\">FORMATO UBICACIÓN AULA PARA EXAMEN</p></li></ul></li><li><p style=\"text-align:center;\">Descarga tu guía de estudios para el examen de admisión</p><ul><li><p style=\"text-align:center;\">FORMATOS IMPRESOS I</p></li><li><p style=\"text-align:center;\">GUIA DE ESTUDIO PARA EXAMEN DE SELECCIÓN</p></li></ul></li></ul>`,
+const content = [
+  {
+    label: "Misión",
+    content: (
+      <>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+        <p>
+          Formar profesionistas en educación superior tecnológica de calidad,
+          capaces de contribuir a la ciencia, tecnología e investigación con un
+          enfoque creativo e innovador, mediante una educación integral basada
+          en competencias para el desarrollo sustentable de una sociedad
+          incluyente, globalizada, equitativa y humana.
+        </p>
+      </>
+    ),
+  },
+  {
+    label: "Visión",
+    content: (
+      <>
+        <p>
+          Ser una institución de alto desempeño en educación superior
+          tecnológica, que forme profesionales e investigadores que contribuyan
+          al desarrollo sostenido, sustentable y equitativo de la sociedad.
+        </p>
+        <p>
+          Ser una institución que promueva la innovación, la creatividad y la
+          excelencia en la educación, la tecnología y la investigación.Con esta
+          visión el Tecnológico Nacional de México / Instituto Tecnológico de
+          Ciudad Juárez busca contribuir a la transformación educativa en
+          México, orientando sus esfuerzos hacia el desarrollo humano
+          sustentable y la competitividad.
+        </p>
+      </>
+    ),
+  },
+  {
+    label: "Calidad",
+    content: (
+      <p>
+        El Instituto Tecnológico de Ciudad Juárez establece el compromiso de
+        implementar sus procesos con eficacia, orientados hacia la satisfacción
+        de sus clientes, sustentada en la calidad del proceso educativo,
+        promoviendo la protección del medio ambiente y previniendo la
+        contaminación por impactos ambientales de sus actividades y servicios,
+        este compromiso se refleja a través del sistema de gestión integral,
+        cumpliendo los objetivos ambientales, requisitos legales aplicables y
+        otros requisitos mediante la mejora continua, conforme a las normas ISO
+        9001:2015 e ISO 14001:2015. Rev. 3
+      </p>
+    ),
+  },
+  {
+    label: "Escudo",
+    content: "Escudo",
+  },
+  {
+    label: "Valores",
+    content: "Valores",
+  },
+  {
+    label: "Ética",
+    content: "Ética",
+  },
+  {
+    label: "Infraestructura",
+    content: "Infraestructura",
+  },
+  {
+    label: "Historia",
+    content: "Historia",
+  },
+  {
+    label: "Directorio",
+    content: "Directorio",
+  },
+  {
+    label: "Organigrama",
+    content: "Organigrama",
+  },
 ];
-const timelineItems = timeLineContents.map((item, idx) => ({
-  content: <CKEditorRenderer content={item} />,
-}));
+const defaultItemIndex = 0;
+const title = "Identidad institucional";
+
 export const Template: Story = {
   args: {
     icon: "Fa500Px",
@@ -39,12 +177,9 @@ export const Template: Story = {
     return (
       <InfoHub
         {...args}
-        content={
-          <DiagramTimelineBento
-            items={timelineItems}
-            title={<StyledH1>Proceso de admisión</StyledH1>}
-          />
-        }
+        content={content}
+        defaultItemIndex={defaultItemIndex}
+        title={title}
       />
     );
   },

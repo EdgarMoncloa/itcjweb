@@ -1,30 +1,35 @@
-import { GoTriangleRight } from 'react-icons/go';
-import styled from 'styled-components';
-import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
-import { MdExpandMore } from 'react-icons/md';
-import { DropdownContainer } from '../../atoms/Grids/DropdownContainer';
-import { useState } from 'react';
-import { StyledUnstyledButton } from '../../../tokens/UnstyledElements';
-import { BorderHoverReveal } from '../../atoms/Grids/BorderHoverReveal/BorderHoverReveal';
-import { DynamicIcon } from '../../atoms/Icons/DynamicIcon';
+import { GoTriangleRight } from "react-icons/go";
+import styled from "styled-components";
+import { StyledBody1, StyledH6 } from "../../../tokens/CustomText";
+import { MdExpandMore } from "react-icons/md";
+import { DropdownContainer } from "../../atoms/Grids/DropdownContainer";
+import { ComponentPropsWithRef, ReactNode, useState } from "react";
+import { StyledUnstyledButton } from "../../../tokens/UnstyledElements";
+import { BorderHoverReveal } from "../../atoms/Grids/BorderHoverReveal/BorderHoverReveal";
+import { DynamicIcon } from "../../atoms/Icons/DynamicIcon";
 
 interface NavItem {
-  content: string;
-  link: string;
+  content: ReactNode;
+  link?: string;
+  onClick?: () => void;
 }
 
-export interface NavOptionProps {
-  content: string;
+export interface NavOptionProps
+  extends Omit<ComponentPropsWithRef<typeof StyledNavOption>, "content"> {
+  content: ReactNode | string;
   link?: string;
-  leftIcon?: React.ReactNode | string;
+  onClick?: () => void;
+  leftIcon?: ReactNode | string;
   subitems?: NavItem[];
 }
 
 export const NavOption = ({
   content,
-  link = '#',
+  link = "#",
   leftIcon,
   subitems,
+  onClick,
+  ...rest
 }: NavOptionProps) => {
   const haveSubitems = subitems && subitems.length > 0;
   const [showSubitems, setShowSubitems] = useState(false);
@@ -32,9 +37,12 @@ export const NavOption = ({
   const primaryContentElement = (
     <StyledOptionWrapper
       href={!haveSubitems ? link : undefined}
-      className={showSubitems ? 'expanded' : ''}
-      as={haveSubitems ? StyledUnstyledButton : 'div'}
-      onClick={() => setShowSubitems(!showSubitems)}
+      className={showSubitems ? "expanded" : ""}
+      as={haveSubitems ? StyledUnstyledButton : "div"}
+      onClick={() => {
+        onClick && onClick();
+        setShowSubitems(!showSubitems);
+      }}
     >
       <BorderHoverReveal>
         <StyledOptionContent>
@@ -42,8 +50,8 @@ export const NavOption = ({
             <StyledIconWrapper>
               <DynamicIcon
                 icon={leftIcon}
-                size={'medium'}
-                colorVariant='neutral'
+                size={"medium"}
+                colorVariant="neutral"
               />
             </StyledIconWrapper>
           )}
@@ -52,7 +60,7 @@ export const NavOption = ({
 
           {haveSubitems && (
             <StyledRightIconWrapper>
-              <DynamicIcon icon={<MdExpandMore />} size={'medium'} />
+              <DynamicIcon icon={<MdExpandMore />} size={"medium"} />
             </StyledRightIconWrapper>
           )}
         </StyledOptionContent>
@@ -68,12 +76,19 @@ export const NavOption = ({
           href={item.link}
           as={BorderHoverReveal}
         >
-          <StyledSubitemOptionContent>
+          <StyledSubitemOptionContent
+            onClick={() => {
+              item.onClick && item.onClick();
+            }}
+          >
             <StyledSecondatyLefticonWrapper>
               <DynamicIcon
                 icon={<GoTriangleRight />}
-                size={'large'}
-                colorVariant='neutral'
+                size={"large"}
+                colorVariant="neutral"
+                onMouseEnter={() => {
+                  console.log("test");
+                }}
               />
             </StyledSecondatyLefticonWrapper>
             <StyledBody1>{item.content}</StyledBody1>
@@ -84,7 +99,7 @@ export const NavOption = ({
   );
 
   return (
-    <StyledNavOption>
+    <StyledNavOption {...rest}>
       <DropdownContainer
         showContent={haveSubitems && showSubitems}
         primaryContent={primaryContentElement}
@@ -161,9 +176,7 @@ const StyledRightIconWrapper = styled(StyledIconWrapper)`
   color: var(--colors-app-text-dark);
   margin-left: auto;
   opacity: 0;
-  transition:
-    var(--transition-fast) opacity,
-    var(--transition-fast) transform;
+  transition: var(--transition-fast) opacity, var(--transition-fast) transform;
   transform: translateY(-25%);
 
   &:hover,
