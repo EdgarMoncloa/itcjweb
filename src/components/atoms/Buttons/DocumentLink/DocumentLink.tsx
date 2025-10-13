@@ -44,6 +44,7 @@ export const DocumentLink = ({
 const StyledBaseButton = styled(BaseButton)`
   display: flex;
   justify-content: flex-start;
+  padding: var(--size-padding-medium) var(--size-padding-medium);
 `;
 
 const StyledLinkContainer = styled.div`
@@ -52,6 +53,7 @@ const StyledLinkContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
   justify-items: center;
+  row-gap: var(--size-gap-small);
 `;
 const StyledTextContainer = styled(StyledBody1)`
   align-items: center;

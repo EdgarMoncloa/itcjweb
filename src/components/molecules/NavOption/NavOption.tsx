@@ -1,3 +1,5 @@
+import { BiLinkExternal } from "react-icons/bi";
+import { CgEditBlackPoint } from "react-icons/cg";
 import { GoTriangleRight } from "react-icons/go";
 import styled from "styled-components";
 import { StyledBody1, StyledH6 } from "../../../tokens/CustomText";
@@ -83,7 +85,7 @@ export const NavOption = ({
           >
             <StyledSecondatyLefticonWrapper>
               <DynamicIcon
-                icon={<GoTriangleRight />}
+                icon={item.link ? <BiLinkExternal /> : <CgEditBlackPoint />}
                 size={"large"}
                 colorVariant="neutral"
                 onMouseEnter={() => {
@@ -111,6 +113,7 @@ export const NavOption = ({
 
 const StyledNavOption = styled.div`
   height: max-content;
+
   width: 100%;
   display: flex;
   align-items: center;
@@ -137,6 +140,7 @@ const StyledOptionContent = styled.div`
   gap: var(--size-gap-small);
   transition: background-color var(--transition-normal);
   min-height: var(--size-height-large);
+  text-align: start;
 
   &:hover {
     background-color: var(--colors-app-primary-200);
@@ -175,22 +179,23 @@ const StyledRightIconWrapper = styled(StyledIconWrapper)`
   background-color: transparent;
   color: var(--colors-app-text-dark);
   margin-left: auto;
-  opacity: 0;
+  /* opacity: 0; */
   transition: var(--transition-fast) opacity, var(--transition-fast) transform;
-  transform: translateY(-25%);
+  /* transform: translateY(-25%); */
+  text-align: start;
 
   &:hover,
   ${StyledOptionWrapper}:hover & {
-    opacity: 1;
-    transform: translateX(0);
+    /* opacity: 1; */
+    /* transform: translateX(0); */
   }
 
   .expanded & {
     transform: rotate(90deg) translateX(0);
-    opacity: 1;
+    /* opacity: 1; */
   }
   ${StyledOptionWrapper}.expanded:hover & {
-    opacity: 1;
+    /* opacity: 1; */
     transform: rotate(90deg) translateX(0);
   }
 `;

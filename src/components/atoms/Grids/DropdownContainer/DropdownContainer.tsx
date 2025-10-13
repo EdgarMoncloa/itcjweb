@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components';
+import styled, { keyframes } from "styled-components";
 
 export interface DropdownContainerProps {
   primaryContent: React.ReactNode;
@@ -14,10 +14,10 @@ export const DropdownContainer = ({
   defaultSize = false,
 }: DropdownContainerProps) => {
   return (
-    <StyledDropdownContainer className={defaultSize ? 'defaultSize' : ''}>
+    <StyledDropdownContainer className={defaultSize ? "defaultSize" : ""}>
       <StyledPrimaryContent>{primaryContent}</StyledPrimaryContent>
 
-      <StyledSecondaryContent className={showContent ? 'showContent' : ''}>
+      <StyledSecondaryContent className={showContent ? "showContent" : ""}>
         {secondaryContent}
       </StyledSecondaryContent>
     </StyledDropdownContainer>
@@ -78,6 +78,7 @@ const StyledSecondaryContent = styled.div`
 
   &.showContent {
     animation: ${showContentAnimation} var(--transition-normal) forwards;
-    max-height: var(--size-height-16-rows);
+    /* TODO: Solve animation size */
+    max-height: calc(var(--size-height-16-rows) * 3);
   }
 `;

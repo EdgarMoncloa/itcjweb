@@ -63,9 +63,10 @@ const StyledTitle = styled(StyledH6)`
 `;
 
 const StyledContentContainer = styled.div`
+  
   padding: var(--size-padding-medium);
   width: 100%;
-  height: 100%;
+  height: max-content;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -8,12 +8,13 @@ import { NavOption } from "../../molecules/NavOption";
 import { FaSchool } from "react-icons/fa";
 import { StyledH3 } from "../../../tokens/CustomText";
 
-type ContentElement = {
+export type ContentElement = {
   label: ReactNode;
   icon?: ReactNode;
   content: ReactNode;
   subItems?: ContentElement[];
   noTitle?: boolean;
+  link?: string;
   onClick?: () => void;
 };
 export interface InfoHubProps {
@@ -46,6 +47,10 @@ export const InfoHub = ({
             contentElelments={content.map((item, itemIndex) => (
               <NavOption
                 onClick={() => {
+                  if (item.link) {
+                    window.open(item.link, "_blank");
+                    return;
+                  }
                   if (!(item.subItems && item.subItems.length > 0)) {
                     if (item.onClick) {
                       item.onClick();
@@ -63,10 +68,14 @@ export const InfoHub = ({
                     ? item.subItems.map((subItem, subItemIndex) => ({
                         content: subItem.label,
                         onClick: () => {
-                          console.log("click");
+                          if (subItem.link) {
+                            window.open(subItem.link, "_blank");
+                            return;
+                          }
                           setPrimaryIdx(itemIndex);
                           setSecondaryIdx(subItemIndex);
                         },
+                        link: subItem.link,
                       }))
                     : []
                 }
