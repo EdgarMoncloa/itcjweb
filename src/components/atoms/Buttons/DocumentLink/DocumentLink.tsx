@@ -5,16 +5,18 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { BiLinkExternal } from "react-icons/bi";
 import styled from "styled-components";
 import { StyledBody1, StyledTextCaption } from "../../../../tokens/CustomText";
-
+import { colorVariant, COLOR_VARIANT } from "../../../../types/GlobalTypes";
 interface DocumentLinkProps extends ComponentPropsWithRef<typeof BaseButton> {
   children?: ReactNode;
   href?: string;
   fileType?: string;
+  colorVariant?: COLOR_VARIANT.primary | COLOR_VARIANT.neutral;
 }
 
 export const DocumentLink = ({
   children,
   href,
+  colorVariant = COLOR_VARIANT.primary,
   ...props
 }: DocumentLinkProps) => {
   return (
@@ -45,6 +47,8 @@ const StyledBaseButton = styled(BaseButton)`
   display: flex;
   justify-content: flex-start;
   padding: var(--size-padding-medium) var(--size-padding-medium);
+  width: 100%;
+  height: 100%;
 `;
 
 const StyledLinkContainer = styled.div`

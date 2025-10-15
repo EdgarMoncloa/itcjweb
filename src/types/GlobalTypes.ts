@@ -15,6 +15,12 @@ export enum TextTypes {
 
 export type colorVariant = "primary" | "secondary" | "neutral";
 
+export enum COLOR_VARIANT {
+  primary = "primary",
+  secondary = "secondary",
+  neutral = "neutral",
+}
+
 export type IconSize =
   | "xs"
   | "small"

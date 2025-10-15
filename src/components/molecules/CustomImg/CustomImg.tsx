@@ -6,6 +6,7 @@ export interface CustomImgProps {
   src: string;
   alt: string;
   defaultSize?: boolean;
+  noBorder?: boolean;
   className?: string;
   style?: React.CSSProperties;
 }
@@ -20,6 +21,7 @@ export const CustomImg = ({
   src,
   alt,
   defaultSize = false,
+  noBorder = false,
   style,
   className = "",
 }: CustomImgProps) => {
@@ -57,7 +59,13 @@ export const CustomImg = ({
       break;
   }
 
-  return <StyledContainer>{renderComponent}</StyledContainer>;
+  const containerClass = noBorder ? "noBorder" : "";
+
+  return (
+    <StyledContainer className={containerClass}>
+      {renderComponent}
+    </StyledContainer>
+  );
 };
 
 // SECTION Styles
@@ -72,6 +80,10 @@ const StyledContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  &.noBorder {
+    border: none;
+  }
 
   &.defaultSize {
     height: var(--size-height-6-rows);

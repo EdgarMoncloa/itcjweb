@@ -1,3 +1,4 @@
+import { COLOR_VARIANT } from "../types/GlobalTypes";
 import { STORYBOOK_CATEGORIES } from "../types/StoryBookTypes";
 
 export const ARG_TYPES = {
@@ -42,12 +43,22 @@ export const ARG_TYPES = {
     return {
       control: {
         type: "select",
-        options: enumValues,
+        options: Object.values(enumValues),
       },
       table: {
         category: STORYBOOK_CATEGORIES.style,
       },
     };
+  },
+  // ANCHOR Color Variant
+  colorVariant: {
+    control: {
+      type: "select",
+    },
+    options: Object.values(COLOR_VARIANT),
+    table: {
+      category: STORYBOOK_CATEGORIES.style,
+    },
   },
   // ANCHOR onlyStorybook text
   Text_OnlyStorybook: {

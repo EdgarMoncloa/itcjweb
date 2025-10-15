@@ -4,6 +4,8 @@ import { TextTypes } from "../types/GlobalTypes";
 const defaultTextStyle = css`
   margin: none;
   line-height: var(--line-height-small);
+  word-wrap: break-word;
+  text-overflow: ellipsis;
 `;
 
 export const StyledH1 = styled.div`

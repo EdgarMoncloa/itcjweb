@@ -2,6 +2,7 @@ import { StoryObj, Meta } from "@storybook/react";
 import { BaseButton } from ".";
 import { ARG_TYPES } from "../../../../tokens/StorybookArgTypes";
 import { FaPlus } from "react-icons/fa";
+import { COLOR_VARIANT } from "../../../../types/GlobalTypes";
 
 export default {
   title: "Atoms/Buttons/BaseButton",
@@ -10,11 +11,14 @@ export default {
   parameters: {
     layout: "centered",
   },
-  args: {},
+  args: {
+    colorVariant: COLOR_VARIANT.primary,
+  },
   argTypes: {
     numElements: {
       ...ARG_TYPES.numItems,
     },
+    colorVariant: ARG_TYPES.colorVariant,
   },
 };
 
@@ -25,6 +29,10 @@ type Story = StoryObj<MyStoryProps>;
 
 export const Base: Story = {
   render: ({ ...args }) => {
-    return <BaseButton icon={<FaPlus />}>Add</BaseButton>;
+    return (
+      <BaseButton icon={<FaPlus />} {...args}>
+        Add
+      </BaseButton>
+    );
   },
 };
