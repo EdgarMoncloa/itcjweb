@@ -16,7 +16,6 @@ interface DocumentLinkProps extends ComponentPropsWithRef<typeof BaseButton> {
 export const DocumentLink = ({
   children,
   href,
-  colorVariant = COLOR_VARIANT.primary,
   ...props
 }: DocumentLinkProps) => {
   return (
