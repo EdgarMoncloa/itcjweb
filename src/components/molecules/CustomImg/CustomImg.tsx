@@ -1,8 +1,9 @@
-import { Component, useEffect, useState } from "react";
+import { Component, ComponentPropsWithRef, useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { LoadingSection } from "../../atoms/LoadingSection";
 
-export interface CustomImgProps {
+export interface CustomImgProps
+  extends ComponentPropsWithRef<typeof StyledContainer> {
   src: string;
   alt: string;
   defaultSize?: boolean;
@@ -24,6 +25,7 @@ export const CustomImg = ({
   noBorder = false,
   style,
   className = "",
+  ...props
 }: CustomImgProps) => {
   const elementClassName = defaultSize ? "defaultSize" : "";
   const [state, setState] = useState(COMPONENT_STATES.LOADING);
@@ -62,7 +64,7 @@ export const CustomImg = ({
   const containerClass = noBorder ? "noBorder" : "";
 
   return (
-    <StyledContainer className={containerClass}>
+    <StyledContainer className={containerClass} {...props}>
       {renderComponent}
     </StyledContainer>
   );

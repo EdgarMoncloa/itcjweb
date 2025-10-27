@@ -32,12 +32,15 @@ export const SidebarLayout = ({
   ...props
 }: SidebarLayoutProps) => {
   // START
-  const [primaryIdx, setPrimaryIdx] = useState(defaultItemIndex);
+  const [mainIdx, setMainIdx] = useState(defaultItemIndex);
   const [secondaryIdx, setSecondaryIdx] = useState(defaultItemIndex);
 
-  let actualContent = content[secondaryIdx];
-  if (content[primaryIdx].subItems && content[primaryIdx].subItems.length > 0) {
-    actualContent = content[primaryIdx].subItems[secondaryIdx];
+  let actualContent = content[mainIdx];
+  if (
+    content[secondaryIdx].subItems &&
+    content[secondaryIdx].subItems.length > 0
+  ) {
+    actualContent = content[secondaryIdx].subItems[mainIdx];
   }
   return (
     <StyledInfoHubContainer {...props}>
@@ -56,7 +59,8 @@ export const SidebarLayout = ({
                     item.onClick();
                     return;
                   }
-                  setSecondaryIdx(itemIndex);
+                  setMainIdx(itemIndex);
+                  setSecondaryIdx(0);
                 }
               }}
               key={itemIndex}
@@ -72,8 +76,8 @@ export const SidebarLayout = ({
                           window.open(subItem.link, "_blank");
                           return;
                         }
-                        setPrimaryIdx(itemIndex);
-                        setSecondaryIdx(subItemIndex);
+                        setSecondaryIdx(itemIndex);
+                        setMainIdx(subItemIndex);
                       },
                       link: subItem.link,
                     }))
@@ -84,8 +88,8 @@ export const SidebarLayout = ({
         />
       </StyledNavMenuWrapper>
       <StyledInfoContainer>
-        {!actualContent.noTitle && <StyledH3>{actualContent.label}</StyledH3>}
-        {actualContent.content}
+        {!actualContent?.noTitle && <StyledH3>{actualContent?.label}</StyledH3>}
+        {actualContent?.content}
       </StyledInfoContainer>
     </StyledInfoHubContainer>
   );
