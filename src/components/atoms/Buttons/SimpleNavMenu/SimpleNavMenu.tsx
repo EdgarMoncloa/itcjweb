@@ -83,10 +83,10 @@ const StyledNavMainItem = styled.div`
   }
 
   &.gob {
-    background-color: var(--colors-tecnm-pantone-627-c);
+    background-color: var(--colors-gob-primary-dark);
     color: var(--colors-app-text-light);
     &:hover {
-      background-color: var(--colors-tecnm-pantone-626-c);
+      background-color: var(--colors-gob-primary);
     }
   }
   &.tecnm {
@@ -158,7 +158,7 @@ const StyledSubOptionsContainer = styled.div`
   height: 100%;
 
   &.gob {
-    background-color: var(--colors-tecnm-pantone-627-c);
+    background-color: var(--colors-gob-primary-dark);
   }
   &.tecnm {
     background-color: var(--colors-app-secondary-950);

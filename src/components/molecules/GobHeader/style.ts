@@ -4,7 +4,7 @@ export const StyledGobHeader = styled.header`
   height: var(--size-height-medium);
   /* overflow: hidden; */
   width: 100%;
-  background-color: var(--colors-tecnm-pantone-627-c);
+  background-color: var(--colors-gob-primary-dark);
   display: flex;
   align-items: center;
   padding: 0 var(--size-padding-medium);

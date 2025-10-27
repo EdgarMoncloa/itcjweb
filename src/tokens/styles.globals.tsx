@@ -172,6 +172,8 @@ export const GlobalStyle = createGlobalStyle`
   --colors-tecnm-pantone-627-c: #10312b;
   --colors-tecnm-pantone-7420-c: #9d2449;
   --colors-tecnm-pantone-7421-c: #621132;
+  --colors-gob-primary: var(--colors-tecnm-pantone-7420-c);
+  --colors-gob-primary-dark: var(--colors-tecnm-pantone-7421-c);
 
   --colors-tecnm-logo-black: var(--colors-tecnm-black);
   --colors-tecnm-logo-pantone-294-c: #1b396a;

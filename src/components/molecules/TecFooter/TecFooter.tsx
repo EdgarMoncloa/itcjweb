@@ -44,7 +44,7 @@ const StyledTecFooter = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: var(--size-padding-large) var(--size-padding-medium);
+  padding: var(--size-padding-large) var(--size-margin-body);
   color: white;
   display: flex;
   flex-direction: row;
