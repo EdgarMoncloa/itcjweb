@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "react-router dev",
+    "dev:base": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
@@ -12,19 +13,24 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@react-router/node": "^7.9.4",
     "dompurify": "^3.2.3",
     "html-react-parser": "^5.2.2",
+    "isbot": "^5",
     "npm": "^11.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
     "react-markdown": "^9.0.1",
     "react-redux": "^9.1.2",
+    "react-router": "^7.9.4",
+    "react-router-dom": "^7.9.4",
     "remark-gfm": "^4.0.0",
     "styled-components": "^6.1.11"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.6",
+    "@react-router/dev": "^7.9.4",
     "@storybook/addon-backgrounds": "^8.6.10",
     "@storybook/addon-essentials": "^8.6.10",
     "@storybook/addon-links": "^8.6.10",

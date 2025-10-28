@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { getStyledTextByName } from '../../../tokens/CustomText';
-import { colorVariant, TextTypes } from '../../../types/GlobalTypes';
+import styled from "styled-components";
+import { getStyledTextByName } from "../../../tokens/CustomText";
+import { colorVariant, TextTypes } from "../../../types/GlobalTypes";
 
 interface TagProps {
   colorVariant?: colorVariant;
@@ -10,16 +10,16 @@ interface TagProps {
 }
 
 export const Tag = ({
-  colorVariant = 'primary',
+  colorVariant = "primary",
   textSize = TextTypes.body1,
   text,
   hasPadding = true,
 }: TagProps) => {
-  const classes = [colorVariant, hasPadding === false ? 'noPadding' : ''];
+  const classes = [colorVariant, hasPadding === false ? "noPadding" : ""];
   const asTextElement = getStyledTextByName(textSize);
 
   return (
-    <StyledTag as={asTextElement} className={classes.join(' ')}>
+    <StyledTag as={asTextElement} className={classes.join(" ")}>
       {text}
     </StyledTag>
   );
@@ -31,6 +31,7 @@ const StyledTag = styled.div`
   cursor: default;
   border-radius: var(--size-border-radius-large);
   padding: var(--size-padding-2xs) var(--size-padding-small);
+  color: var(--colors-app-text-dark);
 
   /* Variants */
   &.noPadding {
