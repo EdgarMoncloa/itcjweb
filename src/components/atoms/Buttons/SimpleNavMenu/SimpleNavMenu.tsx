@@ -1,10 +1,10 @@
-import { ReactNode } from 'react';
-import styled, { css } from 'styled-components';
+import { ReactNode } from "react";
+import styled, { css } from "styled-components";
 
 export enum SimpleNavMenuTypes {
-  gob = 'gob',
-  tecnm = 'tecnm',
-  itcj = 'itcj',
+  gob = "gob",
+  tecnm = "tecnm",
+  itcj = "itcj",
 }
 
 interface subItem {
@@ -34,8 +34,10 @@ export const SimpleNavMenu = ({
   return (
     <StyledMainContainer>
       <StyledNavMainItem className={typeClassName}>
-        {icon && <StyledIcon>{icon}</StyledIcon>}
-        <StyledText href={link}>{content}</StyledText>
+        <StyledLinkText href={link} rel="noreferrer">
+          {icon && <StyledIcon>{icon}</StyledIcon>}
+          {content}
+        </StyledLinkText>
       </StyledNavMainItem>
       {subItems && subItems.length > 0 && (
         <StyledSubOptionsWrapper>
@@ -46,7 +48,7 @@ export const SimpleNavMenu = ({
                 className={`${typeClassName} subItem`}
               >
                 {option.icon && <StyledIcon>{option.icon}</StyledIcon>}
-                <StyledText href={link}>{option.content}</StyledText>
+                <StyledLinkText href={link}>{option.content}</StyledLinkText>
               </StyledNavMainItem>
             ))}
           </StyledSubOptionsContainer>
@@ -113,8 +115,8 @@ const StyledIcon = styled.div`
   margin: auto;
 `;
 
-const StyledText = styled.a`
-  display: grid;
+const StyledLinkText = styled.a`
+  display: flex;
   color: var(--colors-app-text-light);
   font-size: var(--font-size-body2);
   text-decoration: none;

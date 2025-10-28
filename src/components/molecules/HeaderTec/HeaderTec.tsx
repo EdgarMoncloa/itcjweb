@@ -1,15 +1,34 @@
-import { headerTecItems } from '../../../data/headerTecItems';
-import { SimpleNavMenu, SimpleNavMenuTypes } from '../../atoms/Buttons/SimpleNavMenu';
-import styled from 'styled-components';
+import { headerTecItems } from "../../../data/headerTecItems";
+import {
+  SimpleNavMenu,
+  SimpleNavMenuTypes,
+} from "../../atoms/Buttons/SimpleNavMenu";
+import styled from "styled-components";
+
+export interface SubItem {
+  content: string;
+  link: string;
+}
+
+export interface headerTecItem {
+  content: string;
+  link: string;
+  subItems?: SubItem[];
+  icon?: React.ReactNode;
+}
 
 export interface HeaderTecProps {
   withOpacity?: boolean;
+  items?: headerTecItem[];
 }
 
-export const HeaderTec = ({ withOpacity = false }: HeaderTecProps) => {
+export const HeaderTec = ({
+  withOpacity = false,
+  items = [],
+}: HeaderTecProps) => {
   return (
-    <StyledHeaderTec className={withOpacity ? 'withOpacity' : ''}>
-      {headerTecItems.map((item, idx) => (
+    <StyledHeaderTec className={withOpacity ? "withOpacity" : ""}>
+      {items.map((item, idx) => (
         <SimpleNavMenu
           key={idx}
           type={SimpleNavMenuTypes.tecnm}

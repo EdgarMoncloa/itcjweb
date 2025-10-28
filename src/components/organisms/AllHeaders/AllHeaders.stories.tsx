@@ -9,10 +9,10 @@ export default {
     layout: 'fullscreen',
   },
   args: {
-    HeaderTecHaveOpacity: false,
+    headerTecHaveOpacity: false,
   },
   argTypes: {
-    HeaderTecHaveOpacity: {
+    headerTecHaveOpacity: {
       description: 'Define si el header del tecnm tiene un fondo transparente',
       control: {
         type: 'boolean',

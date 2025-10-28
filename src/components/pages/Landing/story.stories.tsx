@@ -1,19 +1,19 @@
-import { Meta, StoryObj } from '@storybook/react';
-import { LandingPage } from './';
-import { undergraduatePrograms } from '../../../mocks/undergraduatePrograms';
-import { news } from '../../../mocks/news';
-import { InfoCardTrialSliderProps } from '../../molecules/InfoCardTriadSlider';
-import { blogsMock } from '../../../mocks/blogs';
-import { postgraduatePrograms } from '../../../mocks/postgraduatePrograms';
-import { ServicesMoock } from '../../../mocks/services.mock';
-import { relevantSitesMock } from '../../../mocks/relevantSitesMock';
+import { Meta, StoryObj } from "@storybook/react";
+import { LandingPage } from "./";
+import { undergraduatePrograms } from "../../../mocks/undergraduatePrograms";
+import { news } from "../../../mocks/news";
+import { InfoCardTrialSliderProps } from "../../molecules/InfoCardTriadSlider";
+import { blogsMock } from "../../../mocks/blogs";
+import { postgraduatePrograms } from "../../../mocks/postgraduatePrograms";
+import { ServicesMoock } from "../../../mocks/services.mock";
+import { relevantSitesMock } from "../../../mocks/relevantSitesMock";
 
 export default {
-  title: 'Pages/LandingPage',
+  title: "Pages/LandingPage",
   component: LandingPage,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
   args: {},
 } as Meta<typeof LandingPage>;
@@ -31,6 +31,7 @@ export const Base: StoryObj<typeof LandingPage> = {
 
     return (
       <LandingPage
+        headerTecItems={[]}
         heroContentLinks={news}
         undergraduateContent={undergraduateItems}
         blogsContent={blogsMock}
@@ -43,7 +44,7 @@ export const Base: StoryObj<typeof LandingPage> = {
         }}
         interestSitesContent={{
           sites: relevantSitesMock,
-          title: 'Sitios de interés',
+          title: "Sitios de interés",
         }}
       />
     );

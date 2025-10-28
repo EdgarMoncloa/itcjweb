@@ -48,7 +48,7 @@ export const BlogTemplate = ({
 
   return (
     <StyledBLogTemplate>
-      <AllHeaders HeaderTecHaveOpacity={HeaderTecHaveOpacity} />
+      <AllHeaders headerTecHaveOpacity={HeaderTecHaveOpacity} />
       <StyledBlogImage ref={refBlogImage}>
         <StyledImg src={imgSrc} alt={alt} />
       </StyledBlogImage>

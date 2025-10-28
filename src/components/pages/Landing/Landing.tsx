@@ -1,27 +1,29 @@
-import { RelevantSites } from '../../molecules/RelevantSites';
-import { BlogsSection } from '../../organisms/BlogsSection';
-import styled from 'styled-components';
-import { CustomDivider } from '../../atoms/CustomDivider';
-import { HeroSection } from '../../organisms/HeroSection';
-import { ContentLinkProps } from '../../atoms/ContentLink';
-import { TecFooter } from '../../molecules/TecFooter';
-import { GobFooter } from '../../molecules/GobFooter';
-import { UndergraduateSection } from '../../organisms/UnderGraduateSection';
-import { BlogCardProps } from '../../molecules/BlogCard';
-import { InfoCardTrialSliderProps } from '../../molecules/InfoCardTriadSlider';
+import { RelevantSites } from "../../molecules/RelevantSites";
+import { BlogsSection } from "../../organisms/BlogsSection";
+import styled from "styled-components";
+import { CustomDivider } from "../../atoms/CustomDivider";
+import { HeroSection } from "../../organisms/HeroSection";
+import { ContentLinkProps } from "../../atoms/ContentLink";
+import { TecFooter } from "../../molecules/TecFooter";
+import { GobFooter } from "../../molecules/GobFooter";
+import { UndergraduateSection } from "../../organisms/UnderGraduateSection";
+import { BlogCardProps } from "../../molecules/BlogCard";
+import { InfoCardTrialSliderProps } from "../../molecules/InfoCardTriadSlider";
 import {
   PostGraduateSectionProps,
   PostgraduateSection,
-} from '../../organisms/PostgraduateSection';
+} from "../../organisms/PostgraduateSection";
 import {
   ServicesSection,
   ServicesSectionProps,
-} from '../../organisms/ServicesSection';
-import Logo_ITCJ_base from '/images/Logo_ITCJ_base.png';
-import { Logo3DGrid, Logo3DGridProps } from '../../molecules/Logo3DGrid';
-import { AllHeaders } from '../../organisms/AllHeaders';
+} from "../../organisms/ServicesSection";
+import Logo_ITCJ_base from "/images/Logo_ITCJ_base.png";
+import { Logo3DGrid, Logo3DGridProps } from "../../molecules/Logo3DGrid";
+import { AllHeaders } from "../../organisms/AllHeaders";
+import { headerTecItem } from "../../molecules/HeaderTec";
 
 interface LandingProps {
+  headerTecItems: headerTecItem[];
   heroContentLinks: ContentLinkProps[];
   undergraduateContent: InfoCardTrialSliderProps[];
   blogsContent: BlogCardProps[];
@@ -31,6 +33,7 @@ interface LandingProps {
 }
 
 export const LandingPage = ({
+  headerTecItems,
   heroContentLinks,
   undergraduateContent,
   blogsContent,
@@ -46,7 +49,7 @@ export const LandingPage = ({
 
   return (
     <StyledLanding>
-      <AllHeaders />
+      <AllHeaders headerTecItems={headerTecItems} />
       <CustomDivider />
       <StyledHeroGap />
       <StyledHeroWrapper>
@@ -55,20 +58,20 @@ export const LandingPage = ({
       <StyledBaseMaringContainer>
         <RelevantSites />
       </StyledBaseMaringContainer>
-      <CustomDivider content='Blogs' />
+      <CustomDivider content="Blogs" />
       <StyledBaseMaringContainer>
         <BlogsSection blogCards={blogCards} />
       </StyledBaseMaringContainer>
-      <CustomDivider content='Oferta académica' />
+      <CustomDivider content="Oferta académica" />
       <StyledBaseMaringContainer>
         <UndergraduateSection
-          title='Licenciaturas'
+          title="Licenciaturas"
           items={undergraduateContent}
         />
       </StyledBaseMaringContainer>
       <PostgraduateSection {...postgraduateContent} />
       <StyledTitleMargin />
-      <CustomDivider content='Servicios' />
+      <CustomDivider content="Servicios" />
       <ServicesSection {...servicesSection} />
       <StyledTitleMargin />
       <StyledTitleMargin />
@@ -76,7 +79,7 @@ export const LandingPage = ({
         <Logo3DGrid {...interestSitesContent} />
       </StyledInterestSitesWrapper>
       <CustomDivider
-        content={<img src={Logo_ITCJ_base} alt='Logo ITCJ' />}
+        content={<img src={Logo_ITCJ_base} alt="Logo ITCJ" />}
         dividerOnSides
       />
       <TecFooter />

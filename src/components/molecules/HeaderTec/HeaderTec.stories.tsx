@@ -1,19 +1,20 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { HeaderTec } from '.';
-import styled from 'styled-components';
+import type { Meta, StoryObj } from "@storybook/react";
+import { HeaderTec } from ".";
+import styled from "styled-components";
+import { headerTecItems } from "../../../data/headerTecItems";
 
 export default {
-  title: 'Molecules/HeaderTec',
+  title: "Molecules/HeaderTec",
   component: HeaderTec,
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   parameters: {
-    layout: 'fullscreen',
+    layout: "fullscreen",
   },
   argTypes: {
     withOpacity: {
-      description: 'Define si el header tiene un fondo transparente',
+      description: "Define si el header tiene un fondo transparente",
       control: {
-        type: 'boolean',
+        type: "boolean",
       },
     },
   },
@@ -26,7 +27,7 @@ export const Base: StoryObj<typeof HeaderTec> = {
   render: (args) => {
     return (
       <StyledContainer>
-        <HeaderTec {...args} />
+        <HeaderTec {...args} items={headerTecItems} />
       </StyledContainer>
     );
   },
