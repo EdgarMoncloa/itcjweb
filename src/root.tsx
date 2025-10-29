@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./tokens/styles.globals";
 import { AppConfigStoreProvider } from "./store/AppConfigStore";
 import { theme } from "./tokens/theme.ts";
+import "./index.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (

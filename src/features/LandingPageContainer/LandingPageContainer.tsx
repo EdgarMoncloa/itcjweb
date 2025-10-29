@@ -4,7 +4,6 @@ import { LandingPage } from "../../components/pages/Landing";
 import { blogsMock } from "../../mocks/blogs";
 import { news } from "../../mocks/news";
 import { postgraduatePrograms } from "../../mocks/postgraduatePrograms";
-import { relevantSitesMock } from "../../mocks/relevantSitesMock";
 import { ServicesMoock } from "../../mocks/services.mock";
 import { undergraduatePrograms } from "../../mocks/undergraduatePrograms";
 

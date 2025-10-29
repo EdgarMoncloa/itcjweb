@@ -8,6 +8,7 @@ export type RelevantSiteProps = {
   text: string;
   toSite: string;
   defaultSize?: boolean;
+  target?: string;
 };
 
 export const RelevantSite = ({
@@ -15,13 +16,14 @@ export const RelevantSite = ({
   text,
   toSite,
   defaultSize,
+  target,
 }: RelevantSiteProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <StyledRelevantSite
       href={toSite}
-      target="_blank"
+      target={target || "_blank"}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={defaultSize ? "defaultSize" : ""}

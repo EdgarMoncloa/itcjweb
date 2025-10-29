@@ -1,7 +1,6 @@
 import { headerTecItems } from "../../../data/headerTecItems";
-import { StyledH3, StyledH4 } from "../../../tokens/CustomText";
+import { StyledH3 } from "../../../tokens/CustomText";
 import { DocumentLink } from "../../atoms/Buttons/DocumentLink";
-import { CustomImg } from "../../molecules/CustomImg";
 import { InfoHub } from "../../templates/InfoHub";
 import { Contraloria_Description } from "./content/Contraloria_Description";
 import { Contraloria_E010 } from "./content/Contraloria_E010";

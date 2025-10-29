@@ -5,7 +5,7 @@ import { IoDocumentTextOutline } from "react-icons/io5";
 import { BiLinkExternal } from "react-icons/bi";
 import styled from "styled-components";
 import { StyledBody1, StyledTextCaption } from "../../../../tokens/CustomText";
-import { colorVariant, COLOR_VARIANT } from "../../../../types/GlobalTypes";
+import { COLOR_VARIANT } from "../../../../types/GlobalTypes";
 interface DocumentLinkProps extends ComponentPropsWithRef<typeof BaseButton> {
   children?: ReactNode;
   href?: string;
@@ -18,9 +18,13 @@ export const DocumentLink = ({
   href,
   ...props
 }: DocumentLinkProps) => {
+  const colorVariantClassName = props.colorVariant
+    ? `colorVariant-${props.colorVariant}`
+    : "";
   return (
     <StyledBaseButton
       {...props}
+      className={`${props.className} ${colorVariantClassName}`}
       icon={
         <StyledIconContainer>
           <IoDocumentTextOutline />
@@ -48,6 +52,10 @@ const StyledBaseButton = styled(BaseButton)`
   padding: var(--size-padding-medium) var(--size-padding-medium);
   width: 100%;
   height: 100%;
+
+  &.colorVariant-neutral {
+    color: var(--colors-app-text-dark);
+  }
 `;
 
 const StyledLinkContainer = styled.div`

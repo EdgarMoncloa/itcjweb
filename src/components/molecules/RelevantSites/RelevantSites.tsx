@@ -1,6 +1,6 @@
-import { BiBlanket } from 'react-icons/bi';
-import styled from 'styled-components';
-import { RelevantSite } from '../../atoms/Buttons/RelevantSite';
+import { BiBlanket } from "react-icons/bi";
+import styled from "styled-components";
+import { RelevantSite } from "../../atoms/Buttons/RelevantSite";
 
 interface RelevantSitesProps {
   // sites: RelevantSiteProps[];
@@ -11,22 +11,27 @@ export const RelevantSites = ({}: RelevantSitesProps) => {
     <StyledRelevantSites>
       <RelevantSite
         icon={<BiBlanket />}
-        text='SII'
-        toSite='http://sii.cdjuarez.tecnm.mx'
+        text="SII"
+        toSite="http://sii.cdjuarez.tecnm.mx"
       />
       <RelevantSite
         icon={<BiBlanket />}
-        text='Moodle'
-        toSite='https://moodle.cdjuarez.tecnm.mx'
+        text="Moodle"
+        toSite="https://moodle.cdjuarez.tecnm.mx"
       />
-      <RelevantSite icon={<BiBlanket />} text='Fichas' toSite='#' />
-      <RelevantSite icon={<BiBlanket />} text='Mapa' toSite='#' />
+      <RelevantSite icon={<BiBlanket />} text="Fichas" toSite="#" />
+      <RelevantSite icon={<BiBlanket />} text="Mapa" toSite="#" />
       <RelevantSite
         icon={<BiBlanket />}
-        text='Agenda'
-        toSite='http://cdjuarez.tecnm.mx/agenda/index.php'
+        text="Agenda"
+        toSite="http://cdjuarez.tecnm.mx/agenda/index.php"
       />
-      <RelevantSite icon={<BiBlanket />} text='SGIG' toSite='#' />
+      <RelevantSite
+        icon={<BiBlanket />}
+        text="SGIG"
+        toSite="/sgig"
+        target="_self"
+      />
     </StyledRelevantSites>
   );
 };
