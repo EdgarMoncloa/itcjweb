@@ -48,7 +48,9 @@ export const SimpleNavMenu = ({
                 className={`${typeClassName} subItem`}
               >
                 {option.icon && <StyledIcon>{option.icon}</StyledIcon>}
-                <StyledLinkText href={link}>{option.content}</StyledLinkText>
+                <StyledLinkText href={option.link}>
+                  {option.content}
+                </StyledLinkText>
               </StyledNavMainItem>
             ))}
           </StyledSubOptionsContainer>
