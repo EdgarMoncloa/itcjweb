@@ -7,6 +7,7 @@ import { EgresadosPageContainer } from "./features/EgresadosPageContainer";
 import { ContraloriaPageContainer } from "./features/ContraloriaPageContainer";
 import styled from "styled-components";
 import { SGIGPageContainer } from "./features/SGIGPageContainer";
+import { PosgradosPageContainer } from "./features/PosgradosPageContainer";
 
 export default function App() {
   return (
@@ -30,6 +31,10 @@ export default function App() {
         />
         <Route path="/contraloria" element={<ContraloriaPageContainer />} />
         <Route path="/sgig" element={<SGIGPageContainer />} />
+        <Route
+          path="/posgrados/:section?/:subsection?"
+          element={<PosgradosPageContainer />}
+        />
       </Routes>
     </StyledContainer>
   );

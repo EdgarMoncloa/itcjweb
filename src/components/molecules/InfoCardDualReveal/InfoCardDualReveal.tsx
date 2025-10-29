@@ -1,18 +1,20 @@
-import styled from 'styled-components';
-import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
-import { TextTypes } from '../../../types/GlobalTypes';
-import { Tag } from '../../atoms/Tag';
-import { DualContentHoverReveal } from '../../atoms/Grids/DualContentHoverReveal';
-import { DynamicIcon } from '../../atoms/Icons/DynamicIcon';
+import styled from "styled-components";
+import { StyledBody1, StyledH6 } from "../../../tokens/CustomText";
+import { TextTypes } from "../../../types/GlobalTypes";
+import { Tag } from "../../atoms/Tag";
+import { DualContentHoverReveal } from "../../atoms/Grids/DualContentHoverReveal";
+import { DynamicIcon } from "../../atoms/Icons/DynamicIcon";
+import { ComponentPropsWithRef } from "react";
 
-export interface InfoCardDualRevealProps {
+export interface InfoCardDualRevealProps
+  extends ComponentPropsWithRef<typeof StyledInfoCardDualReveal> {
   defaultSize?: boolean;
   icon?: React.ReactNode;
   title: string;
   tags?: string[];
   subtitle: string;
   description: string;
-  colorVariant?: 'primary' | 'neutral';
+  colorVariant?: "primary" | "neutral";
 }
 
 export const InfoCardDualReveal = ({
@@ -22,15 +24,19 @@ export const InfoCardDualReveal = ({
   tags,
   subtitle,
   description,
-  colorVariant = 'primary',
+  colorVariant = "primary",
+  ...props
 }: InfoCardDualRevealProps) => {
   return (
-    <StyledInfoCardDualReveal className={defaultSize ? 'defaultSize' : ''}>
+    <StyledInfoCardDualReveal
+      className={defaultSize ? "defaultSize" : ""}
+      {...props}
+    >
       <DualContentHoverReveal
         colorVariant={colorVariant}
         primaryContent={
           <>
-            <DynamicIcon icon={icon} size={'4xl'} colorVariant={colorVariant} />
+            <DynamicIcon icon={icon} size={"4xl"} colorVariant={colorVariant} />
             <StyledTitle as={StyledH6}>{title}</StyledTitle>
             {tags && (
               <StyledTagsContainer>

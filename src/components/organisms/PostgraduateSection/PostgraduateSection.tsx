@@ -1,7 +1,8 @@
-import { ReactNode } from 'react';
-import { InfoCardDualReveal } from '../../molecules/InfoCardDualReveal';
-import styled from 'styled-components';
-import { StyledH2 } from '../../../tokens/CustomText';
+import { ReactNode } from "react";
+import { InfoCardDualReveal } from "../../molecules/InfoCardDualReveal";
+import styled from "styled-components";
+import { StyledH2 } from "../../../tokens/CustomText";
+import { useNavigate } from "react-router";
 
 export interface PostgraduateItemProps {
   name: string;
@@ -9,6 +10,7 @@ export interface PostgraduateItemProps {
   campuses: string[];
   description: string;
   icon: ReactNode;
+  link?: string;
 }
 
 export interface PostGraduateSectionProps {
@@ -18,8 +20,10 @@ export interface PostGraduateSectionProps {
 
 export const PostgraduateSection = ({
   postgraduatePrograms,
-  title = 'Posgrados',
+  title = "Posgrados",
 }: PostGraduateSectionProps) => {
+  const navigate = useNavigate();
+
   const postgraduateElements = postgraduatePrograms.map((program, index) => {
     return (
       <InfoCardDualReveal
@@ -28,7 +32,12 @@ export const PostgraduateSection = ({
         subtitle={program.key}
         tags={program.campuses}
         title={program.name}
-        colorVariant='neutral'
+        colorVariant="neutral"
+        onClick={() => {
+          if (program.link) {
+            navigate(program.link);
+          }
+        }}
       />
     );
   });
