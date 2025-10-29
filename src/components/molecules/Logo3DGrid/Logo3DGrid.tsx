@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { LogoLink3D, LogoLink3DProps } from '../../atoms/Buttons/LogoLink3D';
-import { StyledH3 } from '../../../tokens/CustomText';
+import styled from "styled-components";
+import { LogoLink3D, LogoLink3DProps } from "../../atoms/Buttons/LogoLink3D";
+import { StyledH3 } from "../../../tokens/CustomText";
 
 export interface Logo3DGridProps {
   sites: LogoLink3DProps[];
@@ -12,9 +12,9 @@ export const Logo3DGrid = ({ defaultSize, sites, title }: Logo3DGridProps) => {
   return (
     <StyledLogo3DGrid>
       {title && <StyledH3>{title}</StyledH3>}
-      <StyledLogosContainer className={defaultSize ? 'defaultSize' : ''}>
+      <StyledLogosContainer className={defaultSize ? "defaultSize" : ""}>
         {sites.map((site, index) => (
-          <LogoLink3D key={index} {...site} target='_blank' />
+          <LogoLink3D key={index} {...site} />
         ))}
       </StyledLogosContainer>
     </StyledLogo3DGrid>

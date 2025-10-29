@@ -1,19 +1,19 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const LogosHeader = () => {
   return (
     <StyledLogosHeader>
-      <StyledLink href='https://www.gob.mx/sep'>
+      <StyledLink href="https://www.gob.mx/sep">
         <StyledLogoImg
-          src='/images/Logo_secretaria_de_educacion.png'
-          alt='Logo secretaria de educacion'
+          src="/images/Logo_secretaria_de_educacion.png"
+          alt="Logo secretaria de educacion"
         />
       </StyledLink>
-      <StyledLink href='https://www.tecnm.mx'>
-        <StyledLogoImg src='/images/Logo_Tecnm.png' alt='Logo Tecnm' />
+      <StyledLink href="https://www.tecnm.mx">
+        <StyledLogoImg src="/images/Logo_Tecnm.png" alt="Logo Tecnm" />
       </StyledLink>
-      <StyledLink href='http://cdjuarez.tecnm.mx'>
-        <StyledLogoImg src='/images/Logo_ITCJ_base.png' alt='Logo ITCJ base' />
+      <StyledLink href="/">
+        <StyledLogoImg src="/images/Logo_ITCJ_base.png" alt="Logo ITCJ base" />
       </StyledLink>
     </StyledLogosHeader>
   );

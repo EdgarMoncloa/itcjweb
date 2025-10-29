@@ -107,7 +107,7 @@ export const LogoLink3D = ({
   };
 
   return (
-    <StyledAnchorWrapper href={href} target={target}>
+    <StyledAnchorWrapper href={href} target={target || "_blank"}>
       <StyledLogoLink3dWrapper
         ref={wrapperRef}
         className={defaultSize ? "defaultSize" : ""}

@@ -15,6 +15,7 @@ import { SidebarLayout } from "../../organisms/SidebarLayout";
 import { TecFooter } from "../../molecules/TecFooter";
 import { GobFooter } from "../../molecules/GobFooter";
 import { StyledTable } from "../../../tokens/CustomTable";
+import { headerTecItems } from "../../../data/headerTecItems";
 
 const defaultItemIndex = 0;
 
@@ -280,7 +281,7 @@ const content = [
 export const SGIG = () => {
   return (
     <StyledSGIG>
-      <AllHeaders />
+      <AllHeaders headerTecItems={headerTecItems} />
       <StyledContent>
         <StyledMainTitle>
           Sistema de Gestión de Igualdad de Género y No Discriminación (SGIG)

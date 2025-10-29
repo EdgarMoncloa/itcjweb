@@ -1,3 +1,4 @@
+import { headerTecItems } from "../../../data/headerTecItems";
 import { InfoHub } from "../../templates/InfoHub";
 import { CentroDeIdiomas } from "./Content/CentroDeIdiomas";
 import { CentroDeInformacion } from "./Content/CentroDeInformacion";
@@ -33,5 +34,11 @@ const content = [
 ];
 
 export const Servicios = () => {
-  return <InfoHub title="Servicios" content={content} />;
+  return (
+    <InfoHub
+      title="Servicios"
+      content={content}
+      headerTecItems={headerTecItems}
+    />
+  );
 };

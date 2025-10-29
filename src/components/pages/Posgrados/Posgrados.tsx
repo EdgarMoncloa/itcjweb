@@ -1,3 +1,4 @@
+import { headerTecItems } from "../../../data/headerTecItems";
 import { StyledUl } from "../../../tokens/CustomHTMLElements";
 import { InfoHub } from "../../templates/InfoHub";
 import { posgradosContent } from "./posgradosContent";
@@ -10,6 +11,7 @@ export const Posgrados = () => {
       content={posgradosContent}
       defaultItemIndex={defaultItemIndex}
       title={title}
+      headerTecItems={headerTecItems}
     />
   );
 };

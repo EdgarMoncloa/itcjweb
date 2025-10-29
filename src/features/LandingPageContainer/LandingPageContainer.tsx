@@ -16,62 +16,10 @@ const undergraduateItems: InfoCardTrialSliderProps[] =
     tags: item.campus,
     icon: item.icon,
   }));
-const headerTecItems = [
-  {
-    content: "",
-    icon: <AiOutlineFacebook />,
-    link: "https://www.facebook.com/TecNMCampusCdJuarez/?locale=es_LA",
-    subitems: [],
-  },
-  {
-    content: "",
-    icon: <AiOutlineLinkedin />,
-    link: "https://www.linkedin.com/school/instituto-tecnológico-de-ciudad-juárez/posts/?feedView=all",
-    subitems: [],
-  },
-  {
-    content: "Conocenos",
-    link: "/Conocenos",
-    subItems: [],
-  },
-  {
-    content: "Aspirantes",
-    link: "#",
-    subItems: [
-      {
-        content: "Programas académicos",
-        link: "#",
-      },
-      { content: "Proceso de admisión", link: "#" },
-      { content: "Plan de estudios", link: "#" },
-      { content: "Becas y ayudas financieras", link: "#" },
-      { content: "Infraestructura", link: "#" },
-      { content: "Servicios de apoyo", link: "#" },
-      { content: "Clubes y actividades", link: "#" },
-      { content: "Mapa", link: "#" },
-    ],
-  },
-  {
-    content: "Alumnos",
-    link: "/alumnos",
-    subItems: [],
-  },
-  {
-    content: "Personal",
-    link: "#",
-    subItems: [],
-  },
-  {
-    content: "Egresados",
-    link: "#",
-    subItems: [],
-  },
-];
 
 export function LandingPageContainer() {
   return (
     <LandingPage
-      headerTecItems={headerTecItems}
       heroContentLinks={news}
       undergraduateContent={undergraduateItems}
       blogsContent={blogsMock}
@@ -80,10 +28,6 @@ export function LandingPageContainer() {
       }}
       servicesSection={{
         services: ServicesMoock,
-      }}
-      interestSitesContent={{
-        sites: relevantSitesMock,
-        title: "Sitios de interés",
       }}
     />
   );

@@ -125,6 +125,7 @@ const StyledLinkText = styled.a`
   align-items: center;
   align-content: center;
   height: 100%;
+  width: 100%;
 `;
 
 // ANCHOR Sub Options Container

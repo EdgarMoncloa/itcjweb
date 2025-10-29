@@ -1,3 +1,4 @@
+import { headerTecItems } from "../../../data/headerTecItems";
 import { StyledUl } from "../../../tokens/CustomHTMLElements";
 import { StyledImg } from "../../../tokens/CustomImg";
 import { StyledTable } from "../../../tokens/CustomTable";
@@ -613,12 +614,14 @@ const content = [
 ];
 const defaultItemIndex = 0;
 const title = "Identidad institucional";
+
 export const NosotrosPage = () => {
   return (
     <InfoHub
       title={title}
       content={content}
       defaultItemIndex={defaultItemIndex}
+      headerTecItems={headerTecItems}
     />
   );
 };

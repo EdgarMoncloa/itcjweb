@@ -21,25 +21,23 @@ import Logo_ITCJ_base from "/images/Logo_ITCJ_base.png";
 import { Logo3DGrid, Logo3DGridProps } from "../../molecules/Logo3DGrid";
 import { AllHeaders } from "../../organisms/AllHeaders";
 import { headerTecItem } from "../../molecules/HeaderTec";
+import { headerTecItems } from "../../../data/headerTecItems";
+import { relevantSites } from "../../../data/relevantSites.data";
 
 interface LandingProps {
-  headerTecItems: headerTecItem[];
   heroContentLinks: ContentLinkProps[];
   undergraduateContent: InfoCardTrialSliderProps[];
   blogsContent: BlogCardProps[];
   postgraduateContent: PostGraduateSectionProps;
   servicesSection: ServicesSectionProps;
-  interestSitesContent: Logo3DGridProps;
 }
 
 export const LandingPage = ({
-  headerTecItems,
   heroContentLinks,
   undergraduateContent,
   blogsContent,
   postgraduateContent,
   servicesSection,
-  interestSitesContent,
 }: LandingProps) => {
   const blogCards = blogsContent.map((item) => ({
     title: item.title,
@@ -76,7 +74,7 @@ export const LandingPage = ({
       <StyledTitleMargin />
       <StyledTitleMargin />
       <StyledInterestSitesWrapper>
-        <Logo3DGrid {...interestSitesContent} />
+        <Logo3DGrid title="Sitios de interés" sites={relevantSites} />
       </StyledInterestSitesWrapper>
       <CustomDivider
         content={<img src={Logo_ITCJ_base} alt="Logo ITCJ" />}

@@ -1,3 +1,4 @@
+import { headerTecItems } from "../../../data/headerTecItems";
 import { StyledH3, StyledH4 } from "../../../tokens/CustomText";
 import { DocumentLink } from "../../atoms/Buttons/DocumentLink";
 import { CustomImg } from "../../molecules/CustomImg";
@@ -94,6 +95,7 @@ export const Contraloria = () => {
       content={contraloriaContent}
       defaultItemIndex={defaultItemIndex}
       title={title}
+      headerTecItems={headerTecItems}
     />
   );
 };

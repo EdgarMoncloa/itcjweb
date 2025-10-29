@@ -4,8 +4,10 @@ import { TecFooter } from "../../molecules/TecFooter";
 import { GobFooter } from "../../molecules/GobFooter";
 import { ReactNode } from "react";
 import { SidebarLayout } from "../../organisms/SidebarLayout";
+import { headerTecItem } from "../../molecules/HeaderTec";
 
 export type ContentElement = {
+  id?: string;
   label: ReactNode;
   icon?: ReactNode;
   content: ReactNode;
@@ -19,6 +21,7 @@ export interface InfoHubProps {
   content: ContentElement[];
   defaultItemIndex?: number;
   noHeaders?: boolean;
+  headerTecItems?: headerTecItem[];
 }
 
 export const InfoHub = ({
@@ -26,10 +29,11 @@ export const InfoHub = ({
   title,
   defaultItemIndex = 0,
   noHeaders = false,
+  headerTecItems,
 }: InfoHubProps) => {
   return (
     <StyledMainContainer>
-      {noHeaders ? null : <AllHeaders />}
+      {noHeaders ? null : <AllHeaders headerTecItems={headerTecItems} />}
       <SidebarLayout
         content={content}
         title={title}
