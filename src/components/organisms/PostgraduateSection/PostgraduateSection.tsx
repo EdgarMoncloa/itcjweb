@@ -1,10 +1,11 @@
-import { ReactNode } from "react";
+import { PropsWithRef, ReactNode } from "react";
 import { InfoCardDualReveal } from "../../molecules/InfoCardDualReveal";
 import styled from "styled-components";
 import { StyledH2 } from "../../../tokens/CustomText";
 import { useNavigate } from "react-router";
 
-export interface PostgraduateItemProps {
+export interface PostgraduateItemProps
+  extends React.PropsWithRef<JSX.IntrinsicElements["div"]> {
   name: string;
   key: string;
   campuses: string[];

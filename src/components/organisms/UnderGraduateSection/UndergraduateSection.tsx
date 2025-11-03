@@ -11,14 +11,12 @@ import {
 export interface UndergraduateSectionProps {
   title: string;
   items: InfoCardTrialSliderProps[];
-  blankItem?: ReactNode;
   lastRowAlign?: "left" | "center" | "right";
 }
 
 export const UndergraduateSection = ({
   title,
   items,
-  blankItem,
 }: UndergraduateSectionProps) => {
   const itemsContainer = useRef<HTMLDivElement>(null);
 

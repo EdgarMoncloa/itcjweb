@@ -1,13 +1,15 @@
-import styled, { css } from 'styled-components';
-import { StyledBody1, StyledH6 } from '../../../tokens/CustomText';
-import { TextTypes } from '../../../types/GlobalTypes';
-import { Tag } from '../../atoms/Tag';
+import styled, { css } from "styled-components";
+import { StyledBody1, StyledH6 } from "../../../tokens/CustomText";
+import { TextTypes } from "../../../types/GlobalTypes";
+import { Tag } from "../../atoms/Tag";
 import {
   TriadContentHoverSlider,
   TriadContentHoverSliderSize,
-} from '../../atoms/Grids/TriadContentHoverSlider';
+} from "../../atoms/Grids/TriadContentHoverSlider";
+import { ComponentPropsWithRef } from "react";
 
-export interface InfoCardTrialSliderProps {
+export interface InfoCardTrialSliderProps
+  extends ComponentPropsWithRef<typeof StyledGridSliderInfoCard> {
   title: string;
   subtitle: string;
   description: string;
@@ -24,7 +26,8 @@ export const InfoCardTrialSlider = ({
   tags,
   icon,
   defaultSize,
-  gridSize = '2-1-2',
+  gridSize = "2-1-2",
+  ...props
 }: InfoCardTrialSliderProps) => {
   const primaryContent = (
     <StyledPrimaryContent>
@@ -36,7 +39,7 @@ export const InfoCardTrialSlider = ({
               <Tag
                 key={index}
                 text={tag}
-                colorVariant='primary'
+                colorVariant="primary"
                 hasPadding={true}
                 textSize={TextTypes.overline}
               />
@@ -57,7 +60,10 @@ export const InfoCardTrialSlider = ({
   );
 
   return (
-    <StyledGridSliderInfoCard className={defaultSize ? 'default-size' : ''}>
+    <StyledGridSliderInfoCard
+      className={`${props.className} ${defaultSize ? "default-size" : ""}`}
+      {...props}
+    >
       <TriadContentHoverSlider
         primaryContent={primaryContent}
         secondaryContent={secondaryContent}

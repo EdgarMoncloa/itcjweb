@@ -2,12 +2,12 @@ import { Route, Routes } from "react-router-dom";
 import { LandingPageContainer } from "./features/LandingPageContainer";
 import { EstudiantesPageContainer } from "./features/EstudiantesPageContainer";
 import { NosotrosPageContainer } from "./features/NosotrosPageContainer";
-import { ProgramasAcademicosPage } from "./components/pages/ProgramasAcademicos";
 import { EgresadosPageContainer } from "./features/EgresadosPageContainer";
 import { ContraloriaPageContainer } from "./features/ContraloriaPageContainer";
 import styled from "styled-components";
 import { SGIGPageContainer } from "./features/SGIGPageContainer";
 import { PosgradosPageContainer } from "./features/PosgradosPageContainer";
+import { PorgramasAcademicosPageContainer } from "./features/PorgramasAcademicosPageContainer";
 
 export default function App() {
   return (
@@ -17,7 +17,7 @@ export default function App() {
         <Route path="/nosotros" element={<NosotrosPageContainer />} />
         <Route
           path="/aspirantes/programas-academicos/:section?"
-          element={<ProgramasAcademicosPage />}
+          element={<PorgramasAcademicosPageContainer />}
         />
         {/* TODO: Add personal page */}
         {/* <Route path="/personal" element={<Personal />} /> */}

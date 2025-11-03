@@ -4,12 +4,12 @@ import { TextTypes } from "../../../types/GlobalTypes";
 import { Tag } from "../../atoms/Tag";
 import { DualContentHoverReveal } from "../../atoms/Grids/DualContentHoverReveal";
 import { DynamicIcon } from "../../atoms/Icons/DynamicIcon";
-import { ComponentPropsWithRef } from "react";
+import { ComponentPropsWithRef, ReactNode } from "react";
 
 export interface InfoCardDualRevealProps
   extends ComponentPropsWithRef<typeof StyledInfoCardDualReveal> {
   defaultSize?: boolean;
-  icon?: React.ReactNode;
+  icon?: ReactNode;
   title: string;
   tags?: string[];
   subtitle: string;
