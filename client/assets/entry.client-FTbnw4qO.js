@@ -1,0 +1,1 @@
+import{j as o,R as e,H as a}from"./chunk-OIYGIGL5-D06X32UN.js";import{r as s}from"./index-DJyoLquH.js";var t={},r=s;t.createRoot=r.createRoot,t.hydrateRoot=r.hydrateRoot;t.hydrateRoot(document,o.jsx(e.StrictMode,{children:o.jsx(a,{})}));

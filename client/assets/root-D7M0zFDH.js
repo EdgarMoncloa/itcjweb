@@ -1,4 +1,4 @@
-import{w as o,o as r,M as s,L as a,S as i,p,O as t}from"./chunk-OIYGIGL5-Mi_9CgZB.js";import{h as n,n as l,A as m}from"./AppConfigStore-PtwkSpNe.js";const x=n`
+import{w as o,j as r,M as s,L as a,S as i,a as p,O as t}from"./chunk-OIYGIGL5-D06X32UN.js";import{h as n,n as l,A as m}from"./AppConfigStore-C7lQcQsU.js";const x=n`
   * {
     box-sizing: border-box;
   }
