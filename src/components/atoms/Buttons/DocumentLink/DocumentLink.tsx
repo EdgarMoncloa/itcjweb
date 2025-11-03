@@ -47,6 +47,7 @@ export const DocumentLink = ({
 };
 
 const StyledBaseButton = styled(BaseButton)`
+  color: var(--colors-app-text-dark);
   display: flex;
   justify-content: flex-start;
   padding: var(--size-padding-medium) var(--size-padding-medium);
