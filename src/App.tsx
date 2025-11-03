@@ -8,6 +8,7 @@ import styled from "styled-components";
 import { SGIGPageContainer } from "./features/SGIGPageContainer";
 import { PosgradosPageContainer } from "./features/PosgradosPageContainer";
 import { PorgramasAcademicosPageContainer } from "./features/PorgramasAcademicosPageContainer";
+import { PersonalPageContainer } from "./features/PersonalPageContainer";
 
 export default function App() {
   return (
@@ -35,6 +36,7 @@ export default function App() {
           path="/posgrados/:section?/:subsection?"
           element={<PosgradosPageContainer />}
         />
+        <Route path="/personal" element={<PersonalPageContainer />} />
       </Routes>
     </StyledContainer>
   );
