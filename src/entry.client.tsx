@@ -1,8 +1,8 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import { hydrateRoot } from "react-dom/client";
 import { HydratedRouter } from "react-router/dom";
 
-ReactDOM.hydrateRoot(
+hydrateRoot(
   document,
   <React.StrictMode>
     <HydratedRouter />

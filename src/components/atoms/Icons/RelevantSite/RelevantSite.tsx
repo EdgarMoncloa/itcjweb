@@ -2,6 +2,7 @@ import { ReactElement, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { SlideCover } from "../../Animations/SlideCover";
 import { StyledH6 } from "../../../../tokens/CustomText";
+import { Link } from "react-router";
 
 export type RelevantSiteProps = {
   icon?: ReactElement;
@@ -20,7 +21,7 @@ export const RelevantSite = ({
 
   return (
     <StyledRelevantSite
-      href={toSite}
+      to={toSite}
       target="_blank"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -38,7 +39,7 @@ const colorCHange = keyframes`
     color: var(--colors-app-text-light);
   }
 `;
-export const StyledRelevantSite = styled.a`
+export const StyledRelevantSite = styled(Link)`
   border-radius: var(--size-border-radius-medium, 8px);
   border: 2px solid var(--colors-app-primary-700, #c11627);
   color: var(--colors-app-text-dark);

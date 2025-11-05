@@ -1,15 +1,19 @@
-import styled from 'styled-components';
-import { DualContentHover3DSlider } from '../../atoms/Grids/DualContentHover3DSlider';
-import { StyledBody1, StyledH5, StyledH6 } from '../../../tokens/CustomText';
-import { DynamicIcon } from '../../atoms/Icons/DynamicIcon';
+import styled from "styled-components";
+import { DualContentHover3DSlider } from "../../atoms/Grids/DualContentHover3DSlider";
+import { StyledBody1, StyledH5, StyledH6 } from "../../../tokens/CustomText";
+import { DynamicIcon } from "../../atoms/Icons/DynamicIcon";
+import { ComponentPropsWithRef } from "react";
+import { useNavigate } from "react-router";
 
-export interface InfoCardDual3DSliderProps {
+export interface InfoCardDual3DSliderProps
+  extends ComponentPropsWithRef<typeof SyledInfoCardDual3DSlider> {
   defaultSize?: boolean;
   icon?: React.ReactNode;
   title: string;
   tags?: string[];
   description: string;
-  colorVariant?: 'primary';
+  colorVariant?: "primary";
+  href?: string;
 }
 
 export const InfoCardDual3DSlider = ({
@@ -19,10 +23,12 @@ export const InfoCardDual3DSlider = ({
   tags,
   description,
   colorVariant,
+  href,
+  ...props
 }: InfoCardDual3DSliderProps) => {
   const firstContent = (
     <StyledContent>
-      <DynamicIcon icon={icon} size={'3xl'} />
+      <DynamicIcon icon={icon} size={"3xl"} />
       <StyledH6>{title}</StyledH6>
     </StyledContent>
   );
@@ -31,8 +37,20 @@ export const InfoCardDual3DSlider = ({
       <StyledBody1>{description}</StyledBody1>
     </StyledLeftContainer>
   );
+  const navigate = useNavigate();
   return (
-    <SyledInfoCardDual3DSlider className={defaultSize ? 'defaultSize' : ''}>
+    <SyledInfoCardDual3DSlider
+      className={defaultSize ? "defaultSize" : ""}
+      {...props}
+      onClick={(event) => {
+        if (href) {
+          navigate(href);
+        }
+        if (props.onClick) {
+          props.onClick(event);
+        }
+      }}
+    >
       <DualContentHover3DSlider
         firstContent={firstContent}
         secondContent={secondContent}

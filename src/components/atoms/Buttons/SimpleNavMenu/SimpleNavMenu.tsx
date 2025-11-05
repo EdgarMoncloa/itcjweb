@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Link } from "react-router";
 import styled, { css } from "styled-components";
 
 export enum SimpleNavMenuTypes {
@@ -11,6 +12,7 @@ interface subItem {
   link: string;
   content: string | ReactNode | ReactNode[];
   icon?: ReactNode;
+  disabled?: boolean;
 }
 
 interface multipleSubItems extends subItem {
@@ -34,7 +36,7 @@ export const SimpleNavMenu = ({
   return (
     <StyledMainContainer>
       <StyledNavMainItem className={typeClassName}>
-        <StyledLinkText href={link} rel="noreferrer">
+        <StyledLinkText to={link} rel="noreferrer">
           {icon && <StyledIcon>{icon}</StyledIcon>}
           {content}
         </StyledLinkText>
@@ -45,11 +47,11 @@ export const SimpleNavMenu = ({
             {subItems?.map((option, idx) => (
               <StyledNavMainItem
                 key={idx}
-                className={`${typeClassName} subItem`}
+                className={`${typeClassName} subItem ${option.disabled && "disabled"}`}
               >
                 {option.icon && <StyledIcon>{option.icon}</StyledIcon>}
-                <StyledLinkText href={option.link}>
-                  {option.content}
+                <StyledLinkText to={option.link}>
+                  {option.content} {option.disabled ? "(TBD)" : ""}
                 </StyledLinkText>
               </StyledNavMainItem>
             ))}
@@ -107,6 +109,10 @@ const StyledNavMainItem = styled.div`
       background-color: var(--colors-app-primary-300);
     }
   }
+
+  &.disabled {
+    pointer-events: none;
+  }
 `;
 
 // ANCHOR Main Content
@@ -117,7 +123,7 @@ const StyledIcon = styled.div`
   margin: auto;
 `;
 
-const StyledLinkText = styled.a`
+const StyledLinkText = styled(Link)`
   display: flex;
   color: var(--colors-app-text-light);
   font-size: var(--font-size-body2);

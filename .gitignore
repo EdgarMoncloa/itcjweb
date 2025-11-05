@@ -1,6 +1,9 @@
 # React Router V7
 .react-router/
 
+# ENV
+.env
+
 # Logs
 logs
 *.log

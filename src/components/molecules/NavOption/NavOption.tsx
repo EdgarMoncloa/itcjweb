@@ -9,6 +9,7 @@ import { ComponentPropsWithRef, ReactNode, useState } from "react";
 import { StyledUnstyledButton } from "../../../tokens/UnstyledElements";
 import { BorderHoverReveal } from "../../atoms/Grids/BorderHoverReveal/BorderHoverReveal";
 import { DynamicIcon } from "../../atoms/Icons/DynamicIcon";
+import { Link } from "react-router";
 
 interface NavItem {
   content: ReactNode;
@@ -38,7 +39,7 @@ export const NavOption = ({
 
   const primaryContentElement = (
     <StyledOptionWrapper
-      href={!haveSubitems ? link : undefined}
+      to={!haveSubitems ? link : ""}
       className={showSubitems ? "expanded" : ""}
       as={haveSubitems ? StyledUnstyledButton : "div"}
       onClick={() => {
@@ -75,7 +76,7 @@ export const NavOption = ({
       {subitems?.map((item, index) => (
         <StyledOptionWrapper
           key={index}
-          href={item.link}
+          to={item.link || ""}
           as={BorderHoverReveal}
         >
           <StyledSubitemOptionContent
@@ -121,7 +122,7 @@ const StyledNavOption = styled.div`
   border-radius: var(--size-border-radius-medium);
 `;
 
-const StyledOptionWrapper = styled.a`
+const StyledOptionWrapper = styled(Link)`
   text-decoration: none;
   color: inherit;
   overflow: hidden;
@@ -180,7 +181,9 @@ const StyledRightIconWrapper = styled(StyledIconWrapper)`
   color: var(--colors-app-text-dark);
   margin-left: auto;
   /* opacity: 0; */
-  transition: var(--transition-fast) opacity, var(--transition-fast) transform;
+  transition:
+    var(--transition-fast) opacity,
+    var(--transition-fast) transform;
   /* transform: translateY(-25%); */
   text-align: start;
 

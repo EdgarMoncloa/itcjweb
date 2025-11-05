@@ -19,7 +19,7 @@ export const RelevantSites = ({}: RelevantSitesProps) => {
         text="Moodle"
         toSite="https://moodle.cdjuarez.tecnm.mx"
       />
-      <RelevantSite icon={<BiBlanket />} text="Fichas" toSite="#" />
+      {/* <RelevantSite icon={<BiBlanket />} text="Fichas" toSite="/fichas" /> */}
       <RelevantSite icon={<BiBlanket />} text="Mapa" toSite="#" />
       <RelevantSite
         icon={<BiBlanket />}
@@ -29,7 +29,7 @@ export const RelevantSites = ({}: RelevantSitesProps) => {
       <RelevantSite
         icon={<BiBlanket />}
         text="SGIG"
-        toSite="/sgig"
+        toSite="sgig"
         target="_self"
       />
     </StyledRelevantSites>
@@ -52,6 +52,6 @@ const StyledRelevantSites = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
   @media (min-width: ${(props) => props.theme.breakpoints.laptop}px) {
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(5, 1fr);
   }
 `;

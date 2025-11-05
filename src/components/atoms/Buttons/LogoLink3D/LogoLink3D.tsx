@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { Link } from "react-router";
 import styled from "styled-components";
 
 export interface LogoLink3DProps {
@@ -107,7 +108,7 @@ export const LogoLink3D = ({
   };
 
   return (
-    <StyledAnchorWrapper href={href} target={target || "_blank"}>
+    <StyledAnchorWrapper to={href} target={target || "_blank"}>
       <StyledLogoLink3dWrapper
         ref={wrapperRef}
         className={defaultSize ? "defaultSize" : ""}
@@ -123,7 +124,7 @@ export const LogoLink3D = ({
   );
 };
 
-const StyledAnchorWrapper = styled.a`
+const StyledAnchorWrapper = styled(Link)`
   height: 100%;
   width: 100%;
 `;

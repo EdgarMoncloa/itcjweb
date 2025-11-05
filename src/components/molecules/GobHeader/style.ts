@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { Link } from "react-router";
+import styled from "styled-components";
 
 export const StyledGobHeader = styled.header`
   height: var(--size-height-medium);
@@ -10,7 +11,7 @@ export const StyledGobHeader = styled.header`
   padding: 0 var(--size-padding-medium);
 `;
 
-export const StyledLogoMexWrapper = styled.a`
+export const StyledLogoMexWrapper = styled.div`
   margin-right: auto;
   height: 100%;
 `;

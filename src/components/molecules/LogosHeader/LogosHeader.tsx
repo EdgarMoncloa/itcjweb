@@ -1,19 +1,24 @@
+import { Link } from "react-router";
 import styled from "styled-components";
+import Logo_secretaria_de_educacion from "/images/Logo_secretaria_de_educacion.png";
+import Logo_Tecnm from "/images/Logo_Tecnm.png";
+import Logo_ITCJ_base from "/images/Logo_ITCJ_base.png";
+import { SITE_MAP } from "../../../data/siteMap";
 
 export const LogosHeader = () => {
   return (
     <StyledLogosHeader>
-      <StyledLink href="https://www.gob.mx/sep">
+      <StyledLink to="https://www.gob.mx/sep">
         <StyledLogoImg
-          src="/images/Logo_secretaria_de_educacion.png"
+          src={Logo_secretaria_de_educacion}
           alt="Logo secretaria de educacion"
         />
       </StyledLink>
-      <StyledLink href="https://www.tecnm.mx">
-        <StyledLogoImg src="/images/Logo_Tecnm.png" alt="Logo Tecnm" />
+      <StyledLink to="https://www.tecnm.mx">
+        <StyledLogoImg src={Logo_Tecnm} alt="Logo Tecnm" />
       </StyledLink>
-      <StyledLink href="/">
-        <StyledLogoImg src="/images/Logo_ITCJ_base.png" alt="Logo ITCJ base" />
+      <StyledLink to={SITE_MAP.baseUrl}>
+        <StyledLogoImg src={Logo_ITCJ_base} alt="Logo ITCJ base" />
       </StyledLink>
     </StyledLogosHeader>
   );
@@ -37,7 +42,7 @@ const StyledLogoImg = styled.img`
   transition: transform var(--transition-fast);
 `;
 
-const StyledLink = styled.a`
+const StyledLink = styled(Link)`
   height: 100%;
   background-color: var(--colors-app-background);
 

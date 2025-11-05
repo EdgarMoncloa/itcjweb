@@ -26,19 +26,37 @@ export const headerTecItems = [
         content: "Programas académicos",
         link: "/aspirantes/programas-academicos",
       },
-      { content: "Proceso de admisión", link: "/aspirantes/proceso-admision" },
-      { content: "Plan de estudios", link: "/aspirantes/plan-estudios" },
+      {
+        content: "Proceso de admisión",
+        link: "/aspirantes/proceso-admision",
+        disabled: true,
+      },
+      {
+        content: "Plan de estudios",
+        link: "/aspirantes/plan-estudios",
+        disabled: true,
+      },
       {
         content: "Becas y ayudas financieras",
         link: "/aspirantes/ayudas-financieras",
+        disabled: true,
       },
-      { content: "Infraestructura", link: "/aspirantes/infraestructura" },
-      { content: "Servicios de apoyo", link: "/aspirantes/servicios-apoyo" },
+      {
+        content: "Infraestructura",
+        link: "/aspirantes/infraestructura",
+        disabled: true,
+      },
+      {
+        content: "Servicios de apoyo",
+        link: "/aspirantes/servicios-apoyo",
+        disabled: true,
+      },
       {
         content: "Clubes y actividades",
         link: "/aspirantes/clubes-actividades",
+        disabled: true,
       },
-      { content: "Mapa", link: "/aspirantes/mapa" },
+      { content: "Mapa", link: "/aspirantes/mapa", disabled: true },
     ],
   },
   {

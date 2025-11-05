@@ -1,6 +1,7 @@
-import { CustomDivider } from '../../atoms/CustomDivider';
-import styled from 'styled-components';
-import { StyledBody1, StyledH5, StyledH6 } from '../../../tokens/CustomText';
+import { CustomDivider } from "../../atoms/CustomDivider";
+import styled from "styled-components";
+import { StyledBody1, StyledH5, StyledH6 } from "../../../tokens/CustomText";
+import { Link } from "react-router";
 
 export interface BlogCardProps {
   imgSrc: string;
@@ -19,9 +20,9 @@ export const BlogCard = ({
 }: BlogCardProps) => {
   return (
     <StyledBlogCard
-      href={url}
-      target='_blank'
-      className={defaultSize ? 'defaultSize' : ''}
+      to={url || ""}
+      target="_blank"
+      className={defaultSize ? "defaultSize" : ""}
     >
       <StyledImageContainer>
         <StyledImg src={imgSrc} />
@@ -35,7 +36,7 @@ export const BlogCard = ({
   );
 };
 
-export const StyledBlogCard = styled.a`
+export const StyledBlogCard = styled(Link)`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto 2fr;

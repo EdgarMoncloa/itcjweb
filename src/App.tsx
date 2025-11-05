@@ -1,14 +1,16 @@
-import { Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import styled from "styled-components";
+
 import { LandingPageContainer } from "./features/LandingPageContainer";
 import { EstudiantesPageContainer } from "./features/EstudiantesPageContainer";
 import { NosotrosPageContainer } from "./features/NosotrosPageContainer";
 import { EgresadosPageContainer } from "./features/EgresadosPageContainer";
 import { ContraloriaPageContainer } from "./features/ContraloriaPageContainer";
-import styled from "styled-components";
 import { SGIGPageContainer } from "./features/SGIGPageContainer";
 import { PosgradosPageContainer } from "./features/PosgradosPageContainer";
 import { PorgramasAcademicosPageContainer } from "./features/PorgramasAcademicosPageContainer";
 import { PersonalPageContainer } from "./features/PersonalPageContainer";
+import { ServiciosPageContainer } from "./features/ServiciosPageContainer";
 
 export default function App() {
   return (
@@ -37,6 +39,10 @@ export default function App() {
           element={<PosgradosPageContainer />}
         />
         <Route path="/personal" element={<PersonalPageContainer />} />
+        <Route
+          path="/servicios/:section?"
+          element={<ServiciosPageContainer />}
+        />
       </Routes>
     </StyledContainer>
   );

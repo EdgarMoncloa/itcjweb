@@ -6,6 +6,7 @@ import { BiLinkExternal } from "react-icons/bi";
 import styled from "styled-components";
 import { StyledBody1, StyledTextCaption } from "../../../../tokens/CustomText";
 import { COLOR_VARIANT } from "../../../../types/GlobalTypes";
+import { useNavigate } from "react-router";
 interface DocumentLinkProps extends ComponentPropsWithRef<typeof BaseButton> {
   children?: ReactNode;
   href?: string;
@@ -21,6 +22,7 @@ export const DocumentLink = ({
   const colorVariantClassName = props.colorVariant
     ? `colorVariant-${props.colorVariant}`
     : "";
+  const navigate = useNavigate();
   return (
     <StyledBaseButton
       {...props}
@@ -31,7 +33,7 @@ export const DocumentLink = ({
         </StyledIconContainer>
       }
       onClick={() => {
-        window.open(href, "_blank");
+        navigate(href || "");
         props.onClick?.();
       }}
     >

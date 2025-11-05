@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { InfoCardDual3DSlider } from "../../molecules/InfoCardDual3DSlider";
 
 interface Service {
+  id: string;
   name: string;
   icon: React.ReactNode;
   description: string;
@@ -21,6 +22,7 @@ export const ServicesSection = ({ services }: ServicesSectionProps) => {
             description={service.description}
             icon={service.icon}
             key={index}
+            href={`/servicios/${service.id}`}
           />
         );
       })}
@@ -49,7 +51,7 @@ const StyledServicesSection = styled.div`
     grid-template-columns: repeat(2, 1fr);
   }
   @media (min-width: ${(props) => props.theme.breakpoints.desktop}px) {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
   @media (min-width: ${(props) => props.theme.breakpoints.eightKDesktop}px) {
     width: 50%;

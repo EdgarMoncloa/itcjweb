@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { StyledH3 } from "../../../tokens/CustomText";
 import { NavMenu } from "../NavMenu";
 import { NavOption } from "../../molecules/NavOption";
+import { useNavigate } from "react-router";
 
 export type SidebarLayout_ContentElement = {
   label: ReactNode;
@@ -42,6 +43,7 @@ export const SidebarLayout = ({
   ) {
     actualContent = content[secondaryIdx].subItems[mainIdx];
   }
+  const navigate = useNavigate();
   return (
     <StyledInfoHubContainer {...props}>
       <StyledNavMenuWrapper>
@@ -51,7 +53,7 @@ export const SidebarLayout = ({
             <NavOption
               onClick={() => {
                 if (item.link) {
-                  window.open(item.link, "_blank");
+                  navigate(item.link);
                   return;
                 }
                 if (!(item.subItems && item.subItems.length > 0)) {
@@ -73,7 +75,7 @@ export const SidebarLayout = ({
                       content: subItem.label,
                       onClick: () => {
                         if (subItem.link) {
-                          window.open(subItem.link, "_blank");
+                          navigate(subItem.link);
                           return;
                         }
                         setSecondaryIdx(itemIndex);
