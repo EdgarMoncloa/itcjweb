@@ -356,7 +356,7 @@ export const GlobalStyle = createGlobalStyle`
   --z-index-background-middle: -3;
   --z-index-background-higer: -2; 
   --z-index-background-highest: -1;
-  --z-index-overlay: 0;
+  --z-index-base: 0;
   --z-index-above-background: 1;
   --z-index-tooltip: 100;
   --z-index-popover: 200;

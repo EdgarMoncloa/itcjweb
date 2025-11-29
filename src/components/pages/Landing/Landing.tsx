@@ -18,11 +18,11 @@ import {
   ServicesSectionProps,
 } from "../../organisms/ServicesSection";
 import Logo_ITCJ_base from "/images/Logo_ITCJ_base.png";
-import { Logo3DGrid, Logo3DGridProps } from "../../molecules/Logo3DGrid";
+import { Logo3DGrid } from "../../molecules/Logo3DGrid";
 import { AllHeaders } from "../../organisms/AllHeaders";
-import { headerTecItem } from "../../molecules/HeaderTec";
 import { headerTecItems } from "../../../data/headerTecItems";
-import { relevantSites } from "../../../data/relevantSites.data";
+import { RELEVANT_SITES_DATA } from "../../../data/relevant-sites.data";
+import { SITES_OF_INTEREST_DATA } from "../../../data/sites-of-interest.data";
 
 interface LandingProps {
   heroContentLinks: ContentLinkProps[];
@@ -54,7 +54,7 @@ export const LandingPage = ({
         <HeroSection contentLikItems={heroContentLinks} />
       </StyledHeroWrapper>
       <StyledBaseMaringContainer>
-        <RelevantSites />
+        <RelevantSites sites={RELEVANT_SITES_DATA} />
       </StyledBaseMaringContainer>
       <CustomDivider content="Blogs" />
       <StyledBaseMaringContainer>
@@ -74,7 +74,7 @@ export const LandingPage = ({
       <StyledTitleMargin />
       <StyledTitleMargin />
       <StyledInterestSitesWrapper>
-        <Logo3DGrid title="Sitios de interés" sites={relevantSites} />
+        <Logo3DGrid title="Sitios de interés" sites={SITES_OF_INTEREST_DATA} />
       </StyledInterestSitesWrapper>
       <CustomDivider
         content={<img src={Logo_ITCJ_base} alt="Logo ITCJ" />}

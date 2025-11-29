@@ -15,7 +15,7 @@ import Logo_temporame_ITCJ from "/images/Logo_temporame_ITCJ.png";
 import Logo_Contralores_Sociales from "/images/Logo_Contralores_Sociales.png";
 import Logo_eni from "/images/Logo_eni.webp";
 
-export const relevantSites = [
+export const SITES_OF_INTEREST_DATA = [
   {
     name: "Conahcyt",
     href: "https://conahcyt.mx",

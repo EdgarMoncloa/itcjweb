@@ -140,7 +140,7 @@ export const DynamicBentoGrid = ({
           .map((item) => item.element)}
         <SlideCover
           isVisible={refreshingAnimation === "left"}
-          position="top"
+          coverContent
           haveOutAnimation
           animationDirection={
             orientation === "horizontal" ? "toRight" : "toBottom"
@@ -148,7 +148,7 @@ export const DynamicBentoGrid = ({
         />
         <SlideCover
           isVisible={refreshingAnimation === "right"}
-          position="top"
+          coverContent
           haveOutAnimation
           animationDirection={orientation === "horizontal" ? "toLeft" : "toTop"}
         />

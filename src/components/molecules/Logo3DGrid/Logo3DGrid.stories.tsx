@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { Logo3DGrid } from './Logo3DGrid';
-import { relevantSitesMock } from '../../../mocks/relevantSitesMock';
+import { SITES_OF_INTEREST_MOOCK } from '../../../mocks/sitesOfInterest';
 
 export default {
   title: 'Molecules/Logo3DGrid',
@@ -27,8 +27,9 @@ type Story = StoryObj<typeof Logo3DGrid>;
 
 export const Base: Story = {
   args: {
-    sites: relevantSitesMock,
+    sites: SITES_OF_INTEREST_MOOCK,
     title: 'Sitios de interés',
   },
   render: (args) => <Logo3DGrid {...args} defaultSize />,
 };
+``

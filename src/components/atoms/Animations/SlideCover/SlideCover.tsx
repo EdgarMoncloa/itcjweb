@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
 import styled, { css, keyframes } from "styled-components";
 
-type position = "top" | "bottom";
 type direction = "toLeft" | "toRight" | "toTop" | "toBottom";
 
 interface SlideCoverProps {
-  position?: position;
+  coverContent?: boolean;
   isVisible?: boolean;
   haveOutAnimation?: boolean;
   animationDirection?: direction;
 }
 
 export const SlideCover = ({
-  position = "bottom",
+  coverContent = false,
   isVisible = false,
   haveOutAnimation = false,
   animationDirection = "toLeft",
 }: SlideCoverProps) => {
   const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  const animationClassName = [
+    `animation_${animationDirection}`,
+    coverContent && `coverContent`,
+  ].join(" ");
 
   useEffect(() => {
     if (isVisible === true) {
@@ -27,7 +31,7 @@ export const SlideCover = ({
 
   return (
     <StyledAnimationContainer
-      $position={position}
+      className={animationClassName}
       $isVisible={isVisible}
       $haveOutAnimation={shouldAnimate && haveOutAnimation}
       $animationDirection={animationDirection}
@@ -162,7 +166,6 @@ const cssVerticalStyle = css`
   }
 `;
 interface StyledAnimationContainerProps {
-  $position: position;
   $isVisible: boolean;
   $haveOutAnimation: boolean;
   $animationDirection: direction;
@@ -170,22 +173,23 @@ interface StyledAnimationContainerProps {
 const StyledAnimationContainer = styled.div<StyledAnimationContainerProps>`
   position: absolute;
   display: grid;
-  z-index: ${(p) =>
-    p.$position === "top"
-      ? "var(--z-index-above-background)"
-      : "var(--z-index-background-middle)"};
   justify-items: center;
 
+  z-index: var(--z-index-background-middle);
+
+  &.coverContent {
+    z-index: var(--z-index-above-background);
+  }
+
   /* ANCHOR CHILDREN */
-  ${(p) => {
-    if (
-      p.$animationDirection === "toLeft" ||
-      p.$animationDirection === "toRight"
-    ) {
-      return [cssHorizontalStyle];
-    }
-    return [cssVerticalStyle];
-  }}
+  &.animation_toLeft,
+  &.animation_toRight {
+    ${cssHorizontalStyle}
+  }
+  &.animation_toTop,
+  &.animation_toBottom {
+    ${cssVerticalStyle}
+  }
 
   /* ANCHOR ANIMATIONS */
   animation-duration: 400ms;

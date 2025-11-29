@@ -29,7 +29,7 @@ export const RelevantSite = ({
     >
       <StyledIconContainer>{icon}</StyledIconContainer>
       <StyledBaseContainer>{text}</StyledBaseContainer>
-      <SlideCover position={"bottom"} isVisible={isHovered} />
+      <SlideCover isVisible={isHovered} />
     </StyledRelevantSite>
   );
 };

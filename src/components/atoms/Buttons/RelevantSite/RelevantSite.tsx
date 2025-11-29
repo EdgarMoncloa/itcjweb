@@ -1,37 +1,38 @@
-import { ReactElement, useState } from "react";
+import { ComponentPropsWithRef, ReactElement, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import { SlideCover } from "../../Animations/SlideCover";
 import { StyledH6 } from "../../../../tokens/CustomText";
-import { Link } from "react-router";
 
-export type RelevantSiteProps = {
+export interface RelevantSiteProps
+  extends Omit<ComponentPropsWithRef<typeof StyledRelevantSite>, "onClick"> {
   icon?: ReactElement;
-  text: string;
+  text?: string;
   toSite: string;
   defaultSize?: boolean;
-  target?: string;
-};
+  onClick?: (toSite: string) => void;
+}
 
 export const RelevantSite = ({
   icon,
   text,
   toSite,
   defaultSize,
-  target,
+  onClick,
 }: RelevantSiteProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
     <StyledRelevantSite
-      to={toSite}
-      target={target || "_blank"}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       className={defaultSize ? "defaultSize" : ""}
+      onClick={() => {
+        onClick && onClick(toSite);
+      }}
     >
       <StyledIconContainer>{icon}</StyledIconContainer>
       <StyledBaseContainer>{text}</StyledBaseContainer>
-      <SlideCover position={"bottom"} isVisible={isHovered} />
+      <SlideCover isVisible={isHovered} />
     </StyledRelevantSite>
   );
 };
@@ -41,7 +42,7 @@ const colorCHange = keyframes`
     color: var(--colors-app-text-light);
   }
 `;
-export const StyledRelevantSite = styled(Link)`
+export const StyledRelevantSite = styled.div`
   border-radius: var(--size-border-radius-medium, 8px);
   border: 2px solid var(--colors-app-primary-700, #c11627);
   color: var(--colors-app-text-dark);

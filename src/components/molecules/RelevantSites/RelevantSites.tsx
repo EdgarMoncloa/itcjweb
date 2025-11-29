@@ -1,37 +1,32 @@
 import { BiBlanket } from "react-icons/bi";
 import styled from "styled-components";
 import { RelevantSite } from "../../atoms/Buttons/RelevantSite";
+import { ReactElement } from "react";
 
-interface RelevantSitesProps {
-  // sites: RelevantSiteProps[];
+export type RelevantSites_Site = {
+  url: string;
+  text?: string;
+  icon?: ReactElement;
+  onClick?: (url: string) => void;
+};
+export interface RelevantSitesProps {
+  sites: RelevantSites_Site[];
 }
 
-export const RelevantSites = ({}: RelevantSitesProps) => {
+export const RelevantSites = ({ sites }: RelevantSitesProps) => {
   return (
     <StyledRelevantSites>
-      <RelevantSite
-        icon={<BiBlanket />}
-        text="SII"
-        toSite="http://sii.cdjuarez.tecnm.mx"
-      />
-      <RelevantSite
-        icon={<BiBlanket />}
-        text="Moodle"
-        toSite="https://moodle.cdjuarez.tecnm.mx"
-      />
-      {/* <RelevantSite icon={<BiBlanket />} text="Fichas" toSite="/fichas" /> */}
-      <RelevantSite icon={<BiBlanket />} text="Mapa" toSite="#" />
-      <RelevantSite
-        icon={<BiBlanket />}
-        text="Agenda"
-        toSite="http://cdjuarez.tecnm.mx/agenda/index.php"
-      />
-      <RelevantSite
-        icon={<BiBlanket />}
-        text="SGIG"
-        toSite="sgig"
-        target="_self"
-      />
+      {sites.map((site) => {
+        return (
+          <RelevantSite
+            key={site.url}
+            icon={site.icon}
+            text={site.text}
+            toSite={site.url}
+            onClick={site.onClick}
+          />
+        );
+      })}
     </StyledRelevantSites>
   );
 };

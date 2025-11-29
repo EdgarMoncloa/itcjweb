@@ -1,12 +1,8 @@
-import type { Meta, StoryObj, StoryFn } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react";
 import { SlideCover } from ".";
-import styled, { keyframes } from "styled-components";
-import { useState } from "react";
+import styled from "styled-components";
 import { StyledH1 } from "../../../../tokens/CustomText";
-
-interface MyComponentStoryProps {
-  numItems: number;
-}
+import { useArgs } from "@storybook/preview-api";
 
 const meta: Meta = {
   title: "Atoms/Animations/SlideCover",
@@ -16,33 +12,39 @@ const meta: Meta = {
     layout: "centered",
   },
   args: {},
-  argTypes: {
-    numItems: {
-      control: { type: "number", min: 0, max: 10 }, // Control tipo número
-      defaultValue: 3, // El valor por defecto es 3
-    },
-  },
+  argTypes: {},
 };
 export default meta;
 
-const Template: StoryFn<MyComponentStoryProps> = (args) => {
-  const [isHovered, setIsHovered] = useState(false);
+type Story = StoryObj<typeof meta>;
+export const Base: Story = {
+  args: {
+    coverContent: false,
+    isVisible: false,
+    haveOutAnimation: true,
+    animationDirection: "toLeft",
+  },
+  render: (args) => {
+    const [, updateArgs] = useArgs();
 
-  return (
-    <StyledCoverExapleContainer
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      <StyledH1>Hover Me!</StyledH1>
-      <SlideCover isVisible={isHovered} position="bottom" />
-    </StyledCoverExapleContainer>
-  );
-};
+    const ExampleClassess = [
+      args.isVisible === true ? "white" : "",
+      args.isVisible === false && args.haveOutAnimation === false
+        ? "noAnimation"
+        : "",
+    ].join(" ");
 
-export const Base = Template.bind({});
-
-Base.args = {
-  numItems: 3,
+    return (
+      <StyledCoverExapleContainer
+        onMouseEnter={() => updateArgs({ isVisible: true })}
+        onMouseLeave={() => updateArgs({ isVisible: false })}
+        className={ExampleClassess}
+      >
+        <StyledH1>Hover Me!</StyledH1>
+        <SlideCover {...args} />
+      </StyledCoverExapleContainer>
+    );
+  },
 };
 
 const StyledCoverExapleContainer = styled.div`
@@ -55,4 +57,14 @@ const StyledCoverExapleContainer = styled.div`
   overflow: hidden;
   position: relative;
   width: 400px;
+  transition: color 400ms ease-in-out;
+  background-color: transparent;
+  z-index: var(--z-index-base);
+
+  &.white {
+    color: white;
+  }
+  &.noAnimation {
+    transition: none;
+  }
 `;
